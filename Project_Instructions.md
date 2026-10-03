@@ -63,7 +63,9 @@ Four tabs, opening on Review:
 
 Review hides Pass verdicts unless Kevin chooses to show everything.
 
-Number inputs must use `step="any"`. A fixed step rejects real figures (cents, prices that are not round thousands) on iPhone. Inputs stay at 16px so the iPhone does not zoom into them.
+Dollar boxes are text inputs with class `money`: they accept plain or formatted numbers and reformat as $1,234.56 on leaving the box. Read them with `num()`, never `parseFloat`. Other number inputs must use `step="any"`. A fixed step rejects real figures (cents, prices that are not round thousands) on iPhone. Inputs stay at 16px so the iPhone does not zoom into them.
+
+An owned property marked `home` is Kevin's residence and is left out of rental income.
 
 An owned property holds a `loans` list (type, balance, rate, payment). Properties saved before 1.4.0 have a single `balance` and `payment`; the page reads those as one Mortgage.
 

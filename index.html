@@ -74,13 +74,6 @@ td .addr{font-weight:600}
 .pill.good{background:var(--good-soft);color:var(--good)}
 .pill.warn{background:var(--warn-soft);color:var(--warn)}
 .pill.bad{background:var(--bad-soft);color:var(--bad)}
-/* phone: keep the four columns that decide a deal; the rest is on the deal sheet */
-@media(max-width:640px){
-  .tablewrap table{min-width:0}
-  .tablewrap th,.tablewrap td{padding:9px 8px}
-  .tablewrap th:nth-child(n+3):nth-child(-n+6),.tablewrap td:nth-child(n+3):nth-child(-n+6){display:none}
-  .tablewrap td.num{font-size:13px}
-}
 .tag{font:600 10px var(--body);text-transform:uppercase;letter-spacing:.08em;border:1px dashed var(--muted);color:var(--muted);padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
 .pos{color:var(--good)} .neg{color:var(--bad)}
 .empty{padding:28px 18px;text-align:center;color:var(--muted)}
@@ -103,7 +96,8 @@ td .addr{font-weight:600}
 .scen td,.scen th{padding:7px 10px}
 .links a{color:var(--accent);font-weight:600;font-size:13px}
 .note{background:var(--sunk);padding:10px 12px;border-radius:4px;font-size:13px}
-#status{font-size:13px;color:var(--muted);min-height:1.4em}
+#status{font-size:13px;color:var(--muted)}
+#status:empty{display:none}
 /* tabs */
 .tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
 .tab{font:600 14px var(--body);padding:10px 4px;border:0;border-right:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2px 6px}
@@ -123,8 +117,44 @@ label.inline select{width:auto}
 #fitWrap select,#radiusWrap select{max-width:100%}
 label.inline{flex-wrap:wrap}
 .stage{font:600 11px var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
-@media(max-width:640px){.tablewrap table.owned th:nth-child(n),.tablewrap table.owned td:nth-child(n){display:table-cell}
-  .tablewrap table.owned th:nth-child(3),.tablewrap table.owned td:nth-child(3){display:none}}
+/* deal rows */
+.addr{display:block;font-weight:600}
+.meta{display:block;font-size:13px;color:var(--muted)}
+td .stage{display:block}
+.facts{display:flex;flex-wrap:wrap;gap:2px 0}
+.facts span:not(:last-child)::after{content:"·";margin:0 7px;color:var(--line)}
+.filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.empty.bordered{border:1px dashed var(--line);border-radius:4px;background:var(--surface)}
+/* phone: each deal is a card with the address on one line and labelled figures under it */
+@media(max-width:640px){
+  .tablewrap thead{display:none}
+  .tablewrap table,.tablewrap tbody{display:block;width:100%;min-width:0}
+  .tablewrap tbody tr{display:grid;grid-template-columns:1fr 1fr auto;gap:8px 14px;align-items:end;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .tablewrap tbody tr:last-child{border-bottom:0}
+  .tablewrap tbody td{display:block;padding:0;border:0;text-align:left}
+  .tablewrap tbody td:first-child{grid-column:1/-1}
+  .tablewrap tbody td:nth-child(n+3):nth-child(-n+6){display:none}
+  .tablewrap tbody td[data-label]::before{content:attr(data-label);display:block;font:700 10px var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .tablewrap tbody td.num{font-size:15px}
+  .addr{font-size:16px}
+}
+/* owned properties */
+.cards{display:flex;flex-direction:column;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.cardhead{display:flex;flex-wrap:wrap;gap:8px 12px;justify-content:space-between;align-items:flex-start}
+.cardtitle{font:700 18px var(--display);text-transform:none;letter-spacing:-.01em;color:var(--ink);font-stretch:85%}
+.kv.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:640px){.kv.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kv.four .v{font-size:17px}
+.pill.home{background:var(--accent-soft);color:var(--accent)}
+.loanlist{width:100%;min-width:0;border-top:1px solid var(--line)}
+.loanlist th,.loanlist td{padding:6px 0 6px 10px;font-size:13px;border-bottom:1px dotted var(--line);text-align:right}
+.loanlist th:first-child,.loanlist td:first-child{text-align:left;padding-left:0;font-family:var(--body)}
+.loanlist tbody tr{cursor:default}
+.loanlist tbody tr:hover{background:none}
+label.check{flex-direction:row;align-items:center;gap:10px;font-size:14px;color:var(--ink);font-weight:500}
+label.check input{width:20px;height:20px;flex:none}
+input.money{text-align:left}
 </style>
 
 </head>
@@ -155,8 +185,8 @@ label.inline{flex-wrap:wrap}
       <span class="edit">Edit</span>
     </summary>
     <form id="boxForm" class="grid" autocomplete="off">
-      <label>Price ceiling $<input id="s_maxPrice" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Min cash flow / unit / mo $<input id="s_minCF" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Price ceiling<input id="s_maxPrice" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Min cash flow / unit / mo<input id="s_minCF" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Min cash-on-cash %<input id="s_minCoC" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Min debt coverage (DSCR)<input id="s_minDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Down payment %<input id="s_down" type="number" step="any" min="0" inputmode="decimal"></label>
@@ -179,12 +209,12 @@ label.inline{flex-wrap:wrap}
       <label>State<select id="f_state"><option>MA</option><option>NH</option></select></label>
       <label>Type<select id="f_type"><option>Two-family</option><option>Three-family</option><option>Four-family</option><option>Single-family</option></select></label>
       <label>Units<input id="f_units" type="number" step="any" min="0" inputmode="decimal" value="2" required></label>
-      <label>Asking price $<input id="f_price" type="number" step="any" min="0" inputmode="decimal" required></label>
-      <label>Total rent / mo $<input id="f_rent" type="number" step="any" min="0" inputmode="decimal" required></label>
-      <label>Taxes / yr $ (blank = estimate)<input id="f_taxes" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Insurance / yr $ (blank = estimate)<input id="f_ins" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>HOA / mo $<input id="f_hoa" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Upfront repairs $<input id="f_rehab" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Asking price<input id="f_price" class="money" type="text" inputmode="decimal" placeholder="$" required></label>
+      <label>Total rent / mo<input id="f_rent" class="money" type="text" inputmode="decimal" placeholder="$" required></label>
+      <label>Taxes / yr (blank = estimate)<input id="f_taxes" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Insurance / yr (blank = estimate)<input id="f_ins" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>HOA / mo<input id="f_hoa" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Upfront repairs<input id="f_rehab" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>School rating (1-10)<input id="f_school" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Walk Score (0-100)<input id="f_walk" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Miles from Dracut<input id="f_miles" type="number" step="any" min="0" inputmode="decimal"></label>
@@ -201,9 +231,10 @@ label.inline{flex-wrap:wrap}
       <label>Town<input id="o_town" type="text" required></label>
       <label>State<select id="o_state"><option>MA</option><option>NH</option></select></label>
       <label>Units<input id="o_units" type="number" step="any" min="0" inputmode="decimal" value="2" required></label>
-      <label>Current value $<input id="o_value" type="number" step="any" min="0" inputmode="decimal" required></label>
-      <label>Rent collected / mo $<input id="o_rent" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Other costs / mo $<input id="o_expenses" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Current value<input id="o_value" class="money" type="text" inputmode="decimal" placeholder="$" required></label>
+      <label>Rent collected / mo<input id="o_rent" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Other costs / mo<input id="o_expenses" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label class="check span2"><input id="o_home" type="checkbox"> I live here. Leave it out of rental income.</label>
       <div class="span2 loans">
         <h3>Loans and liens on this property</h3>
         <div id="loanRows"></div>
@@ -218,11 +249,12 @@ label.inline{flex-wrap:wrap}
   <section class="col" id="dealsView">
     <div class="row" style="justify-content:space-between"><h2 id="listTitle">To review</h2><span class="small muted" id="count"></span></div>
     <p class="small muted" id="listHelp"></p>
-    <label class="inline" id="radiusWrap">Show properties within
-      <select id="radius"><option value="10">10 miles</option><option value="25">25 miles</option><option value="50">50 miles</option><option value="75">75 miles</option><option value="100">100 miles</option><option value="0">any distance</option></select>
-      <span class="small muted">of Dracut</span></label>
-    <label class="inline" id="fitWrap">Show
-      <select id="fit"><option value="0">worth a look (Buy box and Negotiate)</option><option value="1">everything, including Pass</option></select></label>
+    <div class="filters" id="filters">
+      <label id="radiusWrap">Distance from Dracut
+        <select id="radius"><option value="10">Within 10 miles</option><option value="25">Within 25 miles</option><option value="50">Within 50 miles</option><option value="75">Within 75 miles</option><option value="100">Within 100 miles</option><option value="0">Any distance</option></select></label>
+      <label id="fitWrap">Show
+        <select id="fit"><option value="0">Worth a look</option><option value="1">Everything, including Pass</option></select></label>
+    </div>
     <div class="tablewrap">
       <table>
         <thead><tr><th>Property</th><th>Ask</th><th>Rent / mo</th><th>Cash flow / unit</th><th>Cash-on-cash</th><th>DSCR</th><th>Max offer</th><th>Verdict</th></tr></thead>
@@ -230,24 +262,20 @@ label.inline{flex-wrap:wrap}
       </table>
       <div class="empty" id="empty"></div>
     </div>
+    <p class="small muted" id="listNote"></p>
   </section>
 
   <section class="col" id="ownedView" hidden>
     <div class="row" style="justify-content:space-between"><h2>Properties you own</h2><span class="small muted">Saved on this device only</span></div>
     <div class="kv" id="ownedTotals"></div>
-    <div class="tablewrap">
-      <table class="owned">
-        <thead><tr><th>Property</th><th>Value</th><th>Debt</th><th>Equity</th><th>Net / mo</th></tr></thead>
-        <tbody id="ownedRows"></tbody>
-      </table>
-      <div class="empty" id="ownedEmpty">No properties yet. Use “Add a property” to enter what you own. Each one shows its current value, debt, equity, and net rental income after loan payments and other costs.</div>
-    </div>
-    <p class="small muted">Net per month is rent collected, less all loan payments, less other costs. Tap a property to update it. These figures never leave this device.</p>
+    <div id="ownedList" class="cards"></div>
+    <div class="empty bordered" id="ownedEmpty">No properties yet. Use “Add a property” to enter what you own. Each one shows its value, debt, equity, and what it earns or costs each month.</div>
+    <p class="small muted">Rental income is rent collected, less loan payments, less other costs. Your own home is left out of it. These figures never leave this device.</p>
   </section>
 
   <section id="sheetSection" class="col" hidden>
     <div class="row" style="justify-content:space-between">
-      <div><h2 id="d_title"></h2><p class="muted small" id="d_sub"></p></div>
+      <div><h2 id="d_title"></h2><p class="muted small facts" id="d_sub"></p></div>
     </div>
     <div class="actions" id="d_actions"></div>
     <div class="chips" id="d_reasons" hidden></div>
@@ -285,10 +313,16 @@ label.inline{flex-wrap:wrap}
 <script src="calc.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.4.0';
+const APP_VERSION = '1.5.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
+/* money boxes: read "$1,755.78" or "1755.78" alike, and show dollars with commas once entered */
+const num=s=>parseFloat(String(s??"").replace(/[^0-9.\-]/g,""));
+const money=n=>{n=+n;if(!isFinite(n))return "";const cents=Math.round(n*100)%100!==0;
+  return (n<0?"-":"")+"$"+Math.abs(n).toLocaleString("en-US",{minimumFractionDigits:cents?2:0,maximumFractionDigits:2});};
+const setField=(el,v)=>{el.value=el.classList.contains("money")?money(v):v;};
+document.addEventListener("focusout",e=>{const el=e.target;if(el.classList?.contains("money")){const v=num(el.value);el.value=isFinite(v)?money(v):"";}});
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const SKEYS=Object.keys(DEFAULTS);
 const STAGES=["Interested","Inquired","Toured","Offer made","Under contract"];
@@ -301,7 +335,8 @@ const statusOf=d=>d.status||"review";
 const today=()=>new Date().toISOString();
 const shortDate=iso=>{const t=new Date(iso);return isNaN(t)?"":t.toLocaleDateString("en-US",{month:"short",day:"numeric"});};
 const isNew=d=>{const t=new Date(d.addedAt||0);return (Date.now()-t)<7*864e5;};
-function status(t){$("status").textContent=t||"";}
+let statusTimer=null;
+function status(t){$("status").textContent=t||"";clearTimeout(statusTimer);if(t)statusTimer=setTimeout(()=>{$("status").textContent="";},4000);}
 function vclass(v){return v==="Buy box"?"good":v==="Negotiate"?"warn":"bad";}
 
 /* storage: this browser only */
@@ -319,19 +354,19 @@ function save(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settin
 /* buy box */
 function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · <b>${pct(s.minCoC)}</b> cash-on-cash · <b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`;}
 function renderBox(){$("boxSummary").innerHTML=boxText();
-  if(document.activeElement?.form!==$("boxForm")) SKEYS.forEach(k=>{$("s_"+k).value=settings[k];});}
-function readBox(){SKEYS.forEach(k=>{const v=parseFloat($("s_"+k).value);if(isFinite(v))settings[k]=v;});if(settings.term<1)settings.term=30;}
+  if(document.activeElement?.form!==$("boxForm")) SKEYS.forEach(k=>{setField($("s_"+k),settings[k]);});}
+function readBox(){SKEYS.forEach(k=>{const v=num($("s_"+k).value);if(isFinite(v))settings[k]=v;});if(settings.term<1)settings.term=30;}
 $("boxForm").addEventListener("input",()=>{readBox();$("boxSummary").innerHTML=boxText();renderDeals();});
 $("boxForm").addEventListener("submit",e=>{e.preventDefault();readBox();if(save()){status("Buy box saved");$("boxDetails").open=false;}});
 
 /* search distance */
 $("radius").addEventListener("change",e=>{settings.radius=+e.target.value;save();selected=null;render();
-  status(+settings.radius?`Showing properties within ${settings.radius} miles.`:"Showing properties at any distance.");});
+  });
 
 $("fit").addEventListener("change",e=>{settings.showAll=e.target.value==="1";save();selected=null;render();});
 
 /* tabs */
-function setTab(t){tab=t;selected=null;armed=null;$("formSection").hidden=true;$("ownedFormSection").hidden=true;render();}
+function setTab(t){status("");tab=t;selected=null;armed=null;$("formSection").hidden=true;$("ownedFormSection").hidden=true;render();}
 document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>setTab(b.dataset.tab)));
 function renderTabs(){
   const n={review:0,flight:0,archive:0,owned:owned.length};
@@ -340,14 +375,14 @@ function renderTabs(){
   $("tagline").textContent=+settings.radius?`Buy-and-hold rentals within ${settings.radius} miles of Dracut, MA.`:"Buy-and-hold rentals at any distance from Dracut, MA.";
   Object.keys(TABS).forEach(t=>{$("n_"+t).textContent=n[t];$("tab_"+t).setAttribute("aria-selected",t===tab?"true":"false");});
   $("addBtn").textContent=tab==="owned"?"Add a property":"Add a deal";
-  $("boxDetails").hidden=tab==="owned";
+  $("boxDetails").hidden=tab==="owned"||tab==="archive";
   $("dealsView").hidden=tab==="owned";
   $("ownedView").hidden=tab!=="owned";
   if(tab==="owned")$("sheetSection").hidden=true;
 }
 
 /* deal lists */
-const HELP={review:"New finds, best fit first. Open one, then Keep it or Remove it.",
+const HELP={review:"Best fit first. Open one, then Keep it or Remove it.",
   flight:"Deals you are working, furthest along first. Update the stage as each one moves.",
   archive:"Properties you removed and deals that fell through, most recent first."};
 const EMPTY={review:"Nothing to review. New listings land here when they are added.",
@@ -363,10 +398,11 @@ function listFor(t){
   return list;
 }
 function subline(d,a){
-  const base=`${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}`;
-  if(tab==="flight")return `<span class="stage">${esc(d.stage||STAGES[0])}</span> ${base}`;
-  if(tab==="archive")return `${esc(d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}<br>${base}`;
-  return base;
+  const lines=[];
+  if(tab==="flight")lines.push(`<span class="stage">${esc(d.stage||STAGES[0])}</span>`);
+  if(tab==="archive")lines.push(`<span class="meta">${esc(d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}</span>`);
+  lines.push(`<span class="meta">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}${tab==="review"&&isNew(d)?' <span class="tag">New</span>':""}</span>`);
+  return lines.join("");
 }
 function renderDeals(){
   if(tab==="owned")return;
@@ -375,16 +411,16 @@ function renderDeals(){
   $("listHelp").textContent=HELP[tab];
   const beyond=tab==="review"?deals.filter(d=>statusOf(d)==="review"&&!inRadius(d)).length:0;
   const hid=tab==="review"?passHidden:0;
-  $("count").textContent=[list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"",hid?`${hid} hidden as Pass`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:""].filter(Boolean).join(" · ");
-  $("fitWrap").hidden=tab!=="review";$("fit").value=settings.showAll?"1":"0";
-  $("radiusWrap").hidden=tab!=="review";$("radius").value=String(+settings.radius||0);
+  $("count").textContent=list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"";
+  $("listNote").textContent=[hid?`${hid} hidden as Pass`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:""].filter(Boolean).join(" · ");
+  $("filters").hidden=tab!=="review";$("fit").value=settings.showAll?"1":"0";$("radius").value=String(+settings.radius||0);
   $("empty").hidden=list.length>0;$("empty").textContent=hid?`Nothing within ${+settings.radius?settings.radius+" miles":"range"} meets or comes close to your buy box. ${hid} propert${hid>1?"ies are":"y is"} hidden as Pass. Choose “everything” to see ${hid>1?"them":"it"}.`:beyond?`Nothing within ${settings.radius} miles. ${beyond} propert${beyond>1?"ies are":"y is"} farther out. Widen the distance to see ${beyond>1?"them":"it"}.`:EMPTY[tab];
   $("rows").innerHTML=list.map(({d,a})=>`<tr tabindex="0" data-id="${esc(d.id)}" class="${d.id===selected?"sel":""}">
-    <td><span class="addr">${esc(d.address)}</span>${tab==="review"&&isNew(d)?'<span class="tag">New</span>':""}<br><span class="small muted">${subline(d,a)}</span></td>
-    <td class="num">${usd(a.price)}</td><td class="num">${usd(+d.rent||0)}</td>
-    <td class="num ${a.cfUnit>=0?"pos":"neg"}">${usd(a.cfUnit)}</td>
-    <td class="num">${pct(a.coc)}</td><td class="num">${a.dscr.toFixed(2)}</td>
-    <td class="num">${usd(a.maxOffer)}</td>
+    <td><span class="addr">${esc(d.address)}</span>${subline(d,a)}</td>
+    <td class="num" data-label="Ask">${usd(a.price)}</td><td class="num" data-label="Rent / mo">${usd(+d.rent||0)}</td>
+    <td class="num ${a.cfUnit>=0?"pos":"neg"}" data-label="Cash flow / unit">${usd(a.cfUnit)}</td>
+    <td class="num" data-label="Cash-on-cash">${pct(a.coc)}</td><td class="num" data-label="DSCR">${a.dscr.toFixed(2)}</td>
+    <td class="num" data-label="Max offer">${usd(a.maxOffer)}</td>
     <td><span class="pill ${vclass(a.verdict)}">${a.verdict}</span></td></tr>`).join("");
   if(selected&&!list.some(x=>x.d.id===selected))selected=null;
   if(!selected&&list.length&&innerWidth>860)selected=list[0].d.id;
@@ -405,7 +441,7 @@ function renderSheet(){
   document.querySelectorAll("#rows tr").forEach(r=>r.classList.toggle("sel",r.dataset.id===selected));
   const s=settings,a=analyze(d,s);
   $("d_title").textContent=d.address;
-  $("d_sub").textContent=`${d.town}, ${d.state} · ${d.type||""} · ${a.units} unit${a.units>1?"s":""} · asking ${usd(a.price)}${d.addedAt?" · found "+shortDate(d.addedAt):""}`;
+  $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from Dracut`:"",`Asking ${usd(a.price)}`,d.addedAt?`Found ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
   $("d_actions").innerHTML=actionsHtml(d);
   $("d_reasons").hidden=armed!=="remove";
   $("d_reasons").innerHTML=armed==="remove"?`<span class="small muted" style="flex-basis:100%">Why? Tap one to archive it.</span>`+REASONS.map(r=>`<button class="btn chip" type="button" data-reason="${esc(r)}">${esc(r)}</button>`).join(""):"";
@@ -476,7 +512,7 @@ function openForm(d){
   editing=d?d.id:null;
   $("formTitle").textContent=d?"Edit deal":"Add a deal";
   $("dealForm").reset();
-  if(d)F.forEach(k=>{if(d[k]!==undefined&&d[k]!==null)$("f_"+k).value=d[k];});
+  if(d)F.forEach(k=>{if(d[k]!==undefined&&d[k]!==null)setField($("f_"+k),d[k]);});
   $("ownedFormSection").hidden=true;$("formSection").hidden=false;$("f_address").focus();
   $("formSection").scrollIntoView({behavior:"smooth",block:"start"});
 }
@@ -488,7 +524,7 @@ $("dealForm").addEventListener("submit",e=>{e.preventDefault();
   if(!d){d={id:"d"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),addedAt:today(),status:tab==="flight"?"flight":"review"};
     if(d.status==="flight")d.stage=STAGES[0];deals.push(d);if(tab==="archive")tab="review";}
   F.forEach(k=>{const raw=$("f_"+k).value.trim();
-    if(NUMF.includes(k)){if(raw==="")delete d[k];else d[k]=parseFloat(raw);}else d[k]=raw;});
+    if(NUMF.includes(k)){const v=num(raw);if(raw===""||!isFinite(v))delete d[k];else d[k]=v;}else d[k]=raw;});
   if(save()){selected=d.id;$("formSection").hidden=true;status("Deal saved");render();}});
 
 /* owned properties */
@@ -501,29 +537,38 @@ function loansOf(o){if(Array.isArray(o.loans))return o.loans;
 const debt=o=>loansOf(o).reduce((s,l)=>s+(+l.balance||0),0);
 const payments=o=>loansOf(o).reduce((s,l)=>s+(+l.payment||0),0);
 const net=o=>(+o.rent||0)-payments(o)-(+o.expenses||0);
-const loanLine=o=>loansOf(o).map(l=>esc(l.type||"Loan")+(l.rate||l.rate===0?" "+(+l.rate)+"%":"")).join(" · ");
+const rateText=l=>(l.rate||l.rate===0)?(+l.rate)+"%":"";
 function renderOwned(){
   $("ownedEmpty").hidden=owned.length>0;
-  const tv=owned.reduce((s,o)=>s+(+o.value||0),0),td=owned.reduce((s,o)=>s+debt(o),0),tn=owned.reduce((s,o)=>s+net(o),0);
+  const tv=owned.reduce((s,o)=>s+(+o.value||0),0),td=owned.reduce((s,o)=>s+debt(o),0);
+  const rentals=owned.filter(o=>!o.home),tn=rentals.reduce((s,o)=>s+net(o),0);
   $("ownedTotals").hidden=!owned.length;
-  $("ownedTotals").innerHTML=[["Total value",usd(tv),""],["Total debt",usd(td),""],["Total equity",usd(tv-td),""],["Net income / mo",usd(tn),tn>=0?"pos":"neg"]]
+  $("ownedTotals").innerHTML=[["Total value",usd(tv),""],["Total debt",usd(td),""],["Total equity",usd(tv-td),""],["Rental income / mo",rentals.length?usd(tn):"None yet",rentals.length?(tn>=0?"pos":"neg"):""]]
     .map(([l,v,c])=>`<div><h3>${l}</h3><span class="v ${c}">${v}</span></div>`).join("");
-  $("ownedRows").innerHTML=owned.map(o=>`<tr tabindex="0" data-id="${esc(o.id)}">
-    <td><span class="addr">${esc(o.address)}</span><br><span class="small muted">${esc(o.town)}, ${esc(o.state)} · ${+o.units||1} unit${(+o.units||1)>1?"s":""}${loanLine(o)?"<br>"+loanLine(o):""}</span></td>
-    <td class="num">${usd(+o.value||0)}</td><td class="num">${usd(debt(o))}</td>
-    <td class="num">${usd((+o.value||0)-debt(o))}</td>
-    <td class="num ${net(o)>=0?"pos":"neg"}">${usd(net(o))}</td></tr>`).join("");
+  $("ownedList").innerHTML=owned.map(o=>{
+    const n=net(o),cost=payments(o)+(+o.expenses||0),ls=loansOf(o),u=+o.units||1;
+    const stat=(l,v,c="")=>`<div><h3>${l}</h3><span class="v ${c}">${v}</span></div>`;
+    return `<article class="card" data-id="${esc(o.id)}">
+      <div class="cardhead">
+        <div><h3 class="cardtitle">${esc(o.address)}</h3><p class="small muted">${esc(o.town)}, ${esc(o.state)} · ${u} unit${u>1?"s":""}</p></div>
+        <div class="row">${o.home?'<span class="pill home">Your home</span>':'<span class="pill good">Rental</span>'}<button class="btn" type="button" data-edit="${esc(o.id)}">Edit</button></div>
+      </div>
+      <div class="kv four">${stat("Value",usd(+o.value||0))}${stat("Debt",usd(debt(o)))}${stat("Equity",usd((+o.value||0)-debt(o)))}${o.home?stat("Cost / mo",usd(cost)):stat("Net / mo",usd(n),n>=0?"pos":"neg")}</div>
+      ${o.home?"":`<p class="small muted">Rent ${money(+o.rent||0)} · loan payments ${money(payments(o))} · other costs ${money(+o.expenses||0)}</p>`}
+      ${ls.length?`<table class="loanlist num"><thead><tr><th>Loan</th><th>Rate</th><th>Balance</th><th>Payment</th></tr></thead><tbody>${ls.map(l=>`<tr><td>${esc(l.type||"Loan")}</td><td>${rateText(l)||"—"}</td><td>${money(+l.balance||0)}</td><td>${money(+l.payment||0)}</td></tr>`).join("")}</tbody></table>`:'<p class="small muted">No loans. Owned free and clear.</p>'}
+      ${o.notes?`<p class="note">${esc(o.notes)}</p>`:""}
+    </article>`;}).join("");
 }
 let formLoans=[];
 function readLoans(){formLoans=formLoans.map((l,i)=>{const g=k=>document.getElementById(`l_${k}_${i}`);if(!g("type"))return l;
-  const num=k=>{const v=g(k).value.trim();return v===""?undefined:parseFloat(v);};
-  const out={type:g("type").value};["balance","rate","payment"].forEach(k=>{const v=num(k);if(v!==undefined&&isFinite(v))out[k]=v;});return out;});}
+  const val=k=>{const v=g(k).value.trim();return v===""?undefined:num(v);};
+  const out={type:g("type").value};["balance","rate","payment"].forEach(k=>{const v=val(k);if(v!==undefined&&isFinite(v))out[k]=v;});return out;});}
 function renderLoans(){
   $("loanRows").innerHTML=formLoans.length?formLoans.map((l,i)=>`<div class="loan">
     <label>Type<select id="l_type_${i}">${LOAN_TYPES.map(t=>`<option${t===(l.type||"Mortgage")?" selected":""}>${t}</option>`).join("")}</select></label>
-    <label>Balance $<input id="l_balance_${i}" type="number" step="any" min="0" inputmode="decimal" value="${l.balance??""}"></label>
+    <label>Balance<input id="l_balance_${i}" class="money" type="text" inputmode="decimal" placeholder="$" value="${l.balance===undefined?"":money(l.balance)}"></label>
     <label>Interest rate %<input id="l_rate_${i}" type="number" step="any" min="0" inputmode="decimal" value="${l.rate??""}"></label>
-    <label>Payment / mo $<input id="l_payment_${i}" type="number" step="any" min="0" inputmode="decimal" value="${l.payment??""}"></label>
+    <label>Payment / mo<input id="l_payment_${i}" class="money" type="text" inputmode="decimal" placeholder="$" value="${l.payment===undefined?"":money(l.payment)}"></label>
     <button class="btn danger" type="button" data-rm="${i}">Remove loan</button></div>`).join(""):'<p class="small muted">No loans. This property is owned free and clear.</p>';
 }
 $("addLoan").addEventListener("click",()=>{readLoans();formLoans.push({type:formLoans.length?"HELOC":"Mortgage"});renderLoans();});
@@ -532,21 +577,21 @@ function openOwned(o){
   editingOwned=o?o.id:null;armed=null;
   $("ownedFormTitle").textContent=o?"Update property":"Add a property you own";
   $("ownedForm").reset();
-  if(o)OF.forEach(k=>{if(o[k]!==undefined&&o[k]!==null)$("o_"+k).value=o[k];});
+  if(o)OF.forEach(k=>{if(o[k]!==undefined&&o[k]!==null)setField($("o_"+k),o[k]);});
+  $("o_home").checked=!!(o&&o.home);
   formLoans=o?loansOf(o).map(l=>({...l})):[{type:"Mortgage"}];renderLoans();
   $("delOwned").hidden=!o;$("delOwned").textContent="Delete";
   $("formSection").hidden=true;$("ownedFormSection").hidden=false;
   $("ownedFormSection").scrollIntoView({behavior:"smooth",block:"start"});
 }
-function pickOwned(e){const tr=e.target.closest("tr[data-id]");if(!tr)return;const o=owned.find(x=>x.id===tr.dataset.id);if(o)openOwned(o);}
-$("ownedRows").addEventListener("click",pickOwned);
-$("ownedRows").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pickOwned(e);}});
+$("ownedList").addEventListener("click",e=>{const id=e.target.closest("[data-edit]")?.dataset.edit;if(!id)return;const o=owned.find(x=>x.id===id);if(o)openOwned(o);});
 $("cancelOwned").addEventListener("click",()=>{$("ownedFormSection").hidden=true;});
 $("ownedForm").addEventListener("submit",e=>{e.preventDefault();
   let o=editingOwned?owned.find(x=>x.id===editingOwned):null;
   if(!o){o={id:"o"+Date.now().toString(36)};owned.push(o);}
   OF.forEach(k=>{const raw=$("o_"+k).value.trim();
-    if(ONUM.includes(k)){if(raw==="")delete o[k];else o[k]=parseFloat(raw);}else o[k]=raw;});
+    if(ONUM.includes(k)){const v=num(raw);if(raw===""||!isFinite(v))delete o[k];else o[k]=v;}else o[k]=raw;});
+  o.home=$("o_home").checked;
   readLoans();o.loans=formLoans.filter(l=>l.balance||l.payment||l.rate);delete o.balance;delete o.payment;
   if(save()){$("ownedFormSection").hidden=true;status("Property saved");render();}});
 $("delOwned").addEventListener("click",()=>{
