@@ -148,6 +148,8 @@ td .addr{font-weight:600}
 .explain tr.cur td{background:var(--accent-soft);font-weight:600}
 .warnc{color:var(--warn)}
 .explain .scen{min-width:0;width:100%}
+.explain .scen th{white-space:normal}
+.yours{display:block;font:600 10px var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
 @media(max-width:640px){.modal-overlay{padding:8px}.modal.wide{padding:14px}
   .explain .scen th:nth-child(4),.explain .scen td:nth-child(4){display:none}
   .explain .scen th,.explain .scen td{padding:7px 6px}}
@@ -410,7 +412,7 @@ input.money{text-align:left}
 <script src="sync.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.9.0';
+const APP_VERSION = '1.9.1';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -908,7 +910,7 @@ function openExplain(d){
   if(s.mgmt>0)better.push(`<b>Manage it yourself.</b> Dropping the ${s.mgmt}% manager adds about ${usd(e.selfManage.gain)} a month. That gives ${usd(e.selfManage.cfUnit)} per unit and a verdict of ${e.selfManage.verdict}. It costs you time instead of money.`);
   better.push(`<b>Down payment.</b> More money down means a smaller mortgage and more cash each month, but it usually lowers the return on your cash. The financing table on the deal sheet compares 20%, 25% and 30%.`);
   const rateTable=`<div style="overflow-x:auto"><table class="scen num"><thead><tr><th>Rate</th><th>Mortgage / mo</th><th>Left / unit</th><th>Return on cash</th><th>Verdict</th></tr></thead><tbody>${
-    e.rates.map(r=>`<tr class="${r.current?"cur":""}"><td>${fmtRate(r.rate)}${r.current?" (yours)":""}</td><td>${usd(r.payment)}</td><td class="${r.cfUnit>=0?"pos":"neg"}">${usd(r.cfUnit)}</td><td>${pct(r.coc)}</td><td><span class="pill ${vclass(r.verdict)}">${r.verdict}</span></td></tr>`).join("")}</tbody></table></div>
+    e.rates.map(r=>`<tr class="${r.current?"cur":""}"><td>${fmtRate(r.rate)}${r.current?'<span class="yours">yours</span>':""}</td><td>${usd(r.payment)}</td><td class="${r.cfUnit>=0?"pos":"neg"}">${usd(r.cfUnit)}</td><td>${pct(r.coc)}</td><td><span class="pill ${vclass(r.verdict)}">${r.verdict}</span></td></tr>`).join("")}</tbody></table></div>
     <p class="small muted">Ways people get a lower rate: a bigger down payment, paying points up front, asking the seller to pay for a rate buydown, or living in one of the units, since owner-occupied loans usually cost less.</p>`;
 
   $("explainSub").textContent=`${d.address}, ${d.town}, ${d.state}`;
