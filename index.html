@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="DealDesk">
+<meta name="theme-color" content="#0C5C6E">
 <meta name="robots" content="noindex">
-<title>Dracut Deal Desk</title>
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>DealDesk</title>
+<style>:root{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: an underwriter's desk. Buy box strip on top, ranked pipeline table, then one open deal sheet with offer math. */
@@ -103,7 +107,7 @@ td .addr{font-weight:600}
 <div class="wrap">
   <header class="top">
     <div>
-      <h1>Dracut Deal Desk</h1>
+      <h1>DealDesk</h1>
       <p class="muted">Buy-and-hold rentals within 50 miles of Dracut, MA. Every deal is scored against your buy box and worked back to a maximum offer.</p>
     </div>
     <div class="row">
@@ -201,12 +205,14 @@ td .addr{font-weight:600}
       </div>
     </div>
   </section>
+  <p class="small muted" id="ver"></p>
 </div>
 
 <script src="calc.js"></script>
 <script src="data/listings.js"></script>
 <script>
 
+const APP_VERSION = '1.0.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -282,17 +288,20 @@ function renderSheet(){
 function renderAll(){renderBox();renderList();}
 
 /* storage: shared store when available, this browser otherwise */
+let removed=[];
 function localLoad(){let j=null;try{j=JSON.parse(localStorage.getItem("dealdesk")||"null");}catch(e){}
-  if(j){deals=j.deals||[];settings={...DEFAULTS,...(j.settings||{})};}
-  else{deals=(window.SEED_LISTINGS||[]).map(d=>({...d}));} /* first open: start from data/listings.js */}
-function localSave(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings}));}catch(e){}}
+  if(j){deals=j.deals||[];removed=j.removed||[];settings={...DEFAULTS,...(j.settings||{})};}
+  /* add any listing from data/listings.js this browser has not seen and has not deleted */
+  const have=new Set(deals.map(d=>d.id));
+  (window.SEED_LISTINGS||[]).forEach(d=>{if(!have.has(d.id)&&!removed.includes(d.id))deals.push({...d});});}
+function localSave(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings,removed}));}catch(e){}}
 async function saveDealDoc(id,data){
   if(db){await db.doc("deals/"+id).set(data);}
   else{const i=deals.findIndex(x=>x.id===id);if(i>=0)deals[i]={...data,id};else deals.push({...data,id});localSave();renderAll();}
 }
 async function deleteDealDoc(id){
   if(db){await db.doc("deals/"+id).delete();}
-  else{deals=deals.filter(x=>x.id!==id);localSave();renderAll();}
+  else{deals=deals.filter(x=>x.id!==id);if(!removed.includes(id))removed.push(id);localSave();renderAll();}
 }
 async function saveSettings(){
   if(db){await db.doc("settings/buybox").set({...settings});}else{localSave();}
@@ -340,6 +349,7 @@ $("rows").addEventListener("click",pick);
 $("rows").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(e);}});
 
 /* boot */
+$("ver").textContent="DealDesk v"+APP_VERSION+" · deals are saved in this browser only";
 renderBox();
 (async()=>{
   try{db=window.claude?.use?await window.claude.use("db"):null;}catch(e){db=null;}

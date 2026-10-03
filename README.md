@@ -4,10 +4,10 @@ Scores rental properties within 50 miles of Dracut, MA against a buy box and wor
 
 ## Use it
 
-Open `index.html` in a browser. No install, no build step.
+Open the hosted page on your phone or laptop, or open `index.html` from a local clone. No install, no build step.
 
-- The first time it opens, it loads the listings in `data/listings.js`.
-- After that, deals and the buy box are saved in that browser only. They are not written back to this repo, and they do not sync between devices.
+- Each device starts with the listings in `data/listings.js` and picks up new ones the next time the page opens.
+- Deals you add or edit, and the buy box, are saved in that browser only. They do not sync between devices and are not written back to this repo.
 
 ## Files
 
@@ -16,7 +16,10 @@ Open `index.html` in a browser. No install, no build step.
 | `index.html` | The page: buy box, ranked pipeline, deal sheet, add/edit form |
 | `calc.js` | All the deal math, in one place |
 | `data/listings.js` | Starting listings |
-| `test/calc.test.js` | Checks on the math |
+| `version.json` | Current version and release notes |
+| `tools/test-calc.js` | Checks on the math |
+| `tools/check-version.js` | Confirms the version matches in both places |
+| `Project_Instructions.md` | Working rules for this repo |
 
 ## How a deal is scored
 
@@ -39,8 +42,8 @@ Open `index.html` in a browser. No install, no build step.
 
 ## Release
 
-1. Run `node --test` if `calc.js` changed. All tests should pass.
-2. Commit and push to `main`.
-3. Pull in GitHub Desktop on the laptop and open `index.html`.
+1. Bump the version in `index.html` and `version.json`, and add notes to `version.json`.
+2. Run `node --test tools/` and `node tools/check-version.js`.
+3. Commit everything in one commit and push to `main`. GitHub Pages republishes in a minute or two.
 
-Keep this repo private. It holds buy criteria and the deals being pursued. If the page is ever published with GitHub Pages, the page and `data/listings.js` become public.
+This page is served publicly by GitHub Pages. Do not commit API keys or personal financial details.

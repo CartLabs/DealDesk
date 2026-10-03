@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "date": "2026-10-02",
+  "notes": [
+    "First release. Scores rental deals against your buy box and works each one back to a maximum offer.",
+    "Starts with 16 listings from Manchester and Nashua, NH.",
+    "Works on your phone. New listings added to the repo show up the next time you open the page."
+  ]
+}

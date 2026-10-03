@@ -1,0 +1,69 @@
+# DealDesk — Project Instructions
+
+Same working rules as DebtFree Dashboard, adapted to this repo.
+
+## Before touching any code: pull the live files
+
+The repo on `main` is the source of truth. Never build on an uploaded or
+remembered file, or on the old Claude-hosted "Deal Desk" page, without checking
+it against the repo first.
+
+```bash
+git pull
+node tools/check-version.js     # index.html and version.json must agree
+```
+
+If they disagree, stop and tell Kevin.
+
+## The product
+
+A personal tool for Kevin. It scores buy-and-hold rental deals (one to four
+units, investor loan) within 50 miles of Dracut, MA against a buy box and works
+each one back to a maximum offer. Not for sale, no customers.
+
+Kevin is a non-coder founder and product owner. He decides direction; Claude
+handles technical execution end to end.
+
+## Repo layout
+
+| Path | What |
+|---|---|
+| `index.html` | The whole page: buy box, pipeline, deal sheet, add/edit form |
+| `calc.js` | All deal math. Change formulas here only |
+| `data/listings.js` | Listings Claude has loaded. Every device picks up new ones on next open |
+| `version.json` | Current version and plain-language release notes |
+| `tools/test-calc.js` | Checks on the math |
+| `tools/check-version.js` | Confirms the version matches in both places |
+
+## Shipping rules
+
+- **Two places carry the version and must match:** `APP_VERSION` in
+  `index.html` and `version` in `version.json`.
+- Bump patch for fixes and listing updates, minor for visible features.
+- Add notes to `version.json` written for Kevin in plain language.
+- Run `node --test tools/` and `node tools/check-version.js` before every push.
+- **All changed files go in ONE commit.** Separate pushes cancel each other's
+  Pages builds.
+- **Claude commits and pushes directly to `main`.** Kevin pulls in GitHub
+  Desktop when he wants to review. (This differs from DebtFree Dashboard, where
+  Kevin commits. Files here use plain LF line endings, so the line-ending
+  problem that drove that rule does not apply.)
+- Use real dates. Kevin's date is authoritative if it differs from Claude's.
+
+## How data works
+
+- Deals and the buy box are saved in each browser separately. The phone and the
+  laptop do not sync with each other.
+- `data/listings.js` is the shared layer. A listing added there appears on every
+  device the next time the page opens, unless that device already has it or
+  deleted it. Edits made in the page are never written back to the repo.
+- Listing ids must stay stable (`man-217-spruce`). Changing an id creates a
+  duplicate on devices that already have the old one.
+- There is no service worker. If one is ever added, its cache name must carry
+  the version, as on DebtFree Dashboard.
+
+## Hosting
+
+GitHub Pages from `main`, root folder. Pages only serves a public repo on a free
+plan, so treat everything committed here as public: no API keys, no personal
+financial details, no notes about negotiating position.
