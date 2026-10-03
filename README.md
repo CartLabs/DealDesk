@@ -43,7 +43,7 @@ Open the hosted page on your phone or laptop, or open `index.html` from a local 
 ## Release
 
 1. Bump the version in `index.html` and `version.json`, and add notes to `version.json`.
-2. Run `node --test tools/` and `node tools/check-version.js`.
+2. Run `node --test tools/test-calc.js` and `node tools/check-version.js`.
 3. Commit everything in one commit and push to `main`. GitHub Pages republishes in a minute or two.
 
 This page is served publicly by GitHub Pages. Do not commit API keys or personal financial details.

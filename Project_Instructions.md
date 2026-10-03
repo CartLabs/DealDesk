@@ -41,7 +41,7 @@ handles technical execution end to end.
   `index.html` and `version` in `version.json`.
 - Bump patch for fixes and listing updates, minor for visible features.
 - Add notes to `version.json` written for Kevin in plain language.
-- Run `node --test tools/` and `node tools/check-version.js` before every push.
+- Run `node --test tools/test-calc.js` and `node tools/check-version.js` before every push.
 - **All changed files go in ONE commit.** Separate pushes cancel each other's
   Pages builds.
 - **Claude commits and pushes directly to `main`.** Kevin pulls in GitHub
