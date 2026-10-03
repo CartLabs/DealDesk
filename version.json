@@ -1,13 +1,22 @@
 {
-  "version": "1.8.0",
+  "version": "1.9.0",
   "date": "2026-10-03",
   "notes": [
-    "Cloud icon at the top right of every tab, with a status dot: grey means never backed up, amber means changes are waiting, green means backed up. Tap it to back up or sync.",
-    "New Settings tab (the gear). Google Drive backup and sync lives there, along with what is new in this version.",
-    "Backup and restore to a file, for a copy that does not depend on Google: Export saves everything to a file, Import merges a file back in.",
-    "Sync messages now pop up at the bottom of the screen."
+    "New Explain this deal button on every property. It opens a plain-language walk-through: what you pay, what is left each month, and whether it meets your rules.",
+    "It shows what you could gain, what could go wrong, and what each term means using this deal's own numbers.",
+    "It works out what would make the deal better: the price, the interest rate and the rent at which it would meet your rules, with a table of rates around yours."
   ],
   "previous": [
+    {
+      "version": "1.8.0",
+      "date": "2026-10-03",
+      "notes": [
+        "Cloud icon at the top right of every tab, with a status dot: grey means never backed up, amber means changes are waiting, green means backed up. Tap it to back up or sync.",
+        "New Settings tab (the gear). Google Drive backup and sync lives there, along with what is new in this version.",
+        "Backup and restore to a file, for a copy that does not depend on Google: Export saves everything to a file, Import merges a file back in.",
+        "Sync messages now pop up at the bottom of the screen."
+      ]
+    },
     {
       "version": "1.7.0",
       "date": "2026-10-03",

@@ -74,6 +74,10 @@ A listing in `data/listings.js` has no status, so it lands in Review on every de
 
 Every listing carries `miles`, the straight-line distance from Dracut, MA to its town center. The Review tab filters on it using the distance Kevin picks (default 50). When loading listings, load out to 100 miles so widening the distance has something to show, and always set `miles`.
 
+## Explain this deal
+
+Every deal sheet has an Explain this deal button that opens a plain-language walk-through. The numbers come from `explain()` in `calc.js` (tested); the wording lives in `openExplain()` in `index.html`. Kevin wants this written for someone new to the terms: short sentences, every term defined with this deal's own figure, no jargon left unexplained. Keep it that way when adding to it.
+
 ## Look
 
 Light theme only, on every device. Kevin asked for this; do not add a dark theme

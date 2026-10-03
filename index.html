@@ -135,6 +135,22 @@ td .addr{font-weight:600}
 .drive-toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:60;padding:11px 16px;border-radius:10px;font-size:14px;max-width:90vw;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;background:#1f6f43;color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.25)}
 .drive-toast.warn{background:#8a4b12}
 .drive-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.modal.wide{max-width:680px;max-height:100%;overflow-y:auto;overscroll-behavior:contain}
+.explain{display:flex;flex-direction:column;gap:20px;font-size:15px;line-height:1.55}
+.explain section{display:flex;flex-direction:column;gap:8px}
+.explain h3{color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:4px}
+.explain ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.explain dl{margin:0;display:flex;flex-direction:column;gap:2px}
+.explain dt{font-weight:600;margin-top:8px}
+.explain dd{margin:0;color:var(--muted)}
+.explain dd .pos,.explain dd .neg{font-weight:600}
+.explain .ledger td:first-child{text-align:left;font-family:var(--body);padding-right:10px}
+.explain tr.cur td{background:var(--accent-soft);font-weight:600}
+.warnc{color:var(--warn)}
+.explain .scen{min-width:0;width:100%}
+@media(max-width:640px){.modal-overlay{padding:8px}.modal.wide{padding:14px}
+  .explain .scen th:nth-child(4),.explain .scen td:nth-child(4){display:none}
+  .explain .scen th,.explain .scen td{padding:7px 6px}}
 .filebtn{display:inline-flex;align-items:center;cursor:pointer}
 .whatsnew{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
 /* deal actions */
@@ -379,6 +395,13 @@ input.money{text-align:left}
       <p class="small muted">No Google account? Settings &rsaquo; Backup and restore saves a file to your device instead.</p>
     </div>
   </div>
+  <div class="modal-overlay" id="explainModal" hidden>
+    <div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="explainTitle">
+      <div class="modal-header"><div><h3 class="cardtitle" id="explainTitle">This deal in plain terms</h3><p class="small muted" id="explainSub"></p></div><button class="modal-close" id="explainClose" type="button" aria-label="Close">&times;</button></div>
+      <div id="explainBody" class="explain"></div>
+      <button class="btn" id="explainClose2" type="button">Close</button>
+    </div>
+  </div>
   <div class="drive-toast" id="driveToast" role="status"></div>
   <p class="small muted" id="ver"></p>
 </div>
@@ -387,7 +410,7 @@ input.money{text-align:left}
 <script src="sync.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.8.0';
+const APP_VERSION = '1.9.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -506,11 +529,12 @@ function renderDeals(){
 function actionsHtml(d){
   const b=(act,label,cls="")=>`<button class="btn ${cls}" type="button" data-act="${act}">${label}</button>`;
   const st=statusOf(d);
-  if(st==="review")return b("keep","Keep","primary")+b("remove","Remove")+b("edit","Edit");
+  const ex=b("explain","Explain this deal");
+  if(st==="review")return b("keep","Keep","primary")+b("remove","Remove")+ex+b("edit","Edit");
   if(st==="flight")return `<label class="inline">Stage<select id="d_stage">${STAGES.map(s=>`<option${s===(d.stage||STAGES[0])?" selected":""}>${s}</option>`).join("")}</select></label>`+
-    b("bought","Mark as bought")+b("remove","Lost or remove")+b("edit","Edit");
+    b("bought","Mark as bought")+b("remove","Lost or remove")+ex+b("edit","Edit");
   return `<span class="small muted">${esc(d.reason||"Removed")}${d.archivedAt?" on "+shortDate(d.archivedAt):""}</span>`+
-    b("restore","Move back to review")+b("purge",armed==="purge"?"Confirm delete":"Delete for good","danger");
+    ex+b("restore","Move back to review")+b("purge",armed==="purge"?"Confirm delete":"Delete for good","danger");
 }
 function renderSheet(){
   const d=deals.find(x=>x.id===selected);
@@ -565,6 +589,7 @@ $("d_actions").addEventListener("click",e=>{
   const act=e.target.closest("[data-act]")?.dataset.act; if(!act)return;
   const d=deals.find(x=>x.id===selected); if(!d)return;
   if(act==="edit"){openForm(d);return;}
+  if(act==="explain"){openExplain(d);return;}
   if(act==="remove"){armed=armed==="remove"?null:"remove";renderSheet();return;}
   if(act==="keep"){d.status="flight";d.stage=STAGES[0];d.keptAt=today();d.updatedAt=today();save();status(`Kept. ${d.address} is now in flight.`);selected=null;armed=null;render();return;}
   if(act==="restore"){d.status="review";delete d.reason;delete d.archivedAt;d.updatedAt=today();save();status(`${d.address} moved back to review.`);selected=null;render();return;}
@@ -813,6 +838,95 @@ function renderAbout(){
   fetch("version.json",{cache:"no-store"}).then(r=>r.json()).then(v=>{
     $("whatsNew").innerHTML=(v.notes||[]).map(n=>`<li>${esc(n)}</li>`).join("");}).catch(()=>{});
 }
+
+/* ---------- "Explain this deal": the same numbers, in plain words ---------- */
+const fmtRate=r=>(+(+r).toFixed(3))+"%";
+function openExplain(d){
+  const s=settings,e=explain(d,s),a=e.a,m=e.monthly,u=e.units;
+  const per=u>1?` (${usd(a.cfUnit)} per unit)`:"";
+  const mark=ok=>`<span class="${ok?"pos":"neg"}">${ok?"Meets your rule":"Misses your rule"}</span>`;
+  const row=(l,v,cls="")=>`<tr class="${cls}"><td>${l}</td><td>${v}</td></tr>`;
+  const est=[/^Light data/.test(d.notes||"")||/estimate/i.test(d.notes||"")?"rent":"",a.taxEst?"property taxes":"",a.insEst?"insurance":"",d.unitsInferred?"the number of units":""].filter(Boolean);
+
+  const short=`<p>You would pay <b>${usd(a.price)}</b>. You bring about <b>${usd(a.cash)}</b> in cash (the down payment, closing costs${+d.rehab?" and upfront repairs":""}) and the bank lends the other ${usd(a.loan)}.</p>
+    <p>Tenants pay about <b>${usd(e.rent)}</b> a month. After every bill and the mortgage, ${a.cf>=0?`about <b class="pos">${usd(m.left)}</b> a month is left over${per}.`:`you would be <b class="neg">short about ${usd(-m.left)}</b> a month and have to cover it yourself.`}</p>
+    <p>${a.verdict==="Buy box"?`<b class="pos">It meets all of your rules at the asking price.</b> You could pay up to ${usd(a.maxOffer)} and it would still work.`:
+        a.verdict==="Negotiate"?`<b class="warnc">It misses your rules at the asking price, but it is close.</b> It works at ${usd(a.maxOffer)} or less, which is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) below asking.`:
+        `<b class="neg">It misses your rules by a wide margin.</b> The price would have to fall to ${usd(a.maxOffer)}, which is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) below asking.`}</p>`;
+
+  const money=`<table class="ledger num"><tbody>
+    ${row("Rent coming in",usd(m.rent))}
+    ${row(`Set aside for empty units (${s.vac}%)`,usd(-m.vacancy))}
+    ${row("Property taxes"+(a.taxEst?" (estimated)":""),usd(-m.taxes))}
+    ${row("Insurance"+(a.insEst?" (estimated)":""),usd(-m.ins))}
+    ${m.hoa?row("Association fee",usd(-m.hoa)):""}
+    ${row(`Repairs (${s.maint}%)`,usd(-m.maint))}
+    ${row(`Saving for big replacements like a roof or boiler (${s.capex}%)`,usd(-m.capex))}
+    ${row(`Property manager (${s.mgmt}%)`,usd(-m.mgmt))}
+    ${row(`Mortgage at ${fmtRate(s.rate)}`,usd(-m.mortgage))}
+    ${row("Left over each month",usd(m.left),"total")}</tbody></table>`;
+
+  const terms=`<dl>
+    <dt>Cash flow</dt><dd>What is left each month after every bill and the mortgage. Here: ${usd(m.left)} a month${per}. Your rule is at least ${usd(s.minCF)} per unit. ${mark(a.cfUnit>=s.minCF)}</dd>
+    <dt>Cash-on-cash return</dt><dd>A year of cash flow divided by the cash you put in. Think of it as the interest rate your own money earns. Here: ${pct(a.coc)}. Your rule is ${pct(s.minCoC)}. ${mark(a.coc>=s.minCoC)}</dd>
+    <dt>Debt coverage (DSCR)</dt><dd>How many times over the building's earnings cover the mortgage. 1.00 means it only just pays the loan. Lenders usually want 1.20 to 1.25. Here: ${a.dscr.toFixed(2)}. Your rule is ${s.minDSCR.toFixed(2)}. ${mark(a.dscr>=s.minDSCR)}</dd>
+    <dt>Net operating income (NOI)</dt><dd>What the building earns in a year after its running costs, before the mortgage. Here: ${usd(a.noi)} a year.</dd>
+    <dt>Cap rate</dt><dd>What the building would earn on its price if you paid all cash. It lets you compare buildings without the loan getting in the way. Here: ${pct(a.cap)}.</dd>
+    <dt>Rent to price</dt><dd>One month of rent as a share of the price. The old rule of thumb is 1% or more. Here: ${pct(a.rentRatio,2)}.</dd>
+    <dt>Cash to close</dt><dd>The money you need on closing day: down payment, closing costs and any upfront repairs. Here: ${usd(a.cash)}.</dd>
+    <dt>Maximum offer</dt><dd>The most you can pay and still meet every one of your rules. Here: ${usd(a.maxOffer)}. The rule that sets the limit is ${a.binding}.</dd>
+  </dl>`;
+
+  const gain=`<ul>
+    <li><b>Cash in your pocket:</b> ${a.cf>=0?usd(a.cf)+" in the first year.":"none in the first year. It costs you "+usd(-a.cf)+"."}</li>
+    <li><b>Loan paid down by the tenants:</b> ${usd(e.principalY1)} in the first year and ${usd(e.principalY5)} over five years. You do not see this as cash, but you owe that much less.</li>
+    <li><b>Both together:</b> ${pct(e.totalReturnY1)} on your cash in year one.</li>
+    <li><b>If the building rises in value:</b> a 3% rise would add about ${usd(e.growth3)}. That is an example, not a forecast. Values can also fall.</li>
+  </ul><p class="small muted">Not counted: income tax effects such as depreciation.</p>`;
+
+  const risks=[];
+  if(est.length)risks.push(`<b>Some numbers are guesses.</b> The ${est.join(", ").replace(/, ([^,]*)$/," and $1")} ${est.length>1?"are estimates":"is an estimate"}, not from the listing or a lease. Get the real figures before trusting anything here.`);
+  risks.push(a.cf>0?`<b>Empty units.</b> One unit sitting empty for about ${e.monthsEmptyToZero.toFixed(1)} months would use up the whole year's cash flow.`:`<b>No cushion.</b> It already runs short each month, so any empty unit or repair comes straight out of your pocket.`);
+  risks.push(`<b>How full it must be.</b> You need about ${Math.round(e.breakEvenOccupancy)}% of the rent collected just to cover the bills and the mortgage.`);
+  risks.push(`<b>Lower rents.</b> If rents come in 10% under this estimate, you would have ${usd(e.rentDown10.cfUnit)} per unit a month, and the verdict would be ${e.rentDown10.verdict}.`);
+  risks.push(`<b>A higher rate.</b> If your loan comes in one point higher, at ${fmtRate(s.rate+1)}, you would have ${usd(e.rateUp1.cfUnit)} per unit a month, and the verdict would be ${e.rateUp1.verdict}.`);
+  if(a.dscr<1.25)risks.push(`<b>Getting the loan.</b> Debt coverage of ${a.dscr.toFixed(2)} is under the 1.25 many lenders ask for on investor loans. The lender may want more money down.`);
+  if(+d.miles>30)risks.push(`<b>Distance.</b> It is ${+d.miles} miles from Dracut, so you will likely need the property manager that is already in these numbers.`);
+
+  const better=[];
+  better.push(a.gap>0?`<b>Pay less.</b> At ${usd(a.maxOffer)}, which is ${usd(a.price-a.maxOffer)} under asking, it meets every rule.`:`<b>Price.</b> You already have room. Asking is ${usd(a.maxOffer-a.price)} under the most you could pay.`);
+  let rateLine;
+  if(e.overCeiling)rateLine=`<b>Interest rate.</b> A better rate will not fix this one, because the asking price is over your ${usd(s.maxPrice)} ceiling.`;
+  else if(e.passRate===null)rateLine=`<b>Interest rate.</b> No rate fixes this one. Even at 0% it misses your rules, so the problem is the price or the rent.`;
+  else if(a.gap<=0)rateLine=`<b>Interest rate.</b> It works at your ${fmtRate(s.rate)}. ${e.passRate>=15?"It keeps working at any realistic rate.":"It keeps working up to about "+fmtRate(e.passRate)+"."}`;
+  else rateLine=`<b>Interest rate.</b> At <b>${fmtRate(e.passRate)}</b> instead of ${fmtRate(s.rate)}, it meets every rule at the asking price. That is ${(+(s.rate-e.passRate).toFixed(3))} points lower.`;
+  rateLine+=` Each quarter point is worth about ${usd(e.perQuarterPoint)} a month.`+(e.breakEvenRate!==null&&e.breakEvenRate<25?` Above about ${fmtRate(e.breakEvenRate)} the building stops paying for itself.`:"");
+  better.push(rateLine);
+  better.push(a.gap<=0?`<b>Rent.</b> It works at the estimated rent. ${e.rentToPass?`It would still work with rent as low as ${usd(e.rentToPass)} a month.`:""}`:
+    e.rentToPass===null?`<b>Rent.</b> Higher rent will not fix this one, because the price is over your ceiling.`:
+    `<b>Rent.</b> At ${usd(e.rentToPass)} a month in total, it meets every rule. That is ${usd(e.rentToPass-e.rent)} more than the estimate (${pct((e.rentToPass-e.rent)/Math.max(1,e.rent)*100,0)}), or about ${usd((e.rentToPass-e.rent)/u)} per unit.`);
+  if(s.mgmt>0)better.push(`<b>Manage it yourself.</b> Dropping the ${s.mgmt}% manager adds about ${usd(e.selfManage.gain)} a month. That gives ${usd(e.selfManage.cfUnit)} per unit and a verdict of ${e.selfManage.verdict}. It costs you time instead of money.`);
+  better.push(`<b>Down payment.</b> More money down means a smaller mortgage and more cash each month, but it usually lowers the return on your cash. The financing table on the deal sheet compares 20%, 25% and 30%.`);
+  const rateTable=`<div style="overflow-x:auto"><table class="scen num"><thead><tr><th>Rate</th><th>Mortgage / mo</th><th>Left / unit</th><th>Return on cash</th><th>Verdict</th></tr></thead><tbody>${
+    e.rates.map(r=>`<tr class="${r.current?"cur":""}"><td>${fmtRate(r.rate)}${r.current?" (yours)":""}</td><td>${usd(r.payment)}</td><td class="${r.cfUnit>=0?"pos":"neg"}">${usd(r.cfUnit)}</td><td>${pct(r.coc)}</td><td><span class="pill ${vclass(r.verdict)}">${r.verdict}</span></td></tr>`).join("")}</tbody></table></div>
+    <p class="small muted">Ways people get a lower rate: a bigger down payment, paying points up front, asking the seller to pay for a rate buydown, or living in one of the units, since owner-occupied loans usually cost less.</p>`;
+
+  $("explainSub").textContent=`${d.address}, ${d.town}, ${d.state}`;
+  $("explainBody").innerHTML=
+    `<section><h3>The short version</h3>${short}</section>
+     <section><h3>Where the money goes each month</h3>${money}</section>
+     <section><h3>What you could gain</h3>${gain}</section>
+     <section><h3>What could go wrong</h3><ul>${risks.map(x=>`<li>${x}</li>`).join("")}</ul>${d.notes?`<p class="note">${esc(d.notes)}</p>`:""}</section>
+     <section><h3>What would make it a better deal</h3><ul>${better.map(x=>`<li>${x}</li>`).join("")}</ul>${rateTable}</section>
+     <section><h3>What the words mean</h3>${terms}</section>
+     <p class="small muted">This is arithmetic on the numbers in the app, several of which are estimates. It is not advice.</p>`;
+  $("explainModal").hidden=false;$("explainModal").scrollTop=0;document.querySelector("#explainModal .modal").scrollTop=0;
+}
+function closeExplain(){$("explainModal").hidden=true;}
+$("explainClose").addEventListener("click",closeExplain);
+$("explainClose2").addEventListener("click",closeExplain);
+$("explainModal").addEventListener("click",e=>{if(e.target===$("explainModal"))closeExplain();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeExplain();});
 
 function render(){renderTabs();renderBox();renderDeals();renderOwned();}
 
