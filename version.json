@@ -1,10 +1,21 @@
 {
-  "version": "1.3.1",
+  "version": "1.4.0",
   "date": "2026-10-02",
   "notes": [
-    "When nothing falls inside your chosen distance, the Review tab now says how many properties are farther out instead of looking empty."
+    "Fixed: number boxes now accept any amount, including cents. Before, a payment like 1755.78 or a price like 549,900 was rejected with \u201cEnter a valid value\u201d.",
+    "Fixed: the screen no longer zooms in when you tap a field, and number boxes open the number keypad.",
+    "Owned properties can now carry several loans: mortgage, HELOC, second mortgage, home equity loan, private note or other. Each has its own balance, interest rate and monthly payment. Debt, equity and net income add them all up.",
+    "274 more listings across 17 towns in New Hampshire and Massachusetts, out to 74 miles from Dracut.",
+    "The Review tab now shows only properties worth a look (Buy box and Negotiate). Choose \u201ceverything\u201d to see the ones marked Pass."
   ],
   "previous": [
+    {
+      "version": "1.3.1",
+      "date": "2026-10-02",
+      "notes": [
+        "When nothing falls inside your chosen distance, the Review tab now says how many properties are farther out instead of looking empty."
+      ]
+    },
     {
       "version": "1.3.0",
       "date": "2026-10-02",

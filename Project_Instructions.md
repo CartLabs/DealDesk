@@ -61,6 +61,12 @@ Four tabs, opening on Review:
 - **Owned:** properties Kevin owns, with value, equity and net rental income. Entered on the device only. Never put owned-property figures in this repo; it is public.
 - **Archive:** removed properties and lost deals, with reason and date.
 
+Review hides Pass verdicts unless Kevin chooses to show everything.
+
+Number inputs must use `step="any"`. A fixed step rejects real figures (cents, prices that are not round thousands) on iPhone. Inputs stay at 16px so the iPhone does not zoom into them.
+
+An owned property holds a `loans` list (type, balance, rate, payment). Properties saved before 1.4.0 have a single `balance` and `payment`; the page reads those as one Mortgage.
+
 A listing in `data/listings.js` has no status, so it lands in Review on every device.
 
 Every listing carries `miles`, the straight-line distance from Dracut, MA to its town center. The Review tab filters on it using the distance Kevin picks (default 50). When loading listings, load out to 100 miles so widening the distance has something to show, and always set `miles`.
