@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Dracut Deal Desk</title>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: an underwriter's desk. Buy box strip on top, ranked pipeline table, then one open deal sheet with offer math. */
+:root{
+  --bg:#F2F4F3; --surface:#FFFFFF; --sunk:#E8ECEA; --ink:#15211E; --muted:#5A6A66; --line:#CFD7D4;
+  --accent:#0C5C6E; --accent-ink:#FFFFFF; --accent-soft:#DCEBEE;
+  --good:#1E7A4A; --good-soft:#DDF0E5; --warn:#9A6A00; --warn-soft:#F6EBCB; --bad:#A8392B; --bad-soft:#F6DFDB;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#101716; --surface:#18211F; --sunk:#0B1110; --ink:#E6EDEB; --muted:#93A5A0; --line:#2C3936;
+  --accent:#5FC0D4; --accent-ink:#06262D; --accent-soft:#16343A;
+  --good:#63C48F; --good-soft:#15301F; --warn:#E0B24A; --warn-soft:#33290F; --bad:#EE8778; --bad-soft:#3A1B17;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#101716; --surface:#18211F; --sunk:#0B1110; --ink:#E6EDEB; --muted:#93A5A0; --line:#2C3936;
+  --accent:#5FC0D4; --accent-ink:#06262D; --accent-soft:#16343A;
+  --good:#63C48F; --good-soft:#15301F; --warn:#E0B24A; --warn-soft:#33290F; --bad:#EE8778; --bad-soft:#3A1B17;
+  color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);padding-inline:16px;padding-block:20px 56px}
+.wrap{max-width:1180px;margin-inline:auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);font-stretch:85%;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:30px;font-weight:800;line-height:1.05}
+h2{font-size:19px;font-weight:700}
+h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-stretch:100%}
+p{margin:0}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+header.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
+header.top p{max-width:60ch}
+.btn{font:600 14px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.danger{color:var(--bad)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,tr:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+/* buy box */
+.box{border-top:3px solid var(--ink);border-bottom:1px solid var(--line);padding-block:12px}
+.box summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;list-style:none}
+.box summary::-webkit-details-marker{display:none}
+.box summary b{font-family:var(--mono);font-weight:600}
+.box .edit{margin-left:auto;color:var(--accent);font-weight:600;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--muted);min-width:0}
+input,select,textarea{font:500 14px var(--mono);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:7px 9px;width:100%;min-width:0}
+textarea{font-family:var(--body);min-height:60px}
+.span2{grid-column:span 2}
+@media(max-width:420px){.span2{grid-column:auto}}
+/* pipeline */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface);border-radius:4px}
+table{border-collapse:collapse;width:100%;min-width:820px}
+th{font:700 11px var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:right;padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;vertical-align:middle}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--sunk)}
+tbody tr.sel{background:var(--accent-soft)}
+tbody tr:last-child td{border-bottom:0}
+td .addr{font-weight:600}
+.pill{display:inline-block;font:600 12px var(--body);padding:2px 9px;border-radius:99px;white-space:nowrap}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.tag{font:600 10px var(--body);text-transform:uppercase;letter-spacing:.08em;border:1px dashed var(--muted);color:var(--muted);padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
+.pos{color:var(--good)} .neg{color:var(--bad)}
+.empty{padding:28px 18px;text-align:center;color:var(--muted)}
+/* sheet */
+.sheet{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:26px}
+@media(max-width:860px){.sheet{grid-template-columns:minmax(0,1fr)}}
+.col{display:flex;flex-direction:column;gap:18px;min-width:0}
+.offer{background:var(--accent);color:var(--accent-ink);padding:16px 18px;border-radius:4px;display:flex;flex-direction:column;gap:4px}
+.offer .big{font:600 34px/1.1 var(--mono);font-variant-numeric:tabular-nums}
+.offer h3{color:inherit;opacity:.8}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px 18px}
+.kv div{display:flex;flex-direction:column;gap:2px}
+.kv .v{font:600 19px var(--mono);font-variant-numeric:tabular-nums}
+.ledger{width:100%;min-width:0}
+.ledger td{padding:5px 0;border-bottom:1px dotted var(--line);font-size:14px}
+.ledger tr.total td{border-top:1px solid var(--ink);border-bottom:0;font-weight:600}
+.ledger tr{cursor:default}
+.ledger tbody tr:hover{background:none}
+.scen{min-width:420px}
+.scen td,.scen th{padding:7px 10px}
+.links a{color:var(--accent);font-weight:600;font-size:13px}
+.note{background:var(--sunk);padding:10px 12px;border-radius:4px;font-size:13px}
+#status{font-size:13px;color:var(--muted);min-height:1.4em}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Dracut Deal Desk</h1>
+      <p class="muted">Buy-and-hold rentals within 50 miles of Dracut, MA. Every deal is scored against your buy box and worked back to a maximum offer.</p>
+    </div>
+    <div class="row">
+      <span id="status"></span>
+      <button class="btn primary" id="addBtn" type="button">Add a deal</button>
+    </div>
+  </header>
+
+  <details class="box" id="boxDetails">
+    <summary>
+      <h3>Buy box</h3>
+      <span id="boxSummary" class="small"></span>
+      <span class="edit">Edit</span>
+    </summary>
+    <form id="boxForm" class="grid" autocomplete="off">
+      <label>Price ceiling $<input id="s_maxPrice" type="number" step="5000"></label>
+      <label>Min cash flow / unit / mo $<input id="s_minCF" type="number" step="25"></label>
+      <label>Min cash-on-cash %<input id="s_minCoC" type="number" step="0.5"></label>
+      <label>Min debt coverage (DSCR)<input id="s_minDSCR" type="number" step="0.05"></label>
+      <label>Down payment %<input id="s_down" type="number" step="1"></label>
+      <label>Investor loan rate %<input id="s_rate" type="number" step="0.125"></label>
+      <label>Loan term (years)<input id="s_term" type="number" step="1"></label>
+      <label>Closing costs % of price<input id="s_closing" type="number" step="0.5"></label>
+      <label>Vacancy %<input id="s_vac" type="number" step="1"></label>
+      <label>Repairs %<input id="s_maint" type="number" step="1"></label>
+      <label>Capital reserves %<input id="s_capex" type="number" step="1"></label>
+      <label>Management %<input id="s_mgmt" type="number" step="1"></label>
+      <div class="row span2"><button class="btn primary" type="submit">Save buy box</button><span class="small muted">Percentages of rent apply to collected rent. Changes re-score every deal.</span></div>
+    </form>
+  </details>
+
+  <section class="col" id="formSection" hidden>
+    <h2 id="formTitle">Add a deal</h2>
+    <form id="dealForm" class="grid" autocomplete="off">
+      <label class="span2">Street address<input id="f_address" type="text" required></label>
+      <label>Town<input id="f_town" type="text" required></label>
+      <label>State<select id="f_state"><option>MA</option><option>NH</option></select></label>
+      <label>Type<select id="f_type"><option>Two-family</option><option>Three-family</option><option>Four-family</option><option>Single-family</option></select></label>
+      <label>Units<input id="f_units" type="number" min="1" max="4" value="2" required></label>
+      <label>Asking price $<input id="f_price" type="number" step="1000" required></label>
+      <label>Total rent / mo $<input id="f_rent" type="number" step="25" required></label>
+      <label>Taxes / yr $ (blank = estimate)<input id="f_taxes" type="number" step="50"></label>
+      <label>Insurance / yr $ (blank = estimate)<input id="f_ins" type="number" step="50"></label>
+      <label>HOA / mo $<input id="f_hoa" type="number" step="10"></label>
+      <label>Upfront repairs $<input id="f_rehab" type="number" step="500"></label>
+      <label>School rating (1-10)<input id="f_school" type="number" min="1" max="10"></label>
+      <label>Walk Score (0-100)<input id="f_walk" type="number" min="0" max="100"></label>
+      <label class="span2">Listing link<input id="f_url" type="url" placeholder="https://"></label>
+      <label class="span2">Notes<textarea id="f_notes"></textarea></label>
+      <div class="row span2"><button class="btn primary" type="submit" id="saveDeal">Save deal</button><button class="btn" type="button" id="cancelDeal">Cancel</button></div>
+    </form>
+  </section>
+
+  <section class="col">
+    <div class="row" style="justify-content:space-between"><h2>Pipeline</h2><span class="small muted" id="count"></span></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Property</th><th>Ask</th><th>Rent / mo</th><th>Cash flow / unit</th><th>Cash-on-cash</th><th>DSCR</th><th>Max offer</th><th>Verdict</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty" id="empty">Loading your pipeline. Deals appear here ranked by how far the asking price sits from your maximum offer. Use “Add a deal” to enter the first one.</div>
+    </div>
+  </section>
+
+  <section id="sheetSection" class="col" hidden>
+    <div class="row" style="justify-content:space-between">
+      <div><h2 id="d_title"></h2><p class="muted small" id="d_sub"></p></div>
+      <div class="row"><button class="btn" id="editBtn" type="button">Edit</button><button class="btn danger" id="delBtn" type="button">Delete</button></div>
+    </div>
+    <div class="sheet">
+      <div class="col">
+        <div class="offer">
+          <h3>Maximum offer</h3>
+          <div class="big" id="d_max"></div>
+          <div class="small" id="d_maxwhy"></div>
+        </div>
+        <div class="kv" id="d_kv"></div>
+        <div>
+          <h3>Year-one income statement</h3>
+          <table class="ledger num"><tbody id="d_ledger"></tbody></table>
+        </div>
+      </div>
+      <div class="col">
+        <div>
+          <h3>Financing scenarios at asking price</h3>
+          <div style="overflow-x:auto"><table class="scen num"><thead><tr><th>Down</th><th>Cash needed</th><th>Payment / mo</th><th>Cash flow / mo</th><th>Cash-on-cash</th></tr></thead><tbody id="d_scen"></tbody></table></div>
+        </div>
+        <div>
+          <h3>Neighborhood</h3>
+          <div class="kv" id="d_hood" style="margin-top:8px"></div>
+          <p class="links row" id="d_links" style="margin-top:10px"></p>
+        </div>
+        <div id="d_notes" class="note" hidden></div>
+        <p class="small muted" id="d_est"></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="calc.js"></script>
+<script src="data/listings.js"></script>
+<script>
+
+const $=id=>document.getElementById(id);
+const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
+const pct=(n,p=1)=>n.toFixed(p)+"%";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const SKEYS=Object.keys(DEFAULTS);
+let settings={...DEFAULTS}, deals=[], selected=null, editing=null, db=null, loaded=false, delArmed=false;
+
+function status(t){$("status").textContent=t||"";}
+function vclass(v){return v==="Buy box"?"good":v==="Negotiate"?"warn":"bad";}
+
+function renderBox(){
+  const s=settings;
+  $("boxSummary").innerHTML=`Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · <b>${pct(s.minCoC)}</b> cash-on-cash · <b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`;
+  if(document.activeElement?.form!==$("boxForm")) SKEYS.forEach(k=>{$("s_"+k).value=s[k];});
+}
+function ranked(){return deals.map(d=>({d,a:analyze(d,settings)})).sort((x,y)=>x.a.gap-y.a.gap);}
+function renderList(){
+  const list=ranked();
+  $("count").textContent=list.length?`${list.length} deal${list.length>1?"s":""}, best fit first`:"";
+  $("empty").hidden=list.length>0;
+  if(!list.length&&loaded)$("empty").textContent="No deals yet. Use “Add a deal” to enter a listing, or add listings to data/listings.js.";
+  $("rows").innerHTML=list.map(({d,a})=>`<tr tabindex="0" data-id="${esc(d.id)}" class="${d.id===selected?"sel":""}">
+    <td><span class="addr">${esc(d.address)}</span>${d.example?'<span class="tag">Example</span>':""}<br><span class="small muted">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}</span></td>
+    <td class="num">${usd(a.price)}</td><td class="num">${usd(+d.rent||0)}</td>
+    <td class="num ${a.cfUnit>=0?"pos":"neg"}">${usd(a.cfUnit)}</td>
+    <td class="num">${pct(a.coc)}</td><td class="num">${a.dscr.toFixed(2)}</td>
+    <td class="num">${usd(a.maxOffer)}</td>
+    <td><span class="pill ${vclass(a.verdict)}">${a.verdict}</span></td></tr>`).join("");
+  if(selected&&!deals.some(d=>d.id===selected))selected=null;
+  if(!selected&&list.length)selected=list[0].d.id;
+  renderSheet();
+}
+function renderSheet(){
+  const d=deals.find(x=>x.id===selected);
+  $("sheetSection").hidden=!d; if(!d)return;
+  document.querySelectorAll("#rows tr").forEach(r=>r.classList.toggle("sel",r.dataset.id===selected));
+  const s=settings,a=analyze(d,s);
+  $("d_title").innerHTML=esc(d.address)+(d.example?'<span class="tag">Example</span>':"");
+  $("d_sub").textContent=`${d.town}, ${d.state} · ${d.type||""} · ${a.units} unit${a.units>1?"s":""} · asking ${usd(a.price)}`;
+  $("d_max").textContent=usd(a.maxOffer);
+  $("d_maxwhy").textContent=a.gap<=0?`Asking price is ${usd(a.maxOffer-a.price)} under your limit. Limited by ${a.binding}.`:`Asking price is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) over. Limited by ${a.binding}.`;
+  const ok=(c)=>c?"pos":"neg";
+  $("d_kv").innerHTML=[
+    ["Cash flow / unit / mo",usd(a.cfUnit),ok(a.cfUnit>=s.minCF)],
+    ["Cash-on-cash",pct(a.coc),ok(a.coc>=s.minCoC)],
+    ["DSCR",a.dscr.toFixed(2),ok(a.dscr>=s.minDSCR)],
+    ["Cap rate",pct(a.cap),""],
+    ["Rent to price",pct(a.rentRatio,2),""],
+    ["Cash to close",usd(a.cash),""]
+  ].map(([l,v,c])=>`<div><h3>${l}</h3><span class="v ${c}">${v}</span></div>`).join("");
+  const L=(l,v,t)=>`<tr class="${t||""}"><td style="text-align:left;font-family:var(--body)">${l}</td><td>${v}</td></tr>`;
+  $("d_ledger").innerHTML=
+    L("Gross rent",usd(a.gross))+L(`Vacancy (${s.vac}%)`,usd(-a.vacancy))+
+    L("Property taxes"+(a.taxEst?" (estimated)":""),usd(-a.taxes))+L("Insurance"+(a.insEst?" (estimated)":""),usd(-a.ins))+
+    (a.hoa?L("HOA",usd(-a.hoa)):"")+
+    L(`Repairs (${s.maint}%)`,usd(-a.maint))+L(`Capital reserves (${s.capex}%)`,usd(-a.capex))+L(`Management (${s.mgmt}%)`,usd(-a.mgmt))+
+    L("Net operating income",usd(a.noi),"total")+L("Mortgage (principal and interest)",usd(-a.debt))+L("Cash flow before tax",usd(a.cf),"total");
+  $("d_scen").innerHTML=[20,25,30].map(p=>{const x=analyze(d,s,p);return `<tr><td>${p}%</td><td>${usd(x.cash)}</td><td>${usd(x.debt/12)}</td><td class="${x.cf>=0?"pos":"neg"}">${usd(x.cf/12)}</td><td>${pct(x.coc)}</td></tr>`;}).join("");
+  $("d_hood").innerHTML=[["School rating",d.school?d.school+" / 10":"Not entered"],["Walk Score",d.walk||d.walk===0?d.walk+" / 100":"Not entered"]].map(([l,v])=>`<div><h3>${l}</h3><span class="v" style="font-size:16px">${esc(v)}</span></div>`).join("");
+  const q=encodeURIComponent(`${d.address}, ${d.town}, ${d.state}`);
+  const links=[];
+  if(/^https?:\/\//.test(d.url||""))links.push(`<a href="${esc(d.url)}" target="_blank" rel="noopener">Listing</a>`);
+  links.push(`<a href="https://www.google.com/maps/search/${q}" target="_blank" rel="noopener">Map</a>`,
+    `<a href="https://www.google.com/search?q=${q}+zillow" target="_blank" rel="noopener">Zillow</a>`,
+    `<a href="https://www.google.com/search?q=${q}+redfin" target="_blank" rel="noopener">Redfin</a>`,
+    `<a href="https://www.walkscore.com/score/${q}" target="_blank" rel="noopener">Walk Score</a>`,
+    `<a href="https://www.greatschools.org/search/search.page?q=${encodeURIComponent(d.town+", "+d.state)}" target="_blank" rel="noopener">Schools</a>`);
+  $("d_links").innerHTML=links.join("");
+  $("d_notes").hidden=!d.notes; $("d_notes").textContent=d.notes||"";
+  $("d_est").textContent=(a.taxEst||a.insEst)?"Estimated lines use rough regional rates. Enter the real tax bill and an insurance quote before making an offer.":"";
+  delArmed=false; $("delBtn").textContent="Delete";
+}
+function renderAll(){renderBox();renderList();}
+
+/* storage: shared store when available, this browser otherwise */
+function localLoad(){let j=null;try{j=JSON.parse(localStorage.getItem("dealdesk")||"null");}catch(e){}
+  if(j){deals=j.deals||[];settings={...DEFAULTS,...(j.settings||{})};}
+  else{deals=(window.SEED_LISTINGS||[]).map(d=>({...d}));} /* first open: start from data/listings.js */}
+function localSave(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings}));}catch(e){}}
+async function saveDealDoc(id,data){
+  if(db){await db.doc("deals/"+id).set(data);}
+  else{const i=deals.findIndex(x=>x.id===id);if(i>=0)deals[i]={...data,id};else deals.push({...data,id});localSave();renderAll();}
+}
+async function deleteDealDoc(id){
+  if(db){await db.doc("deals/"+id).delete();}
+  else{deals=deals.filter(x=>x.id!==id);localSave();renderAll();}
+}
+async function saveSettings(){
+  if(db){await db.doc("settings/buybox").set({...settings});}else{localSave();}
+}
+
+/* buy box */
+function readBox(){SKEYS.forEach(k=>{const v=parseFloat($("s_"+k).value);if(isFinite(v))settings[k]=v;});if(settings.term<1)settings.term=30;}
+$("boxForm").addEventListener("input",()=>{readBox();const s=settings;renderList();
+  $("boxSummary").innerHTML=`Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · <b>${pct(s.minCoC)}</b> cash-on-cash · <b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`;});
+$("boxForm").addEventListener("submit",async e=>{e.preventDefault();readBox();
+  try{await saveSettings();status("Buy box saved");$("boxDetails").open=false;}catch(err){status("Could not save the buy box. Try again.");}});
+
+/* deal form */
+const F=["address","town","state","type","units","price","rent","taxes","ins","hoa","rehab","school","walk","url","notes"];
+const NUMF=["units","price","rent","taxes","ins","hoa","rehab","school","walk"];
+function openForm(d){
+  editing=d?d.id:null;
+  $("formTitle").textContent=d?"Edit deal":"Add a deal";
+  $("dealForm").reset();
+  if(d)F.forEach(k=>{if(d[k]!==undefined&&d[k]!==null)$("f_"+k).value=d[k];});
+  $("formSection").hidden=false;$("f_address").focus();
+  $("formSection").scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("addBtn").addEventListener("click",()=>openForm(null));
+$("cancelDeal").addEventListener("click",()=>{$("formSection").hidden=true;});
+$("editBtn").addEventListener("click",()=>{const d=deals.find(x=>x.id===selected);if(d)openForm(d);});
+$("f_type").addEventListener("change",()=>{const m={"Two-family":2,"Three-family":3,"Four-family":4,"Single-family":1};$("f_units").value=m[$("f_type").value];});
+$("dealForm").addEventListener("submit",async e=>{e.preventDefault();
+  const prev=editing?deals.find(x=>x.id===editing)||{}:{};
+  const data={...prev};delete data.id;
+  F.forEach(k=>{const raw=$("f_"+k).value.trim();
+    if(NUMF.includes(k)){if(raw==="")delete data[k];else data[k]=parseFloat(raw);}else data[k]=raw;});
+  if(editing)data.example=false; else data.addedAt=new Date().toISOString();
+  const id=editing||("d"+Date.now().toString(36)+Math.random().toString(36).slice(2,6));
+  $("saveDeal").disabled=true;
+  try{await saveDealDoc(id,data);selected=id;$("formSection").hidden=true;status("Deal saved");renderList();}
+  catch(err){status("Could not save the deal. Check the fields and try again.");}
+  $("saveDeal").disabled=false;});
+$("delBtn").addEventListener("click",async()=>{
+  if(!delArmed){delArmed=true;$("delBtn").textContent="Confirm delete";return;}
+  const id=selected;selected=null;
+  try{await deleteDealDoc(id);status("Deal deleted");}catch(err){status("Could not delete the deal.");}});
+function pick(e){const tr=e.target.closest("tr[data-id]");if(!tr)return;selected=tr.dataset.id;renderSheet();}
+$("rows").addEventListener("click",pick);
+$("rows").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(e);}});
+
+/* boot */
+renderBox();
+(async()=>{
+  try{db=window.claude?.use?await window.claude.use("db"):null;}catch(e){db=null;}
+  if(!db){localLoad();loaded=true;status("Saved in this browser only");renderAll();return;}
+  db.doc("settings/buybox").onSnapshot(snap=>{if(snap.exists){settings={...DEFAULTS,...snap.data()};renderAll();}},()=>{});
+  db.collection("deals").onSnapshot(snap=>{loaded=true;deals=snap.docs.map(x=>({...x.data(),id:x.id}));renderList();},
+    ()=>{loaded=true;status("Lost connection to saved deals. Reload the page.");renderList();});
+})();
+</script>
+</body>
+</html>
