@@ -6,7 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="DealDesk">
-<meta name="theme-color" content="#0C5C6E">
+<meta name="theme-color" content="#F2F4F3">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
 <meta name="robots" content="noindex">
 <title>DealDesk</title>
 <style>:root{padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -14,6 +17,7 @@
 <style>
 /* Layout: an underwriter's desk. Buy box strip on top, ranked pipeline table, then one open deal sheet with offer math. */
 :root{
+  color-scheme:light; /* light theme on every device, by request */
   --bg:#F2F4F3; --surface:#FFFFFF; --sunk:#E8ECEA; --ink:#15211E; --muted:#5A6A66; --line:#CFD7D4;
   --accent:#0C5C6E; --accent-ink:#FFFFFF; --accent-soft:#DCEBEE;
   --good:#1E7A4A; --good-soft:#DDF0E5; --warn:#9A6A00; --warn-soft:#F6EBCB; --bad:#A8392B; --bad-soft:#F6DFDB;
@@ -21,21 +25,13 @@
   --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
 }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#101716; --surface:#18211F; --sunk:#0B1110; --ink:#E6EDEB; --muted:#93A5A0; --line:#2C3936;
-  --accent:#5FC0D4; --accent-ink:#06262D; --accent-soft:#16343A;
-  --good:#63C48F; --good-soft:#15301F; --warn:#E0B24A; --warn-soft:#33290F; --bad:#EE8778; --bad-soft:#3A1B17;
-  color-scheme:dark } }
-:root[data-theme="dark"]{
-  --bg:#101716; --surface:#18211F; --sunk:#0B1110; --ink:#E6EDEB; --muted:#93A5A0; --line:#2C3936;
-  --accent:#5FC0D4; --accent-ink:#06262D; --accent-soft:#16343A;
-  --good:#63C48F; --good-soft:#15301F; --warn:#E0B24A; --warn-soft:#33290F; --bad:#EE8778; --bad-soft:#3A1B17;
-  color-scheme:dark }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--body);padding-inline:16px;padding-block:20px 56px}
 .wrap{max-width:1180px;margin-inline:auto;display:flex;flex-direction:column;gap:22px}
 h1,h2,h3{font-family:var(--display);font-stretch:85%;margin:0;text-wrap:balance;letter-spacing:-.01em}
 h1{font-size:30px;font-weight:800;line-height:1.05}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.brand .word span{color:var(--accent)}
 h2{font-size:19px;font-weight:700}
 h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-stretch:100%}
 p{margin:0}
@@ -77,6 +73,13 @@ td .addr{font-weight:600}
 .pill.good{background:var(--good-soft);color:var(--good)}
 .pill.warn{background:var(--warn-soft);color:var(--warn)}
 .pill.bad{background:var(--bad-soft);color:var(--bad)}
+/* phone: keep the four columns that decide a deal; the rest is on the deal sheet */
+@media(max-width:640px){
+  .tablewrap table{min-width:0}
+  .tablewrap th,.tablewrap td{padding:9px 8px}
+  .tablewrap th:nth-child(n+3):nth-child(-n+6),.tablewrap td:nth-child(n+3):nth-child(-n+6){display:none}
+  .tablewrap td.num{font-size:13px}
+}
 .tag{font:600 10px var(--body);text-transform:uppercase;letter-spacing:.08em;border:1px dashed var(--muted);color:var(--muted);padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
 .pos{color:var(--good)} .neg{color:var(--bad)}
 .empty{padding:28px 18px;text-align:center;color:var(--muted)}
@@ -107,7 +110,7 @@ td .addr{font-weight:600}
 <div class="wrap">
   <header class="top">
     <div>
-      <h1>DealDesk</h1>
+      <h1 class="brand"><img src="assets/icon.svg" alt="" width="34" height="34"><span class="word">Deal<span>Desk</span></span></h1>
       <p class="muted">Buy-and-hold rentals within 50 miles of Dracut, MA. Every deal is scored against your buy box and worked back to a maximum offer.</p>
     </div>
     <div class="row">
@@ -212,7 +215,7 @@ td .addr{font-weight:600}
 <script src="data/listings.js"></script>
 <script>
 
-const APP_VERSION = '1.0.0';
+const APP_VERSION = '1.1.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";

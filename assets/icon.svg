@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="DealDesk">
+  <rect width="512" height="512" rx="112" fill="#0C5C6E"/>
+  <path d="M256 104 408 228V408H104V228Z" fill="#FFFFFF"/>
+  <rect x="160" y="328" width="48" height="48" fill="#0C5C6E"/>
+  <rect x="232" y="288" width="48" height="88" fill="#0C5C6E"/>
+  <rect x="304" y="248" width="48" height="128" fill="#0C5C6E"/>
+</svg>

@@ -31,6 +31,8 @@ handles technical execution end to end.
 | `index.html` | The whole page: buy box, pipeline, deal sheet, add/edit form |
 | `calc.js` | All deal math. Change formulas here only |
 | `data/listings.js` | Listings Claude has loaded. Every device picks up new ones on next open |
+| `assets/` | Logo (`logo.svg`), icon (`icon.svg`) and home-screen icons |
+| `manifest.json` | Name and icons for Add to Home Screen |
 | `version.json` | Current version and plain-language release notes |
 | `tools/test-calc.js` | Checks on the math |
 | `tools/check-version.js` | Confirms the version matches in both places |
@@ -49,6 +51,11 @@ handles technical execution end to end.
   Kevin commits. Files here use plain LF line endings, so the line-ending
   problem that drove that rule does not apply.)
 - Use real dates. Kevin's date is authoritative if it differs from Claude's.
+
+## Look
+
+Light theme only, on every device. Kevin asked for this; do not add a dark theme
+back without asking.
 
 ## How data works
 

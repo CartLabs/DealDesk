@@ -1,9 +1,20 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "date": "2026-10-02",
   "notes": [
-    "First release. Scores rental deals against your buy box and works each one back to a maximum offer.",
-    "Starts with 16 listings from Manchester and Nashua, NH.",
-    "Works on your phone. New listings added to the repo show up the next time you open the page."
+    "New DealDesk logo, and an app icon for your phone's home screen.",
+    "The page now always uses the light theme, even when your phone is in dark mode.",
+    "On a phone, the pipeline now shows the four columns that decide a deal (property, asking price, maximum offer, verdict) with no sideways scrolling. Tap a deal for the rest."
+  ],
+  "previous": [
+    {
+      "version": "1.0.0",
+      "date": "2026-10-02",
+      "notes": [
+        "First release. Scores rental deals against your buy box and works each one back to a maximum offer.",
+        "Starts with 16 listings from Manchester and Nashua, NH.",
+        "Works on your phone. New listings added to the repo show up the next time you open the page."
+      ]
+    }
   ]
 }
