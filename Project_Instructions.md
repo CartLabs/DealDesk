@@ -95,7 +95,7 @@ back without asking.
 
 Same design as DebtFree Dashboard: one action that downloads `dealdesk-backup.json` from Kevin's Drive, merges it with the device (`mergeData` in `sync.js`), saves, and uploads the result. Sign-in is a full-page redirect, not a popup, because a popup never returns to an installed iPhone app. The token lives in memory only.
 
-- `DRIVE_CLIENT_ID` in `index.html` is empty until Kevin creates an OAuth client. Empty means the Sync button is disabled.
+- `DRIVE_CLIENT_ID` in `index.html` is DealDesk's own OAuth client, in Google Cloud project DealDesk, in Testing mode with Kevin as the only test user. Setting it to empty disables the Sync button; that is the kill switch.
 - Use a separate OAuth client from DebtFree Dashboard's. Never edit that client or its consent screen for this project.
 - The redirect URI is the page's own address. Both `/DealDesk/` and `/DealDesk/index.html` must be registered on the client.
 - Every change to a deal, an owned property or the settings must set `updatedAt`, and every permanent delete must go into `removed` or `removedOwned`. The merge depends on both.

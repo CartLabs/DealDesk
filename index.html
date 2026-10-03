@@ -319,7 +319,7 @@ input.money{text-align:left}
 <script src="sync.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.6.1';
+const APP_VERSION = '1.7.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -609,7 +609,7 @@ $("delOwned").addEventListener("click",()=>{
    One action. Download the Drive file, merge it with this device, save the result
    here, upload it back. Sign-in is a full-page redirect because a popup does not
    return to an installed iPhone app. The token is kept in memory only. */
-const DRIVE_CLIENT_ID = '';   // Google OAuth client ID. Empty = sync not set up yet.
+const DRIVE_CLIENT_ID = '752905927103-2s45rp06l6n25egh07l9c0gqfmuqrj3f.apps.googleusercontent.com';   // DealDesk's own Google OAuth client (testing mode). Empty = sync off.
 const DRIVE_SCOPE     = 'https://www.googleapis.com/auth/drive.file';
 const DRIVE_FILENAME  = 'dealdesk-backup.json';
 const DRIVE_REDIRECT_URI = location.origin + location.pathname;   // must be registered on the OAuth client
