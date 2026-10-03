@@ -275,7 +275,7 @@ label.inline select{width:auto}
 <script src="calc.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.3.0';
+const APP_VERSION = '1.3.1';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -359,9 +359,9 @@ function renderDeals(){
   $("listTitle").textContent=TABS[tab];
   $("listHelp").textContent=HELP[tab];
   const beyond=tab==="review"?deals.filter(d=>statusOf(d)==="review"&&!inRadius(d)).length:0;
-  $("count").textContent=(list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"")+(beyond?` · ${beyond} more beyond ${settings.radius} miles`:"");
+  $("count").textContent=[list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:""].filter(Boolean).join(" · ");
   $("radiusWrap").hidden=tab!=="review";$("radius").value=String(+settings.radius||0);
-  $("empty").hidden=list.length>0;$("empty").textContent=EMPTY[tab];
+  $("empty").hidden=list.length>0;$("empty").textContent=beyond?`Nothing within ${settings.radius} miles. ${beyond} propert${beyond>1?"ies are":"y is"} farther out. Widen the distance to see ${beyond>1?"them":"it"}.`:EMPTY[tab];
   $("rows").innerHTML=list.map(({d,a})=>`<tr tabindex="0" data-id="${esc(d.id)}" class="${d.id===selected?"sel":""}">
     <td><span class="addr">${esc(d.address)}</span>${tab==="review"&&isNew(d)?'<span class="tag">New</span>':""}<br><span class="small muted">${subline(d,a)}</span></td>
     <td class="num">${usd(a.price)}</td><td class="num">${usd(+d.rent||0)}</td>
