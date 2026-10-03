@@ -302,7 +302,7 @@ input.money{text-align:left}
       <label id="radiusWrap">Distance from Dracut
         <select id="radius"><option value="10">Within 10 miles</option><option value="25">Within 25 miles</option><option value="50">Within 50 miles</option><option value="75">Within 75 miles</option><option value="100">Within 100 miles</option><option value="0">Any distance</option></select></label>
       <label id="fitWrap">Show
-        <select id="fit"><option value="0">Worth a look</option><option value="1">Everything, including Pass</option></select></label>
+        <select id="fit"><option value="box">Buy box only</option><option value="look">Worth a look</option><option value="all">Everything, including Pass</option></select></label>
     </div>
     <div class="tablewrap">
       <table>
@@ -412,7 +412,7 @@ input.money{text-align:left}
 <script src="sync.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.9.1';
+const APP_VERSION = '1.10.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -463,7 +463,7 @@ $("boxForm").addEventListener("submit",e=>{e.preventDefault();readBox();settings
 $("radius").addEventListener("change",e=>{settings.radius=+e.target.value;settings.updatedAt=today();save();selected=null;render();
   });
 
-$("fit").addEventListener("change",e=>{settings.showAll=e.target.value==="1";settings.updatedAt=today();save();selected=null;render();});
+$("fit").addEventListener("change",e=>{settings.fit=e.target.value;delete settings.showAll;settings.updatedAt=today();save();selected=null;render();});
 
 /* tabs */
 function setTab(t){status("");tab=t;selected=null;armed=null;$("formSection").hidden=true;$("ownedFormSection").hidden=true;render();}
@@ -491,9 +491,12 @@ const EMPTY={review:"Nothing to review. New listings land here when they are add
   flight:"No deals in flight. Keep a property from To review and it moves here.",
   archive:"Nothing archived yet. Removed properties and lost deals are kept here with the reason."};
 let passHidden=0;
+/* Review filter: "box" = Buy box only, "look" = Buy box and Negotiate, "all" = everything. Older saves used showAll. */
+const fitMode=()=>["box","look","all"].includes(settings.fit)?settings.fit:(settings.showAll?"all":"look");
+const fitShows=v=>fitMode()==="all"||v==="Buy box"||(fitMode()==="look"&&v==="Negotiate");
 function listFor(t){
   let list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d))).map(d=>({d,a:analyze(d,settings)}));
-  if(t==="review"){passHidden=settings.showAll?0:list.filter(x=>x.a.verdict==="Pass").length;if(!settings.showAll)list=list.filter(x=>x.a.verdict!=="Pass");}
+  if(t==="review"){passHidden=list.filter(x=>!fitShows(x.a.verdict)).length;list=list.filter(x=>fitShows(x.a.verdict));}
   if(t==="flight")list.sort((x,y)=>STAGES.indexOf(y.d.stage)-STAGES.indexOf(x.d.stage)||x.a.gap-y.a.gap);
   else if(t==="archive")list.sort((x,y)=>String(y.d.archivedAt||"").localeCompare(String(x.d.archivedAt||"")));
   else list.sort((x,y)=>x.a.gap-y.a.gap);
@@ -514,9 +517,9 @@ function renderDeals(){
   const beyond=tab==="review"?deals.filter(d=>statusOf(d)==="review"&&!inRadius(d)).length:0;
   const hid=tab==="review"?passHidden:0;
   $("count").textContent=list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"";
-  $("listNote").textContent=[hid?`${hid} hidden as Pass`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:""].filter(Boolean).join(" · ");
-  $("filters").hidden=tab!=="review";$("fit").value=settings.showAll?"1":"0";$("radius").value=String(+settings.radius||0);
-  $("empty").hidden=list.length>0;$("empty").textContent=hid?`Nothing within ${+settings.radius?settings.radius+" miles":"range"} meets or comes close to your buy box. ${hid} propert${hid>1?"ies are":"y is"} hidden as Pass. Choose “everything” to see ${hid>1?"them":"it"}.`:beyond?`Nothing within ${settings.radius} miles. ${beyond} propert${beyond>1?"ies are":"y is"} farther out. Widen the distance to see ${beyond>1?"them":"it"}.`:EMPTY[tab];
+  $("listNote").textContent=[hid?`${hid} hidden by the Show filter`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:""].filter(Boolean).join(" · ");
+  $("filters").hidden=tab!=="review";$("fit").value=fitMode();$("radius").value=String(+settings.radius||0);
+  $("empty").hidden=list.length>0;$("empty").textContent=hid?`Nothing within ${+settings.radius?settings.radius+" miles":"range"} ${fitMode()==="box"?"meets your buy box":"meets or comes close to your buy box"}. ${hid} propert${hid>1?"ies are":"y is"} hidden by the Show filter. Change Show to see ${hid>1?"them":"it"}.`:beyond?`Nothing within ${settings.radius} miles. ${beyond} propert${beyond>1?"ies are":"y is"} farther out. Widen the distance to see ${beyond>1?"them":"it"}.`:EMPTY[tab];
   $("rows").innerHTML=list.map(({d,a})=>`<tr tabindex="0" data-id="${esc(d.id)}" class="${d.id===selected?"sel":""}">
     <td><span class="addr">${esc(d.address)}</span>${subline(d,a)}</td>
     <td class="num" data-label="Ask">${usd(a.price)}</td><td class="num" data-label="Rent / mo">${usd(+d.rent||0)}</td>

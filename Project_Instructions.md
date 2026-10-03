@@ -62,7 +62,7 @@ Five tabs, opening on Review. The fifth is Settings (gear icon): Google Drive ba
 - **Owned:** properties Kevin owns, with value, equity and net rental income. Entered on the device only. Never put owned-property figures in this repo; it is public.
 - **Archive:** removed properties and lost deals, with reason and date.
 
-Review hides Pass verdicts unless Kevin chooses to show everything.
+Review has a Show filter: Buy box only, Worth a look (Buy box and Negotiate, the default), or Everything.
 
 Dollar boxes are text inputs with class `money`: they accept plain or formatted numbers and reformat as $1,234.56 on leaving the box. Read them with `num()`, never `parseFloat`. Other number inputs must use `step="any"`. A fixed step rejects real figures (cents, prices that are not round thousands) on iPhone. Inputs stay at 16px so the iPhone does not zoom into them.
 

@@ -1,13 +1,20 @@
 {
-  "version": "1.9.1",
+  "version": "1.10.0",
   "date": "2026-10-03",
   "notes": [
-    "New Explain this deal button on every property. It opens a plain-language walk-through: what you pay, what is left each month, and whether it meets your rules.",
-    "It shows what you could gain, what could go wrong, and what each term means using this deal's own numbers.",
-    "It works out what would make the deal better: the price, the interest rate and the rent at which it would meet your rules, with a table of rates around yours.",
-    "The interest rate table in the explainer now fits a phone screen without scrolling sideways."
+    "The Show filter on the Review tab has a new choice, Buy box only, which lists just the properties that meet every one of your rules at the asking price."
   ],
   "previous": [
+    {
+      "version": "1.9.1",
+      "date": "2026-10-03",
+      "notes": [
+        "New Explain this deal button on every property. It opens a plain-language walk-through: what you pay, what is left each month, and whether it meets your rules.",
+        "It shows what you could gain, what could go wrong, and what each term means using this deal's own numbers.",
+        "It works out what would make the deal better: the price, the interest rate and the rent at which it would meet your rules, with a table of rates around yours.",
+        "The interest rate table in the explainer now fits a phone screen without scrolling sideways."
+      ]
+    },
     {
       "version": "1.9.0",
       "date": "2026-10-03",
