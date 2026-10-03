@@ -55,7 +55,7 @@ handles technical execution end to end.
 
 ## How the app is organized
 
-Four tabs, opening on Review:
+Five tabs, opening on Review. The fifth is Settings (gear icon): Google Drive backup and sync, file backup and restore, and release notes.
 
 - **Review:** listings Claude has loaded that Kevin has not decided on. Keep moves one to In flight; Remove asks for a reason and archives it.
 - **In flight:** deals Kevin is working, each with a stage: Interested, Inquired, Toured, Offer made, Under contract. Mark as bought moves it to Owned.
@@ -95,6 +95,7 @@ back without asking.
 
 Same design as DebtFree Dashboard: one action that downloads `dealdesk-backup.json` from Kevin's Drive, merges it with the device (`mergeData` in `sync.js`), saves, and uploads the result. Sign-in is a full-page redirect, not a popup, because a popup never returns to an installed iPhone app. The token lives in memory only.
 
+- The backup module mirrors DebtFree Dashboard: a cloud button with a status dot in the header (grey never, amber stale, green ok, blue working) that opens a sheet, the same card on the Settings tab, and a toast for results. Keep the two apps' wording and behaviour in step.
 - `DRIVE_CLIENT_ID` in `index.html` is DealDesk's own OAuth client, in Google Cloud project DealDesk, in Testing mode with Kevin as the only test user. Setting it to empty disables the Sync button; that is the kill switch.
 - Use a separate OAuth client from DebtFree Dashboard's. Never edit that client or its consent screen for this project.
 - The redirect URI is the page's own address. Both `/DealDesk/` and `/DealDesk/index.html` must be registered on the client.

@@ -1,12 +1,22 @@
 {
-  "version": "1.7.0",
+  "version": "1.8.0",
   "date": "2026-10-03",
   "notes": [
-    "Google Drive sync is switched on. Scroll to Backup and sync at the bottom and tap Sync with Google Drive.",
-    "The first sync sends you to Google to sign in, then brings you back and saves dealdesk-backup.json in your Drive.",
-    "Run Sync on each device to keep them matched. The most recent change wins when two devices disagree."
+    "Cloud icon at the top right of every tab, with a status dot: grey means never backed up, amber means changes are waiting, green means backed up. Tap it to back up or sync.",
+    "New Settings tab (the gear). Google Drive backup and sync lives there, along with what is new in this version.",
+    "Backup and restore to a file, for a copy that does not depend on Google: Export saves everything to a file, Import merges a file back in.",
+    "Sync messages now pop up at the bottom of the screen."
   ],
   "previous": [
+    {
+      "version": "1.7.0",
+      "date": "2026-10-03",
+      "notes": [
+        "Google Drive sync is switched on. Scroll to Backup and sync at the bottom and tap Sync with Google Drive.",
+        "The first sync sends you to Google to sign in, then brings you back and saves dealdesk-backup.json in your Drive.",
+        "Run Sync on each device to keep them matched. The most recent change wins when two devices disagree."
+      ]
+    },
     {
       "version": "1.6.1",
       "date": "2026-10-02",

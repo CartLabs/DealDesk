@@ -38,8 +38,13 @@ p{margin:0}
 .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .muted{color:var(--muted)}
 .small{font-size:13px}
-header.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
-header.top p{max-width:60ch}
+header.top{display:grid;grid-template-columns:1fr auto auto;grid-template-areas:"brand actions cloud" "tag tag tag";gap:6px 16px;align-items:center}
+header.top .brand{grid-area:brand;margin:0}
+header.top .tagline{grid-area:tag;max-width:60ch}
+header.top .actions-top{grid-area:actions;justify-content:flex-end}
+header.top .drive-hdr-btn{grid-area:cloud}
+@media(max-width:640px){header.top{grid-template-columns:1fr auto;grid-template-areas:"brand cloud" "tag tag" "actions actions"}
+  header.top .actions-top{justify-content:flex-start;margin-top:6px}}
 .btn{font:600 14px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
 .btn:hover{border-color:var(--accent)}
 .btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
@@ -99,13 +104,39 @@ td .addr{font-weight:600}
 #status{font-size:13px;color:var(--muted)}
 #status:empty{display:none}
 /* tabs */
-.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
 .tab{font:600 14px var(--body);padding:10px 4px;border:0;border-right:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2px 6px}
 .tab:last-child{border-right:0}
 .tab[aria-selected="true"]{background:var(--ink);color:var(--surface)}
 .tab .n{font:600 11px var(--mono);background:var(--sunk);color:var(--ink);border-radius:99px;padding:1px 7px}
 .tab:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
 @media(max-width:420px){.tab{font-size:13px}}
+.tab.gear{padding-inline:14px}
+@media(max-width:640px){.gearword{display:none}.tab.gear{padding-inline:12px}}
+/* Google Drive backup: header button, sheet, toast */
+.drive-hdr-btn{background:none;border:0;padding:6px 8px;cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--ink);border-radius:8px}
+.drive-hdr-btn:hover{background:var(--sunk)}
+.drive-hdr-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.drive-dot{width:9px;height:9px;border-radius:50%;background:#9aa0a6;flex:0 0 9px}
+.drive-dot.ok{background:var(--good)}
+.drive-dot.stale{background:#e0a030}
+.drive-dot.busy{background:#4a90d9;animation:drivePulse 1s infinite}
+@keyframes drivePulse{0%,100%{opacity:1}50%{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.drive-dot.busy{animation:none}}
+.drive-card.loud{border-left:3px solid #e0a030;padding-left:12px}
+.drive-card.quiet{color:var(--muted)}
+.drive-card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.modal-overlay{position:fixed;inset:0;background:rgba(21,33,30,.45);display:flex;align-items:center;justify-content:center;padding:16px;z-index:50}
+.modal{background:var(--surface);border-radius:8px;padding:18px;width:100%;max-width:420px;display:flex;flex-direction:column;gap:14px;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.modal .drive-card.loud{border-left:0;padding-left:0}
+.modal .drive-card-actions .btn{flex:1;min-width:130px}
+.modal-header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.modal-close{background:none;border:0;font-size:26px;line-height:1;cursor:pointer;color:var(--muted);padding:0 6px}
+.drive-toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:60;padding:11px 16px;border-radius:10px;font-size:14px;max-width:90vw;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;background:#1f6f43;color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.drive-toast.warn{background:#8a4b12}
+.drive-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.filebtn{display:inline-flex;align-items:center;cursor:pointer}
+.whatsnew{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
 /* deal actions */
 .actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .chips{display:flex;flex-wrap:wrap;gap:8px;background:var(--sunk);padding:12px;border-radius:4px}
@@ -161,11 +192,10 @@ input.money{text-align:left}
 <body>
 <div class="wrap">
   <header class="top">
-    <div>
-      <h1 class="brand"><img src="assets/icon.svg" alt="" width="34" height="34"><span class="word">Deal<span>Desk</span></span></h1>
-      <p class="muted" id="tagline">Buy-and-hold rentals near Dracut, MA.</p>
-    </div>
-    <div class="row">
+    <h1 class="brand"><img src="assets/icon.svg" alt="" width="34" height="34"><span class="word">Deal<span>Desk</span></span></h1>
+    <button class="drive-hdr-btn" id="driveBtn" type="button" aria-label="Backup status"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M19.4 10.1A7.5 7.5 0 0 0 5.3 8.3 5.9 5.9 0 0 0 6 20h13a5 5 0 0 0 .4-9.9z"/></svg><span class="drive-dot never" id="driveDot"></span></button>
+    <p class="muted tagline" id="tagline">Buy-and-hold rentals near Dracut, MA.</p>
+    <div class="row actions-top">
       <span id="status"></span>
       <button class="btn primary" id="addBtn" type="button">Add a deal</button>
     </div>
@@ -176,6 +206,7 @@ input.money{text-align:left}
     <button class="tab" role="tab" id="tab_flight" data-tab="flight" type="button">In flight <span class="n" id="n_flight">0</span></button>
     <button class="tab" role="tab" id="tab_owned" data-tab="owned" type="button">Owned <span class="n" id="n_owned">0</span></button>
     <button class="tab" role="tab" id="tab_archive" data-tab="archive" type="button">Archive <span class="n" id="n_archive">0</span></button>
+    <button class="tab gear" role="tab" id="tab_settings" data-tab="settings" type="button" aria-label="Settings"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7.3 7.3 0 0 0-1.7-1L15 3.5h-4l-.4 2.5a7.300 7.300 0 0 0-1.700 1l-2.400-1-2 3.400 2 1.600a7.600 7.600 0 0 0 0 2l-2 1.600 2 3.400 2.400-1a7.300 7.300 0 0 0 1.700 1l.4 2.500h4l.4-2.500a7.300 7.300 0 0 0 1.700-1l2.400 1 2-3.400zM13 15.500a3.500 3.500 0 1 1 0-7 3.500 3.500 0 0 1 0 7z"/></svg><span class="gearword">Settings</span></button>
   </nav>
 
   <details class="box" id="boxDetails">
@@ -307,11 +338,48 @@ input.money{text-align:left}
       </div>
     </div>
   </section>
-  <section class="card" id="syncCard">
-    <div class="cardhead"><div><h3 class="cardtitle">Backup and sync</h3><p class="small muted" id="syncLine"></p></div></div>
-    <div class="row"><button class="btn primary" id="syncBtn" type="button">Sync with Google Drive</button><button class="btn" id="syncUndo" type="button" hidden>Undo last sync</button></div>
-    <p class="small muted">Sync saves one file, dealdesk-backup.json, in your own Google Drive and merges it with this device. Run it on each device to keep them matched. DealDesk can only see the file it creates, nothing else in your Drive.</p>
+  <section class="col" id="settingsView" hidden>
+    <h2>Settings</h2>
+    <article class="card">
+      <h3 class="cardtitle">Google Drive backup and sync</h3>
+      <div class="drive-card loud">
+        <div class="drive-line">Your data is only on this device.</div>
+        <div class="drive-card-actions">
+          <button class="btn primary drive-action" type="button">Back up to Google Drive</button>
+          <button class="btn drive-undo" type="button" hidden>Undo sync</button>
+        </div>
+      </div>
+      <p class="small muted">Sync keeps one file, dealdesk-backup.json, in your own Google Drive and merges it with this device. Run it on each device to keep them matched. DealDesk can only see the file it creates, nothing else in your Drive.</p>
+    </article>
+    <article class="card">
+      <h3 class="cardtitle">Backup and restore</h3>
+      <p class="small muted">No Google account needed. Export saves everything on this device to a file. Import merges a backup file into this device; nothing already here is lost unless the file has a newer version of it.</p>
+      <div class="drive-card-actions">
+        <button class="btn" id="exportBtn" type="button">Export backup</button>
+        <label class="btn filebtn">Import backup<input id="importFile" type="file" accept=".json,application/json" hidden></label>
+      </div>
+    </article>
+    <article class="card">
+      <h3 class="cardtitle">About</h3>
+      <p class="small muted" id="aboutLine"></p>
+      <ul class="small muted whatsnew" id="whatsNew"></ul>
+    </article>
   </section>
+
+  <div class="modal-overlay" id="driveModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="driveTitle">
+      <div class="modal-header"><h3 class="cardtitle" id="driveTitle">Google Drive backup</h3><button class="modal-close" id="driveClose" type="button" aria-label="Close">&times;</button></div>
+      <div class="drive-card loud">
+        <div class="drive-line">Your data is only on this device.</div>
+        <div class="drive-card-actions">
+          <button class="btn primary drive-action" type="button">Back up to Google Drive</button>
+          <button class="btn drive-undo" type="button" hidden>Undo sync</button>
+        </div>
+      </div>
+      <p class="small muted">No Google account? Settings &rsaquo; Backup and restore saves a file to your device instead.</p>
+    </div>
+  </div>
+  <div class="drive-toast" id="driveToast" role="status"></div>
   <p class="small muted" id="ver"></p>
 </div>
 
@@ -319,7 +387,7 @@ input.money{text-align:left}
 <script src="sync.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.7.0';
+const APP_VERSION = '1.8.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -334,6 +402,7 @@ const SKEYS=Object.keys(DEFAULTS);
 const STAGES=["Interested","Inquired","Toured","Offer made","Under contract"];
 const REASONS=["Numbers don't work","Price too high","Condition","Location","Lost to another buyer","Seller pulled it","Financing","Other"];
 const TABS={review:"To review",flight:"In flight",owned:"Owned",archive:"Archive"};
+const isList=t=>t==="review"||t==="flight"||t==="archive";
 let settings={...DEFAULTS}, deals=[], owned=[], removed=[], removedOwned=[], tab="review";
 let selected=null, editing=null, editingOwned=null, armed=null;
 
@@ -380,11 +449,13 @@ function renderTabs(){
   n.review=listFor("review").length;
   $("tagline").textContent=+settings.radius?`Buy-and-hold rentals within ${settings.radius} miles of Dracut, MA.`:"Buy-and-hold rentals at any distance from Dracut, MA.";
   Object.keys(TABS).forEach(t=>{$("n_"+t).textContent=n[t];$("tab_"+t).setAttribute("aria-selected",t===tab?"true":"false");});
+  $("tab_settings").setAttribute("aria-selected",tab==="settings"?"true":"false");
+  $("settingsView").hidden=tab!=="settings";$("addBtn").hidden=tab==="settings";
   $("addBtn").textContent=tab==="owned"?"Add a property":"Add a deal";
-  $("boxDetails").hidden=tab==="owned"||tab==="archive";
-  $("dealsView").hidden=tab==="owned";
+  $("boxDetails").hidden=tab!=="review"&&tab!=="flight";
+  $("dealsView").hidden=!isList(tab);
   $("ownedView").hidden=tab!=="owned";
-  if(tab==="owned")$("sheetSection").hidden=true;
+  if(!isList(tab))$("sheetSection").hidden=true;
 }
 
 /* deal lists */
@@ -411,7 +482,7 @@ function subline(d,a){
   return lines.join("");
 }
 function renderDeals(){
-  if(tab==="owned")return;
+  if(!isList(tab))return;
   const list=listFor(tab);
   $("listTitle").textContent=TABS[tab];
   $("listHelp").textContent=HELP[tab];
@@ -443,7 +514,7 @@ function actionsHtml(d){
 }
 function renderSheet(){
   const d=deals.find(x=>x.id===selected);
-  $("sheetSection").hidden=!d||tab==="owned"; if(!d)return;
+  $("sheetSection").hidden=!d||!isList(tab); if(!d)return;
   document.querySelectorAll("#rows tr").forEach(r=>r.classList.toggle("sel",r.dataset.id===selected));
   const s=settings,a=analyze(d,s);
   $("d_title").textContent=d.address;
@@ -626,14 +697,27 @@ function agoText(iso){const m=Math.floor((Date.now()-Date.parse(iso))/60000);
   if(m<1)return "just now";if(m<60)return m+(m===1?" minute ago":" minutes ago");
   const hr=Math.floor(m/60);if(hr<24)return hr+(hr===1?" hour ago":" hours ago");
   const dy=Math.floor(hr/24);return dy+(dy===1?" day ago":" days ago");}
+function driveState(){const at=lsGet(LS_DRIVE_AT);if(!at)return {status:"never"};
+  return {status:lsGet(LS_DRIVE_HASH)===currentHash()?"ok":"stale",at};}
+function driveToast(kind,text){const t=$("driveToast");t.className="drive-toast "+(kind==="warn"?"warn":"ok")+" show";t.textContent=text;
+  clearTimeout(t._h);t._h=setTimeout(()=>{t.className="drive-toast";},4200);}
 function updateSyncUI(){
-  const line=$("syncLine"),btn=$("syncBtn");if(!line)return;
-  if(!DRIVE_CLIENT_ID){line.textContent="Google Drive sync is not set up yet. Until it is, everything stays on this device only.";btn.disabled=true;$("syncUndo").hidden=true;return;}
-  const at=lsGet(LS_DRIVE_AT);
-  line.textContent=driveBusy?"Syncing…":!at?"Never synced. Everything is on this device only.":
-    lsGet(LS_DRIVE_HASH)===currentHash()?`Synced ${agoText(at)}. Nothing new since.`:`Last synced ${agoText(at)}. You have changes that are not in Drive yet.`;
-  btn.disabled=driveBusy;$("syncUndo").hidden=!lsGet(LS_DRIVE_UNDO);
+  const on=!!DRIVE_CLIENT_ID,st=driveState(),btn=$("driveBtn");if(!btn)return;
+  btn.hidden=!on;
+  btn.setAttribute("aria-label",st.status==="ok"?"Backed up "+agoText(st.at):st.status==="stale"?"Changes not backed up":"Not backed up yet");
+  $("driveDot").className="drive-dot "+(driveBusy?"busy":st.status);
+  document.querySelectorAll(".drive-card").forEach(card=>{
+    card.className="drive-card "+(st.status==="ok"?"quiet":"loud");
+    card.querySelector(".drive-line").innerHTML=!on?"Google Drive sync is switched off.":driveBusy?"Working…":
+      st.status==="never"?"<strong>Your data is only on this device.</strong> One tap saves a copy to your own Google Drive.":
+      st.status==="stale"?"<strong>Changes since your last backup.</strong> Last saved "+agoText(st.at)+".":
+      "Backed up to your Google Drive "+agoText(st.at)+".";
+    const act=card.querySelector(".drive-action");act.textContent=driveBusy?"Working…":st.status==="never"?"Back up to Google Drive":"Sync now";
+    act.disabled=driveBusy||!on;
+    card.querySelector(".drive-undo").hidden=!lsGet(LS_DRIVE_UNDO);});
 }
+function openDriveSheet(){updateSyncUI();$("driveModal").hidden=false;}
+function closeDriveSheet(){$("driveModal").hidden=true;}
 function driveStartAuth(){
   const state=Math.random().toString(36).slice(2)+Date.now().toString(36);
   lsSet(LS_DRIVE_PENDING,JSON.stringify({state,at:Date.now()}));
@@ -644,12 +728,12 @@ function driveHandleRedirect(){
   let pending=null;try{pending=JSON.parse(lsGet(LS_DRIVE_PENDING)||"null");}catch(e){}
   const hash=location.hash||"";
   if(hash.indexOf("access_token=")===-1){
-    if(pending){lsDel(LS_DRIVE_PENDING);if(Date.now()-(pending.at||0)<300000)status("Google sign-in did not complete. Nothing was changed.");}
+    if(pending){lsDel(LS_DRIVE_PENDING);if(Date.now()-(pending.at||0)<300000)driveToast("warn","Google sign-in did not complete. Nothing was changed.");}
     return;}
   const params=new URLSearchParams(hash.slice(1)),token=params.get("access_token"),state=params.get("state");
   try{history.replaceState(null,"",location.pathname+location.search);}catch(e){}   // take the token out of the address bar first
   lsDel(LS_DRIVE_PENDING);
-  if(!pending||!state||pending.state!==state){status("Google sign-in could not be verified. Please try again.");return;}
+  if(!pending||!state||pending.state!==state){driveToast("warn","Google sign-in could not be verified. Please try again.");return;}
   driveToken=token;driveSyncDo();
 }
 function driveFetch(url,opts){
@@ -685,24 +769,58 @@ function driveSyncDo(){
     .then(remote=>{
       if(remote){const res=mergeData(syncPayload(),remote);summary=res.summary;applyPayload(res.payload);save();selected=null;render();}
       return driveUpload(syncPayload());})
-    .then(()=>{status(summary?`Synced. ${summary.added} added, ${summary.updated} updated, ${summary.removed} removed on this device.`:"Backed up to your Google Drive.");})
-    .catch(err=>{if(/40[34]/.test(err.message))lsDel(LS_DRIVE_FILEID);status((err&&err.message)||"Sync failed. Nothing was changed.");})
+    .then(()=>{driveToast("ok",summary?syncSummaryText(summary):"Backed up to your Google Drive.");})
+    .catch(err=>{if(/40[34]/.test(err.message))lsDel(LS_DRIVE_FILEID);driveToast("warn",(err&&err.message)||"Sync failed. Nothing was changed.");})
     .then(()=>{driveBusy=false;updateSyncUI();});
 }
+function syncSummaryText(s){const n=s.added+s.updated+s.removed;
+  return n?`Synced. ${s.added} added, ${s.updated} updated, ${s.removed} removed on this device.`:"Synced. This device was already up to date.";}
 let undoArmed=false;
-$("syncBtn").addEventListener("click",driveSyncNow);
-$("syncUndo").addEventListener("click",()=>{
-  if(!undoArmed){undoArmed=true;$("syncUndo").textContent="Confirm: put back what was here before";return;}
-  undoArmed=false;$("syncUndo").textContent="Undo last sync";
-  try{applyPayload(JSON.parse(lsGet(LS_DRIVE_UNDO)));lsDel(LS_DRIVE_UNDO);save();selected=null;render();status("Previous data put back on this device.");}
-  catch(e){status("Could not undo.");}});
+function driveUndo(btn){
+  if(!undoArmed){undoArmed=true;document.querySelectorAll(".drive-undo").forEach(b=>b.textContent="Confirm: put back what was here");return;}
+  undoArmed=false;document.querySelectorAll(".drive-undo").forEach(b=>b.textContent="Undo sync");
+  try{applyPayload(JSON.parse(lsGet(LS_DRIVE_UNDO)));lsDel(LS_DRIVE_UNDO);save();selected=null;render();driveToast("ok","Previous data put back.");}
+  catch(e){driveToast("warn","Could not undo.");}
+}
+$("driveBtn").addEventListener("click",openDriveSheet);
+$("driveClose").addEventListener("click",closeDriveSheet);
+$("driveModal").addEventListener("click",e=>{if(e.target===$("driveModal"))closeDriveSheet();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDriveSheet();});
+document.addEventListener("click",e=>{
+  if(e.target.closest(".drive-action"))driveSyncNow();
+  else if(e.target.closest(".drive-undo"))driveUndo();});
+
+/* file backup: the same payload Drive uses, saved to or read from a file */
+$("exportBtn").addEventListener("click",()=>{
+  const blob=new Blob([JSON.stringify({...syncPayload(),exportDate:today()},null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="dealdesk-backup-"+today().slice(0,10)+".json";
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+  driveToast("ok","Backup file saved.");});
+$("importFile").addEventListener("change",e=>{
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{try{
+      const data=JSON.parse(r.result);
+      if(!data||data.app!=="DealDesk"||!Array.isArray(data.deals))throw new Error("not a DealDesk backup");
+      lsSet(LS_DRIVE_UNDO,JSON.stringify(syncPayload()));
+      const res=mergeData(syncPayload(),data);applyPayload(res.payload);save();selected=null;render();
+      driveToast("ok","Imported. "+res.summary.added+" added, "+res.summary.updated+" updated.");
+    }catch(err){driveToast("warn","That file is not a DealDesk backup. Nothing was changed.");}
+    e.target.value="";};
+  r.readAsText(f);});
+function renderAbout(){
+  $("aboutLine").textContent="DealDesk v"+APP_VERSION+". Everything you enter is saved on this device, and in your Google Drive once you sync.";
+  fetch("version.json",{cache:"no-store"}).then(r=>r.json()).then(v=>{
+    $("whatsNew").innerHTML=(v.notes||[]).map(n=>`<li>${esc(n)}</li>`).join("");}).catch(()=>{});
+}
 
 function render(){renderTabs();renderBox();renderDeals();renderOwned();}
 
 /* boot */
-$("ver").textContent="DealDesk v"+APP_VERSION+" · everything you enter is saved on this device only";
+$("ver").textContent="DealDesk v"+APP_VERSION;
 load();
 render();
+renderAbout();
 updateSyncUI();
 driveHandleRedirect();
 </script>
