@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert");
-const { DEFAULTS, loanK, analyze, principalPaid, explain } = require("../calc.js");
+const { DEFAULTS, loanK, analyze, dealTerms, principalPaid, explain } = require("../calc.js");
 
 const deal = { price: 600000, units: 3, rent: 6300, taxes: 9000, ins: 3000, state: "NH" };
 
@@ -70,4 +70,26 @@ test("explainer: monthly lines add up to what is left", () => {
   const m = explain(deal, DEFAULTS).monthly;
   const left = m.rent - m.vacancy - m.taxes - m.ins - m.hoa - m.maint - m.capex - m.mgmt - m.mortgage;
   assert.ok(Math.abs(left - m.left) < 0.01);
+});
+
+test("a deal's own financing replaces the buy box terms for that deal only", () => {
+  const seller = { ...deal, fin: { kind: "custom", down: 10, rate: 5, term: 30, balloon: 5 } };
+  const a = analyze(seller, DEFAULTS), base = analyze(deal, DEFAULTS);
+  assert.strictEqual(Math.round(a.loan), 540000);
+  assert.ok(Math.abs(a.debt / 12 - 2898.84) < 0.5);          // $540,000 at 5% for 30 years
+  assert.strictEqual(Math.round(base.loan), 450000);         // the same deal without those terms is unchanged
+  assert.strictEqual(dealTerms(deal, DEFAULTS), DEFAULTS);
+  assert.strictEqual(analyze({ ...deal, fin: { kind: "bank", rate: 1 } }, DEFAULTS).debt, base.debt);
+});
+
+test("explainer works from the deal's own financing and reports the balloon balance", () => {
+  const seller = { ...deal, fin: { kind: "custom", down: 10, rate: 5, term: 30, balloon: 5 } };
+  const e = explain(seller, DEFAULTS);
+  assert.strictEqual(e.custom, true);
+  assert.strictEqual(e.terms.rate, 5);
+  assert.ok(e.rates.some(r => r.current && r.rate === 5));
+  assert.ok(Math.abs(e.balloon.balance - 495875) < 50);       // owed after five years of payments
+  // varying the rate must really vary it, not snap back to the deal's 5%
+  assert.ok(e.rates[0].payment < e.rates[e.rates.length - 1].payment);
+  assert.strictEqual(explain(deal, DEFAULTS).balloon, null);
 });

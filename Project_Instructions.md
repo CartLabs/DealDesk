@@ -33,6 +33,7 @@ handles technical execution end to end.
 | `data/listings.js` | Listings Claude has loaded. Every device picks up new ones on next open |
 | `assets/` | Logo (`logo.svg`), icon (`icon.svg`) and home-screen icons |
 | `manifest.json` | Name and icons for Add to Home Screen |
+| `lookup.js` | Turns a RentCast lookup into form values and property facts, tested by `tools/test-lookup.js` |
 | `sync.js` | Merge rules for Google Drive sync, tested by `tools/test-sync.js` |
 | `version.json` | Current version and plain-language release notes |
 | `tools/test-calc.js` | Checks on the math |
@@ -44,7 +45,7 @@ handles technical execution end to end.
   `index.html` and `version` in `version.json`.
 - Bump patch for fixes and listing updates, minor for visible features.
 - Add notes to `version.json` written for Kevin in plain language.
-- Run `node --test tools/test-calc.js tools/test-sync.js` and `node tools/check-version.js` before every push.
+- Run `node --test tools/test-calc.js tools/test-sync.js tools/test-lookup.js` and `node tools/check-version.js` before every push.
 - **All changed files go in ONE commit.** Separate pushes cancel each other's
   Pages builds.
 - **Claude commits and pushes directly to `main`.** Kevin pulls in GitHub
@@ -73,6 +74,14 @@ An owned property holds a `loans` list (type, balance, rate, payment). Propertie
 A listing in `data/listings.js` has no status, so it lands in Review on every device.
 
 Every listing carries `miles`, the straight-line distance from Dracut, MA to its town center. The Review tab filters on it using the distance Kevin picks (default 50). When loading listings, load out to 100 miles so widening the distance has something to show, and always set `miles`.
+
+## Off-market deals, lookup and deal financing
+
+- A deal has `source`: `listing` or `offmarket`. Off-market deals are entered by Kevin in the app and live only on his devices and in his Drive file. Never put an off-market deal in `data/listings.js`; the repo is public.
+- Address and price are enough to save. A deal with no rent is shown as Needs rent, not scored.
+- Look up this address calls RentCast straight from the page with Kevin's own key, stored on the device under `dealdesk_rentcast_key` (never synced, exported or committed). One lookup is three requests. RentCast's rent estimate for a multi-family address is per unit, so `mapLookup` multiplies by the unit count.
+- The page cannot reach Claude. Copy for Claude copies a deal as text so Kevin can paste it into a chat for deeper research.
+- A deal may carry `fin: {kind:"custom", down, rate, term, balloon}`. `dealTerms()` in `calc.js` applies it over the buy box for that deal only; `analyze` and `explain` both honour it.
 
 ## Explain this deal
 

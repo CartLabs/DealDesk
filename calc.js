@@ -2,7 +2,16 @@
 // Change formulas here only, then run: node --test
 const DEFAULTS={maxPrice:1000000,minCF:200,minCoC:6,minDSCR:1.2,down:25,rate:7.25,term:30,closing:3,vac:5,maint:8,capex:7,mgmt:8};
 function loanK(rate,term){const r=rate/1200,n=term*12;return r===0?1/term:12*r/(1-Math.pow(1+r,-n));}
+// A deal can carry its own financing (seller financing, an assumable loan, a private note).
+// When it does, those terms replace the buy box's down payment, rate and term for that deal only.
+function dealTerms(d,s){
+  const f=d&&d.fin; if(!f||f.kind!=="custom")return s;
+  const o={...s}; ["down","rate","term"].forEach(k=>{const v=f[k]; if(v!==""&&v!==null&&v!==undefined&&isFinite(+v))o[k]=+v;});
+  if(!(o.term>=1))o.term=s.term;
+  return o;
+}
 function analyze(d,s,downOverride){
+  s=dealTerms(d,s);
   const price=+d.price||0,units=Math.max(1,+d.units||1),rehab=+d.rehab||0;
   const taxEst=!(+d.taxes>0),insEst=!(+d.ins>0);
   const taxes=taxEst?price*(d.state==="NH"?0.019:0.012):+d.taxes;
@@ -44,6 +53,8 @@ function principalPaid(loan, rate, term, years) {
   return loan - bal;
 }
 function explain(d, s) {
+  s = dealTerms(d, s);                       // from here on `s` already holds this deal's own financing
+  const fin = d.fin; d = { ...d }; delete d.fin;
   const a = analyze(d, s), units = a.units, rent = +d.rent || 0;
   const at = (dd, ss) => analyze(dd, ss);
   const passes = x => x.gap <= 0;
@@ -78,8 +89,11 @@ function explain(d, s) {
     rentDown10: { cfUnit: lower.cfUnit, cf: lower.cf / 12, verdict: lower.verdict },
     rateUp1: { cfUnit: higher.cfUnit, cf: higher.cf / 12, verdict: higher.verdict },
     selfManage: { cfUnit: self.cfUnit, cf: self.cf / 12, verdict: self.verdict, gain: (self.cf - a.cf) / 12 },
-    overCeiling, passRate, breakEvenRate, perQuarterPoint: quarter, rentToPass, rates
+    overCeiling, passRate, breakEvenRate, perQuarterPoint: quarter, rentToPass, rates,
+    terms: s, custom: !!(fin && fin.kind === "custom"),
+    balloon: fin && fin.kind === "custom" && +fin.balloon > 0 && +fin.balloon < s.term
+      ? { years: +fin.balloon, balance: a.loan - principalPaid(a.loan, s.rate, s.term, +fin.balloon) } : null
   };
 }
 
-if (typeof module !== "undefined") module.exports = { DEFAULTS, loanK, analyze, principalPaid, explain };
+if (typeof module !== "undefined") module.exports = { DEFAULTS, loanK, analyze, dealTerms, principalPaid, explain };

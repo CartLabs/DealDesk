@@ -1,10 +1,21 @@
 {
-  "version": "1.10.0",
+  "version": "1.11.0",
   "date": "2026-10-03",
   "notes": [
-    "The Show filter on the Review tab has a new choice, Buy box only, which lists just the properties that meet every one of your rules at the asking price."
+    "Off-market deals: the Add a deal form now asks where the deal came from. Choose Off-market, and an address and a price are enough to save it.",
+    "Look up this address fills in what a property data service knows: units, size, year built, the tax bill, the last sale, an estimated value and an estimated rent, and the distance from Dracut. It needs a free RentCast key, added once under Settings.",
+    "Financing for this deal: choose seller financing or other terms and give your own down payment, rate, years and balloon. That deal is then scored and explained on those terms.",
+    "A deal saved without a rent figure is marked Needs rent instead of failing.",
+    "Property facts on the deal sheet, extra risk checks in the explainer, and a Copy for Claude button that copies the deal as text to paste into a chat."
   ],
   "previous": [
+    {
+      "version": "1.10.0",
+      "date": "2026-10-03",
+      "notes": [
+        "The Show filter on the Review tab has a new choice, Buy box only, which lists just the properties that meet every one of your rules at the asking price."
+      ]
+    },
     {
       "version": "1.9.1",
       "date": "2026-10-03",

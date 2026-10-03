@@ -153,6 +153,10 @@ td .addr{font-weight:600}
 @media(max-width:640px){.modal-overlay{padding:8px}.modal.wide{padding:14px}
   .explain .scen th:nth-child(4),.explain .scen td:nth-child(4){display:none}
   .explain .scen th,.explain .scen td{padding:7px 6px}}
+.pill.plain{background:var(--sunk);color:var(--muted)}
+.lookup{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.sheet.unscored #d_kv,.sheet.unscored .col>div:has(#d_ledger),.sheet.unscored .col>div:has(#d_scen){display:none}
+.addr .tag{margin-left:4px}
 .filebtn{display:inline-flex;align-items:center;cursor:pointer}
 .whatsnew{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
 /* deal actions */
@@ -253,13 +257,20 @@ input.money{text-align:left}
   <section class="col" id="formSection" hidden>
     <h2 id="formTitle">Add a deal</h2>
     <form id="dealForm" class="grid" autocomplete="off">
+      <label class="span2">Where did this come from?<select id="f_source"><option value="listing">On the market (a listing)</option><option value="offmarket">Off-market (not listed)</option></select></label>
+      <label class="span2" id="fromWrap" hidden>Who brought it to you<input id="f_from" type="text" placeholder="Owner, agent, wholesaler, a friend"></label>
       <label class="span2">Street address<input id="f_address" type="text" required></label>
       <label>Town<input id="f_town" type="text" required></label>
       <label>State<select id="f_state"><option>MA</option><option>NH</option></select></label>
+      <label>Zip (optional)<input id="f_zip" type="text" inputmode="numeric" maxlength="10"></label>
+      <label><span id="priceLabel">Asking price</span><input id="f_price" class="money" type="text" inputmode="decimal" placeholder="$" required></label>
+      <div class="span2 lookup">
+        <button class="btn" type="button" id="lookupBtn">Look up this address</button>
+        <p class="small muted" id="lookupMsg"></p>
+      </div>
       <label>Type<select id="f_type"><option>Two-family</option><option>Three-family</option><option>Four-family</option><option>Single-family</option></select></label>
       <label>Units<input id="f_units" type="number" step="any" min="0" inputmode="decimal" value="2" required></label>
-      <label>Asking price<input id="f_price" class="money" type="text" inputmode="decimal" placeholder="$" required></label>
-      <label>Total rent / mo<input id="f_rent" class="money" type="text" inputmode="decimal" placeholder="$" required></label>
+      <label>Total rent / mo (blank = not scored yet)<input id="f_rent" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Taxes / yr (blank = estimate)<input id="f_taxes" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Insurance / yr (blank = estimate)<input id="f_ins" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>HOA / mo<input id="f_hoa" class="money" type="text" inputmode="decimal" placeholder="$"></label>
@@ -267,7 +278,18 @@ input.money{text-align:left}
       <label>School rating (1-10)<input id="f_school" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Walk Score (0-100)<input id="f_walk" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Miles from Dracut<input id="f_miles" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label class="span2">Listing link<input id="f_url" type="url" placeholder="https://"></label>
+      <div class="span2 loans">
+        <h3>Financing for this deal</h3>
+        <label>How would you pay for it?<select id="f_finkind"><option value="bank">Investor loan (your buy box terms)</option><option value="custom">Seller financing or other terms</option></select></label>
+        <div class="loan" id="finFields" hidden>
+          <label>Down payment %<input id="f_findown" type="number" step="any" min="0" inputmode="decimal"></label>
+          <label>Interest rate %<input id="f_finrate" type="number" step="any" min="0" inputmode="decimal"></label>
+          <label>Paid off over (years)<input id="f_finterm" type="number" step="any" min="0" inputmode="decimal"></label>
+          <label>Balance due after (years, if any)<input id="f_finballoon" type="number" step="any" min="0" inputmode="decimal"></label>
+          <p class="small muted" style="grid-column:1/-1">Leave a box blank to use your buy box figure. “Balance due after” is a balloon: the date the rest of the loan must be paid or refinanced.</p>
+        </div>
+      </div>
+      <label class="span2">Listing link (if any)<input id="f_url" type="url" placeholder="https://"></label>
       <label class="span2">Notes<textarea id="f_notes"></textarea></label>
       <div class="row span2"><button class="btn primary" type="submit" id="saveDeal">Save deal</button><button class="btn" type="button" id="cancelDeal">Cancel</button></div>
     </form>
@@ -346,6 +368,11 @@ input.money{text-align:left}
           <h3>Financing scenarios at asking price</h3>
           <div style="overflow-x:auto"><table class="scen num"><thead><tr><th>Down</th><th>Cash needed</th><th>Payment / mo</th><th>Cash flow / mo</th><th>Cash-on-cash</th></tr></thead><tbody id="d_scen"></tbody></table></div>
         </div>
+        <div id="d_factsWrap" hidden>
+          <h3>Property facts</h3>
+          <div class="kv" id="d_facts" style="margin-top:8px"></div>
+          <p class="small muted" id="d_factsNote"></p>
+        </div>
         <div>
           <h3>Neighborhood</h3>
           <div class="kv" id="d_hood" style="margin-top:8px"></div>
@@ -368,6 +395,18 @@ input.money{text-align:left}
         </div>
       </div>
       <p class="small muted">Sync keeps one file, dealdesk-backup.json, in your own Google Drive and merges it with this device. Run it on each device to keep them matched. DealDesk can only see the file it creates, nothing else in your Drive.</p>
+    </article>
+    <article class="card">
+      <h3 class="cardtitle">Property lookup</h3>
+      <p class="small muted">Lets the Add a deal form fill in a property from its address: units, bedrooms, size, year built, tax bill, last sale, an estimated value and an estimated rent. It uses RentCast, a property data service, with your own key. Get a free key at rentcast.io (API section); the free plan covers 50 requests a month and one lookup uses three.</p>
+      <label>RentCast API key<input id="rcKey" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste your key"></label>
+      <div class="drive-card-actions">
+        <button class="btn primary" id="rcSave" type="button">Save key</button>
+        <button class="btn" id="rcTest" type="button">Test it</button>
+        <button class="btn danger" id="rcClear" type="button">Remove key</button>
+      </div>
+      <p class="small muted" id="rcLine"></p>
+      <p class="small muted">The key is kept on this device only. It is not in your Drive backup or the export file, so paste it once on each device.</p>
     </article>
     <article class="card">
       <h3 class="cardtitle">Backup and restore</h3>
@@ -410,9 +449,10 @@ input.money{text-align:left}
 
 <script src="calc.js"></script>
 <script src="sync.js"></script>
+<script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.10.0';
+const APP_VERSION = '1.11.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -437,7 +477,11 @@ const shortDate=iso=>{const t=new Date(iso);return isNaN(t)?"":t.toLocaleDateStr
 const isNew=d=>{const t=new Date(d.addedAt||0);return (Date.now()-t)<7*864e5;};
 let statusTimer=null;
 function status(t){$("status").textContent=t||"";clearTimeout(statusTimer);if(t)statusTimer=setTimeout(()=>{$("status").textContent="";},4000);}
-function vclass(v){return v==="Buy box"?"good":v==="Negotiate"?"warn":"bad";}
+function vclass(v){return v==="Buy box"?"good":v==="Negotiate"?"warn":v==="Needs rent"?"plain":"bad";}
+/* score a deal; one with no rent yet cannot be scored, so it is marked instead of shown as a failure */
+function score(d){const a=analyze(d,settings);if(!(+d.rent>0)){a.verdict="Needs rent";a.gap=1e9;a.needs=true;}return a;}
+const offMarket=d=>d.source==="offmarket";
+const priceWord=d=>offMarket(d)?"Price":"Asking";
 
 /* storage: this browser only */
 function load(){let j=null;try{j=JSON.parse(localStorage.getItem("dealdesk")||"null");}catch(e){}
@@ -493,9 +537,9 @@ const EMPTY={review:"Nothing to review. New listings land here when they are add
 let passHidden=0;
 /* Review filter: "box" = Buy box only, "look" = Buy box and Negotiate, "all" = everything. Older saves used showAll. */
 const fitMode=()=>["box","look","all"].includes(settings.fit)?settings.fit:(settings.showAll?"all":"look");
-const fitShows=v=>fitMode()==="all"||v==="Buy box"||(fitMode()==="look"&&v==="Negotiate");
+const fitShows=v=>fitMode()==="all"||v==="Buy box"||v==="Needs rent"||(fitMode()==="look"&&v==="Negotiate");
 function listFor(t){
-  let list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d))).map(d=>({d,a:analyze(d,settings)}));
+  let list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d))).map(d=>({d,a:score(d)}));
   if(t==="review"){passHidden=list.filter(x=>!fitShows(x.a.verdict)).length;list=list.filter(x=>fitShows(x.a.verdict));}
   if(t==="flight")list.sort((x,y)=>STAGES.indexOf(y.d.stage)-STAGES.indexOf(x.d.stage)||x.a.gap-y.a.gap);
   else if(t==="archive")list.sort((x,y)=>String(y.d.archivedAt||"").localeCompare(String(x.d.archivedAt||"")));
@@ -521,11 +565,11 @@ function renderDeals(){
   $("filters").hidden=tab!=="review";$("fit").value=fitMode();$("radius").value=String(+settings.radius||0);
   $("empty").hidden=list.length>0;$("empty").textContent=hid?`Nothing within ${+settings.radius?settings.radius+" miles":"range"} ${fitMode()==="box"?"meets your buy box":"meets or comes close to your buy box"}. ${hid} propert${hid>1?"ies are":"y is"} hidden by the Show filter. Change Show to see ${hid>1?"them":"it"}.`:beyond?`Nothing within ${settings.radius} miles. ${beyond} propert${beyond>1?"ies are":"y is"} farther out. Widen the distance to see ${beyond>1?"them":"it"}.`:EMPTY[tab];
   $("rows").innerHTML=list.map(({d,a})=>`<tr tabindex="0" data-id="${esc(d.id)}" class="${d.id===selected?"sel":""}">
-    <td><span class="addr">${esc(d.address)}</span>${subline(d,a)}</td>
+    <td><span class="addr">${esc(d.address)}${offMarket(d)?' <span class="tag">Off-market</span>':""}</span>${subline(d,a)}</td>
     <td class="num" data-label="Ask">${usd(a.price)}</td><td class="num" data-label="Rent / mo">${usd(+d.rent||0)}</td>
     <td class="num ${a.cfUnit>=0?"pos":"neg"}" data-label="Cash flow / unit">${usd(a.cfUnit)}</td>
     <td class="num" data-label="Cash-on-cash">${pct(a.coc)}</td><td class="num" data-label="DSCR">${a.dscr.toFixed(2)}</td>
-    <td class="num" data-label="Max offer">${usd(a.maxOffer)}</td>
+    <td class="num" data-label="Max offer">${a.needs?"—":usd(a.maxOffer)}</td>
     <td><span class="pill ${vclass(a.verdict)}">${a.verdict}</span></td></tr>`).join("");
   if(selected&&!list.some(x=>x.d.id===selected))selected=null;
   if(!selected&&list.length&&innerWidth>860)selected=list[0].d.id;
@@ -534,7 +578,7 @@ function renderDeals(){
 function actionsHtml(d){
   const b=(act,label,cls="")=>`<button class="btn ${cls}" type="button" data-act="${act}">${label}</button>`;
   const st=statusOf(d);
-  const ex=b("explain","Explain this deal");
+  const ex=b("explain","Explain this deal")+b("copy","Copy for Claude");
   if(st==="review")return b("keep","Keep","primary")+b("remove","Remove")+ex+b("edit","Edit");
   if(st==="flight")return `<label class="inline">Stage<select id="d_stage">${STAGES.map(s=>`<option${s===(d.stage||STAGES[0])?" selected":""}>${s}</option>`).join("")}</select></label>`+
     b("bought","Mark as bought")+b("remove","Lost or remove")+ex+b("edit","Edit");
@@ -545,14 +589,15 @@ function renderSheet(){
   const d=deals.find(x=>x.id===selected);
   $("sheetSection").hidden=!d||!isList(tab); if(!d)return;
   document.querySelectorAll("#rows tr").forEach(r=>r.classList.toggle("sel",r.dataset.id===selected));
-  const s=settings,a=analyze(d,s);
-  $("d_title").textContent=d.address;
-  $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from Dracut`:"",`Asking ${usd(a.price)}`,d.addedAt?`Found ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
+  const s=dealTerms(d,settings),a=score(d);
+  $("d_title").innerHTML=esc(d.address)+(offMarket(d)?' <span class="tag">Off-market</span>':"");
+  $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from Dracut`:"",`${priceWord(d)} ${usd(a.price)}`,d.from?`From ${esc(d.from)}`:"",d.fin&&d.fin.kind==="custom"?`Own financing: ${s.down}% down at ${fmtRate(s.rate)}`:"",d.addedAt?`${offMarket(d)?"Added":"Found"} ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
   $("d_actions").innerHTML=actionsHtml(d);
   $("d_reasons").hidden=armed!=="remove";
   $("d_reasons").innerHTML=armed==="remove"?`<span class="small muted" style="flex-basis:100%">Why? Tap one to archive it.</span>`+REASONS.map(r=>`<button class="btn chip" type="button" data-reason="${esc(r)}">${esc(r)}</button>`).join(""):"";
-  $("d_max").textContent=usd(a.maxOffer);
-  $("d_maxwhy").textContent=a.gap<=0?`Asking price is ${usd(a.maxOffer-a.price)} under your limit. Limited by ${a.binding}.`:`Asking price is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) over. Limited by ${a.binding}.`;
+  document.querySelector("#sheetSection .sheet").classList.toggle("unscored",!!a.needs);
+  $("d_max").textContent=a.needs?"Not scored yet":usd(a.maxOffer);
+  $("d_maxwhy").textContent=a.needs?"There is no rent figure. Tap Edit, then Look up this address or type the rent, and it will be scored.":a.gap<=0?`${offMarket(d)?"The price":"Asking price"} is ${usd(a.maxOffer-a.price)} under your limit. Limited by ${a.binding}.`:`${offMarket(d)?"The price":"Asking price"} is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) over. Limited by ${a.binding}.`;
   const ok=c=>c?"pos":"neg";
   $("d_kv").innerHTML=[
     ["Cash flow / unit / mo",usd(a.cfUnit),ok(a.cfUnit>=s.minCF)],
@@ -569,7 +614,7 @@ function renderSheet(){
     (a.hoa?L("HOA",usd(-a.hoa)):"")+
     L(`Repairs (${s.maint}%)`,usd(-a.maint))+L(`Capital reserves (${s.capex}%)`,usd(-a.capex))+L(`Management (${s.mgmt}%)`,usd(-a.mgmt))+
     L("Net operating income",usd(a.noi),"total")+L("Mortgage (principal and interest)",usd(-a.debt))+L("Cash flow before tax",usd(a.cf),"total");
-  $("d_scen").innerHTML=[20,25,30].map(p=>{const x=analyze(d,s,p);return `<tr><td>${p}%</td><td>${usd(x.cash)}</td><td>${usd(x.debt/12)}</td><td class="${x.cf>=0?"pos":"neg"}">${usd(x.cf/12)}</td><td>${pct(x.coc)}</td></tr>`;}).join("");
+  $("d_scen").innerHTML=[...new Set([20,25,30,s.down])].sort((x,y)=>x-y).map(p=>{const x=analyze(d,s,p);return `<tr><td>${p}%</td><td>${usd(x.cash)}</td><td>${usd(x.debt/12)}</td><td class="${x.cf>=0?"pos":"neg"}">${usd(x.cf/12)}</td><td>${pct(x.coc)}</td></tr>`;}).join("");
   $("d_hood").innerHTML=[["School rating",d.school?d.school+" / 10":"Not entered"],["Walk Score",d.walk||d.walk===0?d.walk+" / 100":"Not entered"]].map(([l,v])=>`<div><h3>${l}</h3><span class="v" style="font-size:16px">${esc(v)}</span></div>`).join("");
   const q=encodeURIComponent(`${d.address}, ${d.town}, ${d.state}`);
   const links=[];
@@ -580,6 +625,17 @@ function renderSheet(){
     `<a href="https://www.walkscore.com/score/${q}" target="_blank" rel="noopener">Walk Score</a>`,
     `<a href="https://www.greatschools.org/search/search.page?q=${encodeURIComponent(d.town+", "+d.state)}" target="_blank" rel="noopener">Schools</a>`);
   $("d_links").innerHTML=links.join("");
+  const f=d.facts||{},fk=[];
+  if(f.bedrooms!==undefined||f.bathrooms!==undefined)fk.push(["Beds / baths",`${f.bedrooms??"?"} / ${f.bathrooms??"?"}`]);
+  if(f.squareFootage)fk.push(["Size",f.squareFootage.toLocaleString("en-US")+" sq ft"]);
+  if(f.yearBuilt)fk.push(["Built",String(f.yearBuilt)]);
+  if(f.lastSalePrice)fk.push(["Last sold",`${usd(f.lastSalePrice)}${f.lastSaleDate?" in "+f.lastSaleDate.slice(0,4):""}`]);
+  if(f.assessed)fk.push(["Assessed value",`${usd(f.assessed)}${f.assessedYear?" ("+f.assessedYear+")":""}`]);
+  if(f.valueEst)fk.push(["Estimated value",usd(f.valueEst)]);
+  if(f.rentPerUnit)fk.push(["Estimated rent / unit",usd(f.rentPerUnit)]);
+  $("d_factsWrap").hidden=!fk.length;
+  $("d_facts").innerHTML=fk.map(([l,v])=>`<div><h3>${l}</h3><span class="v" style="font-size:16px">${esc(v)}</span></div>`).join("");
+  $("d_factsNote").textContent=fk.length?`From RentCast${f.lookedUpAt?", looked up "+shortDate(f.lookedUpAt):""}.${f.valueLow&&f.valueHigh?` Value range ${usd(f.valueLow)} to ${usd(f.valueHigh)}.`:""}${f.rentLow&&f.rentHigh?` Rent range ${usd(f.rentLow)} to ${usd(f.rentHigh)} per unit.`:""} Estimates, not appraisals or leases.`:"";
   $("d_notes").hidden=!d.notes; $("d_notes").textContent=d.notes||"";
   $("d_est").textContent=(a.taxEst||a.insEst)?"Estimated lines use rough regional rates. Enter the real tax bill and an insurance quote before making an offer.":"";
 }
@@ -594,7 +650,8 @@ $("d_actions").addEventListener("click",e=>{
   const act=e.target.closest("[data-act]")?.dataset.act; if(!act)return;
   const d=deals.find(x=>x.id===selected); if(!d)return;
   if(act==="edit"){openForm(d);return;}
-  if(act==="explain"){openExplain(d);return;}
+  if(act==="explain"){if(!(+d.rent>0)){driveToast("warn","Add the rent first, or look up the address, so there is something to explain.");return;}openExplain(d);return;}
+  if(act==="copy"){copyForClaude(d);return;}
   if(act==="remove"){armed=armed==="remove"?null:"remove";renderSheet();return;}
   if(act==="keep"){d.status="flight";d.stage=STAGES[0];d.keptAt=today();d.updatedAt=today();save();status(`Kept. ${d.address} is now in flight.`);selected=null;armed=null;render();return;}
   if(act==="restore"){d.status="review";delete d.reason;delete d.archivedAt;d.updatedAt=today();save();status(`${d.address} moved back to review.`);selected=null;render();return;}
@@ -602,9 +659,9 @@ $("d_actions").addEventListener("click",e=>{
     if(armed!=="purge"){armed="purge";renderSheet();return;}
     deals=deals.filter(x=>x.id!==d.id);if(!removed.includes(d.id))removed.push(d.id);save();status("Deleted for good.");selected=null;armed=null;render();return;}
   if(act==="bought"){
-    const a=analyze(d,settings);
+    const a=analyze(d,settings),t=dealTerms(d,settings);
     const o={id:"o"+Date.now().toString(36),address:d.address,town:d.town,state:d.state,units:a.units,value:a.price,
-      rent:+d.rent||0,expenses:0,loans:[{type:"Mortgage",balance:Math.round(a.loan),rate:settings.rate,payment:Math.round((a.debt+a.taxes+a.ins)/12)}],notes:"Bought. Figures copied from the deal sheet at asking price; update them with the real numbers."};
+      rent:+d.rent||0,expenses:0,loans:[{type:d.fin&&d.fin.kind==="custom"?"Private or seller note":"Mortgage",balance:Math.round(a.loan),rate:t.rate,payment:Math.round((a.debt+a.taxes+a.ins)/12)}],notes:"Bought. Figures copied from the deal sheet at asking price; update them with the real numbers."};
     o.updatedAt=today();owned.push(o);archive(d,"Bought");save();tab="owned";selected=null;armed=null;render();openOwned(o);status("Added to Owned. Check the figures.");}
 });
 $("d_actions").addEventListener("change",e=>{if(e.target.id!=="d_stage")return;
@@ -613,16 +670,30 @@ $("d_reasons").addEventListener("click",e=>{const r=e.target.closest("[data-reas
   const d=deals.find(x=>x.id===selected);if(!d)return;archive(d,r);save();status(`Archived: ${r}.`);selected=null;armed=null;render();});
 
 /* deal form */
-const F=["address","town","state","type","units","price","rent","taxes","ins","hoa","rehab","school","walk","miles","url","notes"];
+const F=["source","from","address","town","state","zip","type","units","price","rent","taxes","ins","hoa","rehab","school","walk","miles","url","notes"];
 const NUMF=["units","price","rent","taxes","ins","hoa","rehab","school","walk","miles"];
+let formFacts=null;
+const LOOKUP_HINT="Address and price are enough to save. Look up fills in what it can find: units, taxes, rent, distance and more.";
+function syncFormShape(){
+  const off=$("f_source").value==="offmarket";
+  $("fromWrap").hidden=!off;$("priceLabel").textContent=off?"Price offered or discussed":"Asking price";
+  $("finFields").hidden=$("f_finkind").value!=="custom";
+}
 function openForm(d){
-  editing=d?d.id:null;
+  editing=d?d.id:null;formFacts=d&&d.facts?{...d.facts}:null;
   $("formTitle").textContent=d?"Edit deal":"Add a deal";
   $("dealForm").reset();
-  if(d)F.forEach(k=>{if(d[k]!==undefined&&d[k]!==null)setField($("f_"+k),d[k]);});
+  $("lookupMsg").textContent=lsGet(LS_RC_KEY)?LOOKUP_HINT:"Address and price are enough to save. To fill in the rest automatically, add a RentCast key under Settings, Property lookup.";
+  if(d)F.forEach(k=>{if(d[k]!==undefined&&d[k]!==null&&d[k]!=="")setField($("f_"+k),d[k]);});
+  const fin=d&&d.fin&&d.fin.kind==="custom"?d.fin:null;
+  $("f_finkind").value=fin?"custom":"bank";
+  ["down","rate","term","balloon"].forEach(k=>{$("f_fin"+k).value=fin&&fin[k]!==undefined?fin[k]:"";});
+  syncFormShape();
   $("ownedFormSection").hidden=true;$("formSection").hidden=false;$("f_address").focus();
   $("formSection").scrollIntoView({behavior:"smooth",block:"start"});
 }
+$("f_source").addEventListener("change",syncFormShape);
+$("f_finkind").addEventListener("change",syncFormShape);
 $("addBtn").addEventListener("click",()=>tab==="owned"?openOwned(null):openForm(null));
 $("cancelDeal").addEventListener("click",()=>{$("formSection").hidden=true;});
 $("f_type").addEventListener("change",()=>{const m={"Two-family":2,"Three-family":3,"Four-family":4,"Single-family":1};$("f_units").value=m[$("f_type").value];});
@@ -632,8 +703,113 @@ $("dealForm").addEventListener("submit",e=>{e.preventDefault();
     if(d.status==="flight")d.stage=STAGES[0];deals.push(d);if(tab==="archive")tab="review";}
   F.forEach(k=>{const raw=$("f_"+k).value.trim();
     if(NUMF.includes(k)){const v=num(raw);if(raw===""||!isFinite(v))delete d[k];else d[k]=v;}else d[k]=raw;});
+  if(!d.source)d.source="listing";if(!offMarket(d))delete d.from;
+  if($("f_finkind").value==="custom"){const fin={kind:"custom"};
+    ["down","rate","term","balloon"].forEach(k=>{const raw=$("f_fin"+k).value.trim(),v=num(raw);if(raw!==""&&isFinite(v))fin[k]=v;});d.fin=fin;}
+  else delete d.fin;
+  if(formFacts)d.facts=formFacts;
   d.updatedAt=today();
-  if(save()){selected=d.id;$("formSection").hidden=true;status("Deal saved");render();}});
+  if(save()){selected=d.id;$("formSection").hidden=true;status(+d.rent>0?"Deal saved":"Deal saved. Add the rent to score it.");render();}});
+
+/* ---------- property lookup (RentCast, with the user's own key kept on this device) ---------- */
+const LS_RC_KEY="dealdesk_rentcast_key";
+async function rcGet(path,params){
+  const key=lsGet(LS_RC_KEY);if(!key)throw {kind:"nokey"};
+  let res;
+  try{res=await fetch("https://api.rentcast.io/v1"+path+"?"+new URLSearchParams(params),{headers:{"X-Api-Key":key,"Accept":"application/json"}});}
+  catch(e){throw {kind:"blocked"};}
+  if(res.status===401||res.status===403)throw {kind:"badkey"};
+  if(res.status===429)throw {kind:"limit"};
+  if(res.status===404)return null;
+  if(!res.ok)throw {kind:"http",status:res.status};
+  return res.json();
+}
+const RC_MSG={nokey:"Add a RentCast key under Settings, Property lookup, first.",
+  blocked:"Could not reach RentCast from this browser. Check your connection. If it keeps failing, tell Claude: the service may not allow calls straight from a web page.",
+  badkey:"RentCast did not accept the key. Check it under Settings, Property lookup.",
+  limit:"You have used this month's RentCast requests. Enter the figures by hand, or try again next month."};
+const rcError=e=>RC_MSG[e&&e.kind]||("RentCast returned an error"+(e&&e.status?" ("+e.status+")":"")+". Nothing was changed.");
+$("lookupBtn").addEventListener("click",async()=>{
+  const msg=$("lookupMsg"),street=$("f_address").value.trim(),town=$("f_town").value.trim();
+  if(!street||!town){msg.textContent="Enter the street address and town first.";return;}
+  const address=[street,town,$("f_state").value,$("f_zip").value.trim()].filter(Boolean).join(", ");
+  $("lookupBtn").disabled=true;msg.textContent="Looking up "+address+"…";
+  try{
+    const recs=await rcGet("/properties",{address});
+    const rec=Array.isArray(recs)?recs[0]:recs;
+    const typedUnits=num($("f_units").value),known=rec&&rec.features&&rec.features.unitCount;
+    const units=known||((rec&&rec.propertyType==="Single Family")?1:typedUnits)||1;
+    const params={address};
+    if(rec&&rec.propertyType)params.propertyType=rec.propertyType;
+    if(rec&&rec.bedrooms>0)params.bedrooms=String(Math.max(1,Math.round(rec.bedrooms/units)));
+    const [rentEst,valueEst]=await Promise.all([rcGet("/avm/rent/long-term",params).catch(()=>null),rcGet("/avm/value",{address}).catch(()=>null)]);
+    const {fill,facts}=mapLookup(rec,rentEst,valueEst,known?null:typedUnits);
+    if(!rec&&!rentEst&&!valueEst){msg.textContent="RentCast has no record for that address. Check the spelling or add the zip, or enter the figures by hand.";return;}
+    const filled=[];
+    const put=(id,v,label,always)=>{const el=$(id);if(v===undefined||v===null)return;if(always||el.value.trim()===""){setField(el,v);filled.push(label);}};
+    put("f_units",fill.units,"units",true);if(fill.type)$("f_type").value=fill.type;
+    put("f_zip",fill.zip,"zip");put("f_taxes",fill.taxes,"taxes");put("f_rent",fill.rent,"rent");put("f_miles",fill.miles,"distance");
+    facts.lookedUpAt=today();formFacts=facts;
+    const bits=[];
+    if(facts.units)bits.push(`${facts.units} unit${facts.units>1?"s":""}`);
+    if(facts.bedrooms!==undefined)bits.push(`${facts.bedrooms} beds`);
+    if(facts.bathrooms!==undefined)bits.push(`${facts.bathrooms} baths`);
+    if(facts.squareFootage)bits.push(`${facts.squareFootage.toLocaleString("en-US")} sq ft`);
+    if(facts.yearBuilt)bits.push(`built ${facts.yearBuilt}`);
+    const lines=[];
+    if(bits.length)lines.push("Found: "+bits.join(", ")+".");
+    if(fill.taxes)lines.push(`Taxes ${usd(fill.taxes)}${facts.taxYear?" ("+facts.taxYear+")":""}.`);
+    if(facts.lastSalePrice)lines.push(`Last sold for ${usd(facts.lastSalePrice)}${facts.lastSaleDate?" in "+facts.lastSaleDate.slice(0,4):""}.`);
+    if(facts.valueEst)lines.push(`Estimated value ${usd(facts.valueEst)}.`);
+    if(facts.rentPerUnit)lines.push(`Estimated rent ${usd(facts.rentPerUnit)} per unit, ${usd(fill.rent)} for ${facts.rentUnits} unit${facts.rentUnits>1?"s":""}.`);
+    if(fill.miles!==undefined)lines.push(`${fill.miles} miles from Dracut.`);
+    if(facts.units>4)lines.push("This building has more than four units, so an investor home loan may not apply.");
+    lines.push(filled.length?"Filled in: "+filled.join(", ")+". Boxes you had already typed in were left alone.":"Nothing needed filling in.");
+    msg.textContent=lines.join(" ");
+  }catch(e){msg.textContent=rcError(e);}
+  finally{$("lookupBtn").disabled=false;}
+});
+function renderLookupSettings(){const k=lsGet(LS_RC_KEY);$("rcKey").value=k||"";
+  $("rcLine").textContent=k?"A key is saved on this device.":"No key saved. The Add a deal form still works; you enter the figures by hand.";}
+$("rcSave").addEventListener("click",()=>{const k=$("rcKey").value.trim();if(!k){$("rcLine").textContent="Paste the key first.";return;}lsSet(LS_RC_KEY,k);renderLookupSettings();driveToast("ok","Key saved on this device.");});
+$("rcClear").addEventListener("click",()=>{lsDel(LS_RC_KEY);renderLookupSettings();driveToast("ok","Key removed from this device.");});
+$("rcTest").addEventListener("click",async()=>{
+  const k=$("rcKey").value.trim();if(k)lsSet(LS_RC_KEY,k);
+  $("rcLine").textContent="Testing… this uses one request.";
+  try{const r=await rcGet("/properties",{address:"62 Arlington St, Dracut, MA, 01826"});
+    $("rcLine").textContent="It works. RentCast answered"+(r&&(Array.isArray(r)?r.length:1)?" with a property record.":", though it had no record for the test address.");}
+  catch(e){$("rcLine").textContent=rcError(e);}
+});
+
+/* ---------- copy a deal as text, to paste into a chat with Claude ---------- */
+function copyForClaude(d){
+  const t=dealTerms(d,settings),a=score(d),f=d.facts||{},L=[];
+  L.push(`Please research this property and tell me what to correct or add in DealDesk.`,"");
+  L.push(`Address: ${d.address}, ${d.town}, ${d.state}${d.zip?" "+d.zip:""}`);
+  L.push(`Source: ${offMarket(d)?"Off-market"+(d.from?" (from "+d.from+")":""):"Listing"+(d.url?" "+d.url:"")}`);
+  L.push(`${offMarket(d)?"Price discussed":"Asking price"}: ${usd(a.price)}`);
+  L.push(`Type: ${d.type||"?"}, ${a.units} unit${a.units>1?"s":""}`);
+  L.push(`Rent I have: ${+d.rent>0?usd(+d.rent)+" a month total":"none yet"}`);
+  L.push(`Taxes: ${a.taxEst?"not known (app estimates "+usd(a.taxes)+")":usd(a.taxes)+" a year"}`);
+  L.push(`Insurance: ${a.insEst?"not known (app estimates "+usd(a.ins)+")":usd(a.ins)+" a year"}`);
+  if(+d.rehab)L.push(`Upfront repairs: ${usd(+d.rehab)}`);
+  L.push(`Financing: ${d.fin&&d.fin.kind==="custom"?"seller or other terms":"investor loan"}, ${t.down}% down at ${fmtRate(t.rate)} over ${t.term} years${d.fin&&d.fin.balloon?", balance due after "+d.fin.balloon+" years":""}`);
+  const fx=[];
+  if(f.bedrooms!==undefined)fx.push(`${f.bedrooms} beds`);if(f.bathrooms!==undefined)fx.push(`${f.bathrooms} baths`);
+  if(f.squareFootage)fx.push(`${f.squareFootage} sq ft`);if(f.yearBuilt)fx.push(`built ${f.yearBuilt}`);
+  if(f.lastSalePrice)fx.push(`last sold ${usd(f.lastSalePrice)}${f.lastSaleDate?" on "+f.lastSaleDate:""}`);
+  if(f.assessed)fx.push(`assessed ${usd(f.assessed)}`);if(f.valueEst)fx.push(`estimated value ${usd(f.valueEst)}`);
+  if(f.rentPerUnit)fx.push(`estimated rent ${usd(f.rentPerUnit)} per unit`);
+  if(fx.length)L.push(`Facts from RentCast: ${fx.join(", ")}`);
+  if(!a.needs)L.push(`App verdict: ${a.verdict}. Max offer ${usd(a.maxOffer)}, cash flow ${usd(a.cfUnit)} per unit a month, cash-on-cash ${pct(a.coc)}, DSCR ${a.dscr.toFixed(2)}.`);
+  else L.push("App verdict: not scored yet, no rent figure.");
+  if(d.notes)L.push(`My notes: ${d.notes}`);
+  const text=L.join("\n");
+  const done=()=>driveToast("ok","Copied. Paste it into your chat with Claude.");
+  const fallback=()=>{const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");done();}catch(e){driveToast("warn","Could not copy on this device.");}ta.remove();};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(done,fallback);else fallback();
+}
 
 /* owned properties */
 const OF=["address","town","state","units","value","rent","expenses","notes"];
@@ -847,13 +1023,13 @@ function renderAbout(){
 /* ---------- "Explain this deal": the same numbers, in plain words ---------- */
 const fmtRate=r=>(+(+r).toFixed(3))+"%";
 function openExplain(d){
-  const s=settings,e=explain(d,s),a=e.a,m=e.monthly,u=e.units;
+  const e=explain(d,settings),s=e.terms,a=e.a,m=e.monthly,u=e.units,fx=d.facts||{};
   const per=u>1?` (${usd(a.cfUnit)} per unit)`:"";
   const mark=ok=>`<span class="${ok?"pos":"neg"}">${ok?"Meets your rule":"Misses your rule"}</span>`;
   const row=(l,v,cls="")=>`<tr class="${cls}"><td>${l}</td><td>${v}</td></tr>`;
   const est=[/^Light data/.test(d.notes||"")||/estimate/i.test(d.notes||"")?"rent":"",a.taxEst?"property taxes":"",a.insEst?"insurance":"",d.unitsInferred?"the number of units":""].filter(Boolean);
 
-  const short=`<p>You would pay <b>${usd(a.price)}</b>. You bring about <b>${usd(a.cash)}</b> in cash (the down payment, closing costs${+d.rehab?" and upfront repairs":""}) and the bank lends the other ${usd(a.loan)}.</p>
+  const short=`<p>You would pay <b>${usd(a.price)}</b>. You bring about <b>${usd(a.cash)}</b> in cash (the down payment, closing costs${+d.rehab?" and upfront repairs":""}) and ${e.custom?"the seller or other lender carries":"the bank lends"} the other ${usd(a.loan)}.</p>
     <p>Tenants pay about <b>${usd(e.rent)}</b> a month. After every bill and the mortgage, ${a.cf>=0?`about <b class="pos">${usd(m.left)}</b> a month is left over${per}.`:`you would be <b class="neg">short about ${usd(-m.left)}</b> a month and have to cover it yourself.`}</p>
     <p>${a.verdict==="Buy box"?`<b class="pos">It meets all of your rules at the asking price.</b> You could pay up to ${usd(a.maxOffer)} and it would still work.`:
         a.verdict==="Negotiate"?`<b class="warnc">It misses your rules at the asking price, but it is close.</b> It works at ${usd(a.maxOffer)} or less, which is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) below asking.`:
@@ -868,7 +1044,7 @@ function openExplain(d){
     ${row(`Repairs (${s.maint}%)`,usd(-m.maint))}
     ${row(`Saving for big replacements like a roof or boiler (${s.capex}%)`,usd(-m.capex))}
     ${row(`Property manager (${s.mgmt}%)`,usd(-m.mgmt))}
-    ${row(`Mortgage at ${fmtRate(s.rate)}`,usd(-m.mortgage))}
+    ${row(`${e.custom?"Loan payment":"Mortgage"} at ${fmtRate(s.rate)}`,usd(-m.mortgage))}
     ${row("Left over each month",usd(m.left),"total")}</tbody></table>`;
 
   const terms=`<dl>
@@ -895,7 +1071,11 @@ function openExplain(d){
   risks.push(`<b>How full it must be.</b> You need about ${Math.round(e.breakEvenOccupancy)}% of the rent collected just to cover the bills and the mortgage.`);
   risks.push(`<b>Lower rents.</b> If rents come in 10% under this estimate, you would have ${usd(e.rentDown10.cfUnit)} per unit a month, and the verdict would be ${e.rentDown10.verdict}.`);
   risks.push(`<b>A higher rate.</b> If your loan comes in one point higher, at ${fmtRate(s.rate+1)}, you would have ${usd(e.rateUp1.cfUnit)} per unit a month, and the verdict would be ${e.rateUp1.verdict}.`);
-  if(a.dscr<1.25)risks.push(`<b>Getting the loan.</b> Debt coverage of ${a.dscr.toFixed(2)} is under the 1.25 many lenders ask for on investor loans. The lender may want more money down.`);
+  if(e.balloon)risks.push(`<b>The loan comes due early.</b> After ${e.balloon.years} years you would still owe about ${usd(e.balloon.balance)}, and it must be paid in full or refinanced at whatever rates are then. That is the biggest risk in terms like these.`);
+  if(fx.valueEst&&fx.valueHigh&&a.price>fx.valueHigh)risks.push(`<b>The price looks high.</b> ${usd(a.price)} is above the estimated value range, which tops out at ${usd(fx.valueHigh)}. That estimate is rough, so check recent sales nearby.`);
+  if(fx.lastSalePrice&&fx.lastSaleDate)risks.push(`<b>What it sold for before.</b> It last sold for ${usd(fx.lastSalePrice)} in ${fx.lastSaleDate.slice(0,4)}. Ask what has changed since to justify ${usd(a.price)}.`);
+  if(offMarket(d))risks.push(`<b>Off-market means less checking has been done for you.</b> There is no listing, so confirm the unit count, the rents and the condition yourself, and have an attorney review any agreement before you sign.`);
+  if(!e.custom&&a.dscr<1.25)risks.push(`<b>Getting the loan.</b> Debt coverage of ${a.dscr.toFixed(2)} is under the 1.25 many lenders ask for on investor loans. The lender may want more money down.`);
   if(+d.miles>30)risks.push(`<b>Distance.</b> It is ${+d.miles} miles from Dracut, so you will likely need the property manager that is already in these numbers.`);
 
   const better=[];
@@ -940,6 +1120,7 @@ $("ver").textContent="DealDesk v"+APP_VERSION;
 load();
 render();
 renderAbout();
+renderLookupSettings();
 updateSyncUI();
 driveHandleRedirect();
 </script>
