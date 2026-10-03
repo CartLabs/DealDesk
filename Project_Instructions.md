@@ -52,6 +52,17 @@ handles technical execution end to end.
   problem that drove that rule does not apply.)
 - Use real dates. Kevin's date is authoritative if it differs from Claude's.
 
+## How the app is organized
+
+Four tabs, opening on Review:
+
+- **Review:** listings Claude has loaded that Kevin has not decided on. Keep moves one to In flight; Remove asks for a reason and archives it.
+- **In flight:** deals Kevin is working, each with a stage: Interested, Inquired, Toured, Offer made, Under contract. Mark as bought moves it to Owned.
+- **Owned:** properties Kevin owns, with value, equity and net rental income. Entered on the device only. Never put owned-property figures in this repo; it is public.
+- **Archive:** removed properties and lost deals, with reason and date.
+
+A listing in `data/listings.js` has no status, so it lands in Review on every device.
+
 ## Look
 
 Light theme only, on every device. Kevin asked for this; do not add a dark theme

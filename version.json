@@ -1,12 +1,23 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "date": "2026-10-02",
   "notes": [
-    "New DealDesk logo, and an app icon for your phone's home screen.",
-    "The page now always uses the light theme, even when your phone is in dark mode.",
-    "On a phone, the pipeline now shows the four columns that decide a deal (property, asking price, maximum offer, verdict) with no sideways scrolling. Tap a deal for the rest."
+    "Four tabs: To review, In flight, Owned, and Archive. The app opens on To review, and each tab shows a count.",
+    "To review: open a property and tap Keep to move it to In flight, or Remove and pick a reason to archive it.",
+    "In flight: each deal has a stage (Interested, Inquired, Toured, Offer made, Under contract). Mark as bought moves it to Owned.",
+    "Owned: enter each property's value, mortgage balance, rent and costs to see equity and net rental income, with totals. These figures stay on your device.",
+    "Archive: removed properties and lost deals with the reason and date. Move one back to review, or delete it for good."
   ],
   "previous": [
+    {
+      "version": "1.1.0",
+      "date": "2026-10-02",
+      "notes": [
+        "New DealDesk logo, and an app icon for your phone's home screen.",
+        "The page now always uses the light theme, even when your phone is in dark mode.",
+        "On a phone, the pipeline now shows the four columns that decide a deal (property, asking price, maximum offer, verdict) with no sideways scrolling. Tap a deal for the rest."
+      ]
+    },
     {
       "version": "1.0.0",
       "date": "2026-10-02",

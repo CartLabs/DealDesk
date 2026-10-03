@@ -103,6 +103,23 @@ td .addr{font-weight:600}
 .links a{color:var(--accent);font-weight:600;font-size:13px}
 .note{background:var(--sunk);padding:10px 12px;border-radius:4px;font-size:13px}
 #status{font-size:13px;color:var(--muted);min-height:1.4em}
+/* tabs */
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
+.tab{font:600 14px var(--body);padding:10px 4px;border:0;border-right:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2px 6px}
+.tab:last-child{border-right:0}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--surface)}
+.tab .n{font:600 11px var(--mono);background:var(--sunk);color:var(--ink);border-radius:99px;padding:1px 7px}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+@media(max-width:420px){.tab{font-size:13px}}
+/* deal actions */
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px;background:var(--sunk);padding:12px;border-radius:4px}
+.chip{border-radius:99px;font-size:13px;padding:6px 12px}
+label.inline{flex-direction:row;align-items:center;gap:8px}
+label.inline select{width:auto}
+.stage{font:600 11px var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+@media(max-width:640px){.tablewrap table.owned th:nth-child(n),.tablewrap table.owned td:nth-child(n){display:table-cell}
+  .tablewrap table.owned th:nth-child(3),.tablewrap table.owned td:nth-child(3){display:none}}
 </style>
 
 </head>
@@ -111,13 +128,20 @@ td .addr{font-weight:600}
   <header class="top">
     <div>
       <h1 class="brand"><img src="assets/icon.svg" alt="" width="34" height="34"><span class="word">Deal<span>Desk</span></span></h1>
-      <p class="muted">Buy-and-hold rentals within 50 miles of Dracut, MA. Every deal is scored against your buy box and worked back to a maximum offer.</p>
+      <p class="muted">Buy-and-hold rentals within 50 miles of Dracut, MA.</p>
     </div>
     <div class="row">
       <span id="status"></span>
       <button class="btn primary" id="addBtn" type="button">Add a deal</button>
     </div>
   </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab_review" data-tab="review" type="button">Review <span class="n" id="n_review">0</span></button>
+    <button class="tab" role="tab" id="tab_flight" data-tab="flight" type="button">In flight <span class="n" id="n_flight">0</span></button>
+    <button class="tab" role="tab" id="tab_owned" data-tab="owned" type="button">Owned <span class="n" id="n_owned">0</span></button>
+    <button class="tab" role="tab" id="tab_archive" data-tab="archive" type="button">Archive <span class="n" id="n_archive">0</span></button>
+  </nav>
 
   <details class="box" id="boxDetails">
     <summary>
@@ -164,22 +188,55 @@ td .addr{font-weight:600}
     </form>
   </section>
 
-  <section class="col">
-    <div class="row" style="justify-content:space-between"><h2>Pipeline</h2><span class="small muted" id="count"></span></div>
+  <section class="col" id="ownedFormSection" hidden>
+    <h2 id="ownedFormTitle">Add a property you own</h2>
+    <form id="ownedForm" class="grid" autocomplete="off">
+      <label class="span2">Street address<input id="o_address" type="text" required></label>
+      <label>Town<input id="o_town" type="text" required></label>
+      <label>State<select id="o_state"><option>MA</option><option>NH</option></select></label>
+      <label>Units<input id="o_units" type="number" min="1" value="2" required></label>
+      <label>Current value $<input id="o_value" type="number" step="1000" required></label>
+      <label>Mortgage balance $<input id="o_balance" type="number" step="1000"></label>
+      <label>Rent collected / mo $<input id="o_rent" type="number" step="25"></label>
+      <label>Mortgage payment / mo $<input id="o_payment" type="number" step="10"></label>
+      <label>Other costs / mo $<input id="o_expenses" type="number" step="10"></label>
+      <label class="span2">Notes<textarea id="o_notes"></textarea></label>
+      <div class="row span2"><button class="btn primary" type="submit">Save property</button><button class="btn" type="button" id="cancelOwned">Cancel</button><button class="btn danger" type="button" id="delOwned" hidden>Delete</button></div>
+      <p class="small muted span2">Mortgage payment is everything you send the lender, including taxes and insurance if they are escrowed. Other costs are whatever is left: repairs, utilities you pay, insurance and taxes paid directly.</p>
+    </form>
+  </section>
+
+  <section class="col" id="dealsView">
+    <div class="row" style="justify-content:space-between"><h2 id="listTitle">To review</h2><span class="small muted" id="count"></span></div>
+    <p class="small muted" id="listHelp"></p>
     <div class="tablewrap">
       <table>
         <thead><tr><th>Property</th><th>Ask</th><th>Rent / mo</th><th>Cash flow / unit</th><th>Cash-on-cash</th><th>DSCR</th><th>Max offer</th><th>Verdict</th></tr></thead>
         <tbody id="rows"></tbody>
       </table>
-      <div class="empty" id="empty">Loading your pipeline. Deals appear here ranked by how far the asking price sits from your maximum offer. Use “Add a deal” to enter the first one.</div>
+      <div class="empty" id="empty"></div>
     </div>
+  </section>
+
+  <section class="col" id="ownedView" hidden>
+    <div class="row" style="justify-content:space-between"><h2>Properties you own</h2><span class="small muted">Saved on this device only</span></div>
+    <div class="kv" id="ownedTotals"></div>
+    <div class="tablewrap">
+      <table class="owned">
+        <thead><tr><th>Property</th><th>Value</th><th>Mortgage</th><th>Equity</th><th>Net / mo</th></tr></thead>
+        <tbody id="ownedRows"></tbody>
+      </table>
+      <div class="empty" id="ownedEmpty">No properties yet. Use “Add a property” to enter what you own. Each one shows its current value, equity, and net rental income after the mortgage and other costs.</div>
+    </div>
+    <p class="small muted">Net per month is rent collected, less the mortgage payment, less other costs. Tap a property to update it. These figures never leave this device.</p>
   </section>
 
   <section id="sheetSection" class="col" hidden>
     <div class="row" style="justify-content:space-between">
       <div><h2 id="d_title"></h2><p class="muted small" id="d_sub"></p></div>
-      <div class="row"><button class="btn" id="editBtn" type="button">Edit</button><button class="btn danger" id="delBtn" type="button">Delete</button></div>
     </div>
+    <div class="actions" id="d_actions"></div>
+    <div class="chips" id="d_reasons" hidden></div>
     <div class="sheet">
       <div class="col">
         <div class="offer">
@@ -214,50 +271,115 @@ td .addr{font-weight:600}
 <script src="calc.js"></script>
 <script src="data/listings.js"></script>
 <script>
-
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.2.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const SKEYS=Object.keys(DEFAULTS);
-let settings={...DEFAULTS}, deals=[], selected=null, editing=null, db=null, loaded=false, delArmed=false;
+const STAGES=["Interested","Inquired","Toured","Offer made","Under contract"];
+const REASONS=["Numbers don't work","Price too high","Condition","Location","Lost to another buyer","Seller pulled it","Financing","Other"];
+const TABS={review:"To review",flight:"In flight",owned:"Owned",archive:"Archive"};
+let settings={...DEFAULTS}, deals=[], owned=[], removed=[], tab="review";
+let selected=null, editing=null, editingOwned=null, armed=null;
 
+const statusOf=d=>d.status||"review";
+const today=()=>new Date().toISOString();
+const shortDate=iso=>{const t=new Date(iso);return isNaN(t)?"":t.toLocaleDateString("en-US",{month:"short",day:"numeric"});};
+const isNew=d=>{const t=new Date(d.addedAt||0);return (Date.now()-t)<7*864e5;};
 function status(t){$("status").textContent=t||"";}
 function vclass(v){return v==="Buy box"?"good":v==="Negotiate"?"warn":"bad";}
 
-function renderBox(){
-  const s=settings;
-  $("boxSummary").innerHTML=`Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · <b>${pct(s.minCoC)}</b> cash-on-cash · <b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`;
-  if(document.activeElement?.form!==$("boxForm")) SKEYS.forEach(k=>{$("s_"+k).value=s[k];});
+/* storage: this browser only */
+function load(){let j=null;try{j=JSON.parse(localStorage.getItem("dealdesk")||"null");}catch(e){}
+  if(j){deals=j.deals||[];removed=j.removed||[];owned=j.owned||[];settings={...DEFAULTS,...(j.settings||{})};}
+  /* add any listing from data/listings.js this browser has not seen and has not deleted */
+  const have=new Set(deals.map(d=>d.id));
+  (window.SEED_LISTINGS||[]).forEach(d=>{if(!have.has(d.id)&&!removed.includes(d.id))deals.push({...d});});}
+function save(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings,removed,owned}));return true;}catch(e){status("Could not save on this device. Private browsing blocks saving.");return false;}}
+
+/* buy box */
+function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · <b>${pct(s.minCoC)}</b> cash-on-cash · <b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`;}
+function renderBox(){$("boxSummary").innerHTML=boxText();
+  if(document.activeElement?.form!==$("boxForm")) SKEYS.forEach(k=>{$("s_"+k).value=settings[k];});}
+function readBox(){SKEYS.forEach(k=>{const v=parseFloat($("s_"+k).value);if(isFinite(v))settings[k]=v;});if(settings.term<1)settings.term=30;}
+$("boxForm").addEventListener("input",()=>{readBox();$("boxSummary").innerHTML=boxText();renderDeals();});
+$("boxForm").addEventListener("submit",e=>{e.preventDefault();readBox();if(save()){status("Buy box saved");$("boxDetails").open=false;}});
+
+/* tabs */
+function setTab(t){tab=t;selected=null;armed=null;$("formSection").hidden=true;$("ownedFormSection").hidden=true;render();}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>setTab(b.dataset.tab)));
+function renderTabs(){
+  const n={review:0,flight:0,archive:0,owned:owned.length};
+  deals.forEach(d=>{n[statusOf(d)]++;});
+  Object.keys(TABS).forEach(t=>{$("n_"+t).textContent=n[t];$("tab_"+t).setAttribute("aria-selected",t===tab?"true":"false");});
+  $("addBtn").textContent=tab==="owned"?"Add a property":"Add a deal";
+  $("boxDetails").hidden=tab==="owned";
+  $("dealsView").hidden=tab==="owned";
+  $("ownedView").hidden=tab!=="owned";
+  if(tab==="owned")$("sheetSection").hidden=true;
 }
-function ranked(){return deals.map(d=>({d,a:analyze(d,settings)})).sort((x,y)=>x.a.gap-y.a.gap);}
-function renderList(){
-  const list=ranked();
-  $("count").textContent=list.length?`${list.length} deal${list.length>1?"s":""}, best fit first`:"";
-  $("empty").hidden=list.length>0;
-  if(!list.length&&loaded)$("empty").textContent="No deals yet. Use “Add a deal” to enter a listing, or add listings to data/listings.js.";
+
+/* deal lists */
+const HELP={review:"New finds, best fit first. Open one, then Keep it or Remove it.",
+  flight:"Deals you are working, furthest along first. Update the stage as each one moves.",
+  archive:"Properties you removed and deals that fell through, most recent first."};
+const EMPTY={review:"Nothing to review. New listings land here when they are added.",
+  flight:"No deals in flight. Keep a property from To review and it moves here.",
+  archive:"Nothing archived yet. Removed properties and lost deals are kept here with the reason."};
+function listFor(t){
+  const list=deals.filter(d=>statusOf(d)===t).map(d=>({d,a:analyze(d,settings)}));
+  if(t==="flight")list.sort((x,y)=>STAGES.indexOf(y.d.stage)-STAGES.indexOf(x.d.stage)||x.a.gap-y.a.gap);
+  else if(t==="archive")list.sort((x,y)=>String(y.d.archivedAt||"").localeCompare(String(x.d.archivedAt||"")));
+  else list.sort((x,y)=>x.a.gap-y.a.gap);
+  return list;
+}
+function subline(d,a){
+  const base=`${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}`;
+  if(tab==="flight")return `<span class="stage">${esc(d.stage||STAGES[0])}</span> ${base}`;
+  if(tab==="archive")return `${esc(d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}<br>${base}`;
+  return base;
+}
+function renderDeals(){
+  if(tab==="owned")return;
+  const list=listFor(tab);
+  $("listTitle").textContent=TABS[tab];
+  $("listHelp").textContent=HELP[tab];
+  $("count").textContent=list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"";
+  $("empty").hidden=list.length>0;$("empty").textContent=EMPTY[tab];
   $("rows").innerHTML=list.map(({d,a})=>`<tr tabindex="0" data-id="${esc(d.id)}" class="${d.id===selected?"sel":""}">
-    <td><span class="addr">${esc(d.address)}</span>${d.example?'<span class="tag">Example</span>':""}<br><span class="small muted">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}</span></td>
+    <td><span class="addr">${esc(d.address)}</span>${tab==="review"&&isNew(d)?'<span class="tag">New</span>':""}<br><span class="small muted">${subline(d,a)}</span></td>
     <td class="num">${usd(a.price)}</td><td class="num">${usd(+d.rent||0)}</td>
     <td class="num ${a.cfUnit>=0?"pos":"neg"}">${usd(a.cfUnit)}</td>
     <td class="num">${pct(a.coc)}</td><td class="num">${a.dscr.toFixed(2)}</td>
     <td class="num">${usd(a.maxOffer)}</td>
     <td><span class="pill ${vclass(a.verdict)}">${a.verdict}</span></td></tr>`).join("");
-  if(selected&&!deals.some(d=>d.id===selected))selected=null;
-  if(!selected&&list.length)selected=list[0].d.id;
+  if(selected&&!list.some(x=>x.d.id===selected))selected=null;
+  if(!selected&&list.length&&innerWidth>860)selected=list[0].d.id;
   renderSheet();
+}
+function actionsHtml(d){
+  const b=(act,label,cls="")=>`<button class="btn ${cls}" type="button" data-act="${act}">${label}</button>`;
+  const st=statusOf(d);
+  if(st==="review")return b("keep","Keep","primary")+b("remove","Remove")+b("edit","Edit");
+  if(st==="flight")return `<label class="inline">Stage<select id="d_stage">${STAGES.map(s=>`<option${s===(d.stage||STAGES[0])?" selected":""}>${s}</option>`).join("")}</select></label>`+
+    b("bought","Mark as bought")+b("remove","Lost or remove")+b("edit","Edit");
+  return `<span class="small muted">${esc(d.reason||"Removed")}${d.archivedAt?" on "+shortDate(d.archivedAt):""}</span>`+
+    b("restore","Move back to review")+b("purge",armed==="purge"?"Confirm delete":"Delete for good","danger");
 }
 function renderSheet(){
   const d=deals.find(x=>x.id===selected);
-  $("sheetSection").hidden=!d; if(!d)return;
+  $("sheetSection").hidden=!d||tab==="owned"; if(!d)return;
   document.querySelectorAll("#rows tr").forEach(r=>r.classList.toggle("sel",r.dataset.id===selected));
   const s=settings,a=analyze(d,s);
-  $("d_title").innerHTML=esc(d.address)+(d.example?'<span class="tag">Example</span>':"");
-  $("d_sub").textContent=`${d.town}, ${d.state} · ${d.type||""} · ${a.units} unit${a.units>1?"s":""} · asking ${usd(a.price)}`;
+  $("d_title").textContent=d.address;
+  $("d_sub").textContent=`${d.town}, ${d.state} · ${d.type||""} · ${a.units} unit${a.units>1?"s":""} · asking ${usd(a.price)}${d.addedAt?" · found "+shortDate(d.addedAt):""}`;
+  $("d_actions").innerHTML=actionsHtml(d);
+  $("d_reasons").hidden=armed!=="remove";
+  $("d_reasons").innerHTML=armed==="remove"?`<span class="small muted" style="flex-basis:100%">Why? Tap one to archive it.</span>`+REASONS.map(r=>`<button class="btn chip" type="button" data-reason="${esc(r)}">${esc(r)}</button>`).join(""):"";
   $("d_max").textContent=usd(a.maxOffer);
   $("d_maxwhy").textContent=a.gap<=0?`Asking price is ${usd(a.maxOffer-a.price)} under your limit. Limited by ${a.binding}.`:`Asking price is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) over. Limited by ${a.binding}.`;
-  const ok=(c)=>c?"pos":"neg";
+  const ok=c=>c?"pos":"neg";
   $("d_kv").innerHTML=[
     ["Cash flow / unit / mo",usd(a.cfUnit),ok(a.cfUnit>=s.minCF)],
     ["Cash-on-cash",pct(a.coc),ok(a.coc>=s.minCoC)],
@@ -286,36 +408,34 @@ function renderSheet(){
   $("d_links").innerHTML=links.join("");
   $("d_notes").hidden=!d.notes; $("d_notes").textContent=d.notes||"";
   $("d_est").textContent=(a.taxEst||a.insEst)?"Estimated lines use rough regional rates. Enter the real tax bill and an insurance quote before making an offer.":"";
-  delArmed=false; $("delBtn").textContent="Delete";
 }
-function renderAll(){renderBox();renderList();}
+function pick(e){const tr=e.target.closest("tr[data-id]");if(!tr)return;selected=tr.dataset.id;armed=null;renderSheet();
+  if(innerWidth<=860)$("sheetSection").scrollIntoView({behavior:"smooth",block:"start"});}
+$("rows").addEventListener("click",pick);
+$("rows").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(e);}});
 
-/* storage: shared store when available, this browser otherwise */
-let removed=[];
-function localLoad(){let j=null;try{j=JSON.parse(localStorage.getItem("dealdesk")||"null");}catch(e){}
-  if(j){deals=j.deals||[];removed=j.removed||[];settings={...DEFAULTS,...(j.settings||{})};}
-  /* add any listing from data/listings.js this browser has not seen and has not deleted */
-  const have=new Set(deals.map(d=>d.id));
-  (window.SEED_LISTINGS||[]).forEach(d=>{if(!have.has(d.id)&&!removed.includes(d.id))deals.push({...d});});}
-function localSave(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings,removed}));}catch(e){}}
-async function saveDealDoc(id,data){
-  if(db){await db.doc("deals/"+id).set(data);}
-  else{const i=deals.findIndex(x=>x.id===id);if(i>=0)deals[i]={...data,id};else deals.push({...data,id});localSave();renderAll();}
-}
-async function deleteDealDoc(id){
-  if(db){await db.doc("deals/"+id).delete();}
-  else{deals=deals.filter(x=>x.id!==id);if(!removed.includes(id))removed.push(id);localSave();renderAll();}
-}
-async function saveSettings(){
-  if(db){await db.doc("settings/buybox").set({...settings});}else{localSave();}
-}
-
-/* buy box */
-function readBox(){SKEYS.forEach(k=>{const v=parseFloat($("s_"+k).value);if(isFinite(v))settings[k]=v;});if(settings.term<1)settings.term=30;}
-$("boxForm").addEventListener("input",()=>{readBox();const s=settings;renderList();
-  $("boxSummary").innerHTML=`Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · <b>${pct(s.minCoC)}</b> cash-on-cash · <b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`;});
-$("boxForm").addEventListener("submit",async e=>{e.preventDefault();readBox();
-  try{await saveSettings();status("Buy box saved");$("boxDetails").open=false;}catch(err){status("Could not save the buy box. Try again.");}});
+/* deal actions */
+function archive(d,reason){d.status="archive";d.reason=reason;d.archivedAt=today();}
+$("d_actions").addEventListener("click",e=>{
+  const act=e.target.closest("[data-act]")?.dataset.act; if(!act)return;
+  const d=deals.find(x=>x.id===selected); if(!d)return;
+  if(act==="edit"){openForm(d);return;}
+  if(act==="remove"){armed=armed==="remove"?null:"remove";renderSheet();return;}
+  if(act==="keep"){d.status="flight";d.stage=STAGES[0];d.keptAt=today();save();status(`Kept. ${d.address} is now in flight.`);selected=null;armed=null;render();return;}
+  if(act==="restore"){d.status="review";delete d.reason;delete d.archivedAt;save();status(`${d.address} moved back to review.`);selected=null;render();return;}
+  if(act==="purge"){
+    if(armed!=="purge"){armed="purge";renderSheet();return;}
+    deals=deals.filter(x=>x.id!==d.id);if(!removed.includes(d.id))removed.push(d.id);save();status("Deleted for good.");selected=null;armed=null;render();return;}
+  if(act==="bought"){
+    const a=analyze(d,settings);
+    const o={id:"o"+Date.now().toString(36),address:d.address,town:d.town,state:d.state,units:a.units,value:a.price,
+      balance:Math.round(a.loan),rent:+d.rent||0,payment:Math.round((a.debt+a.taxes+a.ins)/12),expenses:0,notes:"Bought. Figures copied from the deal sheet at asking price; update them with the real numbers."};
+    owned.push(o);archive(d,"Bought");save();tab="owned";selected=null;armed=null;render();openOwned(o);status("Added to Owned. Check the figures.");}
+});
+$("d_actions").addEventListener("change",e=>{if(e.target.id!=="d_stage")return;
+  const d=deals.find(x=>x.id===selected);if(!d)return;d.stage=e.target.value;save();status(`Stage set to ${d.stage}.`);renderDeals();});
+$("d_reasons").addEventListener("click",e=>{const r=e.target.closest("[data-reason]")?.dataset.reason;if(!r)return;
+  const d=deals.find(x=>x.id===selected);if(!d)return;archive(d,r);save();status(`Archived: ${r}.`);selected=null;armed=null;render();});
 
 /* deal form */
 const F=["address","town","state","type","units","price","rent","taxes","ins","hoa","rehab","school","walk","url","notes"];
@@ -325,42 +445,65 @@ function openForm(d){
   $("formTitle").textContent=d?"Edit deal":"Add a deal";
   $("dealForm").reset();
   if(d)F.forEach(k=>{if(d[k]!==undefined&&d[k]!==null)$("f_"+k).value=d[k];});
-  $("formSection").hidden=false;$("f_address").focus();
+  $("ownedFormSection").hidden=true;$("formSection").hidden=false;$("f_address").focus();
   $("formSection").scrollIntoView({behavior:"smooth",block:"start"});
 }
-$("addBtn").addEventListener("click",()=>openForm(null));
+$("addBtn").addEventListener("click",()=>tab==="owned"?openOwned(null):openForm(null));
 $("cancelDeal").addEventListener("click",()=>{$("formSection").hidden=true;});
-$("editBtn").addEventListener("click",()=>{const d=deals.find(x=>x.id===selected);if(d)openForm(d);});
 $("f_type").addEventListener("change",()=>{const m={"Two-family":2,"Three-family":3,"Four-family":4,"Single-family":1};$("f_units").value=m[$("f_type").value];});
-$("dealForm").addEventListener("submit",async e=>{e.preventDefault();
-  const prev=editing?deals.find(x=>x.id===editing)||{}:{};
-  const data={...prev};delete data.id;
+$("dealForm").addEventListener("submit",e=>{e.preventDefault();
+  let d=editing?deals.find(x=>x.id===editing):null;
+  if(!d){d={id:"d"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),addedAt:today(),status:tab==="flight"?"flight":"review"};
+    if(d.status==="flight")d.stage=STAGES[0];deals.push(d);if(tab==="archive")tab="review";}
   F.forEach(k=>{const raw=$("f_"+k).value.trim();
-    if(NUMF.includes(k)){if(raw==="")delete data[k];else data[k]=parseFloat(raw);}else data[k]=raw;});
-  if(editing)data.example=false; else data.addedAt=new Date().toISOString();
-  const id=editing||("d"+Date.now().toString(36)+Math.random().toString(36).slice(2,6));
-  $("saveDeal").disabled=true;
-  try{await saveDealDoc(id,data);selected=id;$("formSection").hidden=true;status("Deal saved");renderList();}
-  catch(err){status("Could not save the deal. Check the fields and try again.");}
-  $("saveDeal").disabled=false;});
-$("delBtn").addEventListener("click",async()=>{
-  if(!delArmed){delArmed=true;$("delBtn").textContent="Confirm delete";return;}
-  const id=selected;selected=null;
-  try{await deleteDealDoc(id);status("Deal deleted");}catch(err){status("Could not delete the deal.");}});
-function pick(e){const tr=e.target.closest("tr[data-id]");if(!tr)return;selected=tr.dataset.id;renderSheet();}
-$("rows").addEventListener("click",pick);
-$("rows").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(e);}});
+    if(NUMF.includes(k)){if(raw==="")delete d[k];else d[k]=parseFloat(raw);}else d[k]=raw;});
+  if(save()){selected=d.id;$("formSection").hidden=true;status("Deal saved");render();}});
+
+/* owned properties */
+const OF=["address","town","state","units","value","balance","rent","payment","expenses","notes"];
+const ONUM=["units","value","balance","rent","payment","expenses"];
+const net=o=>(+o.rent||0)-(+o.payment||0)-(+o.expenses||0);
+function renderOwned(){
+  $("ownedEmpty").hidden=owned.length>0;
+  const tv=owned.reduce((s,o)=>s+(+o.value||0),0),tb=owned.reduce((s,o)=>s+(+o.balance||0),0),tn=owned.reduce((s,o)=>s+net(o),0);
+  $("ownedTotals").hidden=!owned.length;
+  $("ownedTotals").innerHTML=[["Total value",usd(tv),""],["Total equity",usd(tv-tb),""],["Net income / mo",usd(tn),tn>=0?"pos":"neg"],["Net income / yr",usd(tn*12),tn>=0?"pos":"neg"]]
+    .map(([l,v,c])=>`<div><h3>${l}</h3><span class="v ${c}">${v}</span></div>`).join("");
+  $("ownedRows").innerHTML=owned.map(o=>`<tr tabindex="0" data-id="${esc(o.id)}">
+    <td><span class="addr">${esc(o.address)}</span><br><span class="small muted">${esc(o.town)}, ${esc(o.state)} · ${+o.units||1} unit${(+o.units||1)>1?"s":""}</span></td>
+    <td class="num">${usd(+o.value||0)}</td><td class="num">${usd(+o.balance||0)}</td>
+    <td class="num">${usd((+o.value||0)-(+o.balance||0))}</td>
+    <td class="num ${net(o)>=0?"pos":"neg"}">${usd(net(o))}</td></tr>`).join("");
+}
+function openOwned(o){
+  editingOwned=o?o.id:null;armed=null;
+  $("ownedFormTitle").textContent=o?"Update property":"Add a property you own";
+  $("ownedForm").reset();
+  if(o)OF.forEach(k=>{if(o[k]!==undefined&&o[k]!==null)$("o_"+k).value=o[k];});
+  $("delOwned").hidden=!o;$("delOwned").textContent="Delete";
+  $("formSection").hidden=true;$("ownedFormSection").hidden=false;
+  $("ownedFormSection").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function pickOwned(e){const tr=e.target.closest("tr[data-id]");if(!tr)return;const o=owned.find(x=>x.id===tr.dataset.id);if(o)openOwned(o);}
+$("ownedRows").addEventListener("click",pickOwned);
+$("ownedRows").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pickOwned(e);}});
+$("cancelOwned").addEventListener("click",()=>{$("ownedFormSection").hidden=true;});
+$("ownedForm").addEventListener("submit",e=>{e.preventDefault();
+  let o=editingOwned?owned.find(x=>x.id===editingOwned):null;
+  if(!o){o={id:"o"+Date.now().toString(36)};owned.push(o);}
+  OF.forEach(k=>{const raw=$("o_"+k).value.trim();
+    if(ONUM.includes(k)){if(raw==="")delete o[k];else o[k]=parseFloat(raw);}else o[k]=raw;});
+  if(save()){$("ownedFormSection").hidden=true;status("Property saved");render();}});
+$("delOwned").addEventListener("click",()=>{
+  if(armed!=="owned"){armed="owned";$("delOwned").textContent="Confirm delete";return;}
+  owned=owned.filter(x=>x.id!==editingOwned);save();armed=null;$("ownedFormSection").hidden=true;status("Property deleted");render();});
+
+function render(){renderTabs();renderBox();renderDeals();renderOwned();}
 
 /* boot */
-$("ver").textContent="DealDesk v"+APP_VERSION+" · deals are saved in this browser only";
-renderBox();
-(async()=>{
-  try{db=window.claude?.use?await window.claude.use("db"):null;}catch(e){db=null;}
-  if(!db){localLoad();loaded=true;status("Saved in this browser only");renderAll();return;}
-  db.doc("settings/buybox").onSnapshot(snap=>{if(snap.exists){settings={...DEFAULTS,...snap.data()};renderAll();}},()=>{});
-  db.collection("deals").onSnapshot(snap=>{loaded=true;deals=snap.docs.map(x=>({...x.data(),id:x.id}));renderList();},
-    ()=>{loaded=true;status("Lost connection to saved deals. Reload the page.");renderList();});
-})();
+$("ver").textContent="DealDesk v"+APP_VERSION+" · everything you enter is saved on this device only";
+load();
+render();
 </script>
 </body>
 </html>
