@@ -63,6 +63,8 @@ Four tabs, opening on Review:
 
 A listing in `data/listings.js` has no status, so it lands in Review on every device.
 
+Every listing carries `miles`, the straight-line distance from Dracut, MA to its town center. The Review tab filters on it using the distance Kevin picks (default 50). When loading listings, load out to 100 miles so widening the distance has something to show, and always set `miles`.
+
 ## Look
 
 Light theme only, on every device. Kevin asked for this; do not add a dark theme

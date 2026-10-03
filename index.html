@@ -128,7 +128,7 @@ label.inline select{width:auto}
   <header class="top">
     <div>
       <h1 class="brand"><img src="assets/icon.svg" alt="" width="34" height="34"><span class="word">Deal<span>Desk</span></span></h1>
-      <p class="muted">Buy-and-hold rentals within 50 miles of Dracut, MA.</p>
+      <p class="muted" id="tagline">Buy-and-hold rentals near Dracut, MA.</p>
     </div>
     <div class="row">
       <span id="status"></span>
@@ -182,6 +182,7 @@ label.inline select{width:auto}
       <label>Upfront repairs $<input id="f_rehab" type="number" step="500"></label>
       <label>School rating (1-10)<input id="f_school" type="number" min="1" max="10"></label>
       <label>Walk Score (0-100)<input id="f_walk" type="number" min="0" max="100"></label>
+      <label>Miles from Dracut<input id="f_miles" type="number" min="0" step="1"></label>
       <label class="span2">Listing link<input id="f_url" type="url" placeholder="https://"></label>
       <label class="span2">Notes<textarea id="f_notes"></textarea></label>
       <div class="row span2"><button class="btn primary" type="submit" id="saveDeal">Save deal</button><button class="btn" type="button" id="cancelDeal">Cancel</button></div>
@@ -209,6 +210,9 @@ label.inline select{width:auto}
   <section class="col" id="dealsView">
     <div class="row" style="justify-content:space-between"><h2 id="listTitle">To review</h2><span class="small muted" id="count"></span></div>
     <p class="small muted" id="listHelp"></p>
+    <label class="inline" id="radiusWrap">Show properties within
+      <select id="radius"><option value="10">10 miles</option><option value="25">25 miles</option><option value="50">50 miles</option><option value="75">75 miles</option><option value="100">100 miles</option><option value="0">any distance</option></select>
+      <span class="small muted">of Dracut</span></label>
     <div class="tablewrap">
       <table>
         <thead><tr><th>Property</th><th>Ask</th><th>Rent / mo</th><th>Cash flow / unit</th><th>Cash-on-cash</th><th>DSCR</th><th>Max offer</th><th>Verdict</th></tr></thead>
@@ -271,7 +275,7 @@ label.inline select{width:auto}
 <script src="calc.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '1.3.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -294,8 +298,12 @@ function vclass(v){return v==="Buy box"?"good":v==="Negotiate"?"warn":"bad";}
 function load(){let j=null;try{j=JSON.parse(localStorage.getItem("dealdesk")||"null");}catch(e){}
   if(j){deals=j.deals||[];removed=j.removed||[];owned=j.owned||[];settings={...DEFAULTS,...(j.settings||{})};}
   /* add any listing from data/listings.js this browser has not seen and has not deleted */
-  const have=new Set(deals.map(d=>d.id));
-  (window.SEED_LISTINGS||[]).forEach(d=>{if(!have.has(d.id)&&!removed.includes(d.id))deals.push({...d});});}
+  const byId=new Map(deals.map(d=>[d.id,d]));
+  (window.SEED_LISTINGS||[]).forEach(d=>{const mine=byId.get(d.id);
+    if(mine){if(mine.miles===undefined&&d.miles!==undefined)mine.miles=d.miles;} /* fill distance on listings saved before 1.3.0 */
+    else if(!removed.includes(d.id))deals.push({...d});});
+  if(!isFinite(+settings.radius))settings.radius=50;}
+const inRadius=d=>!+settings.radius||d.miles===undefined||+d.miles<=+settings.radius;
 function save(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings,removed,owned}));return true;}catch(e){status("Could not save on this device. Private browsing blocks saving.");return false;}}
 
 /* buy box */
@@ -306,12 +314,17 @@ function readBox(){SKEYS.forEach(k=>{const v=parseFloat($("s_"+k).value);if(isFi
 $("boxForm").addEventListener("input",()=>{readBox();$("boxSummary").innerHTML=boxText();renderDeals();});
 $("boxForm").addEventListener("submit",e=>{e.preventDefault();readBox();if(save()){status("Buy box saved");$("boxDetails").open=false;}});
 
+/* search distance */
+$("radius").addEventListener("change",e=>{settings.radius=+e.target.value;save();selected=null;render();
+  status(+settings.radius?`Showing properties within ${settings.radius} miles.`:"Showing properties at any distance.");});
+
 /* tabs */
 function setTab(t){tab=t;selected=null;armed=null;$("formSection").hidden=true;$("ownedFormSection").hidden=true;render();}
 document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>setTab(b.dataset.tab)));
 function renderTabs(){
   const n={review:0,flight:0,archive:0,owned:owned.length};
-  deals.forEach(d=>{n[statusOf(d)]++;});
+  deals.forEach(d=>{const s=statusOf(d);if(s!=="review"||inRadius(d))n[s]++;});
+  $("tagline").textContent=+settings.radius?`Buy-and-hold rentals within ${settings.radius} miles of Dracut, MA.`:"Buy-and-hold rentals at any distance from Dracut, MA.";
   Object.keys(TABS).forEach(t=>{$("n_"+t).textContent=n[t];$("tab_"+t).setAttribute("aria-selected",t===tab?"true":"false");});
   $("addBtn").textContent=tab==="owned"?"Add a property":"Add a deal";
   $("boxDetails").hidden=tab==="owned";
@@ -328,14 +341,14 @@ const EMPTY={review:"Nothing to review. New listings land here when they are add
   flight:"No deals in flight. Keep a property from To review and it moves here.",
   archive:"Nothing archived yet. Removed properties and lost deals are kept here with the reason."};
 function listFor(t){
-  const list=deals.filter(d=>statusOf(d)===t).map(d=>({d,a:analyze(d,settings)}));
+  const list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d))).map(d=>({d,a:analyze(d,settings)}));
   if(t==="flight")list.sort((x,y)=>STAGES.indexOf(y.d.stage)-STAGES.indexOf(x.d.stage)||x.a.gap-y.a.gap);
   else if(t==="archive")list.sort((x,y)=>String(y.d.archivedAt||"").localeCompare(String(x.d.archivedAt||"")));
   else list.sort((x,y)=>x.a.gap-y.a.gap);
   return list;
 }
 function subline(d,a){
-  const base=`${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}`;
+  const base=`${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}`;
   if(tab==="flight")return `<span class="stage">${esc(d.stage||STAGES[0])}</span> ${base}`;
   if(tab==="archive")return `${esc(d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}<br>${base}`;
   return base;
@@ -345,7 +358,9 @@ function renderDeals(){
   const list=listFor(tab);
   $("listTitle").textContent=TABS[tab];
   $("listHelp").textContent=HELP[tab];
-  $("count").textContent=list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"";
+  const beyond=tab==="review"?deals.filter(d=>statusOf(d)==="review"&&!inRadius(d)).length:0;
+  $("count").textContent=(list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"")+(beyond?` · ${beyond} more beyond ${settings.radius} miles`:"");
+  $("radiusWrap").hidden=tab!=="review";$("radius").value=String(+settings.radius||0);
   $("empty").hidden=list.length>0;$("empty").textContent=EMPTY[tab];
   $("rows").innerHTML=list.map(({d,a})=>`<tr tabindex="0" data-id="${esc(d.id)}" class="${d.id===selected?"sel":""}">
     <td><span class="addr">${esc(d.address)}</span>${tab==="review"&&isNew(d)?'<span class="tag">New</span>':""}<br><span class="small muted">${subline(d,a)}</span></td>
@@ -438,8 +453,8 @@ $("d_reasons").addEventListener("click",e=>{const r=e.target.closest("[data-reas
   const d=deals.find(x=>x.id===selected);if(!d)return;archive(d,r);save();status(`Archived: ${r}.`);selected=null;armed=null;render();});
 
 /* deal form */
-const F=["address","town","state","type","units","price","rent","taxes","ins","hoa","rehab","school","walk","url","notes"];
-const NUMF=["units","price","rent","taxes","ins","hoa","rehab","school","walk"];
+const F=["address","town","state","type","units","price","rent","taxes","ins","hoa","rehab","school","walk","miles","url","notes"];
+const NUMF=["units","price","rent","taxes","ins","hoa","rehab","school","walk","miles"];
 function openForm(d){
   editing=d?d.id:null;
   $("formTitle").textContent=d?"Edit deal":"Add a deal";

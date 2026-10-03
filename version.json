@@ -1,14 +1,23 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "date": "2026-10-02",
   "notes": [
-    "Four tabs: To review, In flight, Owned, and Archive. The app opens on To review, and each tab shows a count.",
-    "To review: open a property and tap Keep to move it to In flight, or Remove and pick a reason to archive it.",
-    "In flight: each deal has a stage (Interested, Inquired, Toured, Offer made, Under contract). Mark as bought moves it to Owned.",
-    "Owned: enter each property's value, mortgage balance, rent and costs to see equity and net rental income, with totals. These figures stay on your device.",
-    "Archive: removed properties and lost deals with the reason and date. Move one back to review, or delete it for good."
+    "Search distance: on the Review tab, choose how far from Dracut to look (10, 25, 50, 75 or 100 miles, or any distance). The app remembers your choice.",
+    "Each property now shows its distance from Dracut. The count tells you how many more are waiting beyond your current distance.",
+    "Widening the distance shows listings that have already been loaded. Ask Claude to load towns farther out to fill the wider circle."
   ],
   "previous": [
+    {
+      "version": "1.2.0",
+      "date": "2026-10-02",
+      "notes": [
+        "Four tabs: To review, In flight, Owned, and Archive. The app opens on To review, and each tab shows a count.",
+        "To review: open a property and tap Keep to move it to In flight, or Remove and pick a reason to archive it.",
+        "In flight: each deal has a stage (Interested, Inquired, Toured, Offer made, Under contract). Mark as bought moves it to Owned.",
+        "Owned: enter each property's value, mortgage balance, rent and costs to see equity and net rental income, with totals. These figures stay on your device.",
+        "Archive: removed properties and lost deals with the reason and date. Move one back to review, or delete it for good."
+      ]
+    },
     {
       "version": "1.1.0",
       "date": "2026-10-02",
