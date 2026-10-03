@@ -1,12 +1,19 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.1",
   "date": "2026-10-02",
   "notes": [
-    "New Backup and sync section at the bottom of every tab. It is built the same way as DebtFree Dashboard: one Sync button that merges this device with a file in your own Google Drive.",
-    "Sync is switched off until the Google sign-in is set up. Until then the section says so and everything stays on this device.",
-    "Changes are now time-stamped so that, once sync is on, the most recent edit wins when two devices disagree."
+    "19 Worcester listings added, 38 miles from Dracut. Like the other recent batches these are light data: rents, taxes and insurance are estimates."
   ],
   "previous": [
+    {
+      "version": "1.6.0",
+      "date": "2026-10-02",
+      "notes": [
+        "New Backup and sync section at the bottom of every tab. It is built the same way as DebtFree Dashboard: one Sync button that merges this device with a file in your own Google Drive.",
+        "Sync is switched off until the Google sign-in is set up. Until then the section says so and everything stays on this device.",
+        "Changes are now time-stamped so that, once sync is on, the most recent edit wins when two devices disagree."
+      ]
+    },
     {
       "version": "1.5.0",
       "date": "2026-10-02",
