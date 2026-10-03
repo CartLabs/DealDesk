@@ -1,14 +1,23 @@
 {
-  "version": "1.5.0",
+  "version": "1.6.0",
   "date": "2026-10-02",
   "notes": [
-    "Addresses now sit on one line. On a phone each property is a card: address, then town, units and distance, then asking price, maximum offer and verdict with labels.",
-    "Dollar boxes show a dollar sign and commas once you leave the box, for example $165,000 or $1,755.78. You can still type plain numbers.",
-    "Owned properties are laid out as cards: value, debt, equity and monthly figure up top, then one line per loan with its rate, balance and payment.",
-    "New checkbox, \u201cI live here\u201d, keeps your own home out of rental income. Its card shows what it costs each month instead.",
-    "Tidier Review filters, and messages next to the Add button now clear themselves."
+    "New Backup and sync section at the bottom of every tab. It is built the same way as DebtFree Dashboard: one Sync button that merges this device with a file in your own Google Drive.",
+    "Sync is switched off until the Google sign-in is set up. Until then the section says so and everything stays on this device.",
+    "Changes are now time-stamped so that, once sync is on, the most recent edit wins when two devices disagree."
   ],
   "previous": [
+    {
+      "version": "1.5.0",
+      "date": "2026-10-02",
+      "notes": [
+        "Addresses now sit on one line. On a phone each property is a card: address, then town, units and distance, then asking price, maximum offer and verdict with labels.",
+        "Dollar boxes show a dollar sign and commas once you leave the box, for example $165,000 or $1,755.78. You can still type plain numbers.",
+        "Owned properties are laid out as cards: value, debt, equity and monthly figure up top, then one line per loan with its rate, balance and payment.",
+        "New checkbox, \u201cI live here\u201d, keeps your own home out of rental income. Its card shows what it costs each month instead.",
+        "Tidier Review filters, and messages next to the Add button now clear themselves."
+      ]
+    },
     {
       "version": "1.4.0",
       "date": "2026-10-02",

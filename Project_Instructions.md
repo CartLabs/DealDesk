@@ -33,6 +33,7 @@ handles technical execution end to end.
 | `data/listings.js` | Listings Claude has loaded. Every device picks up new ones on next open |
 | `assets/` | Logo (`logo.svg`), icon (`icon.svg`) and home-screen icons |
 | `manifest.json` | Name and icons for Add to Home Screen |
+| `sync.js` | Merge rules for Google Drive sync, tested by `tools/test-sync.js` |
 | `version.json` | Current version and plain-language release notes |
 | `tools/test-calc.js` | Checks on the math |
 | `tools/check-version.js` | Confirms the version matches in both places |
@@ -43,7 +44,7 @@ handles technical execution end to end.
   `index.html` and `version` in `version.json`.
 - Bump patch for fixes and listing updates, minor for visible features.
 - Add notes to `version.json` written for Kevin in plain language.
-- Run `node --test tools/test-calc.js` and `node tools/check-version.js` before every push.
+- Run `node --test tools/test-calc.js tools/test-sync.js` and `node tools/check-version.js` before every push.
 - **All changed files go in ONE commit.** Separate pushes cancel each other's
   Pages builds.
 - **Claude commits and pushes directly to `main`.** Kevin pulls in GitHub
@@ -89,6 +90,15 @@ back without asking.
   duplicate on devices that already have the old one.
 - There is no service worker. If one is ever added, its cache name must carry
   the version, as on DebtFree Dashboard.
+
+## Google Drive sync
+
+Same design as DebtFree Dashboard: one action that downloads `dealdesk-backup.json` from Kevin's Drive, merges it with the device (`mergeData` in `sync.js`), saves, and uploads the result. Sign-in is a full-page redirect, not a popup, because a popup never returns to an installed iPhone app. The token lives in memory only.
+
+- `DRIVE_CLIENT_ID` in `index.html` is empty until Kevin creates an OAuth client. Empty means the Sync button is disabled.
+- Use a separate OAuth client from DebtFree Dashboard's. Never edit that client or its consent screen for this project.
+- The redirect URI is the page's own address. Both `/DealDesk/` and `/DealDesk/index.html` must be registered on the client.
+- Every change to a deal, an owned property or the settings must set `updatedAt`, and every permanent delete must go into `removed` or `removedOwned`. The merge depends on both.
 
 ## Hosting
 
