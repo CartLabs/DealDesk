@@ -1,14 +1,24 @@
 {
-  "version": "1.11.0",
-  "date": "2026-10-03",
+  "version": "1.12.0",
+  "date": "2026-10-06",
   "notes": [
-    "Off-market deals: the Add a deal form now asks where the deal came from. Choose Off-market, and an address and a price are enough to save it.",
-    "Look up this address fills in what a property data service knows: units, size, year built, the tax bill, the last sale, an estimated value and an estimated rent, and the distance from Dracut. It needs a free RentCast key, added once under Settings.",
-    "Financing for this deal: choose seller financing or other terms and give your own down payment, rate, years and balloon. That deal is then scored and explained on those terms.",
-    "A deal saved without a rent figure is marked Needs rent instead of failing.",
-    "Property facts on the deal sheet, extra risk checks in the explainer, and a Copy for Claude button that copies the deal as text to paste into a chat."
+    "Listings now refresh every day. A daily check re-reads the town pages, adds new listings to Review with a New tag, and emails and alerts you about the ones that are Buy box or Negotiate within 50 miles.",
+    "A listing that sells moves to Archive on its own, marked Sold with the sold price once it is published. One that is withdrawn or goes under contract is archived as Off the market. If it comes back on the market it returns to Review.",
+    "Deals you have In flight are never moved for you. They get a Sold or Off the market tag instead.",
+    "Price changes carry through: the asking price updates, and the listing shows Price cut from the old figure for two weeks."
   ],
   "previous": [
+    {
+      "version": "1.11.0",
+      "date": "2026-10-03",
+      "notes": [
+        "Off-market deals: the Add a deal form now asks where the deal came from. Choose Off-market, and an address and a price are enough to save it.",
+        "Look up this address fills in what a property data service knows: units, size, year built, the tax bill, the last sale, an estimated value and an estimated rent, and the distance from Dracut. It needs a free RentCast key, added once under Settings.",
+        "Financing for this deal: choose seller financing or other terms and give your own down payment, rate, years and balloon. That deal is then scored and explained on those terms.",
+        "A deal saved without a rent figure is marked Needs rent instead of failing.",
+        "Property facts on the deal sheet, extra risk checks in the explainer, and a Copy for Claude button that copies the deal as text to paste into a chat."
+      ]
+    },
     {
       "version": "1.10.0",
       "date": "2026-10-03",
@@ -77,7 +87,7 @@
         "Addresses now sit on one line. On a phone each property is a card: address, then town, units and distance, then asking price, maximum offer and verdict with labels.",
         "Dollar boxes show a dollar sign and commas once you leave the box, for example $165,000 or $1,755.78. You can still type plain numbers.",
         "Owned properties are laid out as cards: value, debt, equity and monthly figure up top, then one line per loan with its rate, balance and payment.",
-        "New checkbox, \u201cI live here\u201d, keeps your own home out of rental income. Its card shows what it costs each month instead.",
+        "New checkbox, “I live here”, keeps your own home out of rental income. Its card shows what it costs each month instead.",
         "Tidier Review filters, and messages next to the Add button now clear themselves."
       ]
     },
@@ -85,11 +95,11 @@
       "version": "1.4.0",
       "date": "2026-10-02",
       "notes": [
-        "Fixed: number boxes now accept any amount, including cents. Before, a payment like 1755.78 or a price like 549,900 was rejected with \u201cEnter a valid value\u201d.",
+        "Fixed: number boxes now accept any amount, including cents. Before, a payment like 1755.78 or a price like 549,900 was rejected with “Enter a valid value”.",
         "Fixed: the screen no longer zooms in when you tap a field, and number boxes open the number keypad.",
         "Owned properties can now carry several loans: mortgage, HELOC, second mortgage, home equity loan, private note or other. Each has its own balance, interest rate and monthly payment. Debt, equity and net income add them all up.",
         "274 more listings across 17 towns in New Hampshire and Massachusetts, out to 74 miles from Dracut.",
-        "The Review tab now shows only properties worth a look (Buy box and Negotiate). Choose \u201ceverything\u201d to see the ones marked Pass."
+        "The Review tab now shows only properties worth a look (Buy box and Negotiate). Choose “everything” to see the ones marked Pass."
       ]
     },
     {

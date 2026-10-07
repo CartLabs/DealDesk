@@ -452,7 +452,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.11.0';
+const APP_VERSION = '1.12.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -483,14 +483,31 @@ function score(d){const a=analyze(d,settings);if(!(+d.rent>0)){a.verdict="Needs 
 const offMarket=d=>d.source==="offmarket";
 const priceWord=d=>offMarket(d)?"Price":"Asking";
 
+/* the daily listing check marks price changes, sales and withdrawals in data/listings.js; carry them onto this device's copy.
+   A sold or withdrawn listing still in Review is archived. One in flight is only tagged, since Kevin may be the buyer. */
+function applySeed(mine,d){let ch=false;
+  if(d.priceChangedAt&&mine.priceChangedAt!==d.priceChangedAt){if(mine.price!==d.price)mine.priceWas=mine.price;mine.price=d.price;mine.priceChangedAt=d.priceChangedAt;ch=true;}
+  const left=d.sold?"Sold":d.gone?"Off the market":"";
+  if(d.sold&&JSON.stringify(mine.sold||null)!==JSON.stringify(d.sold)){mine.sold={...d.sold};delete mine.gone;ch=true;}
+  if(d.gone&&!mine.gone&&!mine.sold){mine.gone={...d.gone};ch=true;}
+  if(left&&ch&&statusOf(mine)==="review"){mine.status="archive";mine.reason=left;mine.archivedAt=(d.sold||d.gone).date?(d.sold||d.gone).date+"T12:00:00":today();}
+  if(!left&&d.relistedAt&&mine.relistedAt!==d.relistedAt){mine.relistedAt=d.relistedAt;ch=true;
+    if((mine.sold||mine.gone)&&statusOf(mine)==="archive"&&(mine.reason==="Sold"||mine.reason==="Off the market")){mine.status="review";delete mine.reason;delete mine.archivedAt;mine.addedAt=d.relistedAt;}
+    delete mine.sold;delete mine.gone;}
+  if(ch)mine.updatedAt=today();return ch;}
+const leftWord=d=>d.sold?(d.sold.price?`Sold for ${usd(d.sold.price)}`:"Sold, price not published yet"):d.gone?"Off the market":"";
+const cutTag=d=>d.priceWas&&d.priceChangedAt&&(Date.now()-new Date(d.priceChangedAt))<14*864e5&&d.priceWas!==d.price?` <span class="tag">${d.price<d.priceWas?"Price cut":"Price up"} from ${usd(d.priceWas)}</span>`:"";
+
 /* storage: this browser only */
 function load(){let j=null;try{j=JSON.parse(localStorage.getItem("dealdesk")||"null");}catch(e){}
   if(j){deals=j.deals||[];removed=j.removed||[];removedOwned=j.removedOwned||[];owned=j.owned||[];settings={...DEFAULTS,...(j.settings||{})};}
   /* add any listing from data/listings.js this browser has not seen and has not deleted */
-  const byId=new Map(deals.map(d=>[d.id,d]));
+  const byId=new Map(deals.map(d=>[d.id,d]));let changed=false;
   (window.SEED_LISTINGS||[]).forEach(d=>{const mine=byId.get(d.id);
-    if(mine){if(mine.miles===undefined&&d.miles!==undefined)mine.miles=d.miles;} /* fill distance on listings saved before 1.3.0 */
-    else if(!removed.includes(d.id))deals.push({...d});});
+    if(mine){if(mine.miles===undefined&&d.miles!==undefined)mine.miles=d.miles; /* fill distance on listings saved before 1.3.0 */
+      if(applySeed(mine,d))changed=true;}
+    else if(!removed.includes(d.id)&&!d.sold&&!d.gone)deals.push({...d});}); /* a listing that left the market before this device saw it is not added */
+  if(changed)save();
   if(!isFinite(+settings.radius))settings.radius=50;}
 const inRadius=d=>!+settings.radius||d.miles===undefined||+d.miles<=+settings.radius;
 function save(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings,removed,removedOwned,owned}));if(typeof updateSyncUI==="function")updateSyncUI();return true;}catch(e){status("Could not save on this device. Private browsing blocks saving.");return false;}}
@@ -548,9 +565,9 @@ function listFor(t){
 }
 function subline(d,a){
   const lines=[];
-  if(tab==="flight")lines.push(`<span class="stage">${esc(d.stage||STAGES[0])}</span>`);
-  if(tab==="archive")lines.push(`<span class="meta">${esc(d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}</span>`);
-  lines.push(`<span class="meta">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}${tab==="review"&&isNew(d)?' <span class="tag">New</span>':""}</span>`);
+  if(tab==="flight")lines.push(`<span class="stage">${esc(d.stage||STAGES[0])}</span>${leftWord(d)?` <span class="tag">${esc(leftWord(d))}</span>`:""}`);
+  if(tab==="archive")lines.push(`<span class="meta">${esc(leftWord(d)||d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}</span>`);
+  lines.push(`<span class="meta">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}${tab==="review"&&isNew(d)?' <span class="tag">New</span>':""}${tab!=="archive"?cutTag(d):""}</span>`);
   return lines.join("");
 }
 function renderDeals(){
@@ -582,7 +599,7 @@ function actionsHtml(d){
   if(st==="review")return b("keep","Keep","primary")+b("remove","Remove")+ex+b("edit","Edit");
   if(st==="flight")return `<label class="inline">Stage<select id="d_stage">${STAGES.map(s=>`<option${s===(d.stage||STAGES[0])?" selected":""}>${s}</option>`).join("")}</select></label>`+
     b("bought","Mark as bought")+b("remove","Lost or remove")+ex+b("edit","Edit");
-  return `<span class="small muted">${esc(d.reason||"Removed")}${d.archivedAt?" on "+shortDate(d.archivedAt):""}</span>`+
+  return `<span class="small muted">${esc(leftWord(d)||d.reason||"Removed")}${d.archivedAt?" on "+shortDate(d.archivedAt):""}</span>`+
     ex+b("restore","Move back to review")+b("purge",armed==="purge"?"Confirm delete":"Delete for good","danger");
 }
 function renderSheet(){
@@ -591,7 +608,7 @@ function renderSheet(){
   document.querySelectorAll("#rows tr").forEach(r=>r.classList.toggle("sel",r.dataset.id===selected));
   const s=dealTerms(d,settings),a=score(d);
   $("d_title").innerHTML=esc(d.address)+(offMarket(d)?' <span class="tag">Off-market</span>':"");
-  $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from Dracut`:"",`${priceWord(d)} ${usd(a.price)}`,d.from?`From ${esc(d.from)}`:"",d.fin&&d.fin.kind==="custom"?`Own financing: ${s.down}% down at ${fmtRate(s.rate)}`:"",d.addedAt?`${offMarket(d)?"Added":"Found"} ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
+  $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from Dracut`:"",`${priceWord(d)} ${usd(a.price)}${d.priceWas&&d.priceWas!==d.price?` (was ${usd(d.priceWas)})`:""}`,leftWord(d),d.from?`From ${esc(d.from)}`:"",d.fin&&d.fin.kind==="custom"?`Own financing: ${s.down}% down at ${fmtRate(s.rate)}`:"",d.addedAt?`${offMarket(d)?"Added":"Found"} ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
   $("d_actions").innerHTML=actionsHtml(d);
   $("d_reasons").hidden=armed!=="remove";
   $("d_reasons").innerHTML=armed==="remove"?`<span class="small muted" style="flex-basis:100%">Why? Tap one to archive it.</span>`+REASONS.map(r=>`<button class="btn chip" type="button" data-reason="${esc(r)}">${esc(r)}</button>`).join(""):"";

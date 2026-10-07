@@ -36,6 +36,9 @@ handles technical execution end to end.
 | `lookup.js` | Turns a RentCast lookup into form values and property facts, tested by `tools/test-lookup.js` |
 | `sync.js` | Merge rules for Google Drive sync, tested by `tools/test-sync.js` |
 | `version.json` | Current version and plain-language release notes |
+| `tools/refresh-listings.js` | The daily listing check: folds a fresh pull into `data/listings.js`, tested by `tools/test-refresh.js` |
+| `tools/towns.json` | Towns the daily check watches, with town center, rent averages and the Redfin search page |
+| `data/watch-state.json` | When each listing was last seen or checked. Used only by the daily check |
 | `tools/test-calc.js` | Checks on the math |
 | `tools/check-version.js` | Confirms the version matches in both places |
 
@@ -45,7 +48,7 @@ handles technical execution end to end.
   `index.html` and `version` in `version.json`.
 - Bump patch for fixes and listing updates, minor for visible features.
 - Add notes to `version.json` written for Kevin in plain language.
-- Run `node --test tools/test-calc.js tools/test-sync.js tools/test-lookup.js` and `node tools/check-version.js` before every push.
+- Run `node --test tools/test-calc.js tools/test-sync.js tools/test-lookup.js tools/test-refresh.js` and `node tools/check-version.js` before every push.
 - **All changed files go in ONE commit.** Separate pushes cancel each other's
   Pages builds.
 - **Claude commits and pushes directly to `main`.** Kevin pulls in GitHub
@@ -119,3 +122,22 @@ Same design as DebtFree Dashboard: one action that downloads `dealdesk-backup.js
 GitHub Pages from `main`, root folder. Pages only serves a public repo on a free
 plan, so treat everything committed here as public: no API keys, no personal
 financial details, no notes about negotiating position.
+
+## The daily listing check
+
+A scheduled Claude task runs every morning. It reads the Redfin multi-family page for each town in
+`tools/towns.json` with `watch: true`, writes the rows to a file, and runs
+`node tools/refresh-listings.js --rows rows.txt --status status.txt`.
+
+- New listings are added with a fresh `addedAt`, so they show in Review with a New tag.
+- A price change sets `price`, `priceWas` and `priceChangedAt`.
+- A listing missing from its town page is NOT assumed sold. The tool lists it under `check` (25 a day);
+  the task reads that listing's own page and records `sold`, `gone` or `active` in status.txt.
+  Only then does the listing get `sold: {date, price}` or `gone: {date}`. A sold listing with no price
+  yet is re-checked until the price is published.
+- The app archives sold and gone listings that are still in Review, and only tags ones in flight.
+- A daily check commits only `data/listings.js`, `data/watch-state.json` and `tools/towns.json`.
+  It does **not** bump the version or add release notes, and never touches app code. If the tool or
+  tests fail, it pushes nothing and reports the failure.
+- Kevin is alerted (email and phone) about new or newly price-cut listings that are Buy box or
+  Negotiate within 50 miles, and about sold listings. He wants a "nothing new today" note on quiet days.
