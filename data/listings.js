@@ -6155,5 +6155,37 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z"
+  },
+  {
+    "id": "ma-lynn-34-36-curry-cir",
+    "address": "34-36 Curry Cir",
+    "town": "Lynn",
+    "state": "MA",
+    "miles": 23,
+    "type": "Two-family",
+    "units": 2,
+    "price": 899999,
+    "rent": 5400,
+    "url": "https://www.redfin.com/MA/Swampscott/36-Curry-Cir-01907/home/198833905",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-08",
+    "addedAt": "2026-10-08T10:55:29.996Z"
+  },
+  {
+    "id": "ma-worcester-128-beacon-st",
+    "address": "128 Beacon St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 850000,
+    "rent": 7650,
+    "url": "https://www.redfin.com/MA/Worcester/128-Beacon-St-01610/home/16656493",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 12 bedrooms split as 4BR + 4BR + 4BR. Taxes and insurance are estimated. Unit count (3) is inferred from 12 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-08",
+    "addedAt": "2026-10-08T10:55:29.996Z"
   }
 ];
