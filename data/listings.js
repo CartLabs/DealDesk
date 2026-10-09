@@ -6187,5 +6187,20 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-08",
     "addedAt": "2026-10-08T10:55:29.996Z"
+  },
+  {
+    "id": "nh-rochester-6-church-st",
+    "address": "6 Church St",
+    "town": "Rochester",
+    "state": "NH",
+    "miles": 47,
+    "type": "Two-family",
+    "units": 2,
+    "price": 425000,
+    "rent": 4600,
+    "url": "https://www.redfin.com/NH/Rochester/6-Church-St-03839/home/88207191",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-10-09",
+    "addedAt": "2026-10-09T11:02:49.987Z"
   }
 ];
