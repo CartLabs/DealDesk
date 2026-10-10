@@ -840,7 +840,11 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lawrence averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sold": {
+      "date": "2026-10-02",
+      "price": 725000
+    }
   },
   {
     "id": "ma-lawrence-28-exchange-st",
@@ -6202,5 +6206,20 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-09",
     "addedAt": "2026-10-09T11:02:49.987Z"
+  },
+  {
+    "id": "nh-concord-7-9-tremont-st",
+    "address": "7-9 Tremont St",
+    "town": "Concord",
+    "state": "NH",
+    "miles": 39,
+    "type": "Two-family",
+    "units": 2,
+    "price": 234900,
+    "rent": 5075,
+    "url": "https://www.redfin.com/NH/Boscawen/7-Tremont-St-03303/home/205113635",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Concord averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-10-10",
+    "addedAt": "2026-10-10T12:53:00.858Z"
   }
 ];
