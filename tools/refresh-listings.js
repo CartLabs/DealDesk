@@ -3,8 +3,11 @@
 
    node tools/refresh-listings.js --rows rows.txt [--status status.txt] [--date 2026-10-07] [--dry]
 
-   rows.txt    One "#Town|ST" line per town pulled, then one line per listing on that town's page:
+   rows.txt    One "#Town|ST|total" line per town pulled (total = the number of homes the page says it has, blank if
+               not shown), then one line per for-sale listing on that town's page:
                address|price|units|beds|baths|redfin path      (units 0 = not shown; path like MA/Lowell/1-Main-St-01850/home/123)
+               Then, for the town's recently-sold page, a "#SOLD Town|ST" line and one line per sold home:
+               address|sold price|sold date (YYYY-MM-DD, blank if not shown)|redfin path
                Only list a town if its page was actually read. A town with a header and no rows is treated as a failed pull.
    status.txt  One line per listing whose own page was checked because it was missing from its town page:
                id|sold|price|YYYY-MM-DD     sold (price may be blank until it is published)
@@ -46,11 +49,19 @@ function refresh(listings,state,towns,rowsText,statusText,now){
   const rep={date:day,townsPulled:[],townsFailed:[],added:0,newMatches:[],priceChanges:[],sold:[],gone:[],skipped:[],check:[],errors:[]};
   const byHome=new Map(),byId=new Map();
   for(const d of listings){byId.set(d.id,d);const h=homeId(d.url);if(h)byHome.set(h,d);}
-  const seen=new Set();let town=null,st=null,count=0;const pulled=new Map();
+  const seen=new Set();let town=null,st=null,soldMode=false;const pulled=new Map(),full=new Set();
   const brief=d=>{const a=analyze(d,DEFAULTS);return {id:d.id,address:d.address,town:d.town,state:d.state,miles:d.miles,units:d.units,price:d.price,rent:d.rent,verdict:a.verdict,maxOffer:Math.round(a.maxOffer),url:d.url};};
   for(const line of (rowsText||'').split('\n')){
     if(!line.trim())continue;
-    if(line[0]==='#'){[town,st]=line.slice(1).trim().split('|');pulled.set(town+'|'+st,0);continue;}
+    if(line[0]==='#'){const h=line.slice(1).trim();soldMode=/^SOLD\s/i.test(h);const q=h.replace(/^SOLD\s+/i,'').split('|');[town,st]=q;
+      if(!soldMode){pulled.set(town+'|'+st,0);if(+q[2]>0)full.add(town+'|'+st+'|'+(+q[2]));}continue;}
+    if(soldMode){const p=line.split('|').map(x=>x.trim());if(p.length<4){rep.errors.push('bad sold row: '+line);continue;}
+      const h=homeId(p[3]);const d=(h&&byHome.get(h));if(!d)continue; /* a sale of a home we never listed */
+      const price=+String(p[1]).replace(/[^0-9.]/g,'')||0;const date=/^\d{4}-\d{2}-\d{2}$/.test(p[2])?p[2]:(d.sold&&d.sold.date)||day;
+      seen.add(d.id);const first=!d.sold;const had=d.sold&&d.sold.price;
+      d.sold={date,...(price?{price}:had?{price:had}:{})};delete d.gone;
+      if(first||(price&&!had))rep.sold.push({...brief(d),soldPrice:d.sold.price||null,soldDate:d.sold.date,priceJustPublished:!first});
+      continue;}
     const p=line.split('|');if(p.length<6||!town){rep.errors.push('bad row: '+line);continue;}
     const key=town+'|'+st,T=towns[key];if(!T){rep.errors.push('town not in towns.json: '+key);continue;}
     const row={address:p[0].trim(),price:+String(p[1]).replace(/[^0-9.]/g,''),units:p[2],beds:p[3],baths:p[4],path:p[5].trim().replace(/^https?:\/\/www\.redfin\.com\//,'').replace(/^\//,'')};
@@ -68,7 +79,12 @@ function refresh(listings,state,towns,rowsText,statusText,now){
     const b=brief(d);if(hit(b.verdict)&&d.miles<=RADIUS)rep.newMatches.push(b);
   }
   for(const [k,n] of pulled)(n>0?rep.townsPulled:rep.townsFailed).push(k.replace('|',', ')+(n?` (${n})`:''));
-  for(const id of seen){state[id]={...(state[id]||{}),seen:day};}
+  /* a listing missing for 14 days from a town page that was read in full (every home the page counts) has left the market */
+  const fullTowns=new Set([...full].filter(x=>{const [t,s2,n]=x.split('|');return pulled.get(t+'|'+s2)>=+n;}).map(x=>x.split('|').slice(0,2).join('|')));
+  for(const d of listings){if(d.sold||d.gone||seen.has(d.id)||!fullTowns.has(d.town+'|'+d.state))continue;
+    const w=state[d.id]=state[d.id]||{};if(!w.missingSince)w.missingSince=day;
+    if((new Date(day)-new Date(w.missingSince))>=14*864e5){d.gone={date:day};rep.gone.push(brief(d));}}
+  for(const id of seen){const w={...(state[id]||{}),seen:day};delete w.missingSince;state[id]=w;}
   for(const line of (statusText||'').split('\n')){
     if(!line.trim()||line[0]==='#')continue;
     const [id,what,price,date]=line.split('|').map(x=>(x||'').trim());const d=byId.get(id);

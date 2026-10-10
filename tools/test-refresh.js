@@ -26,3 +26,17 @@ test('a failed town pull flags nothing',()=>{
   const L=base(),S={};const r=refresh(L,S,towns,"#Lowell|MA\n",'',NOW);
   assert.equal(r.check.length,0);assert.equal(r.townsFailed.length,1);
 });
+
+test('sold page marks sold with price by Redfin home number, ignores homes we never had',()=>{
+  const L=base(),S={};
+  const r=refresh(L,S,towns,"#Lowell|MA|\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222\n#SOLD Lowell|MA\n1 A Street|$495,000||MA/Lowell/1-A-St-01850/home/111\n7 Other St|400000|2026-10-01|MA/Lowell/7-Other-St-01850/home/777\n",'',NOW);
+  assert.deepEqual(L[0].sold,{date:"2026-10-07",price:495000});assert.equal(r.sold.length,1);assert.equal(L.length,2);
+});
+test('gone only after 14 days missing from a page read in full',()=>{
+  const L=base(),S={};const rows="#Lowell|MA|1\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222\n";
+  refresh(L,S,towns,rows,'',NOW);assert.equal(L[0].gone,undefined);
+  refresh(L,S,towns,rows,'',"2026-10-20T10:00:00Z");assert.equal(L[0].gone,undefined);
+  const r=refresh(L,S,towns,rows,'',"2026-10-21T10:00:00Z");assert.deepEqual(L[0].gone,{date:"2026-10-21"});assert.equal(r.gone.length,1);
+  const L2=base(),S2={};const partial="#Lowell|MA|5\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222\n";
+  refresh(L2,S2,towns,partial,'',NOW);refresh(L2,S2,towns,partial,'',"2026-10-30T10:00:00Z");assert.equal(L2[0].gone,undefined);
+});

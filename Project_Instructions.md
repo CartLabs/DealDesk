@@ -125,19 +125,25 @@ financial details, no notes about negotiating position.
 
 ## The daily listing check
 
-A scheduled Claude task runs every morning. It reads the Redfin multi-family page for each town in
-`tools/towns.json` with `watch: true`, writes the rows to a file, and runs
-`node tools/refresh-listings.js --rows rows.txt --status status.txt`.
+A scheduled Claude task runs every morning at 6:49 AM ET. It runs unattended, so it may only open web
+addresses written out in full in its own instructions: anything else asks for an approval nobody is there
+to give, and the run stalls (this is what stopped the Oct 10 run). The list is generated from
+`tools/towns.json`: for each town with `watch: true`, the for-sale page `redfin` (plus /page-2 and /page-3)
+and the sold-in-the-last-month page `redfinSold` (plus /page-2). **If a town is added or a Redfin address
+changes, regenerate the list and update the scheduled task's instructions too.**
+
+The task writes what it reads to rows.txt and runs `node tools/refresh-listings.js --rows rows.txt`.
 
 - New listings are added with a fresh `addedAt`, so they show in Review with a New tag.
 - A price change sets `price`, `priceWas` and `priceChangedAt`.
-- A listing missing from its town page is NOT assumed sold. The tool lists it under `check` (25 a day);
-  the task reads that listing's own page and records `sold`, `gone` or `active` in status.txt.
-  Only then does the listing get `sold: {date, price}` or `gone: {date}`. A sold listing with no price
-  yet is re-checked until the price is published.
+- A listing on a town's sold page (matched by its Redfin home number) gets `sold: {date, price}`.
+- A listing missing for 14 days from a town page that was read in full (as many homes as the page says
+  it has) gets `gone: {date}`. A listing missing from a partly read page is never marked.
+- The task does not open individual listing pages, search the web or look up rents. Rent averages in
+  `tools/towns.json` are updated by hand in a normal session.
 - The app archives sold and gone listings that are still in Review, and only tags ones in flight.
-- A daily check commits only `data/listings.js`, `data/watch-state.json` and `tools/towns.json`.
-  It does **not** bump the version or add release notes, and never touches app code. If the tool or
-  tests fail, it pushes nothing and reports the failure.
+- A daily check commits only `data/listings.js` and `data/watch-state.json`, straight to `main`
+  (Kevin authorized this). It does **not** bump the version or touch app code. If the tool or tests
+  fail, it pushes nothing and reports the failure.
 - Kevin is alerted (email and phone) about new or newly price-cut listings that are Buy box or
   Negotiate within 50 miles, and about sold listings. He wants a "nothing new today" note on quiet days.
