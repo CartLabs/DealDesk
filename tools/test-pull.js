@@ -25,3 +25,13 @@ test('finds the download link on the search page',()=>{
   assert.equal(csvLink(html),'https://www.redfin.com/stingray/api/gis-csv?al=1&region_id=9416&region_type=6&uipt=4');
   assert.equal(csvLink('<html></html>'),null);
 });
+test('finds a JSON-escaped download link, or builds one from the region',()=>{
+  const {region,builtLink}=require('./pull-redfin.js');
+  assert.equal(csvLink('{"url":"\\u002Fstingray\\u002Fapi\\u002Fgis-csv?al=1\\u0026region_id=5"}'),'https://www.redfin.com/stingray/api/gis-csv?al=1&region_id=5');
+  assert.deepEqual(region('{"regionId":380,"regionType":40}','https://www.redfin.com/minorcivildivision/380/NH/Merrimack/x'),{id:'380',type:'40',from:'page'});
+  assert.deepEqual(region('<html></html>','https://www.redfin.com/city/9416/MA/Lowell/x'),{id:'9416',type:'6',from:'address'});
+  assert.equal(region('<html></html>','https://www.redfin.com/minorcivildivision/380/NH/Merrimack/x'),null);
+  const u=builtLink({id:'9416',type:'6'},true);
+  assert.ok(u.includes('region_id=9416&region_type=6')&&u.includes('uipt=4')&&u.includes('sold_within_days=30'));
+  assert.ok(!builtLink({id:'9416',type:'6'},false).includes('sold_within_days'));
+});

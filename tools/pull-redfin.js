@@ -40,11 +40,31 @@ const pathOf=u=>(u||'').replace(/^https?:\/\/www\.redfin\.com\//,'').replace(/^\
 const clean=s=>String(s).replace(/\|/g,' ').trim();
 const small=o=>/multi-family\s*\(2-4/i.test(col(o,'PROPERTY TYPE'));
 
-/* The CSV link Redfin puts on the search page; falls back to building it for /city/ pages. */
-function csvLink(html,pageUrl){
-  const m=html.match(/(?:https:\/\/www\.redfin\.com)?\/stingray\/api\/gis-csv\?[^"'<>\s]+/);
-  if(m)return 'https://www.redfin.com'+m[0].replace(/^https:\/\/www\.redfin\.com/,'').replace(/&amp;/g,'&');
+/* Redfin search pages are mostly drawn in the browser, so the page's "Download all" link may not be in the HTML.
+   Order of attempts: the link itself if present; otherwise build the same download from the page's region
+   (region id and type read from the page, or from a /city/<id>/ address, which is Redfin region type 6). */
+const decode=h=>h.replace(/\\u002F/gi,'/').replace(/\\u0026/gi,'&').replace(/&amp;/g,'&').replace(/\\"/g,'"');
+function csvLink(html){
+  const m=decode(html).match(/(?:https:\/\/www\.redfin\.com)?\/stingray\/api\/gis-csv\?[^"'<>\s\\]+/);
+  return m?'https://www.redfin.com'+m[0].replace(/^https:\/\/www\.redfin\.com/,''):null;
+}
+function region(html,pageUrl){
+  const h=decode(html);
+  const pats=[/region_id=(\d+)&region_type=(\d+)/,/"regionId"\s*:\s*"?(\d+)"?\s*,\s*"regionType"\s*:\s*"?(\d+)/,
+    /"region_id"\s*:\s*"?(\d+)"?\s*,\s*"region_type"\s*:\s*"?(\d+)/];
+  for(const p of pats){const m=h.match(p);if(m)return {id:m[1],type:m[2],from:'page'};}
+  const c=pageUrl.match(/\/city\/(\d+)\//);if(c)return {id:c[1],type:'6',from:'address'};
   return null;
+}
+function builtLink(r,sold){
+  const q={al:1,num_homes:CSV_CAP,ord:'redfin-recommended-asc',page_number:1,region_id:r.id,region_type:r.type,
+    sf:'1,2,3,5,6,7',status:9,uipt:4,v:8,...(sold?{sold_within_days:30}:{})};
+  return 'https://www.redfin.com/stingray/api/gis-csv?'+Object.entries(q).map(([k,v])=>k+'='+v).join('&');
+}
+/* What the page held, so a failed run can be diagnosed from data/last-check.json without opening anything. */
+function hints(html){
+  const h=decode(html);const grab=re=>{const m=h.match(re);return m?h.slice(Math.max(0,m.index-60),m.index+120).replace(/\s+/g,' '):null;};
+  return {bytes:html.length,title:(h.match(/<title>([^<]*)/)||[])[1]||null,gisCsv:grab(/gis-csv/),regionType:grab(/region_?type/i)};
 }
 
 async function get(url,tries=2){
@@ -58,12 +78,17 @@ async function get(url,tries=2){
   throw last;
 }
 
-async function readList(pageUrl){
+async function readList(pageUrl,town,sold){
   const html=await get(pageUrl);await sleep(2500+Math.random()*2500);
-  const link=csvLink(html,pageUrl);if(!link)throw new Error('no download link on page');
+  const r=region(html,pageUrl);const link=csvLink(html)||(r&&builtLink(r,sold));
+  if(!link){const e=new Error('no download link or region on page');e.hints=hints(html);throw e;}
   const csv=await get(link);await sleep(2500+Math.random()*2500);
   const rows=parseCsv(csv).filter(o=>/redfin\.com\//.test(col(o,'URL')));
-  return {rows,capped:rows.length>=CSV_CAP};
+  if(!rows.length){const e=new Error('download had no homes');e.hints={...hints(html),link,start:csv.slice(0,200)};throw e;}
+  /* guard against a wrong region: most homes must be in this town */
+  const inTown=rows.filter(o=>col(o,'CITY').toLowerCase()===town.toLowerCase()).length;
+  if(inTown<rows.length/2){const e=new Error(`download is for the wrong area (${inTown} of ${rows.length} in ${town})`);e.hints={link,region:r};throw e;}
+  return {rows,capped:rows.length>=CSV_CAP,via:csvLink(html)?'page link':'region '+r.from};
 }
 
 function forSaleLines(rows){
@@ -79,18 +104,18 @@ async function main(){
   const out=[],log={ranAt:new Date().toISOString(),towns:[]};
   for(const [key,T] of Object.entries(towns)){
     if(!T.watch||!T.redfin)continue;const [town,st]=key.split('|');const entry={town:key,forSale:null,sold:null};
-    try{const {rows,capped}=await readList(T.redfin);const lines=forSaleLines(rows);
+    try{const {rows,capped,via}=await readList(T.redfin,town,false);const lines=forSaleLines(rows);
       if(!lines.length&&!rows.length)throw new Error('list came back empty');
-      out.push(`#${town}|${st}|${capped?'':lines.length}`,...lines);entry.forSale={rows:rows.length,kept:lines.length,capped};
+      out.push(`#${town}|${st}|${capped?'':lines.length}`,...lines);entry.forSale={rows:rows.length,kept:lines.length,capped,via};
       if(T.redfinSold){
-        try{const s=await readList(T.redfinSold);const sl=soldLines(s.rows);out.push(`#SOLD ${town}|${st}`,...sl);entry.sold={rows:s.rows.length,kept:sl.length};}
-        catch(e){entry.sold={error:String(e.message||e)};}
+        try{const s=await readList(T.redfinSold,town,true);const sl=soldLines(s.rows);out.push(`#SOLD ${town}|${st}`,...sl);entry.sold={rows:s.rows.length,kept:sl.length};}
+        catch(e){entry.sold={error:String(e.message||e),...(e.hints?{hints:e.hints}:{})};}
       }
-    }catch(e){entry.forSale={error:String(e.message||e)};}
+    }catch(e){entry.forSale={error:String(e.message||e),...(e.hints?{hints:e.hints}:{})};}
     log.towns.push(entry);console.error(key,JSON.stringify(entry));
   }
   fs.writeFileSync(arg('out')||'rows.txt',out.join('\n')+'\n');
   if(arg('log'))fs.writeFileSync(arg('log'),JSON.stringify(log,null,1)+'\n');
 }
-module.exports={parseCsv,isoDate,forSaleLines,soldLines,csvLink};
+module.exports={parseCsv,isoDate,forSaleLines,soldLines,csvLink,region,builtLink};
 if(require.main===module)main().catch(e=>{console.error(e);process.exit(1);});
