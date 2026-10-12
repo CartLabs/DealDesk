@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-/* The whole daily listing check, run by .github/workflows/daily-listings.yml on GitHub's servers.
+/* The whole daily listing check. Runs every morning on Kevin's laptop (Windows Task Scheduler, set up by
+   tools/install-daily-task.cmd), because Redfin blocks cloud servers and Claude's scheduled runs can't open web pages.
+   node tools/daily-check.js [--commit]     --commit also saves the result to GitHub (commit + push to main).
    1. tools/pull-redfin.js writes rows.txt from each watched town's Redfin lists.
    2. tools/refresh-listings.js folds rows.txt into data/listings.js and data/watch-state.json.
    3. Tests and the version check run; if anything fails, or more than a third of existing listings changed
@@ -13,7 +15,17 @@ const run=(args,opts={})=>execFileSync(process.execPath,args,{cwd:ROOT,encoding:
 const status={date:day,ranAt:new Date().toISOString(),status:'ok',problem:null,towns:[],report:null};
 const DATA=['data/listings.js','data/watch-state.json'];
 const restore=()=>execFileSync('git',['checkout','--',...DATA],{cwd:ROOT});
-function finish(msg){fs.writeFileSync(path.join(ROOT,'data/last-check.json'),JSON.stringify(status,null,1)+'\n');console.log(msg||'');process.exit(0);}
+const git=(...a)=>execFileSync('git',a,{cwd:ROOT,encoding:'utf8',stdio:['ignore','pipe','inherit']});
+function finish(msg){
+  fs.writeFileSync(path.join(ROOT,'data/last-check.json'),JSON.stringify(status,null,1)+'\n');console.log(msg||'');
+  if(process.argv.includes('--commit')){
+    git('add','--',...DATA,'data/last-check.json');
+    try{git('diff','--cached','--quiet');}catch{ /* something staged */
+      git('-c','user.name=DealDesk daily check','-c','user.email=noreply@cartlabs.local','commit','-q','-m',msg||`Daily listing check ${day}: status only`);
+      git('pull','-q','--rebase','origin','main');git('push','-q','origin','HEAD:main');console.log('Saved to GitHub');}
+  }
+  process.exit(0);
+}
 
 const rows=path.join(TMP,'rows.txt'),log=path.join(TMP,'pull-log.json');
 /* DEALDESK_TEST_ROWS/LOG: use saved files instead of pulling (for testing the steps after the pull) */

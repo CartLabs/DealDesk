@@ -39,6 +39,9 @@ handles technical execution end to end.
 | `tools/refresh-listings.js` | The daily listing check: folds a fresh pull into `data/listings.js`, tested by `tools/test-refresh.js` |
 | `tools/towns.json` | Towns the daily check watches, with town center, rent averages and the Redfin search page |
 | `data/watch-state.json` | When each listing was last seen or checked. Used only by the daily check |
+| `data/last-check.json` | Result of the latest daily check; the 6:49 alert task reads it |
+| `tools/daily-check.js` | The whole daily check (pull, refresh, tests, save); `tools/pull-redfin.js` does the Redfin pull |
+| `tools/install-daily-task.cmd` | One-time setup that schedules the daily check on Kevin's laptop |
 | `tools/test-calc.js` | Checks on the math |
 | `tools/check-version.js` | Confirms the version matches in both places |
 
@@ -125,24 +128,33 @@ financial details, no notes about negotiating position.
 
 ## The daily listing check
 
-A scheduled Claude task runs every morning at 6:49 AM ET. It runs unattended, so it may only open web
-addresses written out in full in its own instructions: anything else asks for an approval nobody is there
-to give, and the run stalls (this is what stopped the Oct 10 run). The list is generated from
-`tools/towns.json`: for each town with `watch: true`, the for-sale page `redfin` (plus /page-2 and /page-3)
-and the sold-in-the-last-month page `redfinSold` (plus /page-2). **If a town is added or a Redfin address
-changes, regenerate the list and update the scheduled task's instructions too.**
+Two parts, and neither needs anyone to approve anything:
 
-The task writes what it reads to rows.txt and runs `node tools/refresh-listings.js --rows rows.txt`.
+1. **The pull runs on Kevin's laptop** at 6:05 AM ET (Windows Task Scheduler, task "DealDesk daily listing
+   check", set up once by double-clicking `tools/install-daily-task.cmd`). It works in its own copy of the repo
+   at `%LOCALAPPDATA%\DealDeskDaily`, runs `tools/daily-check-windows.cmd`, which runs
+   `node tools/daily-check.js --commit`. That reads each `watch: true` town's Redfin search pages from
+   `tools/towns.json` (`redfin` and `redfinSold`) through the page's own download CSV (`tools/pull-redfin.js`),
+   runs `tools/refresh-listings.js`, the tests and the version check, then commits and pushes. It always writes
+   `data/last-check.json` (date, status, problem, per-town results, the refresh report). Log:
+   `%LOCALAPPDATA%\DealDeskDaily\daily-check.log`.
+2. **The alert is a scheduled Claude task** at 6:49 AM ET. It only reads `data/last-check.json` from GitHub
+   and sends Kevin the email and phone alert. It opens no websites.
+
+Why this shape (Oct 12, 2026): Claude's scheduled runs can no longer open any web page, even addresses written
+in the task, without a person approving it; and Redfin blocks GitHub's servers (HTTP 405), so a GitHub Actions
+pull does not work. Redfin does not block home internet. If the laptop is off at 6:05 it runs when it next wakes,
+and the 6:49 alert says the check did not run.
 
 - New listings are added with a fresh `addedAt`, so they show in Review with a New tag.
 - A price change sets `price`, `priceWas` and `priceChangedAt`.
 - A listing on a town's sold page (matched by its Redfin home number) gets `sold: {date, price}`.
 - A listing missing for 14 days from a town page that was read in full (as many homes as the page says
   it has) gets `gone: {date}`. A listing missing from a partly read page is never marked.
-- The task does not open individual listing pages, search the web or look up rents. Rent averages in
+- The check does not open individual listing pages, search the web or look up rents. Rent averages in
   `tools/towns.json` are updated by hand in a normal session.
 - The app archives sold and gone listings that are still in Review, and only tags ones in flight.
-- A daily check commits only `data/listings.js` and `data/watch-state.json`, straight to `main`
+- A daily check commits only `data/listings.js`, `data/watch-state.json` and `data/last-check.json`, straight to `main`
   (Kevin authorized this). It does **not** bump the version or touch app code. If the tool or tests
   fail, it pushes nothing and reports the failure.
 - Kevin is alerted (email and phone) about new or newly price-cut listings that are Buy box or
