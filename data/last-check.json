@@ -1,0 +1,121 @@
+{
+ "date": "2026-10-12",
+ "ranAt": "2026-10-12T11:28:37.320Z",
+ "status": "failed",
+ "problem": "No town could be read from Redfin (it may be blocking GitHub). First error: HTTP 405",
+ "towns": [
+  {
+   "town": "Lowell|MA",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Methuen|MA",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Lawrence|MA",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Nashua|NH",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Haverhill|MA",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Derry|NH",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Merrimack|NH",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Lynn|MA",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Manchester|NH",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Leominster|MA",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Fitchburg|MA",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Worcester|MA",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Concord|NH",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Dover|NH",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Brockton|MA",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  },
+  {
+   "town": "Rochester|NH",
+   "forSale": {
+    "error": "HTTP 405"
+   },
+   "sold": null
+  }
+ ],
+ "report": null
+}
