@@ -54,6 +54,9 @@ function region(html,pageUrl){
     /"region_id"\s*:\s*"?(\d+)"?\s*,\s*"region_type"\s*:\s*"?(\d+)/];
   for(const p of pats){const m=h.match(p);if(m)return {id:m[1],type:m[2],from:'page'};}
   const c=pageUrl.match(/\/city\/(\d+)\//);if(c)return {id:c[1],type:'6',from:'address'};
+  /* Merrimack-style /minorcivildivision/<id>/ pages: Redfin's region type for these isn't documented, so try the
+     likely ones; the town check in readList throws out any download that isn't for this town. */
+  const d=pageUrl.match(/\/minorcivildivision\/(\d+)\//);if(d)return {id:d[1],type:'40',types:['40','7','33','12','32'],from:'address guess'};
   return null;
 }
 function builtLink(r,sold){
@@ -80,15 +83,20 @@ async function get(url,tries=2){
 
 async function readList(pageUrl,town,sold){
   const html=await get(pageUrl);await sleep(2500+Math.random()*2500);
-  const r=region(html,pageUrl);const link=csvLink(html)||(r&&builtLink(r,sold));
-  if(!link){const e=new Error('no download link or region on page');e.hints=hints(html);throw e;}
-  const csv=await get(link);await sleep(2500+Math.random()*2500);
-  const rows=parseCsv(csv).filter(o=>/redfin\.com\//.test(col(o,'URL')));
-  if(!rows.length){const e=new Error('download had no homes');e.hints={...hints(html),link,start:csv.slice(0,200)};throw e;}
-  /* guard against a wrong region: most homes must be in this town */
-  const inTown=rows.filter(o=>col(o,'CITY').toLowerCase()===town.toLowerCase()).length;
-  if(inTown<rows.length/2){const e=new Error(`download is for the wrong area (${inTown} of ${rows.length} in ${town})`);e.hints={link,region:r};throw e;}
-  return {rows,capped:rows.length>=CSV_CAP,via:csvLink(html)?'page link':'region '+r.from};
+  const r=region(html,pageUrl);const pageLink=csvLink(html);
+  const links=pageLink?[pageLink]:r?(r.types||[r.type]).map(type=>builtLink({...r,type},sold)):[];
+  if(!links.length){const e=new Error('no download link or region on page');e.hints=hints(html);throw e;}
+  let last;
+  for(const link of links){
+    const csv=await get(link);await sleep(2500+Math.random()*2500);
+    const rows=parseCsv(csv).filter(o=>/redfin\.com\//.test(col(o,'URL')));
+    if(!rows.length){last=new Error('download had no homes');last.hints={...hints(html),link,start:csv.slice(0,200)};continue;}
+    /* guard against a wrong region: most homes must be in this town */
+    const inTown=rows.filter(o=>col(o,'CITY').toLowerCase()===town.toLowerCase()).length;
+    if(inTown<rows.length/2){last=new Error(`download is for the wrong area (${inTown} of ${rows.length} in ${town})`);last.hints={link};continue;}
+    return {rows,capped:rows.length>=CSV_CAP,via:pageLink?'page link':'region '+r.from+(r.types?' type '+link.match(/region_type=(\d+)/)[1]:'')};
+  }
+  throw last;
 }
 
 function forSaleLines(rows){

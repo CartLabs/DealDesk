@@ -22,7 +22,10 @@ function finish(msg){
     git('add','--',...DATA,'data/last-check.json');
     try{git('diff','--cached','--quiet');}catch{ /* something staged */
       git('-c','user.name=DealDesk daily check','-c','user.email=noreply@cartlabs.local','commit','-q','-m',msg||`Daily listing check ${day}: status only`);
-      git('pull','-q','--rebase','origin','main');git('push','-q','origin','HEAD:main');console.log('Saved to GitHub');}
+      /* GitHub sometimes rejects a push with a passing server error; wait and try again */
+      for(let i=1;;i++){try{git('pull','-q','--rebase','origin','main');git('push','-q','origin','HEAD:main');console.log('Saved to GitHub');break;}
+        catch(e){if(i>=4){console.error('Could not save to GitHub after 4 tries');process.exit(1);}console.error('Save to GitHub failed, trying again in a minute');
+          Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,60000);}}}
   }
   process.exit(0);
 }
