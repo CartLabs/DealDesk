@@ -39,3 +39,15 @@ test('Merrimack-style pages try the likely region types',()=>{
   const r=region('<html></html>','https://www.redfin.com/minorcivildivision/380/NH/Merrimack/filter/x');
   assert.equal(r.id,'380');assert.ok(r.types.length>1);
 });
+test('the sold download also holds homes still for sale: only past sales with a date count as sold (Oct 13 bug)',()=>{
+  const rows=parseCsv(CSV);
+  assert.deepEqual(soldLines(rows),['4 Sold Rd|580000|2026-09-26|MA/Lowell/4-Sold-Rd-01850/home/444']);
+  const undated=parseCsv(CSV.replace('PAST SALE,September-26-2026','PAST SALE,'));
+  assert.deepEqual(soldLines(undated),[]);
+});
+test('town box download link for pages with no usable region',()=>{
+  const {polyLink}=require('./pull-redfin.js');
+  const u=polyLink(42.865,-71.493,false);
+  assert.ok(u.includes('poly=-71.6130%2042.7750%2C')&&u.includes('uipt=4')&&!u.includes('region_id'));
+  assert.ok(polyLink(42.865,-71.493,true).includes('sold_within_days=30'));
+});

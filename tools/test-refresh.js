@@ -40,3 +40,8 @@ test('gone only after 14 days missing from a page read in full',()=>{
   const L2=base(),S2={};const partial="#Lowell|MA|5\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222\n";
   refresh(L2,S2,towns,partial,'',NOW);refresh(L2,S2,towns,partial,'',"2026-10-30T10:00:00Z");assert.equal(L2[0].gone,undefined);
 });
+test('a home on today\'s for-sale list is never marked sold from the sold list (Oct 13 bug)',()=>{
+  const L=base(),S={};
+  const r=refresh(L,S,towns,"#Lowell|MA|\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222\n#SOLD Lowell|MA\n2 B St|600000||MA/Lowell/2-B-St-01850/home/222\n",'',NOW);
+  assert.equal(L[1].sold,undefined);assert.equal(r.sold.length,0);assert.equal(r.soldButActive,1);
+});

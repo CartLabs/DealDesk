@@ -49,7 +49,7 @@ function refresh(listings,state,towns,rowsText,statusText,now){
   const rep={date:day,townsPulled:[],townsFailed:[],added:0,newMatches:[],priceChanges:[],sold:[],gone:[],skipped:[],check:[],errors:[]};
   const byHome=new Map(),byId=new Map();
   for(const d of listings){byId.set(d.id,d);const h=homeId(d.url);if(h)byHome.set(h,d);}
-  const seen=new Set();let town=null,st=null,soldMode=false;const pulled=new Map(),full=new Set();
+  const seen=new Set(),activeNow=new Set();let town=null,st=null,soldMode=false;const pulled=new Map(),full=new Set();
   const brief=d=>{const a=analyze(d,DEFAULTS);return {id:d.id,address:d.address,town:d.town,state:d.state,miles:d.miles,units:d.units,price:d.price,rent:d.rent,verdict:a.verdict,maxOffer:Math.round(a.maxOffer),url:d.url};};
   for(const line of (rowsText||'').split('\n')){
     if(!line.trim())continue;
@@ -57,6 +57,7 @@ function refresh(listings,state,towns,rowsText,statusText,now){
       if(!soldMode){pulled.set(town+'|'+st,0);if(+q[2]>0)full.add(town+'|'+st+'|'+(+q[2]));}continue;}
     if(soldMode){const p=line.split('|').map(x=>x.trim());if(p.length<4){rep.errors.push('bad sold row: '+line);continue;}
       const h=homeId(p[3]);const d=(h&&byHome.get(h));if(!d)continue; /* a sale of a home we never listed */
+      if(activeNow.has(d.id)){rep.soldButActive=(rep.soldButActive||0)+1;continue;} /* on this town's for-sale list today, so not sold */
       const price=+String(p[1]).replace(/[^0-9.]/g,'')||0;const date=/^\d{4}-\d{2}-\d{2}$/.test(p[2])?p[2]:(d.sold&&d.sold.date)||day;
       seen.add(d.id);const first=!d.sold;const had=d.sold&&d.sold.price;
       d.sold={date,...(price?{price}:had?{price:had}:{})};delete d.gone;
@@ -67,7 +68,7 @@ function refresh(listings,state,towns,rowsText,statusText,now){
     const row={address:p[0].trim(),price:+String(p[1]).replace(/[^0-9.]/g,''),units:p[2],beds:p[3],baths:p[4],path:p[5].trim().replace(/^https?:\/\/www\.redfin\.com\//,'').replace(/^\//,'')};
     pulled.set(key,pulled.get(key)+1);
     const h=homeId(row.path);const old=(h&&byHome.get(h))||byId.get(slug(st+' '+town)+'-'+slug(row.address));
-    if(old){seen.add(old.id);
+    if(old){seen.add(old.id);activeNow.add(old.id);
       if(old.sold||old.gone){delete old.sold;delete old.gone;old.relistedAt=now;} /* back on the market */
       if(row.price>0&&row.price!==old.price){const was=verdict(old);const from=old.price;old.priceWas=from;old.price=row.price;old.priceChangedAt=now;
         const b=brief(old);rep.priceChanges.push({...b,from,verdictWas:was,nowMatches:hit(b.verdict)&&!hit(was)&&old.miles<=RADIUS});}
@@ -75,7 +76,7 @@ function refresh(listings,state,towns,rowsText,statusText,now){
     const d=build(row,town,st,T,now,day);
     if(!d){rep.skipped.push(row.address+', '+town);continue;}
     if(byId.has(d.id)){rep.errors.push('id clash: '+d.id);continue;}
-    listings.push(d);byId.set(d.id,d);if(h)byHome.set(h,d);seen.add(d.id);rep.added++;
+    listings.push(d);byId.set(d.id,d);if(h)byHome.set(h,d);seen.add(d.id);activeNow.add(d.id);rep.added++;
     const b=brief(d);if(hit(b.verdict)&&d.miles<=RADIUS)rep.newMatches.push(b);
   }
   for(const [k,n] of pulled)(n>0?rep.townsPulled:rep.townsFailed).push(k.replace('|',', ')+(n?` (${n})`:''));

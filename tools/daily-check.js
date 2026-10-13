@@ -48,7 +48,7 @@ status.report=rep;
 const changed=rep.priceChanges.length+rep.sold.length+rep.gone.length;
 let problem=null;
 if(rep.errors.length)problem='The listing update reported errors: '+rep.errors.slice(0,5).join('; ');
-else if(before>0&&changed>before/3)problem=`${changed} of ${before} existing listings changed at once, which looks wrong, so nothing was saved.`;
+else if(before>0&&changed>before/3)problem=`${changed} of ${before} existing listings changed at once (${rep.priceChanges.length} price changes, ${rep.sold.length} sold, ${rep.gone.length} off the market), which looks wrong, so nothing was saved.`;
 else{
   try{run(['--test','tools/test-calc.js','tools/test-sync.js','tools/test-lookup.js','tools/test-refresh.js','tools/test-pull.js']);run(['tools/check-version.js']);}
   catch(e){problem='Tests failed after the update: '+String(e.stdout||e.message||e).slice(-300);}
