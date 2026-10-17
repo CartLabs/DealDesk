@@ -325,7 +325,11 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/48-Gertrude-Ave-01851/home/11613289",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sold": {
+      "date": "2026-10-16",
+      "price": 690000
+    }
   },
   {
     "id": "ma-lowell-1384-1386-gorham-st",
@@ -700,13 +704,15 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Two-family",
     "units": 2,
-    "price": 649999,
+    "price": 625000,
     "rent": 4100,
     "url": "https://www.redfin.com/MA/Lowell/28-Warnock-St-01852/home/11383517",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "priceWas": 649999,
+    "priceChangedAt": "2026-10-17T10:00:00Z"
   },
   {
     "id": "ma-lowell-716-lawrence-st",
@@ -2465,13 +2471,15 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Four-family",
     "units": 4,
-    "price": 849900,
+    "price": 825000,
     "rent": 8600,
     "url": "https://www.redfin.com/MA/Brockton/469-Summer-St-02302/home/16320149",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 8 bedrooms split as 2BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 8 beds and 4.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "priceWas": 849900,
+    "priceChangedAt": "2026-10-17T10:00:00Z"
   },
   {
     "id": "ma-brockton-132-huntington-st",
@@ -5017,14 +5025,14 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Two-family",
     "units": 2,
-    "price": 689900,
+    "price": 499900,
     "rent": 3575,
     "url": "https://www.redfin.com/MA/Lowell/230-Cumberland-Rd-01850/home/18982140",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
-    "priceWas": 699900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 689900,
+    "priceChangedAt": "2026-10-17T10:00:00Z"
   },
   {
     "id": "ma-lawrence-13-15-falmouth-st",
@@ -5609,13 +5617,15 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 599900,
+    "price": 560000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Worcester/279-Hamilton-St-01604/home/16667541",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "priceWas": 599900,
+    "priceChangedAt": "2026-10-17T10:00:00Z"
   },
   {
     "id": "ma-worcester-3-aetna-st",
@@ -8214,13 +8224,15 @@ window.SEED_LISTINGS = [
     "miles": 47,
     "type": "Two-family",
     "units": 2,
-    "price": 479900,
+    "price": 469000,
     "rent": 6250,
     "url": "https://www.redfin.com/NH/Rochester/9-Lincoln-St-03867/home/96516082",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 8 bedrooms split as 4BR + 4BR. Taxes and insurance are estimated. Unit count (2) is inferred from 8 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 479900,
+    "priceChangedAt": "2026-10-17T10:00:00Z"
   },
   {
     "id": "nh-rochester-18-morton-ave",
@@ -8557,5 +8569,85 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-16",
     "addedAt": "2026-10-16T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-321-323-lawrence-st",
+    "address": "321-323 Lawrence St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Three-family",
+    "units": 3,
+    "price": 799995,
+    "rent": 6150,
+    "url": "https://www.redfin.com/MA/Lowell/321-Lawrence-St-01852/home/203412371",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-17",
+    "addedAt": "2026-10-17T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-105-chestnut-st",
+    "address": "105 Chestnut St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Three-family",
+    "units": 3,
+    "price": 789000,
+    "rent": 6550,
+    "url": "https://www.redfin.com/MA/Lowell/105-Chestnut-St-01852/home/11649240",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-17",
+    "addedAt": "2026-10-17T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-12-chrome-st",
+    "address": "12 Chrome St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 479000,
+    "rent": 4000,
+    "url": "https://www.redfin.com/MA/Worcester/12-Chrome-St-01604/home/16664570",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-17",
+    "addedAt": "2026-10-17T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-9-mount-ave",
+    "address": "9 Mount Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 575000,
+    "rent": 4500,
+    "url": "https://www.redfin.com/MA/Worcester/9-Mount-Ave-01606/home/16675459",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-17",
+    "addedAt": "2026-10-17T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-33-columbia",
+    "address": "33 Columbia",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Three-family",
+    "units": 3,
+    "price": 794999,
+    "rent": 6450,
+    "url": "https://www.redfin.com/MA/Brockton/33-Columbia-St-02301/home/16318463",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-17",
+    "addedAt": "2026-10-17T10:00:00Z"
   }
 ];
