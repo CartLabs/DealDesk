@@ -1,32 +1,32 @@
 {
- "date": "2026-10-17",
- "ranAt": "2026-10-17T10:05:04.280Z",
+ "date": "2026-10-18",
+ "ranAt": "2026-10-18T10:05:04.987Z",
  "status": "ok",
  "problem": null,
  "towns": [
   {
    "town": "Lowell|MA",
    "forSale": {
-    "rows": 48,
-    "kept": 36,
+    "rows": 49,
+    "kept": 37,
     "capped": false,
     "via": "region page"
    },
    "sold": {
     "rows": 63,
-    "kept": 13
+    "kept": 12
    }
   },
   {
    "town": "Methuen|MA",
    "forSale": {
-    "rows": 3,
-    "kept": 2,
+    "rows": 2,
+    "kept": 1,
     "capped": false,
     "via": "region page"
    },
    "sold": {
-    "rows": 5,
+    "rows": 4,
     "kept": 2
    }
   },
@@ -65,8 +65,8 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 21,
-    "kept": 7
+    "rows": 19,
+    "kept": 5
    }
   },
   {
@@ -104,8 +104,8 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 45,
-    "kept": 3
+    "rows": 46,
+    "kept": 4
    }
   },
   {
@@ -117,8 +117,8 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 67,
-    "kept": 14
+    "rows": 66,
+    "kept": 13
    }
   },
   {
@@ -150,14 +150,14 @@
   {
    "town": "Worcester|MA",
    "forSale": {
-    "rows": 109,
-    "kept": 89,
+    "rows": 108,
+    "kept": 88,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 130,
-    "kept": 18
+    "rows": 127,
+    "kept": 17
    }
   },
   {
@@ -182,8 +182,8 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 12,
-    "kept": 2
+    "rows": 11,
+    "kept": 1
    }
   },
   {
@@ -214,10 +214,10 @@
   }
  ],
  "report": {
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "townsPulled": [
-   "Lowell, MA (36)",
-   "Methuen, MA (2)",
+   "Lowell, MA (37)",
+   "Methuen, MA (1)",
    "Lawrence, MA (16)",
    "Nashua, NH (5)",
    "Haverhill, MA (8)",
@@ -226,7 +226,7 @@
    "Manchester, NH (39)",
    "Leominster, MA (16)",
    "Fitchburg, MA (52)",
-   "Worcester, MA (89)",
+   "Worcester, MA (88)",
    "Concord, NH (4)",
    "Dover, NH (7)",
    "Brockton, MA (26)",
@@ -235,108 +235,41 @@
   "townsFailed": [
    "Merrimack, NH"
   ],
-  "added": 5,
-  "newMatches": [],
+  "added": 2,
+  "newMatches": [
+   {
+    "id": "nh-manchester-283-orange-st",
+    "address": "283 Orange St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "units": 4,
+    "price": 729995,
+    "rent": 8350,
+    "verdict": "Negotiate",
+    "maxOffer": 722000,
+    "url": "https://www.redfin.com/NH/Manchester/283-Orange-St-03104/home/108655745"
+   }
+  ],
   "priceChanges": [
    {
-    "id": "ma-lowell-230-cumberland-rd",
-    "address": "230 Cumberland Rd",
-    "town": "Lowell",
+    "id": "ma-fitchburg-70-prichard-st",
+    "address": "70 Prichard St",
+    "town": "Fitchburg",
     "state": "MA",
-    "miles": 3,
+    "miles": 26,
     "units": 2,
-    "price": 499900,
-    "rent": 3575,
-    "verdict": "Pass",
-    "maxOffer": 299000,
-    "url": "https://www.redfin.com/MA/Lowell/230-Cumberland-Rd-01850/home/18982140",
-    "from": 689900,
-    "verdictWas": "Pass",
-    "nowMatches": false
-   },
-   {
-    "id": "ma-lowell-28-warnock-st",
-    "address": "28 Warnock St",
-    "town": "Lowell",
-    "state": "MA",
-    "miles": 3,
-    "units": 2,
-    "price": 625000,
-    "rent": 4100,
-    "verdict": "Pass",
-    "maxOffer": 332000,
-    "url": "https://www.redfin.com/MA/Lowell/28-Warnock-St-01852/home/11383517",
-    "from": 649999,
-    "verdictWas": "Pass",
-    "nowMatches": false
-   },
-   {
-    "id": "ma-worcester-279-hamilton-st",
-    "address": "279 Hamilton St",
-    "town": "Worcester",
-    "state": "MA",
-    "miles": 38,
-    "units": 2,
-    "price": 560000,
+    "price": 640000,
     "rent": 4000,
     "verdict": "Pass",
-    "maxOffer": 334000,
-    "url": "https://www.redfin.com/MA/Worcester/279-Hamilton-St-01604/home/16667541",
-    "from": 599900,
+    "maxOffer": 318000,
+    "url": "https://www.redfin.com/MA/Fitchburg/70-Prichard-St-01420/home/16502245",
+    "from": 645000,
     "verdictWas": "Pass",
     "nowMatches": false
-   },
-   {
-    "id": "ma-brockton-469-summer-st",
-    "address": "469 Summer St",
-    "town": "Brockton",
-    "state": "MA",
-    "miles": 43,
-    "units": 4,
-    "price": 825000,
-    "rent": 8600,
-    "verdict": "Negotiate",
-    "maxOffer": 796000,
-    "url": "https://www.redfin.com/MA/Brockton/469-Summer-St-02302/home/16320149",
-    "from": 849900,
-    "verdictWas": "Negotiate",
-    "nowMatches": false
-   },
-   {
-    "id": "nh-rochester-9-lincoln-st",
-    "address": "9 Lincoln St",
-    "town": "Rochester",
-    "state": "NH",
-    "miles": 47,
-    "units": 2,
-    "price": 469000,
-    "rent": 6250,
-    "verdict": "Buy box",
-    "maxOffer": 563000,
-    "url": "https://www.redfin.com/NH/Rochester/9-Lincoln-St-03867/home/96516082",
-    "from": 479900,
-    "verdictWas": "Buy box",
-    "nowMatches": false
    }
   ],
-  "sold": [
-   {
-    "id": "ma-lowell-48-gertrude-ave",
-    "address": "48 Gertrude Ave",
-    "town": "Lowell",
-    "state": "MA",
-    "miles": 3,
-    "units": 2,
-    "price": 619900,
-    "rent": 4900,
-    "verdict": "Pass",
-    "maxOffer": 423000,
-    "url": "https://www.redfin.com/MA/Lowell/48-Gertrude-Ave-01851/home/11613289",
-    "soldPrice": 690000,
-    "soldDate": "2026-10-16",
-    "priceJustPublished": false
-   }
-  ],
+  "sold": [],
   "gone": [],
   "skipped": [
    "399 S Main St, Haverhill",
@@ -423,6 +356,11 @@
     "why": "missing from town page"
    },
    {
+    "id": "ma-methuen-35-37-buco-ave",
+    "url": "https://www.redfin.com/MA/Methuen/37-Buco-Ave-01844/home/8345095",
+    "why": "missing from town page"
+   },
+   {
     "id": "ma-lawrence-1-grove-st",
     "url": "https://www.redfin.com/MA/Lawrence/1-Grove-St-01841/home/11313707",
     "why": "missing from town page"
@@ -466,15 +404,10 @@
     "id": "nas-72-palm",
     "url": "https://www.redfin.com/NH/Nashua/72-Palm-St-03060/home/88077580",
     "why": "missing from town page"
-   },
-   {
-    "id": "ma-haverhill-829-w-lowell-ave",
-    "url": "https://www.redfin.com/MA/Haverhill/829-W-Lowell-Ave-01832/home/11318281",
-    "why": "missing from town page"
    }
   ],
   "errors": [],
-  "checkTotal": 121,
-  "total": 536
+  "checkTotal": 124,
+  "total": 538
  }
 }

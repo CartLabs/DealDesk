@@ -7404,13 +7404,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Two-family",
     "units": 2,
-    "price": 645000,
+    "price": 640000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Fitchburg/70-Prichard-St-01420/home/16502245",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 645000,
+    "priceChangedAt": "2026-10-18T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-58-marshall-st",
@@ -8649,5 +8651,37 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-17",
     "addedAt": "2026-10-17T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-221-223-pine-st",
+    "address": "221-223 Pine St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Three-family",
+    "units": 3,
+    "price": 924900,
+    "rent": 6150,
+    "url": "https://www.redfin.com/MA/Lowell/221-Pine-St-01851/home/203472566",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-18",
+    "addedAt": "2026-10-18T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-283-orange-st",
+    "address": "283 Orange St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Four-family",
+    "units": 4,
+    "price": 729995,
+    "rent": 8350,
+    "url": "https://www.redfin.com/NH/Manchester/283-Orange-St-03104/home/108655745",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 4 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-18",
+    "addedAt": "2026-10-18T10:00:00Z"
   }
 ];
