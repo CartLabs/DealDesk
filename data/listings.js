@@ -7570,13 +7570,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Three-family",
     "units": 3,
-    "price": 599000,
+    "price": 589900,
     "rent": 5500,
     "url": "https://www.redfin.com/MA/Fitchburg/29-Forest-St-01420/home/16501600",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 599000,
+    "priceChangedAt": "2026-10-19T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-11-nutting-st",
@@ -8683,5 +8685,53 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-18",
     "addedAt": "2026-10-18T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-6-ray-st",
+    "address": "6 Ray St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Two-family",
+    "units": 2,
+    "price": 599900,
+    "rent": 4800,
+    "url": "https://www.redfin.com/NH/Manchester/6-Ray-St-03104/home/108661422",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-19",
+    "addedAt": "2026-10-19T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-537-park-ave",
+    "address": "537 Park Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 699000,
+    "rent": 4250,
+    "url": "https://www.redfin.com/MA/Worcester/537-Park-Ave-01603/home/28466295",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 4 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-19",
+    "addedAt": "2026-10-19T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-933-warren-ave",
+    "address": "933 Warren Ave",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Three-family",
+    "units": 3,
+    "price": 899999,
+    "rent": 6450,
+    "url": "https://www.redfin.com/MA/Brockton/933-Warren-Ave-02301/home/16317570",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-19",
+    "addedAt": "2026-10-19T10:00:00Z"
   }
 ];

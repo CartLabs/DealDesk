@@ -1,6 +1,6 @@
 {
- "date": "2026-10-18",
- "ranAt": "2026-10-18T10:05:04.987Z",
+ "date": "2026-10-19",
+ "ranAt": "2026-10-19T10:05:04.664Z",
  "status": "ok",
  "problem": null,
  "towns": [
@@ -124,40 +124,40 @@
   {
    "town": "Leominster|MA",
    "forSale": {
-    "rows": 23,
-    "kept": 16,
+    "rows": 24,
+    "kept": 17,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 28,
+    "rows": 29,
     "kept": 5
    }
   },
   {
    "town": "Fitchburg|MA",
    "forSale": {
-    "rows": 55,
-    "kept": 52,
+    "rows": 54,
+    "kept": 51,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 63,
+    "rows": 62,
     "kept": 8
    }
   },
   {
    "town": "Worcester|MA",
    "forSale": {
-    "rows": 108,
-    "kept": 88,
+    "rows": 109,
+    "kept": 89,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 127,
-    "kept": 17
+    "rows": 129,
+    "kept": 18
    }
   },
   {
@@ -176,13 +176,13 @@
   {
    "town": "Dover|NH",
    "forSale": {
-    "rows": 8,
+    "rows": 7,
     "kept": 7,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 11,
+    "rows": 10,
     "kept": 1
    }
   },
@@ -214,7 +214,7 @@
   }
  ],
  "report": {
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "townsPulled": [
    "Lowell, MA (37)",
    "Methuen, MA (1)",
@@ -224,9 +224,9 @@
    "Derry, NH (3)",
    "Lynn, MA (25)",
    "Manchester, NH (39)",
-   "Leominster, MA (16)",
-   "Fitchburg, MA (52)",
-   "Worcester, MA (88)",
+   "Leominster, MA (17)",
+   "Fitchburg, MA (51)",
+   "Worcester, MA (89)",
    "Concord, NH (4)",
    "Dover, NH (7)",
    "Brockton, MA (26)",
@@ -235,36 +235,22 @@
   "townsFailed": [
    "Merrimack, NH"
   ],
-  "added": 2,
-  "newMatches": [
-   {
-    "id": "nh-manchester-283-orange-st",
-    "address": "283 Orange St",
-    "town": "Manchester",
-    "state": "NH",
-    "miles": 24,
-    "units": 4,
-    "price": 729995,
-    "rent": 8350,
-    "verdict": "Negotiate",
-    "maxOffer": 722000,
-    "url": "https://www.redfin.com/NH/Manchester/283-Orange-St-03104/home/108655745"
-   }
-  ],
+  "added": 3,
+  "newMatches": [],
   "priceChanges": [
    {
-    "id": "ma-fitchburg-70-prichard-st",
-    "address": "70 Prichard St",
+    "id": "ma-fitchburg-29-forest-st",
+    "address": "29 Forest St",
     "town": "Fitchburg",
     "state": "MA",
     "miles": 26,
-    "units": 2,
-    "price": 640000,
-    "rent": 4000,
+    "units": 3,
+    "price": 589900,
+    "rent": 5500,
     "verdict": "Pass",
-    "maxOffer": 318000,
-    "url": "https://www.redfin.com/MA/Fitchburg/70-Prichard-St-01420/home/16502245",
-    "from": 645000,
+    "maxOffer": 496000,
+    "url": "https://www.redfin.com/MA/Fitchburg/29-Forest-St-01420/home/16501600",
+    "from": 599000,
     "verdictWas": "Pass",
     "nowMatches": false
    }
@@ -407,7 +393,7 @@
    }
   ],
   "errors": [],
-  "checkTotal": 124,
-  "total": 538
+  "checkTotal": 126,
+  "total": 541
  }
 }
