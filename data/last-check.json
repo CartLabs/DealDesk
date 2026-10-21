@@ -1,72 +1,72 @@
 {
- "date": "2026-10-19",
- "ranAt": "2026-10-19T10:05:04.664Z",
+ "date": "2026-10-21",
+ "ranAt": "2026-10-21T10:05:04.615Z",
  "status": "ok",
  "problem": null,
  "towns": [
   {
    "town": "Lowell|MA",
    "forSale": {
-    "rows": 49,
-    "kept": 37,
+    "rows": 46,
+    "kept": 34,
     "capped": false,
     "via": "region page"
    },
    "sold": {
-    "rows": 63,
+    "rows": 60,
     "kept": 12
    }
   },
   {
    "town": "Methuen|MA",
    "forSale": {
-    "rows": 2,
-    "kept": 1,
+    "rows": 4,
+    "kept": 3,
     "capped": false,
     "via": "region page"
    },
    "sold": {
-    "rows": 4,
+    "rows": 6,
     "kept": 2
    }
   },
   {
    "town": "Lawrence|MA",
    "forSale": {
-    "rows": 22,
+    "rows": 24,
     "kept": 16,
     "capped": false,
     "via": "region page"
    },
    "sold": {
-    "rows": 32,
-    "kept": 10
+    "rows": 35,
+    "kept": 11
    }
   },
   {
    "town": "Nashua|NH",
    "forSale": {
-    "rows": 5,
-    "kept": 5,
+    "rows": 6,
+    "kept": 6,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 9,
-    "kept": 2
+    "rows": 13,
+    "kept": 3
    }
   },
   {
    "town": "Haverhill|MA",
    "forSale": {
-    "rows": 13,
+    "rows": 10,
     "kept": 8,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 19,
-    "kept": 5
+    "rows": 15,
+    "kept": 4
    }
   },
   {
@@ -91,34 +91,34 @@
     "via": "town box"
    },
    "sold": {
-    "rows": 0,
+    "rows": 1,
     "kept": 0
    }
   },
   {
    "town": "Lynn|MA",
    "forSale": {
-    "rows": 41,
-    "kept": 25,
+    "rows": 38,
+    "kept": 23,
     "capped": false,
     "via": "region address"
    },
    "sold": {
     "rows": 46,
-    "kept": 4
+    "kept": 7
    }
   },
   {
    "town": "Manchester|NH",
    "forSale": {
-    "rows": 50,
-    "kept": 39,
+    "rows": 51,
+    "kept": 40,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 66,
-    "kept": 13
+    "rows": 67,
+    "kept": 11
    }
   },
   {
@@ -137,27 +137,27 @@
   {
    "town": "Fitchburg|MA",
    "forSale": {
-    "rows": 54,
-    "kept": 51,
+    "rows": 56,
+    "kept": 53,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 62,
+    "rows": 64,
     "kept": 8
    }
   },
   {
    "town": "Worcester|MA",
    "forSale": {
-    "rows": 109,
-    "kept": 89,
+    "rows": 107,
+    "kept": 86,
     "capped": false,
     "via": "region address"
    },
    "sold": {
     "rows": 129,
-    "kept": 18
+    "kept": 20
    }
   },
   {
@@ -176,13 +176,13 @@
   {
    "town": "Dover|NH",
    "forSale": {
-    "rows": 7,
+    "rows": 8,
     "kept": 7,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 10,
+    "rows": 11,
     "kept": 1
    }
   },
@@ -195,70 +195,326 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 36,
-    "kept": 5
+    "rows": 38,
+    "kept": 7
    }
   },
   {
    "town": "Rochester|NH",
    "forSale": {
-    "rows": 13,
-    "kept": 10,
+    "rows": 14,
+    "kept": 11,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 15,
-    "kept": 2
+    "rows": 19,
+    "kept": 5
    }
   }
  ],
  "report": {
-  "date": "2026-10-19",
+  "date": "2026-10-21",
   "townsPulled": [
-   "Lowell, MA (37)",
-   "Methuen, MA (1)",
+   "Lowell, MA (34)",
+   "Methuen, MA (3)",
    "Lawrence, MA (16)",
-   "Nashua, NH (5)",
+   "Nashua, NH (6)",
    "Haverhill, MA (8)",
    "Derry, NH (3)",
-   "Lynn, MA (25)",
-   "Manchester, NH (39)",
+   "Lynn, MA (23)",
+   "Manchester, NH (40)",
    "Leominster, MA (17)",
-   "Fitchburg, MA (51)",
-   "Worcester, MA (89)",
+   "Fitchburg, MA (53)",
+   "Worcester, MA (86)",
    "Concord, NH (4)",
    "Dover, NH (7)",
    "Brockton, MA (26)",
-   "Rochester, NH (10)"
+   "Rochester, NH (11)"
   ],
   "townsFailed": [
    "Merrimack, NH"
   ],
-  "added": 3,
-  "newMatches": [],
-  "priceChanges": [
+  "added": 14,
+  "newMatches": [
    {
-    "id": "ma-fitchburg-29-forest-st",
-    "address": "29 Forest St",
+    "id": "ma-fitchburg-57-59-marshall-st",
+    "address": "57-59 Marshall St",
     "town": "Fitchburg",
     "state": "MA",
     "miles": 26,
     "units": 3,
-    "price": 589900,
-    "rent": 5500,
+    "price": 199000,
+    "rent": 5250,
+    "verdict": "Buy box",
+    "maxOffer": 539000,
+    "url": "https://www.redfin.com/MA/Fitchburg/57-59-Marshall-St-01420/home/206620875"
+   }
+  ],
+  "priceChanges": [
+   {
+    "id": "ma-lowell-305-nesmith-st",
+    "address": "305 Nesmith St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "units": 3,
+    "price": 815000,
+    "rent": 6550,
     "verdict": "Pass",
-    "maxOffer": 496000,
-    "url": "https://www.redfin.com/MA/Fitchburg/29-Forest-St-01420/home/16501600",
-    "from": 599000,
+    "maxOffer": 568000,
+    "url": "https://www.redfin.com/MA/Lowell/305-Nesmith-St-01852/home/11654521",
+    "from": 839900,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-lowell-45-varney-st",
+    "address": "45 Varney St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "units": 2,
+    "price": 649900,
+    "rent": 4100,
+    "verdict": "Pass",
+    "maxOffer": 327000,
+    "url": "https://www.redfin.com/MA/Lowell/45-Varney-St-01854/home/11627011",
+    "from": 699900,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-lawrence-42-summer-st",
+    "address": "42 Summer St",
+    "town": "Lawrence",
+    "state": "MA",
+    "miles": 8,
+    "units": 3,
+    "price": 875000,
+    "rent": 7750,
+    "verdict": "Pass",
+    "maxOffer": 690000,
+    "url": "https://www.redfin.com/MA/Lawrence/42-Summer-St-01840/home/11313314",
+    "from": 899000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "nas-18-maple",
+    "address": "18-20 Maple St",
+    "town": "Nashua",
+    "state": "NH",
+    "miles": 11,
+    "units": 2,
+    "price": 399900,
+    "rent": 5700,
+    "verdict": "Buy box",
+    "maxOffer": 522000,
+    "url": "https://www.redfin.com/NH/Nashua/18-20-Maple-St-03060/home/201753944",
+    "from": 425000,
+    "verdictWas": "Buy box",
+    "nowMatches": false
+   },
+   {
+    "id": "man-334-rimmon",
+    "address": "334 Rimmon St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "units": 3,
+    "price": 599900,
+    "rent": 5323,
+    "verdict": "Pass",
+    "maxOffer": 480000,
+    "url": "https://www.redfin.com/NH/Manchester/334-Rimmon-St-03102/home/108654754",
+    "from": 610000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "man-145-pearl",
+    "address": "145-147 Pearl St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "units": 3,
+    "price": 675000,
+    "rent": 7010,
+    "verdict": "Negotiate",
+    "maxOffer": 641000,
+    "url": "https://www.redfin.com/NH/Manchester/145-Pearl-St-03104/home/205041924",
+    "from": 725000,
+    "verdictWas": "Pass",
+    "nowMatches": true
+   },
+   {
+    "id": "ma-fitchburg-67-69-central-st",
+    "address": "67-69 Central St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "units": 3,
+    "price": 458000,
+    "rent": 5250,
+    "verdict": "Buy box",
+    "maxOffer": 495000,
+    "url": "https://www.redfin.com/MA/Fitchburg/67-69-Central-St-01420/home/196599287",
+    "from": 469000,
+    "verdictWas": "Buy box",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-worcester-17-winthrop-st",
+    "address": "17 Winthrop St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 3,
+    "price": 749900,
+    "rent": 6750,
+    "verdict": "Pass",
+    "maxOffer": 604000,
+    "url": "https://www.redfin.com/MA/Worcester/17-Winthrop-St-01604/home/16663808",
+    "from": 759900,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-worcester-37-coburn-ave",
+    "address": "37 Coburn Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 2,
+    "price": 399998,
+    "rent": 3600,
+    "verdict": "Pass",
+    "maxOffer": 322000,
+    "url": "https://www.redfin.com/MA/Worcester/37-Coburn-Ave-01604/home/16642772",
+    "from": 435000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-worcester-33-coburn-ave",
+    "address": "33 Coburn Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 2,
+    "price": 430000,
+    "rent": 3800,
+    "verdict": "Pass",
+    "maxOffer": 338000,
+    "url": "https://www.redfin.com/MA/Worcester/33-Coburn-Ave-01604/home/16642771",
+    "from": 460000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-worcester-30-penn-ave",
+    "address": "30 Penn Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 3,
+    "price": 230000,
+    "rent": 5600,
+    "verdict": "Buy box",
+    "maxOffer": 574000,
+    "url": "https://www.redfin.com/MA/Worcester/30-Penn-Ave-01604/home/16664483",
+    "from": 240000,
+    "verdictWas": "Buy box",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-worcester-60-esther-st",
+    "address": "60 Esther St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 3,
+    "price": 700000,
+    "rent": 6750,
+    "verdict": "Pass",
+    "maxOffer": 614000,
+    "url": "https://www.redfin.com/MA/Worcester/60-Esther-St-01607/home/16677133",
+    "from": 749000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-brockton-227-dover-st",
+    "address": "227 Dover St",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "units": 2,
+    "price": 679870,
+    "rent": 5600,
+    "verdict": "Pass",
+    "maxOffer": 489000,
+    "url": "https://www.redfin.com/MA/Brockton/227-Dover-St-02301/home/16325146",
+    "from": 689870,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-brockton-616-centre-st",
+    "address": "616 Centre St",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "units": 2,
+    "price": 749900,
+    "rent": 4000,
+    "verdict": "Pass",
+    "maxOffer": 295000,
+    "url": "https://www.redfin.com/MA/Brockton/616-Centre-St-02302/home/21654568",
+    "from": 775000,
     "verdictWas": "Pass",
     "nowMatches": false
    }
   ],
-  "sold": [],
+  "sold": [
+   {
+    "id": "ma-lawrence-79-81-high-st",
+    "address": "79-81 High St",
+    "town": "Lawrence",
+    "state": "MA",
+    "miles": 8,
+    "units": 2,
+    "price": 775000,
+    "rent": 4300,
+    "verdict": "Pass",
+    "maxOffer": 324000,
+    "url": "https://www.redfin.com/MA/Lawrence/81-High-St-01841/home/11309063",
+    "soldPrice": 775000,
+    "soldDate": "2026-10-15",
+    "priceJustPublished": false
+   },
+   {
+    "id": "nh-rochester-6-church-st",
+    "address": "6 Church St",
+    "town": "Rochester",
+    "state": "NH",
+    "miles": 47,
+    "units": 2,
+    "price": 425000,
+    "rent": 4600,
+    "verdict": "Negotiate",
+    "maxOffer": 391000,
+    "url": "https://www.redfin.com/NH/Rochester/6-Church-St-03839/home/88207191",
+    "soldPrice": 407000,
+    "soldDate": "2026-10-16",
+    "priceJustPublished": false
+   }
+  ],
   "gone": [],
   "skipped": [
    "399 S Main St, Haverhill",
+   "297 Central St, Manchester",
    "539 Maple St, Manchester",
    "50 South St, Fitchburg",
    "627 Central Ave, Dover",
@@ -302,6 +558,11 @@
     "why": "missing from town page"
    },
    {
+    "id": "ma-lowell-61-butterfield-st",
+    "url": "https://www.redfin.com/MA/Lowell/61-Butterfield-St-01854/home/11627196",
+    "why": "missing from town page"
+   },
+   {
     "id": "ma-lowell-1-3-harrison-pl",
     "url": "https://www.redfin.com/MA/Lowell/1-Harrison-St-01852/home/196597984",
     "why": "missing from town page"
@@ -322,6 +583,11 @@
     "why": "missing from town page"
    },
    {
+    "id": "ma-lowell-716-lawrence-st",
+    "url": "https://www.redfin.com/MA/Lowell/716-Lawrence-St-01852/home/11667373",
+    "why": "missing from town page"
+   },
+   {
     "id": "ma-lowell-941-lakeview-ave",
     "url": "https://www.redfin.com/MA/Lowell/941-Lakeview-Ave-01850/home/11632608",
     "why": "missing from town page"
@@ -334,6 +600,11 @@
    {
     "id": "ma-lowell-8-cady-st",
     "url": "https://www.redfin.com/MA/Lowell/8-Cady-St-01852/home/11643464",
+    "why": "missing from town page"
+   },
+   {
+    "id": "ma-lowell-221-223-pine-st",
+    "url": "https://www.redfin.com/MA/Lowell/221-Pine-St-01851/home/203472566",
     "why": "missing from town page"
    },
    {
@@ -362,8 +633,8 @@
     "why": "missing from town page"
    },
    {
-    "id": "ma-lawrence-79-81-high-st",
-    "url": "https://www.redfin.com/MA/Lawrence/81-High-St-01841/home/11309063",
+    "id": "ma-lawrence-16-18-highgate-st",
+    "url": "https://www.redfin.com/MA/Lawrence/16-Highgate-St-01841/home/201015116",
     "why": "missing from town page"
    },
    {
@@ -372,28 +643,13 @@
     "why": "missing from town page"
    },
    {
-    "id": "ma-lawrence-20-ridge-rd",
-    "url": "https://www.redfin.com/MA/Lawrence/20-Ridge-Rd-01841/home/11311640",
-    "why": "missing from town page"
-   },
-   {
-    "id": "nas-18-maple",
-    "url": "https://www.redfin.com/NH/Nashua/18-20-Maple-St-03060/home/201753944",
-    "why": "missing from town page"
-   },
-   {
-    "id": "nas-23-grand",
-    "url": "https://www.redfin.com/NH/Nashua/25-Grand-Ave-03060/home/88079208",
-    "why": "missing from town page"
-   },
-   {
-    "id": "nas-72-palm",
-    "url": "https://www.redfin.com/NH/Nashua/72-Palm-St-03060/home/88077580",
+    "id": "ma-lawrence-7-9-champlain-ave",
+    "url": "https://www.redfin.com/MA/Lawrence/7-9-Champlain-Ave-01841/home/11327150",
     "why": "missing from town page"
    }
   ],
   "errors": [],
-  "checkTotal": 126,
-  "total": 541
+  "checkTotal": 141,
+  "total": 555
  }
 }
