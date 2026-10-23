@@ -812,7 +812,11 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/3-Oakwood-Ave-01841/home/11311667",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lawrence averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sold": {
+      "date": "2026-10-22",
+      "price": 610000
+    }
   },
   {
     "id": "ma-lawrence-30-32-washington-st",
@@ -1373,15 +1377,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Three-family",
     "units": 3,
-    "price": 529900,
+    "price": 499900,
     "rent": 5750,
     "url": "https://www.redfin.com/MA/Fitchburg/8-Jay-St-01420/home/16503121",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "priceWas": 559900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 529900,
+    "priceChangedAt": "2026-10-23T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-143-highland-ave",
@@ -1627,15 +1631,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Three-family",
     "units": 3,
-    "price": 665000,
+    "price": 649000,
     "rent": 5750,
     "url": "https://www.redfin.com/MA/Fitchburg/40-Edwards-St-01420/home/16500843",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "priceWas": 670000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 665000,
+    "priceChangedAt": "2026-10-23T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-119-woodland-st",
@@ -1987,13 +1991,15 @@ window.SEED_LISTINGS = [
     "miles": 25,
     "type": "Three-family",
     "units": 3,
-    "price": 739000,
+    "price": 730000,
     "rent": 5900,
     "url": "https://www.redfin.com/MA/Leominster/31-Cotton-St-01453/home/21795175",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "priceWas": 739000,
+    "priceChangedAt": "2026-10-23T10:00:00Z"
   },
   {
     "id": "ma-leominster-45-laurel-st",
@@ -6948,13 +6954,15 @@ window.SEED_LISTINGS = [
     "miles": 23,
     "type": "Two-family",
     "units": 2,
-    "price": 784986,
+    "price": 764986,
     "rent": 6600,
     "url": "https://www.redfin.com/MA/Lynn/102-Rockaway-St-01902/home/11574394",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 7 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 784986,
+    "priceChangedAt": "2026-10-23T10:00:00Z"
   },
   {
     "id": "ma-lynn-98-lafayette-park",
@@ -7322,13 +7330,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Three-family",
     "units": 3,
-    "price": 599000,
+    "price": 569000,
     "rent": 5750,
     "url": "https://www.redfin.com/MA/Fitchburg/76-78-Nashua-St-01420/home/196599926",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 599000,
+    "priceChangedAt": "2026-10-23T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-60-lunenburg-st",
@@ -7338,13 +7348,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Two-family",
     "units": 2,
-    "price": 479900,
+    "price": 475000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Fitchburg/60-Lunenburg-St-01420/home/16502535",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 479900,
+    "priceChangedAt": "2026-10-23T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-61-congress-st",
@@ -9267,5 +9279,101 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-22",
     "addedAt": "2026-10-22T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-31-33-bourne-st",
+    "address": "31-33 Bourne St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Three-family",
+    "units": 3,
+    "price": 887500,
+    "rent": 7350,
+    "url": "https://www.redfin.com/MA/Lowell/31-Bourne-St-01852/home/203314468",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-23",
+    "addedAt": "2026-10-23T10:00:00Z"
+  },
+  {
+    "id": "ma-lawrence-248-250-bailey",
+    "address": "248-250 Bailey",
+    "town": "Lawrence",
+    "state": "MA",
+    "miles": 8,
+    "type": "Three-family",
+    "units": 3,
+    "price": 979999,
+    "rent": 7300,
+    "url": "https://www.redfin.com/MA/Lawrence/248-250-Bailey-St-01843/home/206643406",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-23",
+    "addedAt": "2026-10-23T10:00:00Z"
+  },
+  {
+    "id": "ma-lynn-48-breed-st",
+    "address": "48 Breed St",
+    "town": "Lynn",
+    "state": "MA",
+    "miles": 23,
+    "type": "Two-family",
+    "units": 2,
+    "price": 769986,
+    "rent": 5400,
+    "url": "https://www.redfin.com/MA/Lynn/48-Breed-St-01902/home/11568240",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-23",
+    "addedAt": "2026-10-23T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-260-blucher-st",
+    "address": "260 Blucher St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Three-family",
+    "units": 3,
+    "price": 579900,
+    "rent": 5950,
+    "url": "https://www.redfin.com/NH/Manchester/260-Blucher-St-03102/home/88244592",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-23",
+    "addedAt": "2026-10-23T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-164-oakland-ave",
+    "address": "164 Oakland Ave",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Four-family",
+    "units": 4,
+    "price": 750000,
+    "rent": 7950,
+    "url": "https://www.redfin.com/NH/Manchester/164-Oakland-Ave-03109/home/96671578",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 8 bedrooms split as 2BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 8 beds and 4 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-23",
+    "addedAt": "2026-10-23T10:00:00Z"
+  },
+  {
+    "id": "ma-leominster-617-main-st",
+    "address": "617 Main St",
+    "town": "Leominster",
+    "state": "MA",
+    "miles": 25,
+    "type": "Three-family",
+    "units": 3,
+    "price": 599900,
+    "rent": 5550,
+    "url": "https://www.redfin.com/MA/Leominster/617-Main-St-01453/home/16542700",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Leominster averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-23",
+    "addedAt": "2026-10-23T10:00:00Z"
   }
 ];
