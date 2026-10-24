@@ -2122,15 +2122,15 @@ window.SEED_LISTINGS = [
     "miles": 23,
     "type": "Two-family",
     "units": 2,
-    "price": 590000,
+    "price": 572000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Lynn/35-Ridgeway-St-01902/home/11577280",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lynn averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 2 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "priceWas": 629000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 590000,
+    "priceChangedAt": "2026-10-24T10:00:00Z"
   },
   {
     "id": "ma-lynn-14-union-ct",
@@ -9375,5 +9375,53 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-23",
     "addedAt": "2026-10-23T10:00:00Z"
+  },
+  {
+    "id": "ma-lynn-93-chestnut-st",
+    "address": "93 Chestnut St",
+    "town": "Lynn",
+    "state": "MA",
+    "miles": 23,
+    "type": "Three-family",
+    "units": 3,
+    "price": 839900,
+    "rent": 8400,
+    "url": "https://www.redfin.com/MA/Lynn/93-Chestnut-St-01902/home/11564177",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-24",
+    "addedAt": "2026-10-24T10:00:00Z"
+  },
+  {
+    "id": "ma-leominster-282-lancaster-st",
+    "address": "282 Lancaster St",
+    "town": "Leominster",
+    "state": "MA",
+    "miles": 25,
+    "type": "Two-family",
+    "units": 2,
+    "price": 570000,
+    "rent": 4400,
+    "url": "https://www.redfin.com/MA/Leominster/282-Lancaster-St-01453/home/16543574",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Leominster averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-24",
+    "addedAt": "2026-10-24T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-208-spring-st",
+    "address": "208 Spring St",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Three-family",
+    "units": 3,
+    "price": 849000,
+    "rent": 8375,
+    "url": "https://www.redfin.com/MA/Brockton/208-Spring-St-02301/home/16325663",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-24",
+    "addedAt": "2026-10-24T10:00:00Z"
   }
 ];
