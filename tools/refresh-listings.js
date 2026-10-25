@@ -8,7 +8,9 @@
                address|price|units|beds|baths|redfin path      (units 0 = not shown; path like MA/Lowell/1-Main-St-01850/home/123)
                Then, for the town's recently-sold page, a "#SOLD Town|ST" line and one line per sold home:
                address|sold price|sold date (YYYY-MM-DD, blank if not shown)|redfin path
-               Only list a town if its page was actually read. A town with a header and no rows is treated as a failed pull.
+               Only list a town if its page was actually read. A town with a header and no rows was read and had nothing
+               listed: it is reported as "Town, ST (0)" in townsPulled, and nothing in it is flagged as missing.
+               townsFailed is the watched towns in towns.json with no header at all (their pull failed).
    status.txt  One line per listing whose own page was checked because it was missing from its town page:
                id|sold|price|YYYY-MM-DD     sold (price may be blank until it is published)
                id|gone||YYYY-MM-DD          off the market, not sold (withdrawn, expired, under contract)
@@ -79,7 +81,8 @@ function refresh(listings,state,towns,rowsText,statusText,now){
     listings.push(d);byId.set(d.id,d);if(h)byHome.set(h,d);seen.add(d.id);activeNow.add(d.id);rep.added++;
     const b=brief(d);if(hit(b.verdict)&&d.miles<=RADIUS)rep.newMatches.push(b);
   }
-  for(const [k,n] of pulled)(n>0?rep.townsPulled:rep.townsFailed).push(k.replace('|',', ')+(n?` (${n})`:''));
+  for(const [k,n] of pulled)rep.townsPulled.push(k.replace('|',', ')+` (${n})`);
+  for(const [k,T] of Object.entries(towns))if(T.watch&&T.redfin&&!pulled.has(k))rep.townsFailed.push(k.replace('|',', '));
   /* a listing missing for 14 days from a town page that was read in full (every home the page counts) has left the market */
   const fullTowns=new Set([...full].filter(x=>{const [t,s2,n]=x.split('|');return pulled.get(t+'|'+s2)>=+n;}).map(x=>x.split('|').slice(0,2).join('|')));
   for(const d of listings){if(d.sold||d.gone||seen.has(d.id)||!fullTowns.has(d.town+'|'+d.state))continue;

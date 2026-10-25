@@ -45,6 +45,15 @@ test('the sold download also holds homes still for sale: only past sales with a 
   const undated=parseCsv(CSV.replace('PAST SALE,September-26-2026','PAST SALE,'));
   assert.deepEqual(soldLines(undated),[]);
 });
+test('a townBox town goes straight to the box, with no region guesses',()=>{
+  const {linksFor}=require('./pull-redfin.js');
+  const url='https://www.redfin.com/minorcivildivision/380/NH/Merrimack/filter/x';
+  const boxed=linksFor('',url,false,{lat:42.865,lon:-71.493,townBox:true});
+  assert.equal(boxed.links.length,1);assert.ok(boxed.links[0].includes('poly='));
+  const guessed=linksFor('<html></html>',url,false,{lat:42.865,lon:-71.493});
+  assert.ok(guessed.links.length>2&&guessed.links.at(-1).includes('poly='));
+  const towns=require('./towns.json').towns;assert.equal(towns['Merrimack|NH'].townBox,true);
+});
 test('town box download link for pages with no usable region',()=>{
   const {polyLink}=require('./pull-redfin.js');
   const u=polyLink(42.865,-71.493,false);

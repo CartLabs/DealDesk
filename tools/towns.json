@@ -89,6 +89,7 @@
     4115
    ],
    "watch": true,
+   "townBox": true,
    "redfin": "https://www.redfin.com/minorcivildivision/380/NH/Merrimack/filter/property-type=multifamily,max-price=1M",
    "redfinSold": "https://www.redfin.com/minorcivildivision/380/NH/Merrimack/filter/property-type=multifamily,include=sold-1mo"
   },
