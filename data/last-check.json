@@ -1,6 +1,6 @@
 {
- "date": "2026-10-24",
- "ranAt": "2026-10-24T10:05:04.751Z",
+ "date": "2026-10-25",
+ "ranAt": "2026-10-25T10:05:04.519Z",
  "status": "ok",
  "problem": null,
  "towns": [
@@ -13,8 +13,8 @@
     "via": "region page"
    },
    "sold": {
-    "rows": 65,
-    "kept": 15
+    "rows": 64,
+    "kept": 13
    }
   },
   {
@@ -39,8 +39,8 @@
     "via": "region page"
    },
    "sold": {
-    "rows": 35,
-    "kept": 11
+    "rows": 33,
+    "kept": 9
    }
   },
   {
@@ -59,13 +59,13 @@
   {
    "town": "Haverhill|MA",
    "forSale": {
-    "rows": 11,
-    "kept": 8,
+    "rows": 10,
+    "kept": 7,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 15,
+    "rows": 14,
     "kept": 4
    }
   },
@@ -104,8 +104,8 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 50,
-    "kept": 9
+    "rows": 48,
+    "kept": 8
    }
   },
   {
@@ -117,7 +117,7 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 73,
+    "rows": 72,
     "kept": 14
    }
   },
@@ -143,21 +143,21 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 64,
-    "kept": 9
+    "rows": 63,
+    "kept": 8
    }
   },
   {
    "town": "Worcester|MA",
    "forSale": {
-    "rows": 111,
-    "kept": 89,
+    "rows": 110,
+    "kept": 88,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 135,
-    "kept": 22
+    "rows": 133,
+    "kept": 21
    }
   },
   {
@@ -214,19 +214,19 @@
   }
  ],
  "report": {
-  "date": "2026-10-24",
+  "date": "2026-10-25",
   "townsPulled": [
    "Lowell, MA (35)",
    "Methuen, MA (4)",
    "Lawrence, MA (16)",
    "Nashua, NH (8)",
-   "Haverhill, MA (8)",
+   "Haverhill, MA (7)",
    "Derry, NH (3)",
    "Lynn, MA (25)",
    "Manchester, NH (43)",
    "Leominster, MA (19)",
    "Fitchburg, MA (52)",
-   "Worcester, MA (89)",
+   "Worcester, MA (88)",
    "Concord, NH (4)",
    "Dover, NH (8)",
    "Brockton, MA (27)",
@@ -235,53 +235,9 @@
   "townsFailed": [
    "Merrimack, NH"
   ],
-  "added": 3,
-  "newMatches": [
-   {
-    "id": "ma-lynn-93-chestnut-st",
-    "address": "93 Chestnut St",
-    "town": "Lynn",
-    "state": "MA",
-    "miles": 23,
-    "units": 3,
-    "price": 839900,
-    "rent": 8400,
-    "verdict": "Negotiate",
-    "maxOffer": 771000,
-    "url": "https://www.redfin.com/MA/Lynn/93-Chestnut-St-01902/home/11564177"
-   },
-   {
-    "id": "ma-brockton-208-spring-st",
-    "address": "208 Spring St",
-    "town": "Brockton",
-    "state": "MA",
-    "miles": 43,
-    "units": 3,
-    "price": 849000,
-    "rent": 8375,
-    "verdict": "Negotiate",
-    "maxOffer": 766000,
-    "url": "https://www.redfin.com/MA/Brockton/208-Spring-St-02301/home/16325663"
-   }
-  ],
-  "priceChanges": [
-   {
-    "id": "ma-lynn-35-ridgeway-st",
-    "address": "35 Ridgeway St",
-    "town": "Lynn",
-    "state": "MA",
-    "miles": 23,
-    "units": 2,
-    "price": 572000,
-    "rent": 4000,
-    "verdict": "Pass",
-    "maxOffer": 331000,
-    "url": "https://www.redfin.com/MA/Lynn/35-Ridgeway-St-01902/home/11577280",
-    "from": 590000,
-    "verdictWas": "Pass",
-    "nowMatches": false
-   }
-  ],
+  "added": 0,
+  "newMatches": [],
+  "priceChanges": [],
   "sold": [],
   "gone": [],
   "skipped": [
@@ -421,7 +377,7 @@
    }
   ],
   "errors": [],
-  "checkTotal": 151,
+  "checkTotal": 153,
   "total": 581
  }
 }
