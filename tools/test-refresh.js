@@ -22,9 +22,16 @@ test('sold only from a checked page; price can arrive later; nothing checked twi
   r=refresh(L,S,towns,'',"ma-lowell-1-a-st|sold|$480,000|2026-10-05\n","2026-10-08T10:00:00Z");
   assert.equal(L[0].sold.price,480000);assert.equal(r.sold[0].priceJustPublished,true);
 });
-test('a failed town pull flags nothing',()=>{
-  const L=base(),S={};const r=refresh(L,S,towns,"#Lowell|MA\n",'',NOW);
-  assert.equal(r.check.length,0);assert.equal(r.townsFailed.length,1);
+test('a town read with nothing listed flags nothing and is not called failed (Merrimack)',()=>{
+  const L=base(),S={};const r=refresh(L,S,towns,"#Lowell|MA|0\n",'',NOW);
+  assert.equal(r.check.length,0);assert.deepEqual(r.townsPulled,['Lowell, MA (0)']);assert.deepEqual(r.townsFailed,[]);
+  assert.equal(L[0].gone,undefined);
+});
+test('a watched town missing from the pull is the one reported failed',()=>{
+  const T={...towns,"Lowell|MA":{...towns["Lowell|MA"],watch:true,redfin:"x"},"Nashua|NH":{lat:42.765,lon:-71.468,rents:[1,2,3,4],watch:true,redfin:"x"},
+    "Salem|NH":{lat:42.788,lon:-71.201,rents:[1,2,3,4],watch:false,redfin:"x"}};
+  const L=base(),S={};const r=refresh(L,S,T,"#Lowell|MA|1\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222\n",'',NOW);
+  assert.deepEqual(r.townsPulled,['Lowell, MA (1)']);assert.deepEqual(r.townsFailed,['Nashua, NH']);
 });
 
 test('sold page marks sold with price by Redfin home number, ignores homes we never had',()=>{

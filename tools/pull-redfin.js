@@ -90,12 +90,19 @@ async function get(url,tries=2){
   throw last;
 }
 
-async function readList(pageUrl,town,sold,T){
-  const html=await get(pageUrl);await sleep(2500+Math.random()*2500);
+/* The downloads to try for a town, in order. A town marked townBox in towns.json (Merrimack: no region guess has
+   ever worked) goes straight to the box, without opening its search page, so it costs one request instead of seven. */
+function linksFor(html,pageUrl,sold,T){
+  if(T&&T.townBox&&T.lat&&T.lon)return {links:[polyLink(T.lat,T.lon,sold)],r:null,pageLink:null};
   const r=region(html,pageUrl);const pageLink=csvLink(html);
   const links=pageLink?[pageLink]:r?(r.types||[r.type]).map(type=>builtLink({...r,type},sold)):[];
   /* a guessed region can fail; then fall back to a box around the town center */
   if(!pageLink&&(!r||r.types)&&T&&T.lat&&T.lon)links.push(polyLink(T.lat,T.lon,sold));
+  return {links,r,pageLink};
+}
+async function readList(pageUrl,town,sold,T){
+  let html='';if(!(T&&T.townBox&&T.lat&&T.lon)){html=await get(pageUrl);await sleep(2500+Math.random()*2500);}
+  const {links,r,pageLink}=linksFor(html,pageUrl,sold,T);
   if(!links.length){const e=new Error('no download link or region on page');e.hints=hints(html);throw e;}
   let last;const tried=[];
   for(const link of links){
@@ -108,7 +115,7 @@ async function readList(pageUrl,town,sold,T){
     const inTown=rows.filter(o=>col(o,'CITY').toLowerCase()===town.toLowerCase());
     /* the box covers neighbours on purpose: keep this town's homes only (the box is read whole, so this is the full list) */
     if(isPoly){if(rows.length>=CSV_CAP){last=new Error('town box download hit the '+CSV_CAP+'-home cap');tried.push(via+': capped');continue;}
-      return {rows:inTown,capped:false,via};}
+      return {rows:inTown,capped:false,via,boxRows:rows.length};} /* boxRows: homes in the whole box, so an empty town still shows the box worked */
     /* guard against a wrong region: most homes must be in this town */
     if(inTown.length<rows.length/2){last=new Error(`download is for the wrong area (${inTown.length} of ${rows.length} in ${town})`);last.hints={link};tried.push(via+': wrong area');continue;}
     return {rows,capped:rows.length>=CSV_CAP,via};
@@ -133,11 +140,11 @@ async function main(){
   const out=[],log={ranAt:new Date().toISOString(),towns:[]};
   for(const [key,T] of Object.entries(towns)){
     if(!T.watch||!T.redfin)continue;const [town,st]=key.split('|');const entry={town:key,forSale:null,sold:null};
-    try{const {rows,capped,via}=await readList(T.redfin,town,false,T);const lines=forSaleLines(rows);
+    try{const {rows,capped,via,boxRows}=await readList(T.redfin,town,false,T);const lines=forSaleLines(rows);
       if(!lines.length&&!rows.length&&!/box/.test(via))throw new Error('list came back empty');
-      out.push(`#${town}|${st}|${capped?'':lines.length}`,...lines);entry.forSale={rows:rows.length,kept:lines.length,capped,via};
+      out.push(`#${town}|${st}|${capped?'':lines.length}`,...lines);entry.forSale={rows:rows.length,kept:lines.length,capped,via,...(boxRows!=null?{boxRows}:{})};
       if(T.redfinSold){
-        try{const s=await readList(T.redfinSold,town,true,T);const sl=soldLines(s.rows);out.push(`#SOLD ${town}|${st}`,...sl);entry.sold={rows:s.rows.length,kept:sl.length};}
+        try{const s=await readList(T.redfinSold,town,true,T);const sl=soldLines(s.rows);out.push(`#SOLD ${town}|${st}`,...sl);entry.sold={rows:s.rows.length,kept:sl.length,...(s.boxRows!=null?{boxRows:s.boxRows}:{})};}
         catch(e){entry.sold={error:String(e.message||e),...(e.hints?{hints:e.hints}:{})};}
       }
     }catch(e){entry.forSale={error:String(e.message||e),...(e.hints?{hints:e.hints}:{})};}
@@ -146,5 +153,5 @@ async function main(){
   fs.writeFileSync(arg('out')||'rows.txt',out.join('\n')+'\n');
   if(arg('log'))fs.writeFileSync(arg('log'),JSON.stringify(log,null,1)+'\n');
 }
-module.exports={parseCsv,isoDate,forSaleLines,soldLines,csvLink,region,builtLink,polyLink};
+module.exports={parseCsv,isoDate,forSaleLines,soldLines,csvLink,region,builtLink,polyLink,linksFor};
 if(require.main===module)main().catch(e=>{console.error(e);process.exit(1);});
