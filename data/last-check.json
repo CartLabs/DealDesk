@@ -1,6 +1,6 @@
 {
- "date": "2026-10-25",
- "ranAt": "2026-10-25T10:05:04.519Z",
+ "date": "2026-10-26",
+ "ranAt": "2026-10-26T10:05:04.889Z",
  "status": "ok",
  "problem": null,
  "towns": [
@@ -33,13 +33,13 @@
   {
    "town": "Lawrence|MA",
    "forSale": {
-    "rows": 24,
-    "kept": 16,
+    "rows": 21,
+    "kept": 14,
     "capped": false,
     "via": "region page"
    },
    "sold": {
-    "rows": 33,
+    "rows": 30,
     "kept": 9
    }
   },
@@ -59,13 +59,13 @@
   {
    "town": "Haverhill|MA",
    "forSale": {
-    "rows": 10,
-    "kept": 7,
+    "rows": 11,
+    "kept": 8,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 14,
+    "rows": 15,
     "kept": 4
    }
   },
@@ -88,11 +88,13 @@
     "rows": 0,
     "kept": 0,
     "capped": false,
-    "via": "town box"
+    "via": "town box",
+    "boxRows": 2
    },
    "sold": {
     "rows": 1,
-    "kept": 0
+    "kept": 0,
+    "boxRows": 3
    }
   },
   {
@@ -143,20 +145,20 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 63,
-    "kept": 8
+    "rows": 64,
+    "kept": 9
    }
   },
   {
    "town": "Worcester|MA",
    "forSale": {
-    "rows": 110,
-    "kept": 88,
+    "rows": 111,
+    "kept": 89,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 133,
+    "rows": 134,
     "kept": 21
    }
   },
@@ -189,13 +191,13 @@
   {
    "town": "Brockton|MA",
    "forSale": {
-    "rows": 33,
-    "kept": 27,
+    "rows": 31,
+    "kept": 26,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 40,
+    "rows": 38,
     "kept": 7
    }
   },
@@ -214,30 +216,124 @@
   }
  ],
  "report": {
-  "date": "2026-10-25",
+  "date": "2026-10-26",
   "townsPulled": [
    "Lowell, MA (35)",
    "Methuen, MA (4)",
-   "Lawrence, MA (16)",
+   "Lawrence, MA (14)",
    "Nashua, NH (8)",
-   "Haverhill, MA (7)",
+   "Haverhill, MA (8)",
    "Derry, NH (3)",
+   "Merrimack, NH (0)",
    "Lynn, MA (25)",
    "Manchester, NH (43)",
    "Leominster, MA (19)",
    "Fitchburg, MA (52)",
-   "Worcester, MA (88)",
+   "Worcester, MA (89)",
    "Concord, NH (4)",
    "Dover, NH (8)",
-   "Brockton, MA (27)",
+   "Brockton, MA (26)",
    "Rochester, NH (11)"
   ],
-  "townsFailed": [
-   "Merrimack, NH"
+  "townsFailed": [],
+  "added": 2,
+  "newMatches": [
+   {
+    "id": "ma-haverhill-22-24-came",
+    "address": "22-24 Came",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "units": 3,
+    "price": 791000,
+    "rent": 7950,
+    "verdict": "Negotiate",
+    "maxOffer": 730000,
+    "url": "https://www.redfin.com/MA/Haverhill/22-24-Came-01830/home/206672342"
+   }
   ],
-  "added": 0,
-  "newMatches": [],
-  "priceChanges": [],
+  "priceChanges": [
+   {
+    "id": "ma-lynn-98-lafayette-park",
+    "address": "98 Lafayette Park",
+    "town": "Lynn",
+    "state": "MA",
+    "miles": 23,
+    "units": 2,
+    "price": 965000,
+    "rent": 7200,
+    "verdict": "Pass",
+    "maxOffer": 610000,
+    "url": "https://www.redfin.com/MA/Lynn/98-Lafayette-Park-01902/home/11564125",
+    "from": 975000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-lynn-9-11-dungeon-ave",
+    "address": "9-11 Dungeon Ave",
+    "town": "Lynn",
+    "state": "MA",
+    "miles": 23,
+    "units": 2,
+    "price": 549900,
+    "rent": 4800,
+    "verdict": "Pass",
+    "maxOffer": 426000,
+    "url": "https://www.redfin.com/MA/Lynn/9-11-Dungeon-Ave-01905/home/195222169",
+    "from": 579900,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "nh-manchester-417-bartlett-st",
+    "address": "417 Bartlett St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "units": 2,
+    "price": 499900,
+    "rent": 3975,
+    "verdict": "Pass",
+    "maxOffer": 299000,
+    "url": "https://www.redfin.com/NH/Manchester/417-Bartlett-St-03102/home/96673535",
+    "from": 525000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "nh-manchester-1601-front-st",
+    "address": "1601 Front St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "units": 3,
+    "price": 639900,
+    "rent": 6375,
+    "verdict": "Pass",
+    "maxOffer": 527000,
+    "url": "https://www.redfin.com/NH/Manchester/1601-Front-St-03102/home/96677862",
+    "from": 665000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-worcester-69-fox-st",
+    "address": "69 Fox St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 2,
+    "price": 490000,
+    "rent": 4250,
+    "verdict": "Pass",
+    "maxOffer": 376000,
+    "url": "https://www.redfin.com/MA/Worcester/69-Fox-St-01604/home/16664267",
+    "from": 510000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   }
+  ],
   "sold": [],
   "gone": [],
   "skipped": [
@@ -377,7 +473,7 @@
    }
   ],
   "errors": [],
-  "checkTotal": 153,
-  "total": 581
+  "checkTotal": 156,
+  "total": 583
  }
 }

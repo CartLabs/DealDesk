@@ -2090,13 +2090,15 @@ window.SEED_LISTINGS = [
     "miles": 23,
     "type": "Two-family",
     "units": 2,
-    "price": 579900,
+    "price": 549900,
     "rent": 4800,
     "url": "https://www.redfin.com/MA/Lynn/9-11-Dungeon-Ave-01905/home/195222169",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lynn averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "priceWas": 579900,
+    "priceChangedAt": "2026-10-26T10:00:00Z"
   },
   {
     "id": "ma-lynn-74-myrtle-st",
@@ -4912,14 +4914,14 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 510000,
+    "price": 490000,
     "rent": 4250,
     "url": "https://www.redfin.com/MA/Worcester/69-Fox-St-01604/home/16664267",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
-    "priceWas": 520000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 510000,
+    "priceChangedAt": "2026-10-26T10:00:00Z"
   },
   {
     "id": "ma-worcester-30-penn-ave",
@@ -6972,13 +6974,15 @@ window.SEED_LISTINGS = [
     "miles": 23,
     "type": "Two-family",
     "units": 2,
-    "price": 975000,
+    "price": 965000,
     "rent": 7200,
     "url": "https://www.redfin.com/MA/Lynn/98-Lafayette-Park-01902/home/11564125",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 8 bedrooms split as 4BR + 4BR. Taxes and insurance are estimated. Unit count (2) is inferred from 8 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 975000,
+    "priceChangedAt": "2026-10-26T10:00:00Z"
   },
   {
     "id": "ma-lynn-16-estes-st",
@@ -7118,13 +7122,15 @@ window.SEED_LISTINGS = [
     "miles": 24,
     "type": "Two-family",
     "units": 2,
-    "price": 525000,
+    "price": 499900,
     "rent": 3975,
     "url": "https://www.redfin.com/NH/Manchester/417-Bartlett-St-03102/home/96673535",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 525000,
+    "priceChangedAt": "2026-10-26T10:00:00Z"
   },
   {
     "id": "nh-manchester-1601-front-st",
@@ -7134,13 +7140,15 @@ window.SEED_LISTINGS = [
     "miles": 24,
     "type": "Three-family",
     "units": 3,
-    "price": 665000,
+    "price": 639900,
     "rent": 6375,
     "url": "https://www.redfin.com/NH/Manchester/1601-Front-St-03102/home/96677862",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 665000,
+    "priceChangedAt": "2026-10-26T10:00:00Z"
   },
   {
     "id": "nh-manchester-301-amherst-st",
@@ -9423,5 +9431,37 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-24",
     "addedAt": "2026-10-24T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-22-24-came",
+    "address": "22-24 Came",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Three-family",
+    "units": 3,
+    "price": 791000,
+    "rent": 7950,
+    "url": "https://www.redfin.com/MA/Haverhill/22-24-Came-01830/home/206672342",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 10 bedrooms split as 4BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 10 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-26",
+    "addedAt": "2026-10-26T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-130-canterbury-st",
+    "address": "130 Canterbury St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 725000,
+    "rent": 6000,
+    "url": "https://www.redfin.com/MA/Worcester/130-Canterbury-St-01603/home/16655690",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-26",
+    "addedAt": "2026-10-26T10:00:00Z"
   }
 ];
