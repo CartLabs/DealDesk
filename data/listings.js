@@ -5523,13 +5523,15 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 599000,
+    "price": 590000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Worcester/51-Randall-St-01606/home/16680255",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 3.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "priceWas": 599000,
+    "priceChangedAt": "2026-10-27T10:00:00Z"
   },
   {
     "id": "ma-worcester-38-oberlin-st",
@@ -7656,13 +7658,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Two-family",
     "units": 2,
-    "price": 399900,
+    "price": 389900,
     "rent": 3500,
     "url": "https://www.redfin.com/MA/Fitchburg/126-Payson-St-01420/home/16501529",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 399900,
+    "priceChangedAt": "2026-10-27T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-109-albee-st",
@@ -8742,7 +8746,11 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-18",
-    "addedAt": "2026-10-18T10:00:00Z"
+    "addedAt": "2026-10-18T10:00:00Z",
+    "sold": {
+      "date": "2026-10-26",
+      "price": 739000
+    }
   },
   {
     "id": "nh-manchester-6-ray-st",
@@ -9463,5 +9471,85 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-26",
     "addedAt": "2026-10-26T10:00:00Z"
+  },
+  {
+    "id": "ma-lawrence-72-byron-ave",
+    "address": "72 Byron Ave",
+    "town": "Lawrence",
+    "state": "MA",
+    "miles": 8,
+    "type": "Three-family",
+    "units": 3,
+    "price": 775000,
+    "rent": 6875,
+    "url": "https://www.redfin.com/MA/Lawrence/72-Byron-Ave-01841/home/11331720",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-27",
+    "addedAt": "2026-10-27T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-22-24-came-ave",
+    "address": "22-24 Came Ave",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Three-family",
+    "units": 3,
+    "price": 791000,
+    "rent": 7950,
+    "url": "https://www.redfin.com/MA/Haverhill/22-24-Came-Ave-01830/home/11303309",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 10 bedrooms split as 4BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 10 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-27",
+    "addedAt": "2026-10-27T10:00:00Z"
+  },
+  {
+    "id": "ma-leominster-199-mechanic-st",
+    "address": "199 Mechanic St",
+    "town": "Leominster",
+    "state": "MA",
+    "miles": 25,
+    "type": "Three-family",
+    "units": 3,
+    "price": 550000,
+    "rent": 5550,
+    "url": "https://www.redfin.com/MA/Leominster/199-Mechanic-St-01453/home/206674366",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Leominster averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-27",
+    "addedAt": "2026-10-27T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-12-blanche-st",
+    "address": "12 Blanche St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 649000,
+    "rent": 6000,
+    "url": "https://www.redfin.com/MA/Worcester/12-Blanche-St-01604/home/16664313",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-27",
+    "addedAt": "2026-10-27T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-145-eastern-ave",
+    "address": "145 Eastern Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 685900,
+    "rent": 6250,
+    "url": "https://www.redfin.com/MA/Worcester/145-Eastern-Ave-01605/home/16671892",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-27",
+    "addedAt": "2026-10-27T10:00:00Z"
   }
 ];
