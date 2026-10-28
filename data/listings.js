@@ -72,7 +72,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/282-Cartier-St-03102/home/108659063",
     "notes": "Rent is an estimate from Zumper city averages by bedroom count (Oct 2, 2026), not actual leases. Get the rent roll before offering. 3BR + 3BR + 1BR. Month-to-month tenants, separate heat.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T01:20:00Z"
+    "addedAt": "2026-10-03T01:20:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "man-334-rimmon",
@@ -154,7 +157,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/440-Kelley-St-03102/home/108654655",
     "notes": "Rent is an estimate from Zumper city averages by bedroom count (Oct 2, 2026), not actual leases. Get the rent roll before offering. 3BR + 4BR. Listing advertises a 3.125% assumable loan; assumption usually requires owner occupancy, so confirm.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T01:20:00Z"
+    "addedAt": "2026-10-03T01:20:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "man-67-wilson",
@@ -237,7 +243,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/25-Grand-Ave-03060/home/88079208",
     "notes": "Rent is an estimate from Zumper city averages by bedroom count (Oct 2, 2026), not actual leases. Get the rent roll before offering. 2BR + 2BR, garage, separate driveways.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T01:20:00Z"
+    "addedAt": "2026-10-03T01:20:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nas-68-kinsley",
@@ -284,7 +293,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/891-Bridge-St-01850/home/11641103",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lowell-112-fremont-st",
@@ -299,7 +311,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/112-Fremont-St-01850/home/11648156",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lowell-17-coral-st",
@@ -314,7 +329,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/17-Coral-St-01851/home/11628485",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lowell-48-gertrude-ave",
@@ -348,7 +366,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/1384-Gorham-St-01852/home/203470428",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lowell-48-blossom-st",
@@ -364,7 +385,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lowell-47-florence-ave",
@@ -398,7 +422,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 12 bedrooms split as 4BR + 4BR + 4BR. Taxes and insurance are estimated. Unit count (3) is inferred from 12 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lowell-61-pond-st",
@@ -430,7 +457,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lowell-256-university-ave",
@@ -496,7 +526,11 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 7 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sold": {
+      "date": "2026-10-22",
+      "price": 627500
+    }
   },
   {
     "id": "ma-lowell-125-gershom-ave",
@@ -666,7 +700,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 10 bedrooms split as 3BR + 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 10 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lowell-308-rogers-st",
@@ -797,7 +834,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/1-Grove-St-01841/home/11313707",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lawrence averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lawrence-3-oakwood-ave",
@@ -864,7 +904,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lawrence averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lawrence-53-weare-st",
@@ -1002,7 +1045,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/829-W-Lowell-Ave-01832/home/11318281",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Haverhill averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-haverhill-297-south-main-st",
@@ -1069,7 +1115,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 910000,
-    "priceChangedAt": "2026-10-07T10:55:37.577Z"
+    "priceChangedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-haverhill-38-wilson-st",
@@ -1102,7 +1151,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/62-64-Hampshire-St-01844/home/196600093",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Methuen averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-272-south-st",
@@ -1117,7 +1169,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/272-South-St-01420/home/16499248",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-21-old-leominster-rd",
@@ -1181,7 +1236,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/61-Central-St-01420/home/16503150",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-100-marshall-st",
@@ -1197,7 +1255,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-58-oliver-st",
@@ -1331,7 +1392,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 12 bedrooms split as 4BR + 4BR + 4BR. Taxes and insurance are estimated. Unit count (3) is inferred from 12 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-8-hawes-st",
@@ -1419,7 +1483,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-381-summer-st",
@@ -1505,7 +1572,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-18-22-hartwell-st",
@@ -1521,7 +1591,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-142-madison-st",
@@ -1537,7 +1610,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-9-martel-st",
@@ -1571,7 +1647,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 8 bedrooms split as 2BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 8 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-21-winthrop-st",
@@ -1587,7 +1666,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-205-woodland-st",
@@ -1671,7 +1753,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 2 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-21-23-omena-pl",
@@ -1705,7 +1790,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-115-beech-st",
@@ -1721,7 +1809,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-leominster-151-central-st",
@@ -1817,7 +1908,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-leominster-35-third-st",
@@ -1901,7 +1995,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 5.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-leominster-6-n-main-st",
@@ -2015,7 +2112,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 6 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-leominster-14-walker-st",
@@ -2062,7 +2162,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/67-Oakwood-Ave-01902/home/11559835",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lynn averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lynn-686-a-boston-st",
@@ -2114,7 +2217,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lynn averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lynn-35-ridgeway-st",
@@ -2216,7 +2322,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lynn averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lynn-7-ward-st",
@@ -2232,7 +2341,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lynn averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lynn-12-linwood-pl",
@@ -2281,7 +2393,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/33-Park-St-02301/home/16322570",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 12 bedrooms split as 4BR + 4BR + 4BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-25-second-st",
@@ -2312,7 +2427,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-809-warren-ave",
@@ -2343,7 +2461,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 10 bedrooms split as 3BR + 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 10 beds and 4.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-47-kingman-st",
@@ -2391,7 +2512,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 7 beds and 2.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-227-dover-st",
@@ -2425,7 +2549,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-10-brook-st",
@@ -2459,7 +2586,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-35-florence-st",
@@ -2477,7 +2607,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 899000,
-    "priceChangedAt": "2026-10-07T10:55:37.577Z"
+    "priceChangedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-469-summer-st",
@@ -2563,7 +2696,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-65-wayland-st",
@@ -2579,7 +2715,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-461-montello-st",
@@ -2589,15 +2728,15 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Two-family",
     "units": 2,
-    "price": 749900,
+    "price": 719900,
     "rent": 4300,
     "url": "https://www.redfin.com/MA/Brockton/461-Montello-St-02301/home/16321666",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "priceWas": 769900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 749900,
+    "priceChangedAt": "2026-10-28T10:00:00Z"
   },
   {
     "id": "ma-brockton-101-prospect-st",
@@ -2613,7 +2752,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 8 bedrooms split as 2BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 8 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-15-first-st",
@@ -2681,7 +2823,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 7 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-brockton-22-pondview-cir",
@@ -3857,7 +4002,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/87-Washington-St-03301/home/103046765",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Concord averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-concord-94-s-state-st",
@@ -3907,7 +4055,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/12-14-West-St-03301/home/205379586",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Concord averages, assuming 4 bedrooms split as 2BR + 1BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-concord-68-s-state-st",
@@ -3923,7 +4074,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Concord averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-concord-27-holly-st",
@@ -3957,7 +4111,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Concord averages, assuming 10 bedrooms split as 3BR + 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 10 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-concord-271-village-st",
@@ -4021,7 +4178,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/45-Hanson-St-03867/home/101652568",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Rochester averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-rochester-2-pleasant-st",
@@ -4115,7 +4275,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/48-New-York-St-03820/home/103021337",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Dover averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-dover-120-durham-rd",
@@ -4251,12 +4414,14 @@ window.SEED_LISTINGS = [
     "miles": 24,
     "type": "Three-family",
     "units": 3,
-    "price": 555000,
+    "price": 549000,
     "rent": 5000,
     "url": "https://www.redfin.com/NH/Manchester/379-Manchester-St-03103/home/63526847",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 3 bedrooms split as 1BR + 1BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "priceWas": 555000,
+    "priceChangedAt": "2026-10-28T10:00:00Z"
   },
   {
     "id": "nh-manchester-33-rimmon-st",
@@ -4282,12 +4447,14 @@ window.SEED_LISTINGS = [
     "miles": 24,
     "type": "Three-family",
     "units": 3,
-    "price": 479000,
+    "price": 470000,
     "rent": 5000,
     "url": "https://www.redfin.com/NH/Manchester/377-Manchester-St-03103/home/63526848",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 3 bedrooms split as 1BR + 1BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "priceWas": 479000,
+    "priceChangedAt": "2026-10-28T10:00:00Z"
   },
   {
     "id": "nh-manchester-426-manchester-st",
@@ -4412,7 +4579,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/424-Gold-St-03103/home/96672507",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-292-main-st",
@@ -4457,7 +4627,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/32-Mitchell-St-03103/home/63526380",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-577-581-s-beech-st",
@@ -4472,7 +4645,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/581-S-Beech-St-03103/home/108661069",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-336-lovering-st",
@@ -4487,7 +4663,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/336-Lovering-St-03109/home/88247298",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-22-taylor-st",
@@ -4534,7 +4713,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/41-Parker-St-03102/home/88247005",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-481-hall-st",
@@ -4549,7 +4731,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/481-Hall-St-03103/home/96670885",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-273-walnut-st",
@@ -4611,7 +4796,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/373-Bartlett-St-03102/home/88251789",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-38-riddle-st",
@@ -4658,7 +4846,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/151-Morgan-St-03102/home/96671825",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-440-gold-st",
@@ -4673,7 +4864,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/440-Gold-St-03103/home/88244709",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 3 bedrooms split as 2BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-649-second-st",
@@ -4703,7 +4897,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/12-Crown-St-01609/home/16668207",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T03:25:00Z"
+    "addedAt": "2026-10-03T03:25:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-12-puritan-ave",
@@ -4735,7 +4932,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/169-Perry-Ave-01610/home/16676601",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T03:25:00Z"
+    "addedAt": "2026-10-03T03:25:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-58-austin-st",
@@ -4826,7 +5026,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/16-Reservoir-St-01605/home/16669225",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T03:25:00Z"
+    "addedAt": "2026-10-03T03:25:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-89-mill-st",
@@ -4857,7 +5060,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/9-Winthrop-St-01604/home/16679253",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T03:25:00Z"
+    "addedAt": "2026-10-03T03:25:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-72-74-mason-st",
@@ -4970,7 +5176,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/11-Diamond-St-01610/home/16663672",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T03:25:00Z"
+    "addedAt": "2026-10-03T03:25:00Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-4-mott-st",
@@ -5003,7 +5212,11 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sold": {
+      "date": "2026-10-26",
+      "price": 910000
+    }
   },
   {
     "id": "ma-lowell-45-varney-st",
@@ -5037,7 +5250,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lowell-230-cumberland-rd",
@@ -5069,7 +5285,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/13-15-Falmouth-St-01843/home/205464063",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-haverhill-99-laurel-ave",
@@ -5084,7 +5303,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/99-Laurel-Ave-01835/home/11330117",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lynn-2-mace-pl",
@@ -5183,7 +5405,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/747-Beech-St-03104/home/88253693",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "nh-manchester-364-manchester-st",
@@ -5217,7 +5442,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-leominster-181-pond-st",
@@ -5233,7 +5461,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Leominster averages, assuming 8 bedrooms split as 2BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 8 beds and 7 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-leominster-54-56-north-main-st",
@@ -5249,7 +5480,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Leominster averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-fitchburg-420-kimball",
@@ -5265,7 +5499,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 18 bedrooms split as 5BR + 5BR + 4BR + 4BR. Taxes and insurance are estimated. Unit count (4) is inferred from 18 beds and 6 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-11-glenwood-st",
@@ -5299,7 +5536,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-177-fairmont-ave",
@@ -5363,7 +5603,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 10 bedrooms split as 4BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 10 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-15-sigel-st",
@@ -5379,7 +5622,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-32-catharine-st",
@@ -5762,7 +6008,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/17-Hunnewell-Rd-01606/home/16648033",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-14-ericsson-st",
@@ -5846,7 +6095,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 17 bedrooms split as 5BR + 4BR + 4BR + 4BR. Taxes and insurance are estimated. Unit count (4) is inferred from 17 beds and 6 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-19-englewood-ave",
@@ -5926,7 +6178,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 11 bedrooms split as 4BR + 4BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 11 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-30-northridge",
@@ -5942,7 +6197,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-7-albert-st",
@@ -6074,7 +6332,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-19-kelley-sq",
@@ -6174,7 +6435,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-1524-main-st",
@@ -6190,7 +6454,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-923-west-boylston-st",
@@ -6206,7 +6473,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-4-maxwell-ct",
@@ -6242,7 +6512,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 10 bedrooms split as 3BR + 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 10 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-worcester-31-esther-st",
@@ -6358,7 +6631,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Concord averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-10-28"
+    }
   },
   {
     "id": "ma-lynn-34-36-curry-cir",
@@ -7408,13 +7684,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Three-family",
     "units": 3,
-    "price": 524900,
+    "price": 514999,
     "rent": 5250,
     "url": "https://www.redfin.com/MA/Fitchburg/282-Charles-St-01420/home/16501257",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 524900,
+    "priceChangedAt": "2026-10-28T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-15-nutting-st",
@@ -7424,13 +7702,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Two-family",
     "units": 2,
-    "price": 489000,
+    "price": 474900,
     "rent": 3500,
     "url": "https://www.redfin.com/MA/Fitchburg/15-Nutting-St-01420/home/16503581",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 489000,
+    "priceChangedAt": "2026-10-28T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-53-55-cascade-st",
@@ -8856,13 +9136,15 @@ window.SEED_LISTINGS = [
     "miles": 24,
     "type": "Two-family",
     "units": 2,
-    "price": 560000,
+    "price": 549900,
     "rent": 3975,
     "url": "https://www.redfin.com/NH/Manchester/43-Cartier-St-03102/home/60372581",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-21",
-    "addedAt": "2026-10-21T10:00:00Z"
+    "addedAt": "2026-10-21T10:00:00Z",
+    "priceWas": 560000,
+    "priceChangedAt": "2026-10-28T10:00:00Z"
   },
   {
     "id": "nh-manchester-274-e-high-st",
@@ -9551,5 +9833,149 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-27",
     "addedAt": "2026-10-27T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-781-broadway-st",
+    "address": "781 Broadway St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Three-family",
+    "units": 3,
+    "price": 875900,
+    "rent": 6950,
+    "url": "https://www.redfin.com/MA/Lowell/781-Broadway-St-01854/home/11621139",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-28",
+    "addedAt": "2026-10-28T10:00:00Z"
+  },
+  {
+    "id": "ma-lawrence-180-s-union-st",
+    "address": "180 S Union St",
+    "town": "Lawrence",
+    "state": "MA",
+    "miles": 8,
+    "type": "Three-family",
+    "units": 3,
+    "price": 865740,
+    "rent": 7750,
+    "url": "https://www.redfin.com/MA/Lawrence/180-S-Union-St-01843/home/12451793",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-28",
+    "addedAt": "2026-10-28T10:00:00Z"
+  },
+  {
+    "id": "nh-nashua-8-blue-hill-ave",
+    "address": "8 Blue Hill Ave",
+    "town": "Nashua",
+    "state": "NH",
+    "miles": 11,
+    "type": "Two-family",
+    "units": 2,
+    "price": 659999,
+    "rent": 4600,
+    "url": "https://www.redfin.com/NH/Nashua/8-Blue-Hill-Ave-03064/home/60374708",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Nashua averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-28",
+    "addedAt": "2026-10-28T10:00:00Z"
+  },
+  {
+    "id": "nh-derry-16-norton-st",
+    "address": "16 Norton St",
+    "town": "Derry",
+    "state": "NH",
+    "miles": 15,
+    "type": "Two-family",
+    "units": 2,
+    "price": 650000,
+    "rent": 4975,
+    "url": "https://www.redfin.com/NH/Derry/16-Norton-St-03038/home/103050568",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Derry averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-28",
+    "addedAt": "2026-10-28T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-227-laval-st",
+    "address": "227 Laval St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Two-family",
+    "units": 2,
+    "price": 589500,
+    "rent": 3975,
+    "url": "https://www.redfin.com/NH/Manchester/227-Laval-St-03102/home/88246587",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-28",
+    "addedAt": "2026-10-28T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-331-spruce-st",
+    "address": "331 Spruce St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Two-family",
+    "units": 2,
+    "price": 599900,
+    "rent": 4375,
+    "url": "https://www.redfin.com/NH/Manchester/331-Spruce-St-03103/home/96677476",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-28",
+    "addedAt": "2026-10-28T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-120-academy-st",
+    "address": "120 Academy St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Two-family",
+    "units": 2,
+    "price": 373000,
+    "rent": 3500,
+    "url": "https://www.redfin.com/MA/Fitchburg/120-Academy-St-01420/home/16503135",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-28",
+    "addedAt": "2026-10-28T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-1296-main",
+    "address": "1296 Main",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 759900,
+    "rent": 6250,
+    "url": "https://www.redfin.com/MA/Worcester/1296-Main-St-01603/home/16673334",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3.5 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-28",
+    "addedAt": "2026-10-28T10:00:00Z"
+  },
+  {
+    "id": "nh-rochester-11-rachel-ln-unit-a-b",
+    "address": "11 Rachel Ln Unit A & B",
+    "town": "Rochester",
+    "state": "NH",
+    "miles": 47,
+    "type": "Three-family",
+    "units": 3,
+    "price": 950000,
+    "rent": 6000,
+    "url": "https://www.redfin.com/NH/Rochester/11-Rachel-Rd-03867/unit-A-B/home/205536731",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-28",
+    "addedAt": "2026-10-28T10:00:00Z"
   }
 ];
