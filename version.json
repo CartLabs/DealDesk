@@ -1,11 +1,19 @@
 {
-  "version": "1.12.1",
+  "version": "1.13.0",
   "date": "2026-10-29",
   "notes": [
-    "The tabs all look the same now: the name on top and the count centered underneath, including Owned.",
-    "The daily check's record now counts listings archived as Off the market, not just Sold, so a big batch never moves to Archive without showing up in the count."
+    "Archive now opens with a breakdown: how many you passed on, how many sold, and how many went off the market.",
+    "Sold and Off market also count listings you passed on first, with a line under each saying how many of those were yours."
   ],
   "previous": [
+    {
+      "version": "1.12.1",
+      "date": "2026-10-29",
+      "notes": [
+        "The tabs all look the same now: the name on top and the count centered underneath, including Owned.",
+        "The daily check's record now counts listings archived as Off the market, not just Sold, so a big batch never moves to Archive without showing up in the count."
+      ]
+    },
     {
       "version": "1.12.0",
       "date": "2026-10-06",

@@ -111,6 +111,14 @@ td .addr{font-weight:600}
 .tab .n{font:600 11px var(--mono);background:var(--sunk);color:var(--ink);border-radius:99px;padding:1px 7px}
 .tab:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
 @media(max-width:420px){.tab{font-size:13px}}
+/* archive breakdown */
+#arcStats{display:flex;flex-direction:column;gap:6px}
+.arcgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:4px;background:var(--surface);overflow:hidden}
+.arcgrid>div{padding:10px 8px;border-right:1px solid var(--line);text-align:center;display:flex;flex-direction:column;gap:2px;min-width:0}
+.arcgrid>div:last-child{border-right:0}
+.arcgrid .k{font:600 11px var(--body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.arcgrid .v{font:600 22px var(--mono);color:var(--ink);font-variant-numeric:tabular-nums}
+.arcgrid .s{font-size:12px;color:var(--muted);line-height:1.3}
 .tab.gear{padding-inline:14px;flex-direction:row;gap:6px}
 @media(max-width:640px){.gearword{display:none}.tab.gear{padding-inline:12px}}
 /* Google Drive backup: header button, sheet, toast */
@@ -320,6 +328,7 @@ input.money{text-align:left}
   <section class="col" id="dealsView">
     <div class="row" style="justify-content:space-between"><h2 id="listTitle">To review</h2><span class="small muted" id="count"></span></div>
     <p class="small muted" id="listHelp"></p>
+    <div id="arcStats" hidden></div>
     <div class="filters" id="filters">
       <label id="radiusWrap">Distance from Dracut
         <select id="radius"><option value="10">Within 10 miles</option><option value="25">Within 25 miles</option><option value="50">Within 50 miles</option><option value="75">Within 75 miles</option><option value="100">Within 100 miles</option><option value="0">Any distance</option></select></label>
@@ -452,7 +461,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.12.1';
+const APP_VERSION = '1.13.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -570,7 +579,23 @@ function subline(d,a){
   lines.push(`<span class="meta">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}${tab==="review"&&isNew(d)?' <span class="tag">New</span>':""}${tab!=="archive"?cutTag(d):""}</span>`);
   return lines.join("");
 }
+/* Archive breakdown. "Passed" is anything Kevin removed himself. Sold and Off the market count every archived
+   listing that left the market, including ones he passed on first, so the three can add up to more than the total. */
+const AUTO_REASONS=new Set(["Sold","Off the market"]);
+function archiveStats(){const a=deals.filter(d=>statusOf(d)==="archive");const mine=d=>d.reason&&!AUTO_REASONS.has(d.reason)&&d.reason!=="Bought";
+  const s={passed:0,sold:0,soldAfter:0,gone:0,goneAfter:0,bought:0};
+  for(const d of a){if(d.reason==="Bought"){s.bought++;continue;}const m=mine(d);if(m)s.passed++;
+    if(d.sold){s.sold++;if(m)s.soldAfter++;}else if(d.gone){s.gone++;if(m)s.goneAfter++;}}
+  return s;}
+function renderArchiveStats(){const box=$("arcStats");box.hidden=tab!=="archive";if(box.hidden)return;
+  const s=archiveStats();const after=n=>n?`${n} after you passed`:"&nbsp;";
+  box.innerHTML=`<div class="arcgrid">
+    <div><span class="k">You passed</span><span class="v">${s.passed}</span><span class="s">&nbsp;</span></div>
+    <div><span class="k">Sold</span><span class="v">${s.sold}</span><span class="s">${after(s.soldAfter)}</span></div>
+    <div><span class="k">Off market</span><span class="v">${s.gone}</span><span class="s">${after(s.goneAfter)}</span></div></div>`+
+    (s.soldAfter||s.goneAfter||s.bought?`<span class="small muted">${[s.soldAfter||s.goneAfter?"Sold and Off market include ones you passed on first.":"",s.bought?`Also ${s.bought} you bought.`:""].filter(Boolean).join(" ")}</span>`:"");}
 function renderDeals(){
+  renderArchiveStats();
   if(!isList(tab))return;
   const list=listFor(tab);
   $("listTitle").textContent=TABS[tab];
