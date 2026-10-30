@@ -1,15 +1,24 @@
 {
-  "version": "1.17.0",
+  "version": "1.18.0",
   "date": "2026-10-29",
   "notes": [
-    "Deals are now scored the way you plan to buy: through an LLC with a DSCR loan, with the cash to close borrowed from a home equity loan on your home.",
-    "That home equity loan's payment now comes out of every deal's cash flow. This is the big change: far fewer listings make your buy box, because borrowing the down payment costs real money each month.",
-    "Each deal shows the lender's DSCR (full rent divided by mortgage, taxes, insurance and HOA) next to yours. The buy box can require a lender minimum, set to 1.00.",
-    "Cash to close now includes lender points (1%), and each deal shows the reserves a lender wants to see (6 months of payments) and the total you need.",
-    "New buy box settings: lender minimum DSCR, points, reserve months, where the cash to close comes from, the home equity loan's rate and term, and the funds you have available. Set funds and deals you cannot cover are capped.",
-    "Max offers are now worked out exactly, with estimated taxes and insurance rising with the price, so most max offers are a little lower than before."
+    "The 6% cash-on-cash rule is off. Since the down payment is borrowed, the profit test is now cash flow per unit, which already takes out the home equity loan's payment. Turn cash-on-cash back on in the buy box any time.",
+    "A deal's own financing can now hold a lender's quote: lender name, down payment, rate, term, points and the home equity loan rate. The deal is scored on those terms; every other deal keeps your buy box rates.",
+    "To change the rates for every deal, open the buy box and edit the investor loan rate and the home equity loan rate."
   ],
   "previous": [
+    {
+      "version": "1.17.0",
+      "date": "2026-10-29",
+      "notes": [
+        "Deals are now scored the way you plan to buy: through an LLC with a DSCR loan, with the cash to close borrowed from a home equity loan on your home.",
+        "That home equity loan's payment now comes out of every deal's cash flow. This is the big change: far fewer listings make your buy box, because borrowing the down payment costs real money each month.",
+        "Each deal shows the lender's DSCR (full rent divided by mortgage, taxes, insurance and HOA) next to yours. The buy box can require a lender minimum, set to 1.00.",
+        "Cash to close now includes lender points (1%), and each deal shows the reserves a lender wants to see (6 months of payments) and the total you need.",
+        "New buy box settings: lender minimum DSCR, points, reserve months, where the cash to close comes from, the home equity loan's rate and term, and the funds you have available. Set funds and deals you cannot cover are capped.",
+        "Max offers are now worked out exactly, with estimated taxes and insurance rising with the price, so most max offers are a little lower than before."
+      ]
+    },
     {
       "version": "1.16.0",
       "date": "2026-10-29",

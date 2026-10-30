@@ -258,7 +258,7 @@ input.money{text-align:left}
     <form id="boxForm" class="grid" autocomplete="off">
       <label>Price ceiling<input id="s_maxPrice" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Min cash flow / unit / mo<input id="s_minCF" class="money" type="text" inputmode="decimal" placeholder="$"></label>
-      <label>Min cash-on-cash %<input id="s_minCoC" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Min cash-on-cash % (0 = off)<input id="s_minCoC" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Your min debt coverage (NOI ÷ mortgage)<input id="s_minDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Down payment %<input id="s_down" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Investor loan rate %<input id="s_rate" type="number" step="any" min="0" inputmode="decimal"></label>
@@ -305,11 +305,14 @@ input.money{text-align:left}
       <label>Miles from Dracut<input id="f_miles" type="number" step="any" min="0" inputmode="decimal"></label>
       <div class="span2 loans">
         <h3>Financing for this deal</h3>
-        <label>How would you pay for it?<select id="f_finkind"><option value="bank">Investor loan (your buy box terms)</option><option value="custom">Seller financing or other terms</option></select></label>
+        <label>How would you pay for it?<select id="f_finkind"><option value="bank">Investor loan (your buy box terms)</option><option value="custom">A lender's quote, seller financing or other terms</option></select></label>
         <div class="loan" id="finFields" hidden>
+          <label class="span2">Lender or source (optional)<input id="f_finlender" type="text" placeholder="e.g. Kiavi, seller"></label>
           <label>Down payment %<input id="f_findown" type="number" step="any" min="0" inputmode="decimal"></label>
           <label>Interest rate %<input id="f_finrate" type="number" step="any" min="0" inputmode="decimal"></label>
           <label>Paid off over (years)<input id="f_finterm" type="number" step="any" min="0" inputmode="decimal"></label>
+          <label>Points % of loan<input id="f_finpoints" type="number" step="any" min="0" inputmode="decimal"></label>
+          <label>Home equity loan rate %<input id="f_finheRate" type="number" step="any" min="0" inputmode="decimal"></label>
           <label>Balance due after (years, if any)<input id="f_finballoon" type="number" step="any" min="0" inputmode="decimal"></label>
           <p class="small muted" style="grid-column:1/-1">Leave a box blank to use your buy box figure. “Balance due after” is a balloon: the date the rest of the loan must be paid or refinanced.</p>
         </div>
@@ -497,7 +500,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.17.0';
+const APP_VERSION = '1.18.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -514,6 +517,9 @@ const REASONS=["Numbers don't work","Price too high","Condition","Location","Los
 const TABS={review:"To review",flight:"In flight",owned:"Owned",archive:"Archive"};
 const isList=t=>t==="review"||t==="flight"||t==="archive";
 let settings={...DEFAULTS}, deals=[], owned=[], removed=[], removedOwned=[], tab="review";
+/* 1.18.0: the down payment is borrowed, so cash-on-cash stops being a rule (0 = off) and the $/unit cash flow rule,
+   which is after the home equity loan's payment, keeps each deal profitable. Applied once to a saved 6%. */
+function migrateSettings(){if(+settings.rulesV>=2)return;if(+settings.minCoC===6)settings.minCoC=0;settings.rulesV=2;settings.updatedAt=today();}
 let selected=null, editing=null, editingOwned=null, armed=null;
 
 const statusOf=d=>d.status||"review";
@@ -545,7 +551,7 @@ const cutTag=d=>d.priceWas&&d.priceChangedAt&&(Date.now()-new Date(d.priceChange
 
 /* storage: this browser only */
 function load(){let j=null;try{j=JSON.parse(localStorage.getItem("dealdesk")||"null");}catch(e){}
-  if(j){deals=j.deals||[];removed=j.removed||[];removedOwned=j.removedOwned||[];owned=j.owned||[];settings={...DEFAULTS,...(j.settings||{})};}
+  if(j){deals=j.deals||[];removed=j.removed||[];removedOwned=j.removedOwned||[];owned=j.owned||[];settings={...DEFAULTS,...(j.settings||{})};migrateSettings();}
   /* add any listing from data/listings.js this browser has not seen and has not deleted */
   const byId=new Map(deals.map(d=>[d.id,d]));let changed=false;
   (window.SEED_LISTINGS||[]).forEach(d=>{const mine=byId.get(d.id);
@@ -558,7 +564,7 @@ const inRadius=d=>!+settings.radius||d.miles===undefined||+d.miles<=+settings.ra
 function save(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings,removed,removedOwned,owned}));if(typeof updateSyncUI==="function")updateSyncUI();return true;}catch(e){status("Could not save on this device. Private browsing blocks saving.");return false;}}
 
 /* buy box */
-function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · <b>${pct(s.minCoC)}</b> cash-on-cash · <b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`+
+function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · ${+s.minCoC>0?`<b>${pct(s.minCoC)}</b> cash-on-cash · `:""}<b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`+
   (+s.lenderDSCR>0?` · lender DSCR <b>${(+s.lenderDSCR).toFixed(2)}</b>`:"")+
   (+s.dpSource===1?` · cash to close from home equity at <b>${pct(+s.heRate,3)}</b>`:"")+(+s.funds>0?` · funds <b>${usd(+s.funds)}</b>`:"");}
 function renderBox(){$("boxSummary").innerHTML=boxText();
@@ -672,7 +678,7 @@ function renderSheet(){
   document.querySelectorAll("#rows tr").forEach(r=>r.classList.toggle("sel",r.dataset.id===selected));
   const s=dealTerms(d,settings),a=score(d);
   $("d_title").innerHTML=esc(d.address)+(offMarket(d)?' <span class="tag">Off-market</span>':"");
-  $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from Dracut`:"",`${priceWord(d)} ${usd(a.price)}${d.priceWas&&d.priceWas!==d.price?` (was ${usd(d.priceWas)})`:""}`,leftWord(d),d.from?`From ${esc(d.from)}`:"",d.fin&&d.fin.kind==="custom"?`Own financing: ${s.down}% down at ${fmtRate(s.rate)}`:"",d.addedAt?`${offMarket(d)?"Added":"Found"} ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
+  $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from Dracut`:"",`${priceWord(d)} ${usd(a.price)}${d.priceWas&&d.priceWas!==d.price?` (was ${usd(d.priceWas)})`:""}`,leftWord(d),d.from?`From ${esc(d.from)}`:"",d.fin&&d.fin.kind==="custom"?`${d.fin.lender?esc(d.fin.lender)+" terms":"Own financing"}: ${s.down}% down at ${fmtRate(s.rate)}${+s.points?`, ${+s.points} pt`:""}`:"",d.addedAt?`${offMarket(d)?"Added":"Found"} ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
   $("d_actions").innerHTML=actionsHtml(d);
   $("d_reasons").hidden=armed!=="remove";
   $("d_reasons").innerHTML=armed==="remove"?`<span class="small muted" style="flex-basis:100%">Why? Tap one to archive it.</span>`+REASONS.map(r=>`<button class="btn chip" type="button" data-reason="${esc(r)}">${esc(r)}</button>`).join(""):"";
@@ -771,7 +777,8 @@ function openForm(d){
   if(d)F.forEach(k=>{if(d[k]!==undefined&&d[k]!==null&&d[k]!=="")setField($("f_"+k),d[k]);});
   const fin=d&&d.fin&&d.fin.kind==="custom"?d.fin:null;
   $("f_finkind").value=fin?"custom":"bank";
-  ["down","rate","term","balloon"].forEach(k=>{$("f_fin"+k).value=fin&&fin[k]!==undefined?fin[k]:"";});
+  ["down","rate","term","points","heRate","balloon"].forEach(k=>{$("f_fin"+k).value=fin&&fin[k]!==undefined?fin[k]:"";});
+  $("f_finlender").value=fin&&fin.lender?fin.lender:"";
   syncFormShape();
   $("ownedFormSection").hidden=true;$("formSection").hidden=false;$("f_address").focus();
   $("formSection").scrollIntoView({behavior:"smooth",block:"start"});
@@ -789,7 +796,8 @@ $("dealForm").addEventListener("submit",e=>{e.preventDefault();
     if(NUMF.includes(k)){const v=num(raw);if(raw===""||!isFinite(v))delete d[k];else d[k]=v;}else d[k]=raw;});
   if(!d.source)d.source="listing";if(!offMarket(d))delete d.from;
   if($("f_finkind").value==="custom"){const fin={kind:"custom"};
-    ["down","rate","term","balloon"].forEach(k=>{const raw=$("f_fin"+k).value.trim(),v=num(raw);if(raw!==""&&isFinite(v))fin[k]=v;});d.fin=fin;}
+    ["down","rate","term","points","heRate","balloon"].forEach(k=>{const raw=$("f_fin"+k).value.trim(),v=num(raw);if(raw!==""&&isFinite(v))fin[k]=v;});
+    const ln=$("f_finlender").value.trim();if(ln)fin.lender=ln;d.fin=fin;}
   else delete d.fin;
   if(formFacts)d.facts=formFacts;
   d.updatedAt=today();
@@ -879,7 +887,7 @@ function copyForClaude(d){
   L.push(`Taxes: ${a.taxEst?"not known (app estimates "+usd(a.taxes)+")":usd(a.taxes)+" a year"}`);
   L.push(`Insurance: ${a.insEst?"not known (app estimates "+usd(a.ins)+")":usd(a.ins)+" a year"}`);
   if(+d.rehab)L.push(`Upfront repairs: ${usd(+d.rehab)}`);
-  L.push(`Financing: ${d.fin&&d.fin.kind==="custom"?"seller or other terms":"investor loan"}, ${t.down}% down at ${fmtRate(t.rate)} over ${t.term} years${d.fin&&d.fin.balloon?", balance due after "+d.fin.balloon+" years":""}`);
+  L.push(`Financing: ${d.fin&&d.fin.kind==="custom"?(d.fin.lender?d.fin.lender+" terms":"seller or other terms"):"investor loan"}, ${t.down}% down at ${fmtRate(t.rate)} over ${t.term} years${d.fin&&d.fin.balloon?", balance due after "+d.fin.balloon+" years":""}`);
   const fx=[];
   if(f.bedrooms!==undefined)fx.push(`${f.bedrooms} beds`);if(f.bathrooms!==undefined)fx.push(`${f.bathrooms} baths`);
   if(f.squareFootage)fx.push(`${f.squareFootage} sq ft`);if(f.yearBuilt)fx.push(`built ${f.yearBuilt}`);
@@ -1119,7 +1127,7 @@ function driveUpload(payload){
     return driveFetch(url,{method:id?"PATCH":"POST",headers:{"Content-Type":"multipart/related; boundary="+boundary},body:multipart});
   }).then(r=>r.json()).then(j=>{if(j&&j.id)lsSet(LS_DRIVE_FILEID,j.id);lsSet(LS_DRIVE_HASH,currentHash());lsSet(LS_DRIVE_AT,today());return j;});
 }
-function applyPayload(p){deals=p.deals||[];owned=p.owned||[];removed=p.removed||[];removedOwned=p.removedOwned||[];settings={...DEFAULTS,...(p.settings||{})};}
+function applyPayload(p){deals=p.deals||[];owned=p.owned||[];removed=p.removed||[];removedOwned=p.removedOwned||[];settings={...DEFAULTS,...(p.settings||{})};migrateSettings();}
 function driveSyncNow(){if(!DRIVE_CLIENT_ID||driveBusy)return;if(!driveToken){driveStartAuth();return;}driveSyncDo();}
 function driveSyncDo(){
   driveBusy=true;updateSyncUI();

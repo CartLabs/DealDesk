@@ -1,6 +1,6 @@
 // Deal math for DealDesk. Used by index.html and by test/calc.test.js.
 // Change formulas here only, then run: node --test
-const DEFAULTS={maxPrice:1000000,minCF:200,minCoC:6,minDSCR:1.2,down:25,rate:7.25,term:30,closing:3,vac:5,maint:8,capex:7,mgmt:8,
+const DEFAULTS={maxPrice:1000000,minCF:200,minCoC:0,minDSCR:1.2,down:25,rate:7.25,term:30,closing:3,vac:5,maint:8,capex:7,mgmt:8,
   lenderDSCR:1.0,  // a DSCR lender's own test: gross rent / PITIA (principal, interest, taxes, insurance, HOA). 0 = off
   points:1,        // lender points, % of the loan, paid at closing
   reserves:6,      // months of PITIA the lender wants to see in the bank after closing (shown, not spent)
@@ -8,11 +8,11 @@ const DEFAULTS={maxPrice:1000000,minCF:200,minCoC:6,minDSCR:1.2,down:25,rate:7.2
   heRate:8,heTerm:20, // that home equity loan's rate and term
   funds:0};        // cash plus equity you can draw, for cash to close and reserves. 0 = not set, no check
 function loanK(rate,term){const r=rate/1200,n=term*12;return r===0?1/term:12*r/(1-Math.pow(1+r,-n));}
-// A deal can carry its own financing (seller financing, an assumable loan, a private note).
+// A deal can carry its own financing (a lender's quote, seller financing, an assumable loan, a private note).
 // When it does, those terms replace the buy box's down payment, rate and term for that deal only.
 function dealTerms(d,s){
   const f=d&&d.fin; if(!f||f.kind!=="custom")return s;
-  const o={...s}; ["down","rate","term"].forEach(k=>{const v=f[k]; if(v!==""&&v!==null&&v!==undefined&&isFinite(+v))o[k]=+v;});
+  const o={...s}; ["down","rate","term","points","heRate"].forEach(k=>{const v=f[k]; if(v!==""&&v!==null&&v!==undefined&&isFinite(+v))o[k]=+v;});
   if(!(o.term>=1))o.term=s.term;
   return o;
 }

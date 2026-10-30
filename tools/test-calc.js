@@ -2,7 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert");
 const { DEFAULTS: ALL, loanK, analyze, metrics, dealTerms, principalPaid, explain } = require("../calc.js");
 // The original checks use plain cash financing with no points or lender test, so their figures stay put.
-const DEFAULTS = { ...ALL, dpSource: 0, points: 0, lenderDSCR: 0 };
+const DEFAULTS = { ...ALL, minCoC: 6, dpSource: 0, points: 0, lenderDSCR: 0 };
 
 const deal = { price: 600000, units: 3, rent: 6300, taxes: 9000, ins: 3000, state: "NH" };
 
@@ -133,4 +133,12 @@ test("max offer passes every rule, including the lender's and your funds, and $1
 test("over your funds is flagged", () => {
   assert.ok(analyze(deal, { ...ALL, funds: 50000 }).overFunds);
   assert.ok(!analyze(deal, { ...ALL, funds: 0 }).overFunds);
+});
+
+test("a lender quote on one deal replaces the buy box rate, points and home equity rate for that deal", () => {
+  const q = { ...deal, fin: { kind: "custom", lender: "Test Bank", rate: 6.5, points: 2, heRate: 7 } };
+  const a = analyze(q, ALL), t = dealTerms(q, ALL);
+  assert.strictEqual(t.rate, 6.5); assert.strictEqual(t.points, 2); assert.strictEqual(t.heRate, 7); assert.strictEqual(t.down, ALL.down);
+  assert.ok(Math.abs(a.points - a.loan * 0.02) < 1e-6);
+  assert.ok(Math.abs(a.heDebt - a.cash * loanK(7, ALL.heTerm)) < 1e-6);
 });
