@@ -55,4 +55,4 @@ else{
 }
 if(problem){restore();status.status='aborted';status.problem=problem;finish('');}
 const dirty=execFileSync('git',['status','--porcelain','--',...DATA],{cwd:ROOT,encoding:'utf8'}).trim();
-finish(dirty?`Daily listing check ${day}: ${rep.added} new, ${rep.sold.length} sold, ${rep.priceChanges.length} price changes`:'');
+finish(dirty?`Daily listing check ${day}: ${rep.added} new, ${rep.sold.length} sold, ${rep.gone.length} off the market, ${rep.priceChanges.length} price changes`:'');

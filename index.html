@@ -105,13 +105,13 @@ td .addr{font-weight:600}
 #status:empty{display:none}
 /* tabs */
 .tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface)}
-.tab{font:600 14px var(--body);padding:10px 4px;border:0;border-right:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2px 6px}
+.tab{font:600 14px var(--body);padding:10px 4px;border:0;border-right:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;white-space:nowrap;min-width:0}
 .tab:last-child{border-right:0}
 .tab[aria-selected="true"]{background:var(--ink);color:var(--surface)}
 .tab .n{font:600 11px var(--mono);background:var(--sunk);color:var(--ink);border-radius:99px;padding:1px 7px}
 .tab:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
 @media(max-width:420px){.tab{font-size:13px}}
-.tab.gear{padding-inline:14px}
+.tab.gear{padding-inline:14px;flex-direction:row;gap:6px}
 @media(max-width:640px){.gearword{display:none}.tab.gear{padding-inline:12px}}
 /* Google Drive backup: header button, sheet, toast */
 .drive-hdr-btn{background:none;border:0;padding:6px 8px;cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--ink);border-radius:8px}
@@ -452,7 +452,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.12.0';
+const APP_VERSION = '1.12.1';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";

@@ -1,13 +1,21 @@
 {
-  "version": "1.12.0",
-  "date": "2026-10-06",
+  "version": "1.12.1",
+  "date": "2026-10-29",
   "notes": [
-    "Listings now refresh every day. A daily check re-reads the town pages, adds new listings to Review with a New tag, and emails and alerts you about the ones that are Buy box or Negotiate within 50 miles.",
-    "A listing that sells moves to Archive on its own, marked Sold with the sold price once it is published. One that is withdrawn or goes under contract is archived as Off the market. If it comes back on the market it returns to Review.",
-    "Deals you have In flight are never moved for you. They get a Sold or Off the market tag instead.",
-    "Price changes carry through: the asking price updates, and the listing shows Price cut from the old figure for two weeks."
+    "The tabs all look the same now: the name on top and the count centered underneath, including Owned.",
+    "The daily check's record now counts listings archived as Off the market, not just Sold, so a big batch never moves to Archive without showing up in the count."
   ],
   "previous": [
+    {
+      "version": "1.12.0",
+      "date": "2026-10-06",
+      "notes": [
+        "Listings now refresh every day. A daily check re-reads the town pages, adds new listings to Review with a New tag, and emails and alerts you about the ones that are Buy box or Negotiate within 50 miles.",
+        "A listing that sells moves to Archive on its own, marked Sold with the sold price once it is published. One that is withdrawn or goes under contract is archived as Off the market. If it comes back on the market it returns to Review.",
+        "Deals you have In flight are never moved for you. They get a Sold or Off the market tag instead.",
+        "Price changes carry through: the asking price updates, and the listing shows Price cut from the old figure for two weeks."
+      ]
+    },
     {
       "version": "1.11.0",
       "date": "2026-10-03",
