@@ -51,6 +51,10 @@ handles technical execution end to end.
   `index.html` and `version` in `version.json`.
 - Bump patch for fixes and listing updates, minor for visible features.
 - Add notes to `version.json` written for Kevin in plain language.
+  These notes are what the app's release notes popup shows the first time
+  Kevin opens a new version (newest three unseen releases), and the full
+  history is under Settings › About. Keep the current release in `notes` and
+  move the old one to the top of `previous`; never drop old entries.
 - Run `node --test tools/test-calc.js tools/test-sync.js tools/test-lookup.js tools/test-refresh.js` and `node tools/check-version.js` before every push.
 - **All changed files go in ONE commit.** Separate pushes cancel each other's
   Pages builds.

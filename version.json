@@ -1,11 +1,19 @@
 {
-  "version": "1.13.0",
+  "version": "1.14.0",
   "date": "2026-10-29",
   "notes": [
-    "Archive now opens with a breakdown: how many you passed on, how many sold, and how many went off the market.",
-    "Sold and Off market also count listings you passed on first, with a line under each saying how many of those were yours."
+    "Release notes now pop up the first time you open the app after an update, showing what changed. If you missed several updates, the newest three show.",
+    "Every release, back to 1.0.0, is under Settings › About › All release notes."
   ],
   "previous": [
+    {
+      "version": "1.13.0",
+      "date": "2026-10-29",
+      "notes": [
+        "Archive now opens with a breakdown: how many you passed on, how many sold, and how many went off the market.",
+        "Sold and Off market also count listings you passed on first, with a line under each saying how many of those were yours."
+      ]
+    },
     {
       "version": "1.12.1",
       "date": "2026-10-29",

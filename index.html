@@ -167,6 +167,14 @@ td .addr{font-weight:600}
 .addr .tag{margin-left:4px}
 .filebtn{display:inline-flex;align-items:center;cursor:pointer}
 .whatsnew{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+/* release notes popup */
+.rn{display:flex;flex-direction:column;gap:10px}
+.rn-entry{background:var(--sunk);border-radius:4px;padding:12px 14px}
+.rn-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.rn-ver{font:600 15px var(--mono);color:var(--accent)}
+.rn-date{font-size:12px;color:var(--muted);margin-left:auto}
+.rn-entry ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:14px;line-height:1.45}
+.rn-more{font-size:13px;color:var(--muted)}
 /* deal actions */
 .actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .chips{display:flex;flex-wrap:wrap;gap:8px;background:var(--sunk);padding:12px;border-radius:4px}
@@ -429,6 +437,7 @@ input.money{text-align:left}
       <h3 class="cardtitle">About</h3>
       <p class="small muted" id="aboutLine"></p>
       <ul class="small muted whatsnew" id="whatsNew"></ul>
+      <div class="row"><button class="btn" id="notesBtn" type="button">All release notes</button></div>
     </article>
   </section>
 
@@ -452,6 +461,13 @@ input.money{text-align:left}
       <button class="btn" id="explainClose2" type="button">Close</button>
     </div>
   </div>
+  <div class="modal-overlay" id="notesModal" hidden>
+    <div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="notesTitle">
+      <div class="modal-header"><h3 class="cardtitle" id="notesTitle">What's new</h3><button class="modal-close" id="notesClose" type="button" aria-label="Close">&times;</button></div>
+      <div id="notesBody" class="rn"></div>
+      <button class="btn primary" id="notesOk" type="button">Got it</button>
+    </div>
+  </div>
   <div class="drive-toast" id="driveToast" role="status"></div>
   <p class="small muted" id="ver"></p>
 </div>
@@ -461,7 +477,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.13.0';
+const APP_VERSION = '1.14.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -1155,6 +1171,38 @@ $("explainClose2").addEventListener("click",closeExplain);
 $("explainModal").addEventListener("click",e=>{if(e.target===$("explainModal"))closeExplain();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeExplain();});
 
+/* ---------- Release notes: the same idea as DebtFree Dashboard's What's New ----------
+   version.json is the only source. On open, any release newer than the one this device last saw pops up
+   (newest three at most). Settings > About has the full history. A brand-new device with no data is
+   marked as caught up instead, so the first screen is never a changelog. */
+const SEEN_KEY="dealdesk_last_seen_version";
+const verCmp=(a,b)=>{const x=String(a||"0").split(".").map(n=>+n||0),y=String(b||"0").split(".").map(n=>+n||0);
+  for(let i=0;i<3;i++){if((x[i]||0)!==(y[i]||0))return (x[i]||0)>(y[i]||0)?1:-1;}return 0;};
+let releases=null;const hadData=(()=>{try{return !!localStorage.getItem("dealdesk");}catch(e){return false;}})();
+function getReleases(){if(releases)return Promise.resolve(releases);
+  return fetch("version.json",{cache:"no-store"}).then(r=>r.json()).then(v=>{
+    releases=[{version:v.version,date:v.date,notes:v.notes||[]},...(v.previous||[])]
+      .filter(e=>e&&e.version&&verCmp(e.version,APP_VERSION)<=0).sort((a,b)=>verCmp(b.version,a.version));return releases;});}
+const longDate=s=>{const t=new Date(String(s)+"T12:00:00");return isNaN(t)?esc(s):t.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});};
+function markSeen(){try{localStorage.setItem(SEEN_KEY,APP_VERSION);}catch(e){}}
+function showNotes(list,more,title){
+  $("notesTitle").textContent=title;
+  $("notesBody").innerHTML=list.map(e=>`<div class="rn-entry"><div class="rn-head"><span class="rn-ver">v${esc(e.version)}</span><span class="rn-date">${longDate(e.date)}</span></div>
+    <ul>${(e.notes||[]).map(n=>`<li>${esc(n)}</li>`).join("")||"<li>Small fixes.</li>"}</ul></div>`).join("")+
+    (more?`<p class="rn-more">Plus ${more} earlier update${more>1?"s":""}. Every release is under Settings › About › All release notes.</p>`:"");
+  $("notesModal").hidden=false;document.querySelector("#notesModal .modal").scrollTop=0;}
+function closeNotes(){if($("notesModal").hidden)return;$("notesModal").hidden=true;markSeen();}
+function checkReleaseNotes(){let seen=null;try{seen=localStorage.getItem(SEEN_KEY);}catch(e){return;}
+  if(!seen&&!hadData){markSeen();return;}
+  getReleases().then(all=>{const unseen=all.filter(e=>verCmp(e.version,seen||"0.0.0")>0);if(!unseen.length)return;
+    const top=unseen.slice(0,3);showNotes(top,unseen.length-top.length,"What's new");markSeen();}).catch(()=>{}); /* offline: try again next open */
+}
+$("notesBtn").addEventListener("click",()=>getReleases().then(all=>showNotes(all,0,"Release notes")).catch(()=>status("Release notes need a connection.")));
+$("notesClose").addEventListener("click",closeNotes);
+$("notesOk").addEventListener("click",closeNotes);
+$("notesModal").addEventListener("click",e=>{if(e.target===$("notesModal"))closeNotes();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeNotes();});
+
 function render(){renderTabs();renderBox();renderDeals();renderOwned();}
 
 /* boot */
@@ -1162,6 +1210,7 @@ $("ver").textContent="DealDesk v"+APP_VERSION;
 load();
 render();
 renderAbout();
+checkReleaseNotes();
 renderLookupSettings();
 updateSyncUI();
 driveHandleRedirect();
