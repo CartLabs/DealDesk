@@ -479,7 +479,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.15.0';
+const APP_VERSION = '1.15.1';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -778,7 +778,8 @@ async function rcGet(path,params){
   let res;
   try{res=await fetch("https://api.rentcast.io/v1"+path+"?"+new URLSearchParams(params),{headers:{"X-Api-Key":key,"Accept":"application/json"}});}
   catch(e){throw {kind:"blocked"};}
-  if(res.status===401||res.status===403)throw {kind:"badkey"};
+  if(res.status===401||res.status===403){let t="";try{t=await res.text();}catch(e){}
+    throw {kind:/subscription|billing/i.test(t)?"inactive":"badkey",status:res.status};}
   if(res.status===429)throw {kind:"limit"};
   if(res.status===404)return null;
   if(!res.ok)throw {kind:"http",status:res.status};
@@ -787,6 +788,7 @@ async function rcGet(path,params){
 const RC_MSG={nokey:"Add a RentCast key under Settings, Property lookup, first.",
   blocked:"Could not reach RentCast from this browser. Check your connection. If it keeps failing, tell Claude: the service may not allow calls straight from a web page.",
   badkey:"RentCast did not accept the key. Check it under Settings, Property lookup.",
+  inactive:"RentCast knows the key, but your API plan is not active yet. In the RentCast API dashboard, select the free Developer plan and activate it, then try again.",
   limit:"You have used this month's RentCast requests. Enter the figures by hand, or try again next month."};
 const rcError=e=>RC_MSG[e&&e.kind]||("RentCast returned an error"+(e&&e.status?" ("+e.status+")":"")+". Nothing was changed.");
 $("lookupBtn").addEventListener("click",async()=>{
