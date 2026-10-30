@@ -801,13 +801,15 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Two-family",
     "units": 2,
-    "price": 749900,
+    "price": 725000,
     "rent": 4500,
     "url": "https://www.redfin.com/MA/Lowell/89-Mammoth-Rd-01854/home/11620182",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "priceWas": 749900,
+    "priceChangedAt": "2026-10-30T10:00:00Z"
   },
   {
     "id": "ma-lowell-103-dalton-st",
@@ -1419,7 +1421,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 549000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-10-30"
+    }
   },
   {
     "id": "ma-fitchburg-55-elmwood-ave",
@@ -6439,7 +6444,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 499900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-10-30"
+    }
   },
   {
     "id": "ma-worcester-124-belmont-st",
@@ -8004,15 +8012,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Three-family",
     "units": 3,
-    "price": 458000,
+    "price": 448000,
     "rent": 5250,
     "url": "https://www.redfin.com/MA/Fitchburg/67-69-Central-St-01420/home/196599287",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
-    "priceWas": 469000,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceWas": 458000,
+    "priceChangedAt": "2026-10-30T10:00:00Z"
   },
   {
     "id": "ma-worcester-33-jefferson-st",
@@ -8372,7 +8380,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Dover averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-10-30"
+    }
   },
   {
     "id": "nh-dover-18-maple-st",
@@ -8382,13 +8393,15 @@ window.SEED_LISTINGS = [
     "miles": 42,
     "type": "Two-family",
     "units": 2,
-    "price": 530000,
+    "price": 525000,
     "rent": 4300,
     "url": "https://www.redfin.com/NH/Dover/18-Maple-St-03820/home/103020794",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Dover averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 530000,
+    "priceChangedAt": "2026-10-30T10:00:00Z"
   },
   {
     "id": "nh-dover-33-35-st-thomas-st",
@@ -8433,13 +8446,15 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Two-family",
     "units": 2,
-    "price": 785900,
+    "price": 760900,
     "rent": 5600,
     "url": "https://www.redfin.com/MA/Brockton/260-Belmont-Ave-02301/home/16318517",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 785900,
+    "priceChangedAt": "2026-10-30T10:00:00Z"
   },
   {
     "id": "ma-brockton-259-belmont-ave",
@@ -10229,5 +10244,53 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-29",
     "addedAt": "2026-10-29T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-91-youville-st",
+    "address": "91 Youville St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Three-family",
+    "units": 3,
+    "price": 547900,
+    "rent": 6375,
+    "url": "https://www.redfin.com/NH/Manchester/91-Youville-St-03102/home/108657631",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 4 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-30",
+    "addedAt": "2026-10-30T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-28-june-st",
+    "address": "28 June St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 629900,
+    "rent": 4500,
+    "url": "https://www.redfin.com/MA/Worcester/28-June-St-01602/home/16675776",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-30",
+    "addedAt": "2026-10-30T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-128-endicott-st",
+    "address": "128 Endicott St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 475000,
+    "rent": 4000,
+    "url": "https://www.redfin.com/MA/Worcester/128-Endicott-St-01610/home/16664373",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-10-30",
+    "addedAt": "2026-10-30T10:00:00Z"
   }
 ];
