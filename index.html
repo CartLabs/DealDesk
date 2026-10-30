@@ -463,6 +463,17 @@ input.money{text-align:left}
       <button class="btn" id="explainClose2" type="button">Close</button>
     </div>
   </div>
+  <div class="modal-overlay" id="anchorModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="anchorTitle">
+      <div class="modal-header"><div><h3 class="cardtitle" id="anchorTitle">Set value</h3><p class="small muted" id="anchorSub"></p></div><button class="modal-close" id="anchorClose" type="button" aria-label="Close">&times;</button></div>
+      <p class="small muted">Enter a value you trust, such as Zillow's estimate or an appraisal. DealDesk keeps it and moves it each month by the same percentage RentCast's estimate moves.</p>
+      <form id="anchorForm" class="grid" autocomplete="off">
+        <label>Value<input id="a_value" class="money" type="text" inputmode="decimal" placeholder="$" required></label>
+        <label>Source<select id="a_source"><option>Zillow</option><option>Redfin</option><option>Appraisal</option><option>Broker opinion</option><option>Your estimate</option></select></label>
+        <div class="row span2"><button class="btn primary" type="submit">Save value</button><button class="btn" type="button" id="anchorUnset" hidden>Use RentCast only</button></div>
+      </form>
+    </div>
+  </div>
   <div class="modal-overlay" id="notesModal" hidden>
     <div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="notesTitle">
       <div class="modal-header"><h3 class="cardtitle" id="notesTitle">What's new</h3><button class="modal-close" id="notesClose" type="button" aria-label="Close">&times;</button></div>
@@ -479,7 +490,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.15.1';
+const APP_VERSION = '1.16.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -900,7 +911,7 @@ function renderOwned(){
         <div class="row">${o.home?'<span class="pill home">Your home</span>':'<span class="pill good">Rental</span>'}<button class="btn" type="button" data-edit="${esc(o.id)}">Edit</button></div>
       </div>
       <div class="kv four">${stat("Value",usd(+o.value||0))}${stat("Debt",usd(debt(o)))}${stat("Equity",usd((+o.value||0)-debt(o)))}${o.home?stat("Cost / mo",usd(cost)):stat("Net / mo",usd(n),n>=0?"pos":"neg")}</div>
-      <div class="valsrc"><span class="small muted">${valueSource(o)}</span><button class="btn small" type="button" data-refresh="${esc(o.id)}">Refresh value</button></div>
+      <div class="valsrc"><span class="small muted">${valueSource(o)}</span><button class="btn small" type="button" data-anchor="${esc(o.id)}">Set value</button><button class="btn small" type="button" data-refresh="${esc(o.id)}">Refresh value</button></div>
       ${o.home?"":`<p class="small muted">Rent ${money(+o.rent||0)} · loan payments ${money(payments(o))} · other costs ${money(+o.expenses||0)}</p>`}
       ${ls.length?`<table class="loanlist num"><thead><tr><th>Loan</th><th>Rate</th><th>Balance</th><th>Payment</th></tr></thead><tbody>${ls.map(l=>`<tr><td>${esc(l.type||"Loan")}</td><td>${rateText(l)||"—"}</td><td>${money(+l.balance||0)}</td><td>${money(+l.payment||0)}</td></tr>`).join("")}</tbody></table>`:'<p class="small muted">No loans. Owned free and clear.</p>'}
       ${o.notes?`<p class="note">${esc(o.notes)}</p>`:""}
@@ -933,22 +944,53 @@ function openOwned(o){
 }
 $("ownedList").addEventListener("click",e=>{
   const r=e.target.closest("[data-refresh]");if(r){refreshOne(r.dataset.refresh,r);return;}
+  const an=e.target.closest("[data-anchor]");if(an){openAnchor(an.dataset.anchor);return;}
   const id=e.target.closest("[data-edit]")?.dataset.edit;if(!id)return;const o=owned.find(x=>x.id===id);if(o)openOwned(o);});
 
-/* ---------- owned property values: RentCast value estimate, refreshed monthly ----------
-   Kevin chose: a fresh estimate overwrites the value, since values move. One request per property.
-   o.valueEst = {date, low, high} records where the current value came from; a hand edit clears it. */
+/* ---------- owned property values: anchor plus trend ----------
+   o.valueEst = {date, raw, low, high}: the latest RentCast value estimate (one request per property, monthly).
+   o.anchor = {value, source, date, base}: a value Kevin trusts (Zillow, appraisal). base is RentCast's estimate
+   when the anchor was set. With an anchor, value = anchor.value × (latest RentCast ÷ base), so Zillow sets
+   the level and RentCast only supplies the month-to-month movement. Without one, value = RentCast's estimate. */
 const VALUE_MAX_AGE=30*864e5, LS_VALUE_TRY="dealdesk_value_refresh_tried";
-function valueSource(o){const v=o.valueEst;
+const estRaw=o=>o.valueEst?(+o.valueEst.raw||null):null;
+function setAnchor(o,value,source,valueBefore){
+  /* base: the newest RentCast figure. Older records kept only the rounded estimate, which was the value itself. */
+  const base=estRaw(o)||(o.valueEst?+valueBefore||null:null);
+  o.anchor={value,source,date:today(),...(base?{base}:{})};o.value=value;o.updatedAt=today();}
+function anchoredValue(o){const a=o.anchor,est=estRaw(o);
+  if(!a.base||!est)return a.value;return Math.round(a.value*est/a.base/100)*100;}
+function valueSource(o){const v=o.valueEst,a=o.anchor;
+  if(a){const pct=a.base&&estRaw(o)?(estRaw(o)/a.base-1)*100:null;
+    return `${esc(!a.source||a.source==="Your estimate"?"Your":a.source)} value ${usd(a.value)} on ${shortDate(a.date)}`+
+      (pct===null?". Moves with RentCast's estimate from the next refresh.":
+       Math.abs(pct)<0.05?`. RentCast's estimate has not moved since.`:
+       `, moved ${pct>0?"+":""}${pct.toFixed(1)}% with RentCast's estimate since (checked ${shortDate(v.date)}).`);}
   if(!v)return "Value entered by you.";
   return `RentCast estimate, ${shortDate(v.date)}${v.low&&v.high?` · range ${usd(v.low)} to ${usd(v.high)}`:""}.`;}
+function openAnchor(id){const o=owned.find(x=>x.id===id);if(!o)return;anchorId=id;
+  $("anchorSub").textContent=`${o.address}, ${o.town}`;
+  $("a_value").value=o.anchor?money(o.anchor.value):"";$("a_source").value=(o.anchor&&o.anchor.source)||"Zillow";
+  $("anchorUnset").hidden=!o.anchor;$("anchorModal").hidden=false;setTimeout(()=>$("a_value").focus(),50);}
+let anchorId=null;
+const closeAnchor=()=>{$("anchorModal").hidden=true;anchorId=null;};
+$("anchorClose").addEventListener("click",closeAnchor);
+$("anchorModal").addEventListener("click",e=>{if(e.target===$("anchorModal"))closeAnchor();});
+$("anchorForm").addEventListener("submit",e=>{e.preventDefault();const o=owned.find(x=>x.id===anchorId);if(!o)return closeAnchor();
+  const v=num($("a_value").value);if(!(v>0)){$("a_value").focus();return;}
+  setAnchor(o,Math.round(v),$("a_source").value,o.value);save();closeAnchor();render();
+  driveToast("ok",`${o.address} set to ${usd(o.value)}. It will move with the market each month.`);});
+$("anchorUnset").addEventListener("click",()=>{const o=owned.find(x=>x.id===anchorId);if(!o)return closeAnchor();
+  delete o.anchor;const est=estRaw(o);if(est)o.value=Math.round(est/1000)*1000;o.updatedAt=today();save();closeAnchor();render();
+  driveToast("ok",est?`${o.address} now uses RentCast's estimate, ${usd(o.value)}.`:`${o.address} will use RentCast's estimate from the next refresh.`);});
 async function fetchValue(o){
   const address=[o.address,o.town,o.state].filter(Boolean).join(", ");
   const u=+o.units||1;const params={address,propertyType:u>1?"Multi-Family":"Single Family"};
   const r=await rcGet("/avm/value",params);
   if(!r||!(+r.price>0))throw {kind:"noest"};
-  o.value=Math.round(+r.price/1000)*1000;
-  o.valueEst={date:today(),...(+r.priceRangeLow?{low:Math.round(+r.priceRangeLow/1000)*1000}:{}),...(+r.priceRangeHigh?{high:Math.round(+r.priceRangeHigh/1000)*1000}:{})};
+  o.valueEst={date:today(),raw:Math.round(+r.price),...(+r.priceRangeLow?{low:Math.round(+r.priceRangeLow/1000)*1000}:{}),...(+r.priceRangeHigh?{high:Math.round(+r.priceRangeHigh/1000)*1000}:{})};
+  if(o.anchor){if(!o.anchor.base)o.anchor.base=Math.round(+r.price);o.value=anchoredValue(o);} /* first refresh after anchoring only records the base */
+  else o.value=Math.round(+r.price/1000)*1000;
   o.updatedAt=today();}
 const valueErr=e=>e&&e.kind==="noest"?"RentCast has no value estimate for this address. Your value was kept.":rcError(e);
 async function refreshOne(id,btn){const o=owned.find(x=>x.id===id);if(!o)return;
@@ -974,7 +1016,7 @@ $("ownedForm").addEventListener("submit",e=>{e.preventDefault();
   OF.forEach(k=>{const raw=$("o_"+k).value.trim();
     if(ONUM.includes(k)){const v=num(raw);if(raw===""||!isFinite(v))delete o[k];else o[k]=v;}else o[k]=raw;});
   o.home=$("o_home").checked;o.updatedAt=today();
-  if(o.value!==valueBefore)delete o.valueEst; /* typed in by hand: it is now his number, until the next refresh */
+  if(o.value!==valueBefore&&isFinite(o.value))setAnchor(o,o.value,"Your estimate",valueBefore); /* typed in by hand: it becomes the anchor */
   readLoans();o.loans=formLoans.filter(l=>l.balance||l.payment||l.rate);delete o.balance;delete o.payment;
   if(save()){$("ownedFormSection").hidden=true;status("Property saved");render();}});
 $("delOwned").addEventListener("click",()=>{

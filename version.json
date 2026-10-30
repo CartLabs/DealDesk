@@ -1,10 +1,20 @@
 {
-  "version": "1.15.1",
+  "version": "1.16.0",
   "date": "2026-10-29",
   "notes": [
-    "When RentCast turns a key away because its API plan is not active yet, the app now says so, instead of saying the key is wrong."
+    "Each property you own has a Set value button. Enter a value you trust, such as Zillow's estimate or an appraisal, and pick where it came from.",
+    "From then on, the monthly refresh keeps your number and moves it by the same percentage RentCast's estimate moves. If RentCast goes up 1%, your value goes up 1%.",
+    "The card says where the value came from, for example \"Zillow value $668,400 on Oct 29, moved +1.0% with RentCast's estimate since.\" Use RentCast only, in the same box, goes back to RentCast's raw estimate.",
+    "Typing a new value in Edit also sets it as the value to track from."
   ],
   "previous": [
+    {
+      "version": "1.15.1",
+      "date": "2026-10-29",
+      "notes": [
+        "When RentCast turns a key away because its API plan is not active yet, the app now says so, instead of saying the key is wrong."
+      ]
+    },
     {
       "version": "1.15.0",
       "date": "2026-10-29",
