@@ -215,6 +215,8 @@ td .stage{display:block}
 .kv.four{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media(max-width:640px){.kv.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .kv.four .v{font-size:17px}
+.valsrc{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.btn.small{font-size:13px;padding:4px 10px}
 .pill.home{background:var(--accent-soft);color:var(--accent)}
 .loanlist{width:100%;min-width:0;border-top:1px solid var(--line)}
 .loanlist th,.loanlist td{padding:6px 0 6px 10px;font-size:13px;border-bottom:1px dotted var(--line);text-align:right}
@@ -415,7 +417,7 @@ input.money{text-align:left}
     </article>
     <article class="card">
       <h3 class="cardtitle">Property lookup</h3>
-      <p class="small muted">Lets the Add a deal form fill in a property from its address: units, bedrooms, size, year built, tax bill, last sale, an estimated value and an estimated rent. It uses RentCast, a property data service, with your own key. Get a free key at rentcast.io (API section); the free plan covers 50 requests a month and one lookup uses three.</p>
+      <p class="small muted">Lets the Add a deal form fill in a property from its address: units, bedrooms, size, year built, tax bill, last sale, an estimated value and an estimated rent. It uses RentCast, a property data service, with your own key. Get a free key at rentcast.io (API section); the free plan covers 50 requests a month and one lookup uses three. With a key saved, the values of properties you own also refresh once a month when you open the app, one request each, and each card has a Refresh value button.</p>
       <label>RentCast API key<input id="rcKey" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste your key"></label>
       <div class="drive-card-actions">
         <button class="btn primary" id="rcSave" type="button">Save key</button>
@@ -477,7 +479,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.14.0';
+const APP_VERSION = '1.15.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -896,6 +898,7 @@ function renderOwned(){
         <div class="row">${o.home?'<span class="pill home">Your home</span>':'<span class="pill good">Rental</span>'}<button class="btn" type="button" data-edit="${esc(o.id)}">Edit</button></div>
       </div>
       <div class="kv four">${stat("Value",usd(+o.value||0))}${stat("Debt",usd(debt(o)))}${stat("Equity",usd((+o.value||0)-debt(o)))}${o.home?stat("Cost / mo",usd(cost)):stat("Net / mo",usd(n),n>=0?"pos":"neg")}</div>
+      <div class="valsrc"><span class="small muted">${valueSource(o)}</span><button class="btn small" type="button" data-refresh="${esc(o.id)}">Refresh value</button></div>
       ${o.home?"":`<p class="small muted">Rent ${money(+o.rent||0)} · loan payments ${money(payments(o))} · other costs ${money(+o.expenses||0)}</p>`}
       ${ls.length?`<table class="loanlist num"><thead><tr><th>Loan</th><th>Rate</th><th>Balance</th><th>Payment</th></tr></thead><tbody>${ls.map(l=>`<tr><td>${esc(l.type||"Loan")}</td><td>${rateText(l)||"—"}</td><td>${money(+l.balance||0)}</td><td>${money(+l.payment||0)}</td></tr>`).join("")}</tbody></table>`:'<p class="small muted">No loans. Owned free and clear.</p>'}
       ${o.notes?`<p class="note">${esc(o.notes)}</p>`:""}
@@ -926,14 +929,50 @@ function openOwned(o){
   $("formSection").hidden=true;$("ownedFormSection").hidden=false;
   $("ownedFormSection").scrollIntoView({behavior:"smooth",block:"start"});
 }
-$("ownedList").addEventListener("click",e=>{const id=e.target.closest("[data-edit]")?.dataset.edit;if(!id)return;const o=owned.find(x=>x.id===id);if(o)openOwned(o);});
+$("ownedList").addEventListener("click",e=>{
+  const r=e.target.closest("[data-refresh]");if(r){refreshOne(r.dataset.refresh,r);return;}
+  const id=e.target.closest("[data-edit]")?.dataset.edit;if(!id)return;const o=owned.find(x=>x.id===id);if(o)openOwned(o);});
+
+/* ---------- owned property values: RentCast value estimate, refreshed monthly ----------
+   Kevin chose: a fresh estimate overwrites the value, since values move. One request per property.
+   o.valueEst = {date, low, high} records where the current value came from; a hand edit clears it. */
+const VALUE_MAX_AGE=30*864e5, LS_VALUE_TRY="dealdesk_value_refresh_tried";
+function valueSource(o){const v=o.valueEst;
+  if(!v)return "Value entered by you.";
+  return `RentCast estimate, ${shortDate(v.date)}${v.low&&v.high?` · range ${usd(v.low)} to ${usd(v.high)}`:""}.`;}
+async function fetchValue(o){
+  const address=[o.address,o.town,o.state].filter(Boolean).join(", ");
+  const u=+o.units||1;const params={address,propertyType:u>1?"Multi-Family":"Single Family"};
+  const r=await rcGet("/avm/value",params);
+  if(!r||!(+r.price>0))throw {kind:"noest"};
+  o.value=Math.round(+r.price/1000)*1000;
+  o.valueEst={date:today(),...(+r.priceRangeLow?{low:Math.round(+r.priceRangeLow/1000)*1000}:{}),...(+r.priceRangeHigh?{high:Math.round(+r.priceRangeHigh/1000)*1000}:{})};
+  o.updatedAt=today();}
+const valueErr=e=>e&&e.kind==="noest"?"RentCast has no value estimate for this address. Your value was kept.":rcError(e);
+async function refreshOne(id,btn){const o=owned.find(x=>x.id===id);if(!o)return;
+  if(!lsGet(LS_RC_KEY)){driveToast("warn","Add a RentCast key under Settings, Property lookup, first.");return;}
+  btn.disabled=true;btn.textContent="Refreshing…";const was=+o.value||0;
+  try{await fetchValue(o);save();render();
+    const d=(+o.value||0)-was;driveToast("ok",`${o.address}: ${usd(o.value)}${was&&d?` (${d>0?"up":"down"} ${usd(Math.abs(d))})`:""}.`);}
+  catch(e){btn.disabled=false;btn.textContent="Refresh value";driveToast("warn",valueErr(e));}}
+/* on open: refresh any value older than a month. At most one attempt a day, so a failure does not burn requests. */
+async function autoRefreshValues(){
+  if(!lsGet(LS_RC_KEY)||!navigator.onLine)return;
+  const day=new Date().toLocaleDateString("en-CA");if(lsGet(LS_VALUE_TRY)===day)return;
+  const due=owned.filter(o=>o.address&&o.town&&(!o.valueEst||(Date.now()-new Date(o.valueEst.date))>=VALUE_MAX_AGE));
+  if(!due.length)return;
+  lsSet(LS_VALUE_TRY,day);let n=0;
+  for(const o of due){try{await fetchValue(o);n++;}catch(e){if(e&&e.kind!=="noest")break;}}
+  if(n){save();render();driveToast("ok",`Updated the value of ${n} propert${n>1?"ies":"y"} you own from RentCast.`);}}
 $("cancelOwned").addEventListener("click",()=>{$("ownedFormSection").hidden=true;});
 $("ownedForm").addEventListener("submit",e=>{e.preventDefault();
   let o=editingOwned?owned.find(x=>x.id===editingOwned):null;
   if(!o){o={id:"o"+Date.now().toString(36)};owned.push(o);}
+  const valueBefore=o.value;
   OF.forEach(k=>{const raw=$("o_"+k).value.trim();
     if(ONUM.includes(k)){const v=num(raw);if(raw===""||!isFinite(v))delete o[k];else o[k]=v;}else o[k]=raw;});
   o.home=$("o_home").checked;o.updatedAt=today();
+  if(o.value!==valueBefore)delete o.valueEst; /* typed in by hand: it is now his number, until the next refresh */
   readLoans();o.loans=formLoans.filter(l=>l.balance||l.payment||l.rate);delete o.balance;delete o.payment;
   if(save()){$("ownedFormSection").hidden=true;status("Property saved");render();}});
 $("delOwned").addEventListener("click",()=>{
@@ -1211,6 +1250,7 @@ load();
 render();
 renderAbout();
 checkReleaseNotes();
+autoRefreshValues();
 renderLookupSettings();
 updateSyncUI();
 driveHandleRedirect();

@@ -1,11 +1,21 @@
 {
-  "version": "1.14.0",
+  "version": "1.15.0",
   "date": "2026-10-29",
   "notes": [
-    "Release notes now pop up the first time you open the app after an update, showing what changed. If you missed several updates, the newest three show.",
-    "Every release, back to 1.0.0, is under Settings › About › All release notes."
+    "The values of properties you own now stay fresh. Once a month, when you open the app, each value is replaced with a new RentCast estimate.",
+    "Each owned property has a Refresh value button and a line showing where its value came from: the estimate date and its low-to-high range, or \"entered by you\" if you typed it.",
+    "This needs a free RentCast key under Settings › Property lookup. It uses one request per property, out of 50 a month on the free plan.",
+    "Estimates are a guide for tracking equity, not an appraisal. Typing a value in by hand keeps yours until the next monthly refresh."
   ],
   "previous": [
+    {
+      "version": "1.14.0",
+      "date": "2026-10-29",
+      "notes": [
+        "Release notes now pop up the first time you open the app after an update, showing what changed. If you missed several updates, the newest three show.",
+        "Every release, back to 1.0.0, is under Settings › About › All release notes."
+      ]
+    },
     {
       "version": "1.13.0",
       "date": "2026-10-29",
