@@ -1,6 +1,12 @@
 // Deal math for DealDesk. Used by index.html and by test/calc.test.js.
 // Change formulas here only, then run: node --test
-const DEFAULTS={maxPrice:1000000,minCF:200,minCoC:6,minDSCR:1.2,down:25,rate:7.25,term:30,closing:3,vac:5,maint:8,capex:7,mgmt:8};
+const DEFAULTS={maxPrice:1000000,minCF:200,minCoC:6,minDSCR:1.2,down:25,rate:7.25,term:30,closing:3,vac:5,maint:8,capex:7,mgmt:8,
+  lenderDSCR:1.0,  // a DSCR lender's own test: gross rent / PITIA (principal, interest, taxes, insurance, HOA). 0 = off
+  points:1,        // lender points, % of the loan, paid at closing
+  reserves:6,      // months of PITIA the lender wants to see in the bank after closing (shown, not spent)
+  dpSource:1,      // where the cash to close comes from: 0 = cash, 1 = a home equity loan (its payment is a cost of the deal)
+  heRate:8,heTerm:20, // that home equity loan's rate and term
+  funds:0};        // cash plus equity you can draw, for cash to close and reserves. 0 = not set, no check
 function loanK(rate,term){const r=rate/1200,n=term*12;return r===0?1/term:12*r/(1-Math.pow(1+r,-n));}
 // A deal can carry its own financing (seller financing, an assumable loan, a private note).
 // When it does, those terms replace the buy box's down payment, rate and term for that deal only.
@@ -10,9 +16,10 @@ function dealTerms(d,s){
   if(!(o.term>=1))o.term=s.term;
   return o;
 }
-function analyze(d,s,downOverride){
-  s=dealTerms(d,s);
-  const price=+d.price||0,units=Math.max(1,+d.units||1),rehab=+d.rehab||0;
+const opt=(s,k)=>s[k]===undefined?DEFAULTS[k]:+s[k]; // settings saved before a key existed fall back to its default
+// Every figure for the deal at a given price. Estimated taxes and insurance move with the price.
+function metrics(d,s,price,downOverride){
+  const units=Math.max(1,+d.units||1),rehab=+d.rehab||0;
   const taxEst=!(+d.taxes>0),insEst=!(+d.ins>0);
   const taxes=taxEst?price*(d.state==="NH"?0.019:0.012):+d.taxes;
   const ins=insEst?Math.max(1500,price*0.004):+d.ins;
@@ -20,21 +27,38 @@ function analyze(d,s,downOverride){
   const maint=egi*s.maint/100,capex=egi*s.capex/100,mgmt=egi*s.mgmt/100,hoa=(+d.hoa||0)*12;
   const opex=taxes+ins+hoa+maint+capex+mgmt, noi=egi-opex;
   const dn=(downOverride??s.down)/100, cl=s.closing/100, k=loanK(s.rate,s.term);
-  const loan=price*(1-dn), debt=loan*k, cf=noi-debt;
-  const cash=price*(dn+cl)+rehab;
-  const coc=cash>0?cf/cash*100:0, dscr=debt>0?noi/debt:0, cap=price>0?noi/price*100:0;
-  const cfUnit=cf/12/units;
-  // max price that satisfies each rule (NOI held constant)
-  const m=s.minCoC/100;
-  const byCF=(noi-s.minCF*units*12)/(k*(1-dn));
-  const byDSCR=(noi/s.minDSCR)/(k*(1-dn));
-  const byCoC=(noi-m*rehab)/(k*(1-dn)+m*(dn+cl));
-  const cands=[["cash flow per unit",byCF],["debt coverage",byDSCR],["cash-on-cash return",byCoC],["price ceiling",s.maxPrice]];
-  cands.sort((a,b)=>a[1]-b[1]);
-  const maxOffer=Math.max(0,Math.floor(cands[0][1]/1000)*1000), binding=cands[0][0];
+  const loan=price*(1-dn), debt=loan*k, points=loan*opt(s,"points")/100;
+  const cash=price*(dn+cl)+points+rehab;                       // cash to close: down payment, closing costs, points, rehab
+  const pitia=debt+taxes+ins+hoa, reserves=pitia/12*opt(s,"reserves");
+  const fromEquity=opt(s,"dpSource")===1, heLoan=fromEquity?cash:0, heDebt=heLoan*loanK(opt(s,"heRate"),opt(s,"heTerm"));
+  const cf=noi-debt-heDebt;                                    // what is left after the mortgage and the home equity loan
+  const coc=cash>0?cf/cash*100:0, dscr=debt>0?noi/debt:99, lenderDscr=pitia>0?gross/pitia:99, cap=price>0?noi/price*100:0;
+  const cfUnit=cf/12/units, need=cash+reserves, funds=opt(s,"funds");
+  return {price,units,taxes,ins,taxEst,insEst,gross,vacancy,egi,maint,capex,mgmt,hoa,opex,noi,loan,debt,points,cash,pitia,reserves,need,
+    fromEquity,heLoan,heDebt,cf,coc,dscr,lenderDscr,cap,cfUnit,overFunds:funds>0&&need>funds,rentRatio:price>0?(+d.rent||0)/price*100:0};
+}
+// The buy box rules, in the order they are named when one sets the maximum offer.
+function failing(x,s){const f=[];
+  if(x.cfUnit<s.minCF)f.push("cash flow per unit");
+  if(x.coc<s.minCoC)f.push("cash-on-cash return");
+  if(x.dscr<s.minDSCR)f.push("debt coverage");
+  if(opt(s,"lenderDSCR")>0&&x.lenderDscr<opt(s,"lenderDSCR"))f.push("lender's debt coverage");
+  if(opt(s,"funds")>0&&x.need>opt(s,"funds"))f.push("your available funds");
+  return f;}
+function analyze(d,s,downOverride){
+  s=dealTerms(d,s);
+  const price=+d.price||0, a=metrics(d,s,price,downOverride);
+  // max offer: the highest price, in thousands, at which every rule passes. Every rule only gets worse as the price rises.
+  const ok=p=>failing(metrics(d,s,p,downOverride),s).length===0;
+  let maxOffer=0,binding="";
+  const top=Math.max(0,+s.maxPrice||0);
+  if(ok(top)){maxOffer=Math.floor(top/1000)*1000;binding="price ceiling";}
+  else if(ok(1000)){let lo=1000,hi=top;for(let i=0;i<32;i++){const m=(lo+hi)/2;if(ok(m))lo=m;else hi=m;}
+    maxOffer=Math.floor(lo/1000)*1000;binding=failing(metrics(d,s,hi,downOverride),s)[0]||"price ceiling";}
+  else binding=failing(metrics(d,s,1000,downOverride),s)[0]||"";
   const gap=price>0?(price-maxOffer)/price*100:0;
   const verdict=gap<=0?"Buy box":gap<=10?"Negotiate":"Pass";
-  return {price,units,taxes,ins,taxEst,insEst,gross,vacancy,egi,maint,capex,mgmt,hoa,opex,noi,loan,debt,cf,cash,coc,dscr,cap,cfUnit,maxOffer,binding,gap,verdict,rentRatio:price>0?(+d.rent||0)/price*100:0};
+  return {...a,maxOffer,binding,gap,verdict};
 }
 
 // ---- Plain-language explainer: the extra numbers behind "Explain this deal" ----
@@ -80,7 +104,7 @@ function explain(d, s) {
     .map(r => { const x = at(d, { ...s, rate: r }); return { rate: r, payment: x.debt / 12, cfUnit: x.cfUnit, coc: x.coc, verdict: x.verdict, current: r === s.rate }; });
   return {
     a, units, rent,
-    monthly: { rent, vacancy: a.vacancy / 12, taxes: a.taxes / 12, ins: a.ins / 12, hoa: a.hoa / 12, maint: a.maint / 12, capex: a.capex / 12, mgmt: a.mgmt / 12, mortgage: a.debt / 12, left: a.cf / 12 },
+    monthly: { rent, vacancy: a.vacancy / 12, taxes: a.taxes / 12, ins: a.ins / 12, hoa: a.hoa / 12, maint: a.maint / 12, capex: a.capex / 12, mgmt: a.mgmt / 12, mortgage: a.debt / 12, equity: a.heDebt / 12, left: a.cf / 12 },
     principalY1: y1, principalY5: y5,
     totalReturnY1: a.cash > 0 ? (a.cf + y1) / a.cash * 100 : 0,
     growth3: a.price * 0.03,                                   // what a 3% rise in value would be worth, for illustration
@@ -96,4 +120,4 @@ function explain(d, s) {
   };
 }
 
-if (typeof module !== "undefined") module.exports = { DEFAULTS, loanK, analyze, dealTerms, principalPaid, explain };
+if (typeof module !== "undefined") module.exports = { DEFAULTS, loanK, analyze, metrics, dealTerms, principalPaid, explain };

@@ -1,6 +1,8 @@
 const test = require("node:test");
 const assert = require("node:assert");
-const { DEFAULTS, loanK, analyze, dealTerms, principalPaid, explain } = require("../calc.js");
+const { DEFAULTS: ALL, loanK, analyze, metrics, dealTerms, principalPaid, explain } = require("../calc.js");
+// The original checks use plain cash financing with no points or lender test, so their figures stay put.
+const DEFAULTS = { ...ALL, dpSource: 0, points: 0, lenderDSCR: 0 };
 
 const deal = { price: 600000, units: 3, rent: 6300, taxes: 9000, ins: 3000, state: "NH" };
 
@@ -68,7 +70,7 @@ test("explainer: a passing deal reports how high the rate can go, and a deal ove
 
 test("explainer: monthly lines add up to what is left", () => {
   const m = explain(deal, DEFAULTS).monthly;
-  const left = m.rent - m.vacancy - m.taxes - m.ins - m.hoa - m.maint - m.capex - m.mgmt - m.mortgage;
+  const left = m.rent - m.vacancy - m.taxes - m.ins - m.hoa - m.maint - m.capex - m.mgmt - m.mortgage - m.equity;
   assert.ok(Math.abs(left - m.left) < 0.01);
 });
 
@@ -92,4 +94,43 @@ test("explainer works from the deal's own financing and reports the balloon bala
   // varying the rate must really vary it, not snap back to the deal's 5%
   assert.ok(e.rates[0].payment < e.rates[e.rates.length - 1].payment);
   assert.strictEqual(explain(deal, DEFAULTS).balloon, null);
+});
+
+test("lender's debt coverage is gross rent over PITIA", () => {
+  const a = analyze(deal, ALL);
+  const pitia = a.debt + 9000 + 3000;
+  assert.ok(Math.abs(a.lenderDscr - (6300 * 12) / pitia) < 1e-9);
+});
+
+test("cash to close adds points; reserves are months of PITIA on top", () => {
+  const a = analyze(deal, { ...ALL, points: 1, reserves: 6, dpSource: 0 });
+  assert.strictEqual(Math.round(a.cash), 168000 + 4500);
+  assert.ok(Math.abs(a.reserves - a.pitia / 2) < 1e-6);
+  assert.ok(Math.abs(a.need - (a.cash + a.reserves)) < 1e-6);
+});
+
+test("a home equity loan for the cash to close is a cost of the deal", () => {
+  const cash = analyze(deal, { ...ALL, dpSource: 0 }), he = analyze(deal, { ...ALL, dpSource: 1, heRate: 8, heTerm: 20 });
+  assert.ok(Math.abs(he.heDebt - he.cash * loanK(8, 20)) < 1e-6);
+  assert.ok(Math.abs(cash.cf - he.cf - he.heDebt) < 1e-6);
+  assert.ok(he.maxOffer < cash.maxOffer);
+  const m = explain(deal, { ...ALL, dpSource: 1 }).monthly;
+  assert.ok(Math.abs(m.equity - he.heDebt / 12) < 1e-6);
+});
+
+test("max offer passes every rule, including the lender's and your funds, and $1,000 more does not", () => {
+  const s = { ...ALL, lenderDSCR: 1.25, funds: 150000 };
+  for (const d of [deal, { price: 500000, units: 2, rent: 5000, state: "NH" }, { price: 420000, units: 3, rent: 6900, state: "MA" }]) {
+    const a = analyze(d, s);
+    if (a.maxOffer === 0 || a.binding === "price ceiling") continue;
+    const at = p => metrics(d, s, p);
+    const ok = x => x.cfUnit >= s.minCF && x.coc >= s.minCoC && x.dscr >= s.minDSCR && x.lenderDscr >= s.lenderDSCR && x.need <= s.funds;
+    assert.ok(ok(at(a.maxOffer)), "passes at the max offer");
+    assert.ok(!ok(at(a.maxOffer + 1000)), "fails just above it");
+  }
+});
+
+test("over your funds is flagged", () => {
+  assert.ok(analyze(deal, { ...ALL, funds: 50000 }).overFunds);
+  assert.ok(!analyze(deal, { ...ALL, funds: 0 }).overFunds);
 });

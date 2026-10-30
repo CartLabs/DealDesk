@@ -259,16 +259,23 @@ input.money{text-align:left}
       <label>Price ceiling<input id="s_maxPrice" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Min cash flow / unit / mo<input id="s_minCF" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Min cash-on-cash %<input id="s_minCoC" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Min debt coverage (DSCR)<input id="s_minDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Your min debt coverage (NOI ÷ mortgage)<input id="s_minDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Down payment %<input id="s_down" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Investor loan rate %<input id="s_rate" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Loan term (years)<input id="s_term" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Closing costs % of price<input id="s_closing" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Lender's min DSCR (rent ÷ PITIA, 0 = off)<input id="s_lenderDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Lender points % of loan<input id="s_points" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Reserves lender wants (months of PITIA)<input id="s_reserves" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Cash to close comes from<select id="s_dpSource"><option value="1">Home equity loan</option><option value="0">Cash</option></select></label>
+      <label>Home equity loan rate %<input id="s_heRate" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Home equity loan term (years)<input id="s_heTerm" type="number" step="any" min="1" inputmode="decimal"></label>
+      <label class="span2">Funds available: cash plus equity you can draw (blank = no check)<input id="s_funds" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Vacancy %<input id="s_vac" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Repairs %<input id="s_maint" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Capital reserves %<input id="s_capex" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Management %<input id="s_mgmt" type="number" step="any" min="0" inputmode="decimal"></label>
-      <div class="row span2"><button class="btn primary" type="submit">Save buy box</button><span class="small muted">Percentages of rent apply to collected rent. Changes re-score every deal.</span></div>
+      <div class="row span2"><button class="btn primary" type="submit">Save buy box</button><span class="small muted">Percentages of rent apply to collected rent. With a home equity loan, its payment comes out of each deal's cash flow. Changes re-score every deal.</span></div>
     </form>
   </details>
 
@@ -490,7 +497,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.16.0';
+const APP_VERSION = '1.17.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -551,10 +558,13 @@ const inRadius=d=>!+settings.radius||d.miles===undefined||+d.miles<=+settings.ra
 function save(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings,removed,removedOwned,owned}));if(typeof updateSyncUI==="function")updateSyncUI();return true;}catch(e){status("Could not save on this device. Private browsing blocks saving.");return false;}}
 
 /* buy box */
-function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · <b>${pct(s.minCoC)}</b> cash-on-cash · <b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`;}
+function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · <b>${pct(s.minCoC)}</b> cash-on-cash · <b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`+
+  (+s.lenderDSCR>0?` · lender DSCR <b>${(+s.lenderDSCR).toFixed(2)}</b>`:"")+
+  (+s.dpSource===1?` · cash to close from home equity at <b>${pct(+s.heRate,3)}</b>`:"")+(+s.funds>0?` · funds <b>${usd(+s.funds)}</b>`:"");}
 function renderBox(){$("boxSummary").innerHTML=boxText();
   if(document.activeElement?.form!==$("boxForm")) SKEYS.forEach(k=>{setField($("s_"+k),settings[k]);});}
-function readBox(){SKEYS.forEach(k=>{const v=num($("s_"+k).value);if(isFinite(v))settings[k]=v;});if(settings.term<1)settings.term=30;}
+function readBox(){SKEYS.forEach(k=>{const raw=$("s_"+k).value;const v=num(raw);if(isFinite(v))settings[k]=v;else if(k==="funds"&&String(raw).trim()==="")settings.funds=0;});
+  if(settings.term<1)settings.term=30;if(!(settings.heTerm>=1))settings.heTerm=DEFAULTS.heTerm;}
 $("boxForm").addEventListener("input",()=>{readBox();$("boxSummary").innerHTML=boxText();renderDeals();});
 $("boxForm").addEventListener("submit",e=>{e.preventDefault();readBox();settings.updatedAt=today();if(save()){status("Buy box saved");$("boxDetails").open=false;}});
 
@@ -673,10 +683,13 @@ function renderSheet(){
   $("d_kv").innerHTML=[
     ["Cash flow / unit / mo",usd(a.cfUnit),ok(a.cfUnit>=s.minCF)],
     ["Cash-on-cash",pct(a.coc),ok(a.coc>=s.minCoC)],
-    ["DSCR",a.dscr.toFixed(2),ok(a.dscr>=s.minDSCR)],
+    ["DSCR (yours)",a.dscr.toFixed(2),ok(a.dscr>=s.minDSCR)],
+    ["Lender's DSCR",a.lenderDscr.toFixed(2),+s.lenderDSCR>0?ok(a.lenderDscr>=+s.lenderDSCR):""],
     ["Cap rate",pct(a.cap),""],
     ["Rent to price",pct(a.rentRatio,2),""],
-    ["Cash to close",usd(a.cash),""]
+    ["Cash to close",usd(a.cash),""],
+    ["Plus reserves to show",usd(a.reserves),""],
+    ["Total needed",usd(a.need),+s.funds>0?ok(!a.overFunds):""]
   ].map(([l,v,c])=>`<div><h3>${l}</h3><span class="v ${c}">${v}</span></div>`).join("");
   const L=(l,v,t)=>`<tr class="${t||""}"><td style="text-align:left;font-family:var(--body)">${l}</td><td>${v}</td></tr>`;
   $("d_ledger").innerHTML=
@@ -684,7 +697,7 @@ function renderSheet(){
     L("Property taxes"+(a.taxEst?" (estimated)":""),usd(-a.taxes))+L("Insurance"+(a.insEst?" (estimated)":""),usd(-a.ins))+
     (a.hoa?L("HOA",usd(-a.hoa)):"")+
     L(`Repairs (${s.maint}%)`,usd(-a.maint))+L(`Capital reserves (${s.capex}%)`,usd(-a.capex))+L(`Management (${s.mgmt}%)`,usd(-a.mgmt))+
-    L("Net operating income",usd(a.noi),"total")+L("Mortgage (principal and interest)",usd(-a.debt))+L("Cash flow before tax",usd(a.cf),"total");
+    L("Net operating income",usd(a.noi),"total")+L("Mortgage (principal and interest)",usd(-a.debt))+(a.heDebt?L(`Home equity loan for the cash to close (${pct(+s.heRate,3)})`,usd(-a.heDebt)):"")+L("Cash flow before tax",usd(a.cf),"total");
   $("d_scen").innerHTML=[...new Set([20,25,30,s.down])].sort((x,y)=>x-y).map(p=>{const x=analyze(d,s,p);return `<tr><td>${p}%</td><td>${usd(x.cash)}</td><td>${usd(x.debt/12)}</td><td class="${x.cf>=0?"pos":"neg"}">${usd(x.cf/12)}</td><td>${pct(x.coc)}</td></tr>`;}).join("");
   $("d_hood").innerHTML=[["School rating",d.school?d.school+" / 10":"Not entered"],["Walk Score",d.walk||d.walk===0?d.walk+" / 100":"Not entered"]].map(([l,v])=>`<div><h3>${l}</h3><span class="v" style="font-size:16px">${esc(v)}</span></div>`).join("");
   const q=encodeURIComponent(`${d.address}, ${d.town}, ${d.state}`);
@@ -1186,16 +1199,19 @@ function openExplain(d){
     ${row(`Saving for big replacements like a roof or boiler (${s.capex}%)`,usd(-m.capex))}
     ${row(`Property manager (${s.mgmt}%)`,usd(-m.mgmt))}
     ${row(`${e.custom?"Loan payment":"Mortgage"} at ${fmtRate(s.rate)}`,usd(-m.mortgage))}
+    ${m.equity?row(`Home equity loan that paid the cash to close, at ${fmtRate(+s.heRate)}`,usd(-m.equity)):""}
     ${row("Left over each month",usd(m.left),"total")}</tbody></table>`;
 
   const terms=`<dl>
     <dt>Cash flow</dt><dd>What is left each month after every bill and the mortgage. Here: ${usd(m.left)} a month${per}. Your rule is at least ${usd(s.minCF)} per unit. ${mark(a.cfUnit>=s.minCF)}</dd>
     <dt>Cash-on-cash return</dt><dd>A year of cash flow divided by the cash you put in. Think of it as the interest rate your own money earns. Here: ${pct(a.coc)}. Your rule is ${pct(s.minCoC)}. ${mark(a.coc>=s.minCoC)}</dd>
-    <dt>Debt coverage (DSCR)</dt><dd>How many times over the building's earnings cover the mortgage. 1.00 means it only just pays the loan. Lenders usually want 1.20 to 1.25. Here: ${a.dscr.toFixed(2)}. Your rule is ${s.minDSCR.toFixed(2)}. ${mark(a.dscr>=s.minDSCR)}</dd>
+    <dt>Debt coverage (DSCR)</dt><dd>How many times over the building's earnings cover the mortgage. 1.00 means it only just pays the loan. Here: ${a.dscr.toFixed(2)}. Your rule is ${s.minDSCR.toFixed(2)}. ${mark(a.dscr>=s.minDSCR)}</dd>
+    <dt>Lender's DSCR</dt><dd>The version a DSCR lender uses to decide whether to lend: the full rent divided by the mortgage plus taxes, insurance and any association fee (PITIA). It ignores repairs, vacancy and management, so it usually reads higher than yours. Here: ${a.lenderDscr.toFixed(2)}.${+s.lenderDSCR>0?` Your lender setting is ${(+s.lenderDSCR).toFixed(2)}. ${mark(a.lenderDscr>=+s.lenderDSCR)}`:""}</dd>
     <dt>Net operating income (NOI)</dt><dd>What the building earns in a year after its running costs, before the mortgage. Here: ${usd(a.noi)} a year.</dd>
     <dt>Cap rate</dt><dd>What the building would earn on its price if you paid all cash. It lets you compare buildings without the loan getting in the way. Here: ${pct(a.cap)}.</dd>
     <dt>Rent to price</dt><dd>One month of rent as a share of the price. The old rule of thumb is 1% or more. Here: ${pct(a.rentRatio,2)}.</dd>
-    <dt>Cash to close</dt><dd>The money you need on closing day: down payment, closing costs and any upfront repairs. Here: ${usd(a.cash)}.</dd>
+    <dt>Cash to close</dt><dd>The money you need on closing day: down payment, closing costs, the lender's points and any upfront repairs. Here: ${usd(a.cash)}.${a.heDebt?` It comes from a home equity loan, which costs about ${usd(a.heDebt/12)} a month, counted in the cash flow above.`:""}</dd>
+    <dt>Reserves</dt><dd>Money the lender wants to see in your accounts after closing, usually a few months of the full payment. You keep it, but you must have it. Here: ${usd(a.reserves)}, for ${usd(a.need)} in all.</dd>
     <dt>Maximum offer</dt><dd>The most you can pay and still meet every one of your rules. Here: ${usd(a.maxOffer)}. The rule that sets the limit is ${a.binding}.</dd>
   </dl>`;
 
