@@ -1,12 +1,22 @@
 {
-  "version": "1.18.0",
-  "date": "2026-10-29",
+  "version": "1.18.1",
+  "date": "2026-10-31",
   "notes": [
-    "The 6% cash-on-cash rule is off. Since the down payment is borrowed, the profit test is now cash flow per unit, which already takes out the home equity loan's payment. Turn cash-on-cash back on in the buy box any time.",
-    "A deal's own financing can now hold a lender's quote: lender name, down payment, rate, term, points and the home equity loan rate. The deal is scored on those terms; every other deal keeps your buy box rates.",
-    "To change the rates for every deal, open the buy box and edit the investor loan rate and the home equity loan rate."
+    "Dollar amounts no longer split across two lines, including the mortgage line on the deal sheet.",
+    "The financing table on the deal sheet fits on a phone instead of running off the right edge.",
+    "Price cut tags stay in one piece, and the buy box and deal form boxes line up in rows, with shorter labels.",
+    "Loan balances on owned properties show in whole dollars, and Funds available shows blank instead of $0 when not set."
   ],
   "previous": [
+    {
+      "version": "1.18.0",
+      "date": "2026-10-29",
+      "notes": [
+        "The 6% cash-on-cash rule is off. Since the down payment is borrowed, the profit test is now cash flow per unit, which already takes out the home equity loan's payment. Turn cash-on-cash back on in the buy box any time.",
+        "A deal's own financing can now hold a lender's quote: lender name, down payment, rate, term, points and the home equity loan rate. The deal is scored on those terms; every other deal keeps your buy box rates.",
+        "To change the rates for every deal, open the buy box and edit the investor loan rate and the home equity loan rate."
+      ]
+    },
     {
       "version": "1.17.0",
       "date": "2026-10-29",

@@ -59,6 +59,7 @@ header.top .drive-hdr-btn{grid-area:cloud}
 .box .edit{margin-left:auto;color:var(--accent);font-weight:600;font-size:13px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
 label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--muted);min-width:0}
+.grid>label{justify-content:space-between}
 input,select,textarea{font:500 16px var(--mono);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:7px 9px;width:100%;min-width:0}
 textarea{font-family:var(--body);min-height:60px}
 form{scroll-margin-top:12px}
@@ -79,7 +80,7 @@ td .addr{font-weight:600}
 .pill.good{background:var(--good-soft);color:var(--good)}
 .pill.warn{background:var(--warn-soft);color:var(--warn)}
 .pill.bad{background:var(--bad-soft);color:var(--bad)}
-.tag{font:600 10px var(--body);text-transform:uppercase;letter-spacing:.08em;border:1px dashed var(--muted);color:var(--muted);padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
+.tag{white-space:nowrap;font:600 10px var(--body);text-transform:uppercase;letter-spacing:.08em;border:1px dashed var(--muted);color:var(--muted);padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
 .pos{color:var(--good)} .neg{color:var(--bad)}
 .empty{padding:28px 18px;text-align:center;color:var(--muted)}
 /* sheet */
@@ -94,11 +95,14 @@ td .addr{font-weight:600}
 .kv .v{font:600 19px var(--mono);font-variant-numeric:tabular-nums}
 .ledger{width:100%;min-width:0}
 .ledger td{padding:5px 0;border-bottom:1px dotted var(--line);font-size:14px}
+.ledger td:last-child{white-space:nowrap;padding-left:12px;text-align:right}
 .ledger tr.total td{border-top:1px solid var(--ink);border-bottom:0;font-weight:600}
 .ledger tr{cursor:default}
 .ledger tbody tr:hover{background:none}
-.scen{min-width:420px}
-.scen td,.scen th{padding:7px 10px}
+.scen{width:100%;min-width:0}
+.scen td,.scen th{padding:7px 10px;white-space:nowrap}
+@media(max-width:640px){.scen td,.scen th{padding:7px 4px;font-size:13px}.scen th{white-space:normal;vertical-align:bottom}}
+@media(max-width:360px){.scen td,.scen th{padding:6px 2px;font-size:12px}}
 .links a{color:var(--accent);font-weight:600;font-size:13px}
 .note{background:var(--sunk);padding:10px 12px;border-radius:4px;font-size:13px}
 #status{font-size:13px;color:var(--muted)}
@@ -219,7 +223,8 @@ td .stage{display:block}
 .btn.small{font-size:13px;padding:4px 10px}
 .pill.home{background:var(--accent-soft);color:var(--accent)}
 .loanlist{width:100%;min-width:0;border-top:1px solid var(--line)}
-.loanlist th,.loanlist td{padding:6px 0 6px 10px;font-size:13px;border-bottom:1px dotted var(--line);text-align:right}
+.loanlist th,.loanlist td{padding:6px 0 6px 10px;font-size:13px;border-bottom:1px dotted var(--line);text-align:right;white-space:nowrap}
+.loanlist td:first-child{white-space:normal}
 .loanlist th:first-child,.loanlist td:first-child{text-align:left;padding-left:0;font-family:var(--body)}
 .loanlist tbody tr{cursor:default}
 .loanlist tbody tr:hover{background:none}
@@ -259,23 +264,23 @@ input.money{text-align:left}
       <label>Price ceiling<input id="s_maxPrice" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Min cash flow / unit / mo<input id="s_minCF" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Min cash-on-cash % (0 = off)<input id="s_minCoC" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Your min debt coverage (NOI ÷ mortgage)<input id="s_minDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Your min DSCR<input id="s_minDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Down payment %<input id="s_down" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Investor loan rate %<input id="s_rate" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Loan term (years)<input id="s_term" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Closing costs % of price<input id="s_closing" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Lender's min DSCR (rent ÷ PITIA, 0 = off)<input id="s_lenderDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Lender points % of loan<input id="s_points" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Reserves lender wants (months of PITIA)<input id="s_reserves" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Cash to close comes from<select id="s_dpSource"><option value="1">Home equity loan</option><option value="0">Cash</option></select></label>
-      <label>Home equity loan rate %<input id="s_heRate" type="number" step="any" min="0" inputmode="decimal"></label>
-      <label>Home equity loan term (years)<input id="s_heTerm" type="number" step="any" min="1" inputmode="decimal"></label>
-      <label class="span2">Funds available: cash plus equity you can draw (blank = no check)<input id="s_funds" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Lender's min DSCR (0 = off)<input id="s_lenderDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Lender points %<input id="s_points" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Reserves (months)<input id="s_reserves" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Cash to close from<select id="s_dpSource"><option value="1">Home equity</option><option value="0">Cash</option></select></label>
+      <label>Home equity rate %<input id="s_heRate" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Home equity term (years)<input id="s_heTerm" type="number" step="any" min="1" inputmode="decimal"></label>
+      <label class="span2">Funds available (blank = no limit)<input id="s_funds" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Vacancy %<input id="s_vac" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Repairs %<input id="s_maint" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Capital reserves %<input id="s_capex" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Management %<input id="s_mgmt" type="number" step="any" min="0" inputmode="decimal"></label>
-      <div class="row span2"><button class="btn primary" type="submit">Save buy box</button><span class="small muted">Percentages of rent apply to collected rent. With a home equity loan, its payment comes out of each deal's cash flow. Changes re-score every deal.</span></div>
+      <div class="row span2"><button class="btn primary" type="submit">Save buy box</button><span class="small muted">Percentages of rent apply to collected rent. Your DSCR is net income ÷ mortgage; the lender's is rent ÷ mortgage, taxes, insurance and HOA. Reserves are months of that full payment. Funds available is cash plus the equity you can draw. With home equity, its payment comes out of each deal's cash flow. Changes re-score every deal.</span></div>
     </form>
   </details>
 
@@ -305,7 +310,7 @@ input.money{text-align:left}
       <label>Miles from Dracut<input id="f_miles" type="number" step="any" min="0" inputmode="decimal"></label>
       <div class="span2 loans">
         <h3>Financing for this deal</h3>
-        <label>How would you pay for it?<select id="f_finkind"><option value="bank">Investor loan (your buy box terms)</option><option value="custom">A lender's quote, seller financing or other terms</option></select></label>
+        <label>How would you pay for it?<select id="f_finkind"><option value="bank">Buy box terms</option><option value="custom">Lender quote or seller terms</option></select></label>
         <div class="loan" id="finFields" hidden>
           <label class="span2">Lender or source (optional)<input id="f_finlender" type="text" placeholder="e.g. Kiavi, seller"></label>
           <label>Down payment %<input id="f_findown" type="number" step="any" min="0" inputmode="decimal"></label>
@@ -395,7 +400,7 @@ input.money{text-align:left}
       <div class="col">
         <div>
           <h3>Financing scenarios at asking price</h3>
-          <div style="overflow-x:auto"><table class="scen num"><thead><tr><th>Down</th><th>Cash needed</th><th>Payment / mo</th><th>Cash flow / mo</th><th>Cash-on-cash</th></tr></thead><tbody id="d_scen"></tbody></table></div>
+          <div style="overflow-x:auto"><table class="scen num"><thead><tr><th>Down</th><th>Cash needed</th><th>Mortgage / mo</th><th>Cash flow / mo</th><th>Cash-on-cash</th></tr></thead><tbody id="d_scen"></tbody></table></div>
         </div>
         <div id="d_factsWrap" hidden>
           <h3>Property facts</h3>
@@ -500,7 +505,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.18.0';
+const APP_VERSION = '1.18.1';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -568,7 +573,7 @@ function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> · <
   (+s.lenderDSCR>0?` · lender DSCR <b>${(+s.lenderDSCR).toFixed(2)}</b>`:"")+
   (+s.dpSource===1?` · cash to close from home equity at <b>${pct(+s.heRate,3)}</b>`:"")+(+s.funds>0?` · funds <b>${usd(+s.funds)}</b>`:"");}
 function renderBox(){$("boxSummary").innerHTML=boxText();
-  if(document.activeElement?.form!==$("boxForm")) SKEYS.forEach(k=>{setField($("s_"+k),settings[k]);});}
+  if(document.activeElement?.form!==$("boxForm")) SKEYS.forEach(k=>{if(k==="funds"&&!(+settings.funds>0))$("s_funds").value="";else setField($("s_"+k),settings[k]);});}
 function readBox(){SKEYS.forEach(k=>{const raw=$("s_"+k).value;const v=num(raw);if(isFinite(v))settings[k]=v;else if(k==="funds"&&String(raw).trim()==="")settings.funds=0;});
   if(settings.term<1)settings.term=30;if(!(settings.heTerm>=1))settings.heTerm=DEFAULTS.heTerm;}
 $("boxForm").addEventListener("input",()=>{readBox();$("boxSummary").innerHTML=boxText();renderDeals();});
@@ -587,7 +592,7 @@ function renderTabs(){
   const n={review:0,flight:0,archive:0,owned:owned.length};
   deals.forEach(d=>{const s=statusOf(d);if(s!=="review")n[s]++;});
   n.review=listFor("review").length;
-  $("tagline").textContent=+settings.radius?`Buy-and-hold rentals within ${settings.radius} miles of Dracut, MA.`:"Buy-and-hold rentals at any distance from Dracut, MA.";
+  $("tagline").textContent=+settings.radius?`Buy-and-hold rentals within ${settings.radius} miles of Dracut,\u00a0MA.`:"Buy-and-hold rentals at any distance from Dracut,\u00a0MA.";
   Object.keys(TABS).forEach(t=>{$("n_"+t).textContent=n[t];$("tab_"+t).setAttribute("aria-selected",t===tab?"true":"false");});
   $("tab_settings").setAttribute("aria-selected",tab==="settings"?"true":"false");
   $("settingsView").hidden=tab!=="settings";$("addBtn").hidden=tab==="settings";
@@ -694,7 +699,7 @@ function renderSheet(){
     ["Cap rate",pct(a.cap),""],
     ["Rent to price",pct(a.rentRatio,2),""],
     ["Cash to close",usd(a.cash),""],
-    ["Plus reserves to show",usd(a.reserves),""],
+    ["Reserves to show",usd(a.reserves),""],
     ["Total needed",usd(a.need),+s.funds>0?ok(!a.overFunds):""]
   ].map(([l,v,c])=>`<div><h3>${l}</h3><span class="v ${c}">${v}</span></div>`).join("");
   const L=(l,v,t)=>`<tr class="${t||""}"><td style="text-align:left;font-family:var(--body)">${l}</td><td>${v}</td></tr>`;
@@ -934,7 +939,7 @@ function renderOwned(){
       <div class="kv four">${stat("Value",usd(+o.value||0))}${stat("Debt",usd(debt(o)))}${stat("Equity",usd((+o.value||0)-debt(o)))}${o.home?stat("Cost / mo",usd(cost)):stat("Net / mo",usd(n),n>=0?"pos":"neg")}</div>
       <div class="valsrc"><span class="small muted">${valueSource(o)}</span><button class="btn small" type="button" data-anchor="${esc(o.id)}">Set value</button><button class="btn small" type="button" data-refresh="${esc(o.id)}">Refresh value</button></div>
       ${o.home?"":`<p class="small muted">Rent ${money(+o.rent||0)} · loan payments ${money(payments(o))} · other costs ${money(+o.expenses||0)}</p>`}
-      ${ls.length?`<table class="loanlist num"><thead><tr><th>Loan</th><th>Rate</th><th>Balance</th><th>Payment</th></tr></thead><tbody>${ls.map(l=>`<tr><td>${esc(l.type||"Loan")}</td><td>${rateText(l)||"—"}</td><td>${money(+l.balance||0)}</td><td>${money(+l.payment||0)}</td></tr>`).join("")}</tbody></table>`:'<p class="small muted">No loans. Owned free and clear.</p>'}
+      ${ls.length?`<table class="loanlist num"><thead><tr><th>Loan</th><th>Rate</th><th>Balance</th><th>Payment</th></tr></thead><tbody>${ls.map(l=>`<tr><td>${esc(l.type||"Loan")}</td><td>${rateText(l)||"—"}</td><td>${usd(+l.balance||0)}</td><td>${usd(+l.payment||0)}</td></tr>`).join("")}</tbody></table>`:'<p class="small muted">No loans. Owned free and clear.</p>'}
       ${o.notes?`<p class="note">${esc(o.notes)}</p>`:""}
     </article>`;}).join("");
 }
@@ -1191,7 +1196,7 @@ function openExplain(d){
   const row=(l,v,cls="")=>`<tr class="${cls}"><td>${l}</td><td>${v}</td></tr>`;
   const est=[/^Light data/.test(d.notes||"")||/estimate/i.test(d.notes||"")?"rent":"",a.taxEst?"property taxes":"",a.insEst?"insurance":"",d.unitsInferred?"the number of units":""].filter(Boolean);
 
-  const short=`<p>You would pay <b>${usd(a.price)}</b>. You bring about <b>${usd(a.cash)}</b> in cash (the down payment, closing costs${+d.rehab?" and upfront repairs":""}) and ${e.custom?"the seller or other lender carries":"the bank lends"} the other ${usd(a.loan)}.</p>
+  const short=`<p>You would pay <b>${usd(a.price)}</b>. You bring about <b>${usd(a.cash)}</b>${a.heDebt?", borrowed on your home equity loan,":" in cash"} (the down payment, closing costs, points${+d.rehab?" and upfront repairs":""}) and ${e.custom?"the seller or other lender carries":"the bank lends"} the other ${usd(a.loan)}.</p>
     <p>Tenants pay about <b>${usd(e.rent)}</b> a month. After every bill and the mortgage, ${a.cf>=0?`about <b class="pos">${usd(m.left)}</b> a month is left over${per}.`:`you would be <b class="neg">short about ${usd(-m.left)}</b> a month and have to cover it yourself.`}</p>
     <p>${a.verdict==="Buy box"?`<b class="pos">It meets all of your rules at the asking price.</b> You could pay up to ${usd(a.maxOffer)} and it would still work.`:
         a.verdict==="Negotiate"?`<b class="warnc">It misses your rules at the asking price, but it is close.</b> It works at ${usd(a.maxOffer)} or less, which is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) below asking.`:
