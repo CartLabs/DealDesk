@@ -73,8 +73,9 @@ window.SEED_LISTINGS = [
     "notes": "Rent is an estimate from Zumper city averages by bedroom count (Oct 2, 2026), not actual leases. Get the rent roll before offering. 3BR + 3BR + 1BR. Month-to-month tenants, separate heat.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T01:20:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-10-30",
+      "price": 659900
     }
   },
   {
@@ -141,7 +142,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/429-Wilson-St-03103/home/108659761",
     "notes": "Rent is an estimate from Zumper city averages by bedroom count (Oct 2, 2026), not actual leases. Get the rent roll before offering. 3BR + 3BR + 1BR. Fully owner occupied, no certificate of compliance, listing says cash or rehab loans only. Listed Oct 1.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T01:20:00Z"
+    "addedAt": "2026-10-03T01:20:00Z",
+    "gone": {
+      "date": "2026-10-31"
+    }
   },
   {
     "id": "man-440-kelley",
@@ -330,8 +334,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-10-29",
+      "price": 610000
     }
   },
   {
@@ -1105,7 +1110,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Haverhill averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-10-31"
+    }
   },
   {
     "id": "ma-haverhill-7-maple-ave",
@@ -1264,8 +1272,9 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-10-29",
+      "price": 250000
     }
   },
   {
@@ -2356,8 +2365,9 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-10-30",
+      "price": 920000
     }
   },
   {
@@ -4018,8 +4028,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Concord averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-10-30",
+      "price": 515000
     }
   },
   {
@@ -4037,7 +4048,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 519900,
-    "priceChangedAt": "2026-10-16T10:00:00Z"
+    "priceChangedAt": "2026-10-16T10:00:00Z",
+    "gone": {
+      "date": "2026-10-31"
+    }
   },
   {
     "id": "nh-concord-27-s-state-st",
@@ -4595,8 +4609,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-10-30",
+      "price": 595000
     }
   },
   {
@@ -4729,8 +4744,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-10-30",
+      "price": 610000
     }
   },
   {
@@ -5692,13 +5708,15 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 699900,
+    "price": 680000,
     "rent": 4250,
     "url": "https://www.redfin.com/MA/Worcester/15-Maple-Tree-Ln-01602/home/16673842",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "priceWas": 699900,
+    "priceChangedAt": "2026-10-31T10:00:00Z"
   },
   {
     "id": "ma-worcester-5-freeland-ter",
@@ -5732,7 +5750,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 750000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-10-31"
+    }
   },
   {
     "id": "ma-worcester-15-vernon-st",
@@ -5978,15 +5999,15 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Four-family",
     "units": 4,
-    "price": 589999,
+    "price": 575000,
     "rent": 8250,
     "url": "https://www.redfin.com/MA/Worcester/10-Hollywood-St-01610/home/16663220",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
-    "priceWas": 599999,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 589999,
+    "priceChangedAt": "2026-10-31T10:00:00Z"
   },
   {
     "id": "ma-worcester-11-leon-st",
@@ -6740,13 +6761,15 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Two-family",
     "units": 2,
-    "price": 679900,
+    "price": 675000,
     "rent": 4100,
     "url": "https://www.redfin.com/MA/Lowell/68-B-St-01851/home/203371934",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 679900,
+    "priceChangedAt": "2026-10-31T10:00:00Z"
   },
   {
     "id": "ma-lowell-40-bunker-hill-ave",
@@ -6858,7 +6881,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 8 bedrooms split as 4BR + 4BR. Taxes and insurance are estimated. Unit count (2) is inferred from 8 beds and 2.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-10-31"
+    }
   },
   {
     "id": "ma-lowell-161-smith-st",
@@ -8268,7 +8294,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-10-31"
+    }
   },
   {
     "id": "ma-worcester-31-suffield-st",
