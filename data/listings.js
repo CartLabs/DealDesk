@@ -126,7 +126,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/421-Laurel-St-03103/home/108655370",
     "notes": "Rent is an estimate from Zumper city averages by bedroom count (Oct 2, 2026), not actual leases. Get the rent roll before offering. 3 x 3BR. 99 days on market. Sold July 2024 for $630,000.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T01:20:00Z"
+    "addedAt": "2026-10-03T01:20:00Z",
+    "gone": {
+      "date": "2026-11-01"
+    }
   },
   {
     "id": "man-429-wilson",
@@ -5225,14 +5228,14 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Three-family",
     "units": 3,
-    "price": 620000,
+    "price": 610000,
     "rent": 6750,
     "url": "https://www.redfin.com/MA/Worcester/4-Mott-St-01604/home/16663781",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
-    "priceWas": 625000,
-    "priceChangedAt": "2026-10-22T10:00:00Z"
+    "priceWas": 620000,
+    "priceChangedAt": "2026-11-01T10:00:00Z"
   },
   {
     "id": "ma-lowell-941-lakeview-ave",
@@ -6160,7 +6163,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-11-01"
+    }
   },
   {
     "id": "ma-worcester-1-douglas-st",
@@ -6894,13 +6900,15 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Two-family",
     "units": 2,
-    "price": 675000,
+    "price": 649900,
     "rent": 5375,
     "url": "https://www.redfin.com/MA/Lowell/161-Smith-St-01851/home/11628862",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 7 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 675000,
+    "priceChangedAt": "2026-11-01T10:00:00Z"
   },
   {
     "id": "ma-lowell-60-62-4th-st",
@@ -6982,7 +6990,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Methuen averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-01"
+    }
   },
   {
     "id": "ma-lawrence-31-garfield-st",
@@ -7631,13 +7642,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Two-family",
     "units": 2,
-    "price": 484900,
+    "price": 474900,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Fitchburg/57-Chester-St-01420/home/16500823",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 484900,
+    "priceChangedAt": "2026-11-01T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-76-columbus",
@@ -10321,5 +10334,53 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-30",
     "addedAt": "2026-10-30T10:00:00Z"
+  },
+  {
+    "id": "ma-lynn-101-eutaw-ave",
+    "address": "101 Eutaw Ave",
+    "town": "Lynn",
+    "state": "MA",
+    "miles": 23,
+    "type": "Three-family",
+    "units": 3,
+    "price": 895000,
+    "rent": 9000,
+    "url": "https://www.redfin.com/MA/Lynn/101-Eutaw-Ave-01902/home/11562620",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-01",
+    "addedAt": "2026-11-01T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-56-everard-st",
+    "address": "56 Everard St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Four-family",
+    "units": 4,
+    "price": 724880,
+    "rent": 8250,
+    "url": "https://www.redfin.com/MA/Worcester/56-Everard-St-01605/home/16671955",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 9 beds and 4.5 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-01",
+    "addedAt": "2026-11-01T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-6-lucian",
+    "address": "6 Lucian",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 699000,
+    "rent": 6750,
+    "url": "https://www.redfin.com/MA/Worcester/6-Lucian-St-01603/home/16650893",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-01",
+    "addedAt": "2026-11-01T10:00:00Z"
   }
 ];
