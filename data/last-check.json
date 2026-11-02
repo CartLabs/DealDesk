@@ -1,20 +1,20 @@
 {
- "date": "2026-11-01",
- "ranAt": "2026-11-01T10:05:05.920Z",
+ "date": "2026-11-02",
+ "ranAt": "2026-11-02T10:05:05.654Z",
  "status": "ok",
  "problem": null,
  "towns": [
   {
    "town": "Lowell|MA",
    "forSale": {
-    "rows": 43,
+    "rows": 42,
     "kept": 30,
     "capped": false,
     "via": "region page"
    },
    "sold": {
     "rows": 57,
-    "kept": 12
+    "kept": 13
    }
   },
   {
@@ -59,13 +59,13 @@
   {
    "town": "Haverhill|MA",
    "forSale": {
-    "rows": 11,
+    "rows": 10,
     "kept": 8,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 15,
+    "rows": 14,
     "kept": 4
    }
   },
@@ -100,26 +100,26 @@
   {
    "town": "Lynn|MA",
    "forSale": {
-    "rows": 39,
+    "rows": 40,
     "kept": 22,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 49,
+    "rows": 50,
     "kept": 10
    }
   },
   {
    "town": "Manchester|NH",
    "forSale": {
-    "rows": 52,
-    "kept": 41,
+    "rows": 51,
+    "kept": 40,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 66,
+    "rows": 65,
     "kept": 14
    }
   },
@@ -139,27 +139,27 @@
   {
    "town": "Fitchburg|MA",
    "forSale": {
-    "rows": 49,
-    "kept": 46,
+    "rows": 48,
+    "kept": 45,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 55,
+    "rows": 54,
     "kept": 6
    }
   },
   {
    "town": "Worcester|MA",
    "forSale": {
-    "rows": 103,
-    "kept": 82,
+    "rows": 105,
+    "kept": 84,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 129,
-    "kept": 25
+    "rows": 133,
+    "kept": 27
    }
   },
   {
@@ -216,7 +216,7 @@
   }
  ],
  "report": {
-  "date": "2026-11-01",
+  "date": "2026-11-02",
   "townsPulled": [
    "Lowell, MA (30)",
    "Methuen, MA (3)",
@@ -226,64 +226,32 @@
    "Derry, NH (4)",
    "Merrimack, NH (0)",
    "Lynn, MA (22)",
-   "Manchester, NH (41)",
+   "Manchester, NH (40)",
    "Leominster, MA (16)",
-   "Fitchburg, MA (46)",
-   "Worcester, MA (82)",
+   "Fitchburg, MA (45)",
+   "Worcester, MA (84)",
    "Concord, NH (4)",
    "Dover, NH (7)",
    "Brockton, MA (23)",
    "Rochester, NH (12)"
   ],
   "townsFailed": [],
-  "added": 3,
+  "added": 4,
   "newMatches": [],
   "priceChanges": [
    {
-    "id": "ma-lowell-161-smith-st",
-    "address": "161 Smith St",
-    "town": "Lowell",
-    "state": "MA",
-    "miles": 3,
-    "units": 2,
-    "price": 649900,
-    "rent": 5375,
-    "verdict": "Pass",
-    "maxOffer": 398000,
-    "url": "https://www.redfin.com/MA/Lowell/161-Smith-St-01851/home/11628862",
-    "from": 675000,
-    "verdictWas": "Pass",
-    "nowMatches": false
-   },
-   {
-    "id": "ma-fitchburg-57-chester-st",
-    "address": "57 Chester St",
-    "town": "Fitchburg",
-    "state": "MA",
-    "miles": 26,
-    "units": 2,
-    "price": 474900,
-    "rent": 4000,
-    "verdict": "Pass",
-    "maxOffer": 281000,
-    "url": "https://www.redfin.com/MA/Fitchburg/57-Chester-St-01420/home/16500823",
-    "from": 484900,
-    "verdictWas": "Pass",
-    "nowMatches": false
-   },
-   {
-    "id": "ma-worcester-4-mott-st",
-    "address": "4 Mott St",
+    "id": "ma-worcester-312-plantation-st",
+    "address": "312 Plantation St",
     "town": "Worcester",
     "state": "MA",
     "miles": 38,
-    "units": 3,
-    "price": 610000,
-    "rent": 6750,
+    "units": 2,
+    "price": 468000,
+    "rent": 4000,
     "verdict": "Pass",
-    "maxOffer": 489000,
-    "url": "https://www.redfin.com/MA/Worcester/4-Mott-St-01604/home/16663781",
-    "from": 620000,
+    "maxOffer": 281000,
+    "url": "https://www.redfin.com/MA/Worcester/312-Plantation-St-01604/home/16671515",
+    "from": 478000,
     "verdictWas": "Pass",
     "nowMatches": false
    }
@@ -291,43 +259,43 @@
   "sold": [],
   "gone": [
    {
-    "id": "man-421-laurel",
-    "address": "421 Laurel St",
+    "id": "ma-brockton-10-brook-st",
+    "address": "10 Brook St",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "units": 3,
+    "price": 599900,
+    "rent": 6450,
+    "verdict": "Pass",
+    "maxOffer": 465000,
+    "url": "https://www.redfin.com/MA/Brockton/10-Brook-St-02301/home/16325493"
+   },
+   {
+    "id": "nh-manchester-364-manchester-st",
+    "address": "364 Manchester St",
     "town": "Manchester",
     "state": "NH",
     "miles": 24,
     "units": 3,
-    "price": 750000,
-    "rent": 7200,
+    "price": 775000,
+    "rent": 6375,
     "verdict": "Pass",
-    "maxOffer": 508000,
-    "url": "https://www.redfin.com/NH/Manchester/421-Laurel-St-03103/home/108655370"
+    "maxOffer": 430000,
+    "url": "https://www.redfin.com/NH/Manchester/364-Manchester-St-03103/home/88253978"
    },
    {
-    "id": "ma-worcester-19-englewood-ave",
-    "address": "19 Englewood Ave",
-    "town": "Worcester",
+    "id": "ma-fitchburg-564-fairmount-st",
+    "address": "564 Fairmount St",
+    "town": "Fitchburg",
     "state": "MA",
-    "miles": 38,
+    "miles": 26,
     "units": 2,
-    "price": 560000,
-    "rent": 4500,
+    "price": 414000,
+    "rent": 3250,
     "verdict": "Pass",
-    "maxOffer": 324000,
-    "url": "https://www.redfin.com/MA/Worcester/19-Englewood-Ave-01603/home/16673503"
-   },
-   {
-    "id": "ma-methuen-35-37-buco-ave",
-    "address": "35-37 Buco Ave",
-    "town": "Methuen",
-    "state": "MA",
-    "miles": 7,
-    "units": 2,
-    "price": 849900,
-    "rent": 4800,
-    "verdict": "Pass",
-    "maxOffer": 350000,
-    "url": "https://www.redfin.com/MA/Methuen/37-Buco-Ave-01844/home/8345095"
+    "maxOffer": 217000,
+    "url": "https://www.redfin.com/MA/Fitchburg/564-Fairmount-St-01420/home/16500144"
    }
   ],
   "skipped": [
@@ -467,7 +435,7 @@
    }
   ],
   "errors": [],
-  "checkTotal": 101,
-  "total": 616
+  "checkTotal": 102,
+  "total": 620
  }
 }

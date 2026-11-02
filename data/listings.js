@@ -2598,7 +2598,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 650000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-02"
+    }
   },
   {
     "id": "ma-brockton-101-winthrop-st",
@@ -5465,7 +5468,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 825000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-02"
+    }
   },
   {
     "id": "nh-manchester-272-front-st",
@@ -6122,13 +6128,15 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 478000,
+    "price": 468000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Worcester/312-Plantation-St-01604/home/16671515",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "priceWas": 478000,
+    "priceChangedAt": "2026-11-02T10:00:00Z"
   },
   {
     "id": "ma-worcester-120-southgate-st",
@@ -7890,7 +7898,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 419000,
-    "priceChangedAt": "2026-10-16T10:00:00Z"
+    "priceChangedAt": "2026-10-16T10:00:00Z",
+    "gone": {
+      "date": "2026-11-02"
+    }
   },
   {
     "id": "ma-fitchburg-508-rollstone-st",
@@ -10382,5 +10393,69 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-01",
     "addedAt": "2026-11-01T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-30-34-pleasant-st",
+    "address": "30-34 Pleasant St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Three-family",
+    "units": 3,
+    "price": 620000,
+    "rent": 6000,
+    "url": "https://www.redfin.com/MA/Fitchburg/30-34-Pleasant-St-01420/home/195234302",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-02",
+    "addedAt": "2026-11-02T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-256-belmont-st",
+    "address": "256 Belmont St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 640000,
+    "rent": 6250,
+    "url": "https://www.redfin.com/MA/Worcester/256-Belmont-St-01604/home/16671345",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-02",
+    "addedAt": "2026-11-02T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-5-flower-st",
+    "address": "5 Flower St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 600000,
+    "rent": 6750,
+    "url": "https://www.redfin.com/MA/Worcester/5-Flower-St-01604/home/16670380",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-02",
+    "addedAt": "2026-11-02T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-3-beamon-ave",
+    "address": "3 Beamon Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 750000,
+    "rent": 4250,
+    "url": "https://www.redfin.com/MA/Worcester/3-Beamon-Ave-01606/home/16675199",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-02",
+    "addedAt": "2026-11-02T10:00:00Z"
   }
 ];
