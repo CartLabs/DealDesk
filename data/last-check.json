@@ -1,6 +1,6 @@
 {
- "date": "2026-11-02",
- "ranAt": "2026-11-02T10:05:05.654Z",
+ "date": "2026-11-03",
+ "ranAt": "2026-11-03T10:05:04.534Z",
  "status": "ok",
  "problem": null,
  "towns": [
@@ -13,8 +13,8 @@
     "via": "region page"
    },
    "sold": {
-    "rows": 57,
-    "kept": 13
+    "rows": 58,
+    "kept": 14
    }
   },
   {
@@ -33,13 +33,13 @@
   {
    "town": "Lawrence|MA",
    "forSale": {
-    "rows": 23,
+    "rows": 22,
     "kept": 16,
     "capped": false,
     "via": "region page"
    },
    "sold": {
-    "rows": 30,
+    "rows": 29,
     "kept": 7
    }
   },
@@ -59,14 +59,14 @@
   {
    "town": "Haverhill|MA",
    "forSale": {
-    "rows": 10,
-    "kept": 8,
+    "rows": 11,
+    "kept": 9,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 14,
-    "kept": 4
+    "rows": 16,
+    "kept": 5
    }
   },
   {
@@ -106,21 +106,21 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 50,
-    "kept": 10
+    "rows": 51,
+    "kept": 11
    }
   },
   {
    "town": "Manchester|NH",
    "forSale": {
-    "rows": 51,
-    "kept": 40,
+    "rows": 50,
+    "kept": 39,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 65,
-    "kept": 14
+    "rows": 66,
+    "kept": 16
    }
   },
   {
@@ -132,7 +132,7 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 23,
+    "rows": 24,
     "kept": 0
    }
   },
@@ -145,8 +145,8 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 54,
-    "kept": 6
+    "rows": 55,
+    "kept": 7
    }
   },
   {
@@ -158,8 +158,8 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 133,
-    "kept": 27
+    "rows": 134,
+    "kept": 28
    }
   },
   {
@@ -178,26 +178,26 @@
   {
    "town": "Dover|NH",
    "forSale": {
-    "rows": 8,
+    "rows": 9,
     "kept": 7,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 9,
+    "rows": 10,
     "kept": 0
    }
   },
   {
    "town": "Brockton|MA",
    "forSale": {
-    "rows": 28,
-    "kept": 23,
+    "rows": 29,
+    "kept": 24,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 37,
+    "rows": 38,
     "kept": 9
    }
   },
@@ -216,88 +216,145 @@
   }
  ],
  "report": {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "townsPulled": [
    "Lowell, MA (30)",
    "Methuen, MA (3)",
    "Lawrence, MA (16)",
    "Nashua, NH (9)",
-   "Haverhill, MA (8)",
+   "Haverhill, MA (9)",
    "Derry, NH (4)",
    "Merrimack, NH (0)",
    "Lynn, MA (22)",
-   "Manchester, NH (40)",
+   "Manchester, NH (39)",
    "Leominster, MA (16)",
    "Fitchburg, MA (45)",
    "Worcester, MA (84)",
    "Concord, NH (4)",
    "Dover, NH (7)",
-   "Brockton, MA (23)",
+   "Brockton, MA (24)",
    "Rochester, NH (12)"
   ],
   "townsFailed": [],
-  "added": 4,
+  "added": 5,
   "newMatches": [],
   "priceChanges": [
    {
-    "id": "ma-worcester-312-plantation-st",
-    "address": "312 Plantation St",
-    "town": "Worcester",
+    "id": "ma-lowell-305-nesmith-st",
+    "address": "305 Nesmith St",
+    "town": "Lowell",
     "state": "MA",
-    "miles": 38,
-    "units": 2,
-    "price": 468000,
-    "rent": 4000,
+    "miles": 3,
+    "units": 3,
+    "price": 779900,
+    "rent": 6550,
     "verdict": "Pass",
-    "maxOffer": 281000,
-    "url": "https://www.redfin.com/MA/Worcester/312-Plantation-St-01604/home/16671515",
-    "from": 478000,
+    "maxOffer": 473000,
+    "url": "https://www.redfin.com/MA/Lowell/305-Nesmith-St-01852/home/11654521",
+    "from": 815000,
     "verdictWas": "Pass",
     "nowMatches": false
-   }
-  ],
-  "sold": [],
-  "gone": [
+   },
    {
-    "id": "ma-brockton-10-brook-st",
-    "address": "10 Brook St",
-    "town": "Brockton",
+    "id": "ma-haverhill-4-avon-pl",
+    "address": "4 Avon Pl",
+    "town": "Haverhill",
     "state": "MA",
-    "miles": 43,
+    "miles": 14,
     "units": 3,
-    "price": 599900,
-    "rent": 6450,
+    "price": 805000,
+    "rent": 6300,
     "verdict": "Pass",
-    "maxOffer": 465000,
-    "url": "https://www.redfin.com/MA/Brockton/10-Brook-St-02301/home/16325493"
+    "maxOffer": 452000,
+    "url": "https://www.redfin.com/MA/Haverhill/4-Avon-Pl-01832/home/11308637",
+    "from": 815000,
+    "verdictWas": "Pass",
+    "nowMatches": false
    },
    {
-    "id": "nh-manchester-364-manchester-st",
-    "address": "364 Manchester St",
-    "town": "Manchester",
-    "state": "NH",
-    "miles": 24,
-    "units": 3,
-    "price": 775000,
-    "rent": 6375,
-    "verdict": "Pass",
-    "maxOffer": 430000,
-    "url": "https://www.redfin.com/NH/Manchester/364-Manchester-St-03103/home/88253978"
-   },
-   {
-    "id": "ma-fitchburg-564-fairmount-st",
-    "address": "564 Fairmount St",
+    "id": "ma-fitchburg-208-woodland-st",
+    "address": "208 Woodland St",
     "town": "Fitchburg",
     "state": "MA",
     "miles": 26,
     "units": 2,
-    "price": 414000,
-    "rent": 3250,
+    "price": 525000,
+    "rent": 3500,
     "verdict": "Pass",
-    "maxOffer": 217000,
-    "url": "https://www.redfin.com/MA/Fitchburg/564-Fairmount-St-01420/home/16500144"
+    "maxOffer": 238000,
+    "url": "https://www.redfin.com/MA/Fitchburg/208-Woodland-St-01420/home/16499870",
+    "from": 530000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-worcester-12-chrome-st",
+    "address": "12 Chrome St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 2,
+    "price": 449999,
+    "rent": 4000,
+    "verdict": "Pass",
+    "maxOffer": 281000,
+    "url": "https://www.redfin.com/MA/Worcester/12-Chrome-St-01604/home/16664570",
+    "from": 479000,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-worcester-19-perry-ave",
+    "address": "19 Perry Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 3,
+    "price": 875000,
+    "rent": 7650,
+    "verdict": "Pass",
+    "maxOffer": 564000,
+    "url": "https://www.redfin.com/MA/Worcester/19-Perry-Ave-01610/home/16664353",
+    "from": 899900,
+    "verdictWas": "Pass",
+    "nowMatches": false
+   },
+   {
+    "id": "ma-brockton-557-montello-st",
+    "address": "557 Montello St",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "units": 2,
+    "price": 699900,
+    "rent": 4950,
+    "verdict": "Pass",
+    "maxOffer": 363000,
+    "url": "https://www.redfin.com/MA/Brockton/557-Montello-St-02301/home/16321670",
+    "from": 749900,
+    "verdictWas": "Pass",
+    "nowMatches": false
    }
   ],
+  "sold": [
+   {
+    "id": "nh-manchester-440-gold-st",
+    "address": "440 Gold St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "units": 2,
+    "price": 510000,
+    "rent": 3650,
+    "verdict": "Pass",
+    "maxOffer": 235000,
+    "url": "https://www.redfin.com/NH/Manchester/440-Gold-St-03103/home/88244709",
+    "soldPrice": 510000,
+    "soldDate": "2026-11-02",
+    "priceJustPublished": false
+   }
+  ],
+  "gone": [],
   "skipped": [
    "399 S Main St, Haverhill",
    "297 Central St, Manchester",
@@ -316,6 +373,11 @@
    {
     "id": "ma-lowell-332-334-stevens-st",
     "url": "https://www.redfin.com/MA/Lowell/332-Stevens-St-01851/home/203424624",
+    "why": "missing from town page"
+   },
+   {
+    "id": "ma-lowell-56-58-pine-st",
+    "url": "https://www.redfin.com/MA/Lowell/58-Pine-St-01851/home/135893735",
     "why": "missing from town page"
    },
    {
@@ -351,11 +413,6 @@
    {
     "id": "ma-lowell-60-62-4th-st",
     "url": "https://www.redfin.com/MA/Lowell/60-4th-St-01850/home/203409885",
-    "why": "missing from town page"
-   },
-   {
-    "id": "ma-lowell-305-nesmith-st",
-    "url": "https://www.redfin.com/MA/Lowell/305-Nesmith-St-01852/home/11654521",
     "why": "missing from town page"
    },
    {
@@ -435,7 +492,7 @@
    }
   ],
   "errors": [],
-  "checkTotal": 102,
-  "total": 620
+  "checkTotal": 106,
+  "total": 625
  }
 }
