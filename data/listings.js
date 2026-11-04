@@ -502,7 +502,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 789900,
-    "priceChangedAt": "2026-10-15T10:00:00Z"
+    "priceChangedAt": "2026-10-15T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-lowell-112-hampshire-st",
@@ -977,7 +980,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lawrence averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-lawrence-79-81-high-st",
@@ -1673,8 +1679,9 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-02",
+      "price": 625000
     }
   },
   {
@@ -1728,7 +1735,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-fitchburg-40-edwards-st",
@@ -1934,8 +1944,9 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-03",
+      "price": 739000
     }
   },
   {
@@ -2622,8 +2633,9 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-10-30",
+      "price": 554125
     }
   },
   {
@@ -4284,7 +4296,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 859900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "nh-dover-3-mt-vernon-st",
@@ -5092,7 +5107,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T03:25:00Z"
+    "addedAt": "2026-10-03T03:25:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-worcester-9-winthrop-st",
@@ -5333,8 +5351,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-02",
+      "price": 980000
     }
   },
   {
@@ -5871,7 +5890,11 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 10 bedrooms split as 4BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 10 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sold": {
+      "date": "2026-11-02",
+      "price": 860000
+    }
   },
   {
     "id": "ma-worcester-26-benson-st",
@@ -5971,7 +5994,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-worcester-2-hacker-ct",
@@ -7038,7 +7064,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-lawrence-11-beacon-st",
@@ -7471,7 +7500,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "nh-manchester-417-bartlett-st",
@@ -7585,13 +7617,15 @@ window.SEED_LISTINGS = [
     "miles": 24,
     "type": "Two-family",
     "units": 2,
-    "price": 570000,
+    "price": 555000,
     "rent": 4375,
     "url": "https://www.redfin.com/NH/Manchester/170-Oakland-Ave-03109/home/96675418",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 570000,
+    "priceChangedAt": "2026-11-04T10:00:00Z"
   },
   {
     "id": "ma-leominster-199-prospect-st",
@@ -8143,7 +8177,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-worcester-12-greendale-ave",
@@ -8358,7 +8395,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-worcester-78-rodney",
@@ -8496,7 +8536,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-brockton-260-belmont-ave",
@@ -8524,13 +8567,15 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Two-family",
     "units": 2,
-    "price": 875000,
+    "price": 870000,
     "rent": 5600,
     "url": "https://www.redfin.com/MA/Brockton/259-Belmont-Ave-02301/home/16325310",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 875000,
+    "priceChangedAt": "2026-11-04T10:00:00Z"
   },
   {
     "id": "ma-brockton-139-keswick-rd",
@@ -8546,7 +8591,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-brockton-63-south-leyden-st",
@@ -8562,7 +8610,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-brockton-6-bolton-pl",
@@ -8823,7 +8874,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-15",
-    "addedAt": "2026-10-15T10:00:00Z"
+    "addedAt": "2026-10-15T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-fitchburg-114-116-laurel-st",
@@ -9015,7 +9069,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-16",
-    "addedAt": "2026-10-16T10:00:00Z"
+    "addedAt": "2026-10-16T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "ma-brockton-58-clinton-st",
@@ -9057,13 +9114,15 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Three-family",
     "units": 3,
-    "price": 789000,
+    "price": 784000,
     "rent": 6550,
     "url": "https://www.redfin.com/MA/Lowell/105-Chestnut-St-01852/home/11649240",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-17",
-    "addedAt": "2026-10-17T10:00:00Z"
+    "addedAt": "2026-10-17T10:00:00Z",
+    "priceWas": 789000,
+    "priceChangedAt": "2026-11-04T10:00:00Z"
   },
   {
     "id": "ma-worcester-12-chrome-st",
@@ -9129,7 +9188,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-18",
-    "addedAt": "2026-10-18T10:00:00Z"
+    "addedAt": "2026-10-18T10:00:00Z",
+    "gone": {
+      "date": "2026-11-04"
+    }
   },
   {
     "id": "nh-manchester-283-orange-st",
@@ -9291,13 +9353,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Two-family",
     "units": 2,
-    "price": 499000,
+    "price": 494000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Fitchburg/39-41-Dudley-St-01420/home/196602188",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-21",
-    "addedAt": "2026-10-21T10:00:00Z"
+    "addedAt": "2026-10-21T10:00:00Z",
+    "priceWas": 499000,
+    "priceChangedAt": "2026-11-04T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-57-59-marshall-st",
@@ -9323,13 +9387,15 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Two-family",
     "units": 2,
-    "price": 385000,
+    "price": 360000,
     "rent": 3500,
     "url": "https://www.redfin.com/MA/Fitchburg/9-Fulton-St-01420/home/16499812",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-21",
-    "addedAt": "2026-10-21T10:00:00Z"
+    "addedAt": "2026-10-21T10:00:00Z",
+    "priceWas": 385000,
+    "priceChangedAt": "2026-11-04T10:00:00Z"
   },
   {
     "id": "ma-worcester-16-morningside-rd",
@@ -10546,5 +10612,117 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-03",
     "addedAt": "2026-11-03T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-341-343-high-st",
+    "address": "341-343 High St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Two-family",
+    "units": 2,
+    "price": 559900,
+    "rent": 4100,
+    "url": "https://www.redfin.com/MA/Lowell/341-High-St-01852/home/203313485",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-04",
+    "addedAt": "2026-11-04T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-448-stevens-st",
+    "address": "448 Stevens St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Three-family",
+    "units": 3,
+    "price": 599000,
+    "rent": 6150,
+    "url": "https://www.redfin.com/MA/Lowell/448-Stevens-St-01851/home/11623774",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-04",
+    "addedAt": "2026-11-04T10:00:00Z"
+  },
+  {
+    "id": "ma-lawrence-23-wesley-st",
+    "address": "23 Wesley St",
+    "town": "Lawrence",
+    "state": "MA",
+    "miles": 8,
+    "type": "Two-family",
+    "units": 2,
+    "price": 485000,
+    "rent": 5150,
+    "url": "https://www.redfin.com/MA/Lawrence/23-Wesley-St-01841/home/11311718",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-04",
+    "addedAt": "2026-11-04T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-454-washington-st",
+    "address": "454 Washington St",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Four-family",
+    "units": 4,
+    "price": 975000,
+    "rent": 10000,
+    "url": "https://www.redfin.com/MA/Haverhill/454-Washington-St-01832/home/11308881",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 12 bedrooms split as 3BR + 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (4) is inferred from 12 beds and 4 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-04",
+    "addedAt": "2026-11-04T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-146-charles-st",
+    "address": "146 Charles St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Three-family",
+    "units": 3,
+    "price": 499900,
+    "rent": 5250,
+    "url": "https://www.redfin.com/MA/Fitchburg/146-Charles-St-01420/home/16501189",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-04",
+    "addedAt": "2026-11-04T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-20-wyola-dr",
+    "address": "20 Wyola Dr",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 524995,
+    "rent": 4500,
+    "url": "https://www.redfin.com/MA/Worcester/20-Wyola-Dr-01603/home/16651120",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-04",
+    "addedAt": "2026-11-04T10:00:00Z"
+  },
+  {
+    "id": "nh-rochester-33-35-river-st",
+    "address": "33-35 River St",
+    "town": "Rochester",
+    "state": "NH",
+    "miles": 47,
+    "type": "Two-family",
+    "units": 2,
+    "price": 445000,
+    "rent": 5725,
+    "url": "https://www.redfin.com/NH/Rochester/35-River-St-03867/home/96672802",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 7 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-04",
+    "addedAt": "2026-11-04T10:00:00Z"
   }
 ];
