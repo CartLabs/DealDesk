@@ -226,15 +226,15 @@ window.SEED_LISTINGS = [
     "state": "NH",
     "type": "Two-family",
     "units": 2,
-    "price": 529900,
+    "price": 514000,
     "rent": 4952,
     "taxes": 7348,
     "url": "https://www.redfin.com/NH/Nashua/22-Kinsley-St-03060/home/60373211",
     "notes": "Rent is an estimate from Zumper city averages by bedroom count (Oct 2, 2026), not actual leases. Get the rent roll before offering. 3BR + 2BR. Long-term tenants, rents below market per listing. Landlord pays water and sewer.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T01:20:00Z",
-    "priceWas": 549900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 529900,
+    "priceChangedAt": "2026-11-05T10:00:00Z"
   },
   {
     "id": "nas-23-grand",
@@ -1035,8 +1035,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Haverhill averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-07"
+    "sold": {
+      "date": "2026-11-03",
+      "price": 716000
     }
   },
   {
@@ -1772,7 +1773,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 10 bedrooms split as 4BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 10 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-11-05"
+    }
   },
   {
     "id": "ma-fitchburg-0-marshall-st",
@@ -7188,7 +7192,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-05"
+    }
   },
   {
     "id": "ma-lawrence-78-marble-ave",
@@ -7286,7 +7293,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Derry averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-05"
+    }
   },
   {
     "id": "ma-lynn-382-eastern-ave",
@@ -7334,7 +7344,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 8 bedrooms split as 4BR + 4BR. Taxes and insurance are estimated. Unit count (2) is inferred from 8 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-05"
+    }
   },
   {
     "id": "ma-lynn-102-rockaway-st",
@@ -8041,7 +8054,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 599000,
-    "priceChangedAt": "2026-10-19T10:00:00Z"
+    "priceChangedAt": "2026-10-19T10:00:00Z",
+    "gone": {
+      "date": "2026-11-05"
+    }
   },
   {
     "id": "ma-fitchburg-11-nutting-st",
@@ -8967,13 +8983,15 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Three-family",
     "units": 3,
-    "price": 799900,
+    "price": 775000,
     "rent": 6750,
     "url": "https://www.redfin.com/MA/Worcester/28-Crystal-St-01603/home/16656192",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-15",
-    "addedAt": "2026-10-15T10:00:00Z"
+    "addedAt": "2026-10-15T10:00:00Z",
+    "priceWas": 799900,
+    "priceChangedAt": "2026-11-05T10:00:00Z"
   },
   {
     "id": "ma-worcester-629-cambridge-st",
@@ -9933,13 +9951,15 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Three-family",
     "units": 3,
-    "price": 725000,
+    "price": 705000,
     "rent": 6000,
     "url": "https://www.redfin.com/MA/Worcester/130-Canterbury-St-01603/home/16655690",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-26",
-    "addedAt": "2026-10-26T10:00:00Z"
+    "addedAt": "2026-10-26T10:00:00Z",
+    "priceWas": 725000,
+    "priceChangedAt": "2026-11-05T10:00:00Z"
   },
   {
     "id": "ma-lawrence-72-byron-ave",
@@ -10724,5 +10744,229 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-04",
     "addedAt": "2026-11-04T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-40-robert-st",
+    "address": "40 Robert St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Three-family",
+    "units": 3,
+    "price": 699900,
+    "rent": 6150,
+    "url": "https://www.redfin.com/MA/Lowell/40-Robert-St-01854/home/11614614",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-lawrence-160-walnut-st",
+    "address": "160 Walnut St",
+    "town": "Lawrence",
+    "state": "MA",
+    "miles": 8,
+    "type": "Two-family",
+    "units": 2,
+    "price": 640000,
+    "rent": 4725,
+    "url": "https://www.redfin.com/MA/Lawrence/160-Walnut-St-01841/home/11324392",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "nh-nashua-17-norton-st",
+    "address": "17 Norton St",
+    "town": "Nashua",
+    "state": "NH",
+    "miles": 11,
+    "type": "Two-family",
+    "units": 2,
+    "price": 599900,
+    "rent": 5300,
+    "url": "https://www.redfin.com/NH/Nashua/17-Norton-St-03064/home/88083483",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Nashua averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-24-4th-ave",
+    "address": "24 4th Ave",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Two-family",
+    "units": 2,
+    "price": 549900,
+    "rent": 4200,
+    "url": "https://www.redfin.com/MA/Haverhill/24-4th-Ave-01830/home/11321090",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-14-lamoille",
+    "address": "14 Lamoille",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Two-family",
+    "units": 2,
+    "price": 589000,
+    "rent": 4200,
+    "url": "https://www.redfin.com/MA/Haverhill/14-Lamoille-Ave-01835/home/11332069",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-127-129-cedar-st",
+    "address": "127-129 Cedar St",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Three-family",
+    "units": 3,
+    "price": 774900,
+    "rent": 7100,
+    "url": "https://www.redfin.com/MA/Haverhill/127-129-Cedar-St-01830/home/196598500",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-lynn-44-birch-st",
+    "address": "44 Birch St",
+    "town": "Lynn",
+    "state": "MA",
+    "miles": 23,
+    "type": "Two-family",
+    "units": 2,
+    "price": 725000,
+    "rent": 4000,
+    "url": "https://www.redfin.com/MA/Lynn/44-Birch-St-01902/home/11559704",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 2 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-7-taft-st",
+    "address": "7 Taft St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Two-family",
+    "units": 2,
+    "price": 525000,
+    "rent": 3750,
+    "url": "https://www.redfin.com/MA/Fitchburg/7-Taft-St-01420/home/16503640",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-138-plymouth-st",
+    "address": "138 Plymouth St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Three-family",
+    "units": 3,
+    "price": 499000,
+    "rent": 5500,
+    "url": "https://www.redfin.com/MA/Fitchburg/138-Plymouth-St-01420/home/16501913",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-91-providence-st",
+    "address": "91 Providence St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 749900,
+    "rent": 6750,
+    "url": "https://www.redfin.com/MA/Worcester/91-Providence-St-01604/home/16663527",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-6-hiscox-st",
+    "address": "6 Hiscox St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 460000,
+    "rent": 4000,
+    "url": "https://www.redfin.com/MA/Worcester/6-Hiscox-St-01610/home/16673799",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-27-cambridge",
+    "address": "27 Cambridge",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 499000,
+    "rent": 6000,
+    "url": "https://www.redfin.com/MA/Worcester/27-Cambridge-St-01603/home/16649951",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-3-ives-st",
+    "address": "3 Ives St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 299900,
+    "rent": 6000,
+    "url": "https://www.redfin.com/MA/Worcester/3-Ives-St-01603/home/16649977",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-17-tampa-st",
+    "address": "17 Tampa St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 499900,
+    "rent": 4000,
+    "url": "https://www.redfin.com/MA/Worcester/17-Tampa-St-01604/home/16667847",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-05",
+    "addedAt": "2026-11-05T10:00:00Z"
   }
 ];
