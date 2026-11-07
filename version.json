@@ -1,11 +1,18 @@
 {
-  "version": "1.21.0",
+  "version": "1.21.1",
   "date": "2026-11-07",
   "notes": [
-    "Two price ceilings now: $700,000 for a 2-4 unit building and $550,000 for a single-family home. Both are in the buy box, and the daily check uses the same limits.",
-    "Your buy box moves to these on its own. Change either one under Buy box, Edit."
+    "When a new version of DealDesk is out, a bar at the top now says so. Tap it to update right away instead of closing and reopening the app."
   ],
   "previous": [
+    {
+      "version": "1.21.0",
+      "date": "2026-11-07",
+      "notes": [
+        "Two price ceilings now: $700,000 for a 2-4 unit building and $550,000 for a single-family home. Both are in the buy box, and the daily check uses the same limits.",
+        "Your buy box moves to these on its own. Change either one under Buy box, Edit."
+      ]
+    },
     {
       "version": "1.20.1",
       "date": "2026-11-07",

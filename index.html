@@ -168,6 +168,7 @@ td .addr{font-weight:600}
 .pill.plain{background:var(--sunk);color:var(--muted)}
 .lookup{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
 .paste{display:flex;gap:8px;margin:12px 0 4px}
+.updatebar{display:block;width:100%;margin-top:12px;padding:12px 14px;border:0;border-radius:8px;background:var(--accent);color:#fff;font:600 15px var(--body);text-align:left;cursor:pointer}
 .paste input{flex:1;min-width:0;font:16px var(--body)}
 #pasteMsg:empty{display:none}
 .evalstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 14px}
@@ -255,6 +256,7 @@ input.money{text-align:left}
       <button class="btn primary" id="addBtn" type="button">Add a deal</button>
     </div>
   </header>
+  <button class="updatebar" id="updateBar" type="button" hidden></button>
   <form class="paste" id="pasteForm" autocomplete="off">
     <input id="pasteIn" type="text" inputmode="url" placeholder="Paste a listing link or an address" aria-label="Listing link or address">
     <button class="btn primary" type="submit" id="pasteGo">Evaluate</button>
@@ -528,7 +530,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.21.0';
+const APP_VERSION = '1.21.1';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -1466,6 +1468,20 @@ function checkReleaseNotes(){let seen=null;try{seen=localStorage.getItem(SEEN_KE
   getReleases().then(all=>{const unseen=all.filter(e=>verCmp(e.version,seen||"0.0.0")>0);if(!unseen.length)return;
     const top=unseen.slice(0,3);showNotes(top,unseen.length-top.length,"What's new");markSeen();}).catch(()=>{}); /* offline: try again next open */
 }
+/* ---------- Update check ----------
+   GitHub lets a phone keep its copy of the app for up to 10 minutes, and a home-screen app keeps its page open
+   until it is closed. So on open, and each time the app comes back to the screen, ask for version.json fresh.
+   If it is newer than this copy, offer a one-tap update that refreshes every file and reloads. */
+const APP_FILES=["index.html","calc.js","sync.js","lookup.js","data/listings.js","version.json","manifest.json"];
+let updateTo=null;
+function checkUpdate(){fetch("version.json",{cache:"no-store"}).then(r=>r.json()).then(v=>{
+  if(v&&v.version&&verCmp(v.version,APP_VERSION)>0){updateTo=v.version;$("updateBar").textContent=`DealDesk ${v.version} is ready. Tap to update.`;$("updateBar").hidden=false;}
+}).catch(()=>{});}
+$("updateBar").addEventListener("click",async()=>{$("updateBar").textContent="Updating…";
+  await Promise.all(APP_FILES.map(f=>fetch(f,{cache:"reload"}).catch(()=>null)));
+  location.replace(location.pathname+"?v="+encodeURIComponent(updateTo||Date.now()));});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")checkUpdate();});
+checkUpdate();
 $("notesBtn").addEventListener("click",()=>getReleases().then(all=>showNotes(all,0,"Release notes")).catch(()=>status("Release notes need a connection.")));
 $("notesClose").addEventListener("click",closeNotes);
 $("notesOk").addEventListener("click",closeNotes);
