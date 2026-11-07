@@ -6,7 +6,8 @@
 
    For each town in tools/towns.json with watch:true it opens the town's search page (redfin / redfinSold),
    finds the page's own "Download all" CSV link, and reads that CSV. Only 2-4 unit multi-family homes are kept,
-   for-sale ones at or under $1,000,000. A town whose for-sale list cannot be read is left out of rows.txt
+   for-sale ones at or under $1,000,000. A second pass reads the same town's single-family homes (the same
+   download with the home type switched from multi-family to house) and writes them under "#Town|ST|total|house". A town whose for-sale list cannot be read is left out of rows.txt
    entirely; if only its sold list fails, just the #SOLD section is left out. Nothing is ever invented. */
 const fs=require('fs'),path=require('path');
 const MAX_PRICE=1000000,CSV_CAP=350;
@@ -39,6 +40,9 @@ function isoDate(s){ /* Redfin writes sold dates like "September-26-2026" */
 const pathOf=u=>(u||'').replace(/^https?:\/\/www\.redfin\.com\//,'').replace(/^\//,'');
 const clean=s=>String(s).replace(/\|/g,' ').trim();
 const small=o=>/multi-family\s*\(2-4/i.test(col(o,'PROPERTY TYPE'));
+const house=o=>/single family/i.test(col(o,'PROPERTY TYPE'));
+/* the same download for another home type: Redfin's uipt is 1 for houses, 4 for multi-family */
+function withType(link,uipt){return /[?&]uipt=[^&]*/.test(link)?link.replace(/([?&]uipt=)[^&]*/,'$1'+uipt):link+(link.includes('?')?'&':'?')+'uipt='+uipt;}
 
 /* Redfin search pages are mostly drawn in the browser, so the page's "Download all" link may not be in the HTML.
    Order of attempts: the link itself if present; otherwise build the same download from the page's region
@@ -79,6 +83,8 @@ function hints(html){
   return {bytes:html.length,title:(h.match(/<title>([^<]*)/)||[])[1]||null,gisCsv:grab(/gis-csv/),regionType:grab(/region_?type/i)};
 }
 
+const pageCache=new Map(); /* each search page is opened once, even though both home types use it */
+async function getPage(url){if(!pageCache.has(url)){pageCache.set(url,await get(url));await sleep(2500+Math.random()*2500);}return pageCache.get(url);}
 async function get(url,tries=2){
   let last;
   for(let i=0;i<tries;i++){
@@ -100,9 +106,9 @@ function linksFor(html,pageUrl,sold,T){
   if(!pageLink&&(!r||r.types)&&T&&T.lat&&T.lon)links.push(polyLink(T.lat,T.lon,sold));
   return {links,r,pageLink};
 }
-async function readList(pageUrl,town,sold,T){
-  let html='';if(!(T&&T.townBox&&T.lat&&T.lon)){html=await get(pageUrl);await sleep(2500+Math.random()*2500);}
-  const {links,r,pageLink}=linksFor(html,pageUrl,sold,T);
+async function readList(pageUrl,town,sold,T,uipt=4){
+  let html='';if(!(T&&T.townBox&&T.lat&&T.lon))html=await getPage(pageUrl);
+  const found=linksFor(html,pageUrl,sold,T),{r,pageLink}=found,links=found.links.map(l=>withType(l,uipt));
   if(!links.length){const e=new Error('no download link or region on page');e.hints=hints(html);throw e;}
   let last;const tried=[];
   for(const link of links){
@@ -124,15 +130,15 @@ async function readList(pageUrl,town,sold,T){
   throw last;
 }
 
-function forSaleLines(rows){
-  return rows.filter(small).filter(o=>!/past sale/i.test(col(o,'SALE TYPE'))).filter(o=>{const p=+col(o,'PRICE').replace(/[^0-9.]/g,'');return p>0&&p<=MAX_PRICE;})
+function forSaleLines(rows,keep=small){
+  return rows.filter(keep).filter(o=>!/past sale/i.test(col(o,'SALE TYPE'))).filter(o=>{const p=+col(o,'PRICE').replace(/[^0-9.]/g,'');return p>0&&p<=MAX_PRICE;})
     .map(o=>[clean(col(o,'ADDRESS')),+col(o,'PRICE').replace(/[^0-9.]/g,''),0,clean(col(o,'BEDS'))||0,clean(col(o,'BATHS'))||0,pathOf(col(o,'URL'))].join('|'));
 }
 /* Redfin's "include=sold-1mo" ADDS last month's sales to the homes still for sale, so the sold download holds both.
    Only rows Redfin marks as a past sale with a sold date are sales; the rest are active listings and are dropped. */
 const isSale=o=>/past sale/i.test(col(o,'SALE TYPE'))&&!!isoDate(col(o,'SOLD DATE'));
-function soldLines(rows){
-  return rows.filter(small).filter(isSale).map(o=>[clean(col(o,'ADDRESS')),+col(o,'PRICE').replace(/[^0-9.]/g,'')||'',isoDate(col(o,'SOLD DATE')),pathOf(col(o,'URL'))].join('|'));
+function soldLines(rows,keep=small){
+  return rows.filter(keep).filter(isSale).map(o=>[clean(col(o,'ADDRESS')),+col(o,'PRICE').replace(/[^0-9.]/g,'')||'',isoDate(col(o,'SOLD DATE')),pathOf(col(o,'URL'))].join('|'));
 }
 
 async function main(){
@@ -148,10 +154,21 @@ async function main(){
         catch(e){entry.sold={error:String(e.message||e),...(e.hints?{hints:e.hints}:{})};}
       }
     }catch(e){entry.forSale={error:String(e.message||e),...(e.hints?{hints:e.hints}:{})};}
+    /* single-family homes, unless the town turns them off with "houses": false */
+    if(T.houses!==false){entry.houses={forSale:null,sold:null};
+      try{const {rows,capped,via,boxRows}=await readList(T.redfin,town,false,T,1);const lines=forSaleLines(rows,house);
+        if(!lines.length&&!rows.length&&!/box/.test(via))throw new Error('list came back empty');
+        out.push(`#${town}|${st}|${capped?'':lines.length}|house`,...lines);entry.houses.forSale={rows:rows.length,kept:lines.length,capped,via,...(boxRows!=null?{boxRows}:{})};
+        if(T.redfinSold){
+          try{const s=await readList(T.redfinSold,town,true,T,1);const sl=soldLines(s.rows,house);out.push(`#SOLD ${town}|${st}|house`,...sl);entry.houses.sold={rows:s.rows.length,kept:sl.length};}
+          catch(e){entry.houses.sold={error:String(e.message||e)};}
+        }
+      }catch(e){entry.houses.forSale={error:String(e.message||e),...(e.hints?{hints:e.hints}:{})};}
+    }
     log.towns.push(entry);console.error(key,JSON.stringify(entry));
   }
   fs.writeFileSync(arg('out')||'rows.txt',out.join('\n')+'\n');
   if(arg('log'))fs.writeFileSync(arg('log'),JSON.stringify(log,null,1)+'\n');
 }
-module.exports={parseCsv,isoDate,forSaleLines,soldLines,csvLink,region,builtLink,polyLink,linksFor};
+module.exports={parseCsv,isoDate,forSaleLines,soldLines,csvLink,region,builtLink,polyLink,linksFor,withType,house};
 if(require.main===module)main().catch(e=>{console.error(e);process.exit(1);});

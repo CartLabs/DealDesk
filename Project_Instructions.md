@@ -150,6 +150,10 @@ in the task, without a person approving it; and Redfin blocks GitHub's servers (
 pull does not work. Redfin does not block home internet. If the laptop is off at 6:05 it runs when it next wakes,
 and the 6:49 alert says the check did not run.
 
+- Each town is read twice: 2-4 unit multi-family homes, then single-family homes (the same download with
+  Redfin's home type `uipt` switched from 4 to 1; rows under `#Town|ST|total|house`). Houses are one unit;
+  their rent is the town's apartment average for their bedrooms plus 10%. A town can turn houses off with
+  `"houses": false` in towns.json. Missing-listing checks keep the two lists apart.
 - New listings are added with a fresh `addedAt`, so they show in Review with a New tag.
 - A price change sets `price`, `priceWas` and `priceChangedAt`.
 - A listing on a town's sold page (matched by its Redfin home number) gets `sold: {date, price}`.

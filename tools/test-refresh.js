@@ -52,3 +52,21 @@ test('a home on today\'s for-sale list is never marked sold from the sold list (
   const r=refresh(L,S,towns,"#Lowell|MA|\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222\n#SOLD Lowell|MA\n2 B St|600000||MA/Lowell/2-B-St-01850/home/222\n",'',NOW);
   assert.equal(L[1].sold,undefined);assert.equal(r.sold.length,0);assert.equal(r.soldButActive,1);
 });
+
+test('single-family pages: one unit, house rent, and kept apart from the multi-family page',()=>{
+  const L=base(),S={};
+  const rows="#Lowell|MA|2\n1 A St|500000|2|5|2|MA/Lowell/1-A-St-01850/home/111\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222\n"+
+    "#Lowell|MA|1|house\n5 Oak St|420000|0|3|2|MA/Lowell/5-Oak-St-01850/home/555\n#SOLD Lowell|MA|house\n";
+  const r=refresh(L,S,towns,rows,'',NOW);
+  const h=L.find(d=>d.address==="5 Oak St");
+  assert.equal(h.units,1);assert.equal(h.type,"Single-family");
+  assert.equal(h.rent,Math.round(2450*1.1/25)*25);
+  assert.equal(r.added,1);assert.deepEqual(r.townsPulled,["Lowell, MA (2)","Lowell, MA single-family (1)"]);
+  /* the house is not "missing" from the multi-family page, and the two-families are not missing from the house page */
+  for(let i=0;i<20;i++)refresh(L,S,towns,rows,'',new Date(Date.parse(NOW)+i*864e5).toISOString());
+  assert.equal(L.filter(d=>d.gone).length,0);
+  /* a house page read in full without the house: gone after 14 days */
+  const rows2="#Lowell|MA|2\n1 A St|500000|2|5|2|MA/Lowell/1-A-St-01850/home/111\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222\n#Lowell|MA|0|house\n";
+  refresh(L,S,towns,rows2,'',"2026-11-01T10:00:00Z");refresh(L,S,towns,rows2,'',"2026-11-16T10:00:00Z");
+  assert.ok(h.gone);assert.equal(L.filter(d=>d.gone).length,1);
+});

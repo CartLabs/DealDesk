@@ -8,6 +8,8 @@
                address|price|units|beds|baths|redfin path      (units 0 = not shown; path like MA/Lowell/1-Main-St-01850/home/123)
                Then, for the town's recently-sold page, a "#SOLD Town|ST" line and one line per sold home:
                address|sold price|sold date (YYYY-MM-DD, blank if not shown)|redfin path
+               Single-family pages use the same rows under "#Town|ST|total|house" and "#SOLD Town|ST|house". Every listing
+               there is one unit, and its rent is the town's apartment average for its bedrooms plus 10% for a house.
                Only list a town if its page was actually read. A town with a header and no rows was read and had nothing
                listed: it is reported as "Town, ST (0)" in townsPulled, and nothing in it is flagged as missing.
                townsFailed is the watched towns in towns.json with no header at all (their pull failed).
@@ -33,6 +35,15 @@ const hit=v=>v==='Buy box'||v==='Negotiate';
 
 function rentTable(r){let [r1,r2,r3,r4]=r;r1=Math.max(r1,0.75*r2);r3=Math.min(Math.max(r3,r2),1.3*r2);r4=Math.min(Math.max(r4,r3),1.2*r3);return [0.85*r1,r1,r2,r3,r4];}
 
+const HOUSE_PREMIUM=1.10; // a house usually rents for more than an apartment with the same bedrooms
+function buildHouse(row,town,state,T,now,day){
+  const beds=Math.max(1,Math.round(+row.beds||0));if(!(row.price>0))return null;
+  const R=rentTable(T.rents);const rent=Math.round(R[Math.min(beds,4)]*HOUSE_PREMIUM/25)*25;
+  return {id:slug(state+' '+town)+'-'+slug(row.address),address:row.address,town,state,miles:milesTo(HOME,[T.lat,T.lon]),
+    type:"Single-family",units:1,price:row.price,rent,url:"https://www.redfin.com/"+row.path,
+    notes:`Light data: confirm on the listing before deciding. Rent is an estimate: the ${town} average for a ${beds}-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.`,
+    source:"Redfin, pulled "+day,addedAt:now};
+}
 function build(row,town,state,T,now,day){
   const beds=+row.beds,baths=parseFloat(row.baths)||0;let units=+row.units||0,inferred=false;
   if(!units){inferred=true;const b=Math.floor(baths);units=b>=4&&beds>=8?4:b>=3&&beds>=6?3:2;}
@@ -51,12 +62,14 @@ function refresh(listings,state,towns,rowsText,statusText,now){
   const rep={date:day,townsPulled:[],townsFailed:[],added:0,newMatches:[],priceChanges:[],sold:[],gone:[],skipped:[],check:[],errors:[]};
   const byHome=new Map(),byId=new Map();
   for(const d of listings){byId.set(d.id,d);const h=homeId(d.url);if(h)byHome.set(h,d);}
-  const seen=new Set(),activeNow=new Set();let town=null,st=null,soldMode=false;const pulled=new Map(),full=new Set();
+  const seen=new Set(),activeNow=new Set();let town=null,st=null,soldMode=false,kind='multi';const pulled=new Map(),full=new Set();
+  const kindOf=d=>+d.units===1?'house':'multi', label=k=>{const [t,s2,kd]=k.split('|');return t+', '+s2+(kd==='house'?' single-family':'');};
   const brief=d=>{const a=analyze(d,DEFAULTS);return {id:d.id,address:d.address,town:d.town,state:d.state,miles:d.miles,units:d.units,price:d.price,rent:d.rent,verdict:a.verdict,maxOffer:Math.round(a.maxOffer),url:d.url};};
   for(const line of (rowsText||'').split('\n')){
     if(!line.trim())continue;
-    if(line[0]==='#'){const h=line.slice(1).trim();soldMode=/^SOLD\s/i.test(h);const q=h.replace(/^SOLD\s+/i,'').split('|');[town,st]=q;
-      if(!soldMode){pulled.set(town+'|'+st,0);if(+q[2]>0)full.add(town+'|'+st+'|'+(+q[2]));}continue;}
+    if(line[0]==='#'){const h=line.slice(1).trim();soldMode=/^SOLD\s/i.test(h);const q=h.replace(/^SOLD\s+/i,'').split('|').map(x=>x.trim());[town,st]=q;
+      kind=q.some((x,i)=>i>=2&&/^house$/i.test(x))?'house':'multi';
+      if(!soldMode){pulled.set(town+'|'+st+'|'+kind,0);if(/^\d+$/.test(q[2]||''))full.add(town+'|'+st+'|'+kind+'|'+(+q[2])); /* "0" means the page said it has none */}continue;}
     if(soldMode){const p=line.split('|').map(x=>x.trim());if(p.length<4){rep.errors.push('bad sold row: '+line);continue;}
       const h=homeId(p[3]);const d=(h&&byHome.get(h));if(!d)continue; /* a sale of a home we never listed */
       if(activeNow.has(d.id)){rep.soldButActive=(rep.soldButActive||0)+1;continue;} /* on this town's for-sale list today, so not sold */
@@ -67,25 +80,28 @@ function refresh(listings,state,towns,rowsText,statusText,now){
       continue;}
     const p=line.split('|');if(p.length<6||!town){rep.errors.push('bad row: '+line);continue;}
     const key=town+'|'+st,T=towns[key];if(!T){rep.errors.push('town not in towns.json: '+key);continue;}
+    const pkey=key+'|'+kind;
     const row={address:p[0].trim(),price:+String(p[1]).replace(/[^0-9.]/g,''),units:p[2],beds:p[3],baths:p[4],path:p[5].trim().replace(/^https?:\/\/www\.redfin\.com\//,'').replace(/^\//,'')};
-    pulled.set(key,pulled.get(key)+1);
+    pulled.set(pkey,pulled.get(pkey)+1);
     const h=homeId(row.path);const old=(h&&byHome.get(h))||byId.get(slug(st+' '+town)+'-'+slug(row.address));
     if(old){seen.add(old.id);activeNow.add(old.id);
       if(old.sold||old.gone){delete old.sold;delete old.gone;old.relistedAt=now;} /* back on the market */
       if(row.price>0&&row.price!==old.price){const was=verdict(old);const from=old.price;old.priceWas=from;old.price=row.price;old.priceChangedAt=now;
         const b=brief(old);rep.priceChanges.push({...b,from,verdictWas:was,nowMatches:hit(b.verdict)&&!hit(was)&&old.miles<=RADIUS});}
       continue;}
-    const d=build(row,town,st,T,now,day);
+    const d=kind==='house'?buildHouse(row,town,st,T,now,day):build(row,town,st,T,now,day);
     if(!d){rep.skipped.push(row.address+', '+town);continue;}
     if(byId.has(d.id)){rep.errors.push('id clash: '+d.id);continue;}
     listings.push(d);byId.set(d.id,d);if(h)byHome.set(h,d);seen.add(d.id);activeNow.add(d.id);rep.added++;
     const b=brief(d);if(hit(b.verdict)&&d.miles<=RADIUS)rep.newMatches.push(b);
   }
-  for(const [k,n] of pulled)rep.townsPulled.push(k.replace('|',', ')+` (${n})`);
-  for(const [k,T] of Object.entries(towns))if(T.watch&&T.redfin&&!pulled.has(k))rep.townsFailed.push(k.replace('|',', '));
+  for(const [k,n] of pulled)rep.townsPulled.push(label(k)+` (${n})`);
+  for(const [k,T] of Object.entries(towns)){if(!T.watch)continue;
+    if(T.redfin&&!pulled.has(k+'|multi'))rep.townsFailed.push(label(k+'|multi'));
+    if(T.redfinHouse&&!pulled.has(k+'|house'))rep.townsFailed.push(label(k+'|house'));}
   /* a listing missing for 14 days from a town page that was read in full (every home the page counts) has left the market */
-  const fullTowns=new Set([...full].filter(x=>{const [t,s2,n]=x.split('|');return pulled.get(t+'|'+s2)>=+n;}).map(x=>x.split('|').slice(0,2).join('|')));
-  for(const d of listings){if(d.sold||d.gone||seen.has(d.id)||!fullTowns.has(d.town+'|'+d.state))continue;
+  const fullTowns=new Set([...full].filter(x=>{const [t,s2,kd,n]=x.split('|');return pulled.get(t+'|'+s2+'|'+kd)>=+n;}).map(x=>x.split('|').slice(0,3).join('|')));
+  for(const d of listings){if(d.sold||d.gone||seen.has(d.id)||!fullTowns.has(d.town+'|'+d.state+'|'+kindOf(d)))continue;
     const w=state[d.id]=state[d.id]||{};if(!w.missingSince)w.missingSince=day;
     if((new Date(day)-new Date(w.missingSince))>=14*864e5){d.gone={date:day};rep.gone.push(brief(d));}}
   for(const id of seen){const w={...(state[id]||{}),seen:day};delete w.missingSince;state[id]=w;}
@@ -101,7 +117,7 @@ function refresh(listings,state,towns,rowsText,statusText,now){
     else rep.errors.push('bad status: '+line);
   }
   /* missing from a town page that was read: needs its own page checked. Also sold listings still waiting on a price. */
-  const cand=listings.filter(d=>!d.gone&&((d.sold&&!d.sold.price&&(Date.now()-new Date(d.sold.date))<120*864e5)||(!d.sold&&pulled.get(d.town+'|'+d.state)>0&&!seen.has(d.id))))
+  const cand=listings.filter(d=>!d.gone&&((d.sold&&!d.sold.price&&(Date.now()-new Date(d.sold.date))<120*864e5)||(!d.sold&&pulled.get(d.town+'|'+d.state+'|'+kindOf(d))>0&&!seen.has(d.id))))
     .filter(d=>(state[d.id]||{}).checked!==day)
     .sort((a,b)=>((state[a.id]||{}).checked||'').localeCompare((state[b.id]||{}).checked||'')||(a.miles-b.miles));
   rep.checkTotal=cand.length;rep.check=cand.slice(0,CHECK_CAP).map(d=>({id:d.id,url:d.url,why:d.sold?'sold, price not published yet':'missing from town page'}));

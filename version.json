@@ -1,14 +1,23 @@
 {
-  "version": "1.19.0",
+  "version": "1.20.0",
   "date": "2026-11-07",
   "notes": [
-    "New box at the top: paste a listing link (Zillow, Redfin, Realtor.com, Trulia, Homes.com) or type an address, then tap Evaluate.",
-    "It shows the verdict, your maximum offer, what is left per unit each month, the rent and value estimates, the listing's asking price and how far it is from your home.",
-    "Change the price or rent there to see the numbers move, open Explain this deal, then save it to Review or to In flight at the stage you pick. Properties you add this way always show in Review, whatever the distance or Show filter, with an Added by you tag.",
-    "If the property is already in your list, it says where and opens it, without using any lookups.",
-    "Each evaluation uses 4 RentCast requests (about 10 a month on the free plan). The first one also finds your home's location once, so distance is from your house rather than Dracut's town center."
+    "Single-family homes under $1,000,000 are now part of the daily check, in every town it watches. They start arriving with the next morning's check and show in Review as Single-family.",
+    "Their rent is an estimate: the town's average for an apartment with the same bedrooms, plus 10% because a house usually rents for more. Check it before deciding.",
+    "With one rent covering the mortgage and the home equity loan, most houses score Pass, so the Show filter hides them. Pick Everything under Show to see them all; any that score Buy box or Negotiate show up in your morning alert like any other listing."
   ],
   "previous": [
+    {
+      "version": "1.19.0",
+      "date": "2026-11-07",
+      "notes": [
+        "New box at the top: paste a listing link (Zillow, Redfin, Realtor.com, Trulia, Homes.com) or type an address, then tap Evaluate.",
+        "It shows the verdict, your maximum offer, what is left per unit each month, the rent and value estimates, the listing's asking price and how far it is from your home.",
+        "Change the price or rent there to see the numbers move, open Explain this deal, then save it to Review or to In flight at the stage you pick. Properties you add this way always show in Review, whatever the distance or Show filter, with an Added by you tag.",
+        "If the property is already in your list, it says where and opens it, without using any lookups.",
+        "Each evaluation uses 4 RentCast requests (about 10 a month on the free plan). The first one also finds your home's location once, so distance is from your house rather than Dracut's town center."
+      ]
+    },
     {
       "version": "1.18.1",
       "date": "2026-10-31",

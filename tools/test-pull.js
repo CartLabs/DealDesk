@@ -60,3 +60,17 @@ test('town box download link for pages with no usable region',()=>{
   assert.ok(u.includes('poly=-71.6130%2042.7750%2C')&&u.includes('uipt=4')&&!u.includes('region_id'));
   assert.ok(polyLink(42.865,-71.493,true).includes('sold_within_days=30'));
 });
+
+test('single-family pass: same download with the house type, houses kept, in the house row format',()=>{
+  const {withType,house}=require('./pull-redfin.js');
+  assert.equal(withType('https://www.redfin.com/stingray/api/gis-csv?al=1&region_id=9416&uipt=4&v=8',1),'https://www.redfin.com/stingray/api/gis-csv?al=1&region_id=9416&uipt=1&v=8');
+  assert.equal(withType('https://www.redfin.com/stingray/api/gis-csv?al=1&region_id=9416',1),'https://www.redfin.com/stingray/api/gis-csv?al=1&region_id=9416&uipt=1');
+  const H=CSV+`MLS Listing,,Single Family Residential,7 Maple Rd,Lowell,MA,01850,449900,3,2,,https://www.redfin.com/MA/Lowell/7-Maple-Rd-01850/home/777,127
+MLS Listing,,Single Family Residential,8 Grand Ln,Lowell,MA,01850,1450000,5,4,,https://www.redfin.com/MA/Lowell/8-Grand-Ln-01850/home/888,128
+PAST SALE,October-30-2026,Single Family Residential,9 Sold Ln,Lowell,MA,01850,505000,3,2,,https://www.redfin.com/MA/Lowell/9-Sold-Ln-01850/home/999,129
+`;
+  const rows=parseCsv(H);
+  assert.deepEqual(forSaleLines(rows,house),['7 Maple Rd|449900|0|3|2|MA/Lowell/7-Maple-Rd-01850/home/777']);
+  assert.deepEqual(soldLines(rows,house),['9 Sold Ln|505000|2026-10-30|MA/Lowell/9-Sold-Ln-01850/home/999']);
+  assert.ok(!forSaleLines(rows).some(l=>l.startsWith('7 Maple')));   /* the multi-family pass still ignores houses */
+});
