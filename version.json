@@ -1,13 +1,24 @@
 {
-  "version": "1.18.1",
-  "date": "2026-10-31",
+  "version": "1.19.0",
+  "date": "2026-11-07",
   "notes": [
-    "Dollar amounts no longer split across two lines, including the mortgage line on the deal sheet.",
-    "The financing table on the deal sheet fits on a phone instead of running off the right edge.",
-    "Price cut tags stay in one piece, and the buy box and deal form boxes line up in rows, with shorter labels.",
-    "Loan balances on owned properties show in whole dollars, and Funds available shows blank instead of $0 when not set."
+    "New box at the top: paste a listing link (Zillow, Redfin, Realtor.com, Trulia, Homes.com) or type an address, then tap Evaluate.",
+    "It shows the verdict, your maximum offer, what is left per unit each month, the rent and value estimates, the listing's asking price and how far it is from your home.",
+    "Change the price or rent there to see the numbers move, open Explain this deal, then save it to Review or to In flight at the stage you pick. Properties you add this way always show in Review, whatever the distance or Show filter, with an Added by you tag.",
+    "If the property is already in your list, it says where and opens it, without using any lookups.",
+    "Each evaluation uses 4 RentCast requests (about 10 a month on the free plan). The first one also finds your home's location once, so distance is from your house rather than Dracut's town center."
   ],
   "previous": [
+    {
+      "version": "1.18.1",
+      "date": "2026-10-31",
+      "notes": [
+        "Dollar amounts no longer split across two lines, including the mortgage line on the deal sheet.",
+        "The financing table on the deal sheet fits on a phone instead of running off the right edge.",
+        "Price cut tags stay in one piece, and the buy box and deal form boxes line up in rows, with shorter labels.",
+        "Loan balances on owned properties show in whole dollars, and Funds available shows blank instead of $0 when not set."
+      ]
+    },
     {
       "version": "1.18.0",
       "date": "2026-10-29",

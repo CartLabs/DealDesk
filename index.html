@@ -167,6 +167,16 @@ td .addr{font-weight:600}
   .explain .scen th,.explain .scen td{padding:7px 6px}}
 .pill.plain{background:var(--sunk);color:var(--muted)}
 .lookup{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.paste{display:flex;gap:8px;margin:12px 0 4px}
+.paste input{flex:1;min-width:0;font:16px var(--body)}
+#pasteMsg:empty{display:none}
+.evalstats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 14px}
+.evalstats div{display:flex;flex-direction:column;gap:2px}
+.evalstats .v{font:600 17px var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.evalgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
+.evalgrid label{display:flex;flex-direction:column;gap:4px;font-size:13px}
+.evalgrid input,.evalgrid select{font-size:16px}
+@media(max-width:420px){.evalstats{grid-template-columns:1fr 1fr}}
 .sheet.unscored #d_kv,.sheet.unscored .col>div:has(#d_ledger),.sheet.unscored .col>div:has(#d_scen){display:none}
 .addr .tag{margin-left:4px}
 .filebtn{display:inline-flex;align-items:center;cursor:pointer}
@@ -245,6 +255,11 @@ input.money{text-align:left}
       <button class="btn primary" id="addBtn" type="button">Add a deal</button>
     </div>
   </header>
+  <form class="paste" id="pasteForm" autocomplete="off">
+    <input id="pasteIn" type="text" inputmode="url" placeholder="Paste a listing link or an address" aria-label="Listing link or address">
+    <button class="btn primary" type="submit" id="pasteGo">Evaluate</button>
+  </form>
+  <p class="small muted" id="pasteMsg"></p>
 
   <nav class="tabs" role="tablist" aria-label="Sections">
     <button class="tab" role="tab" id="tab_review" data-tab="review" type="button">Review <span class="n" id="n_review">0</span></button>
@@ -471,6 +486,13 @@ input.money{text-align:left}
       <p class="small muted">No Google account? Settings &rsaquo; Backup and restore saves a file to your device instead.</p>
     </div>
   </div>
+  <div class="modal-overlay" id="evalModal" hidden>
+    <div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="evalTitle">
+      <div class="modal-header"><div><h3 class="cardtitle" id="evalTitle">Evaluate</h3><p class="small muted" id="evalSub"></p></div><button class="modal-close" id="evalClose" type="button" aria-label="Close">&times;</button></div>
+      <div id="evalBody" class="explain"></div>
+      <div id="evalSaveBox"></div>
+    </div>
+  </div>
   <div class="modal-overlay" id="explainModal" hidden>
     <div class="modal wide" role="dialog" aria-modal="true" aria-labelledby="explainTitle">
       <div class="modal-header"><div><h3 class="cardtitle" id="explainTitle">This deal in plain terms</h3><p class="small muted" id="explainSub"></p></div><button class="modal-close" id="explainClose" type="button" aria-label="Close">&times;</button></div>
@@ -505,7 +527,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.18.1';
+const APP_VERSION = '1.19.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -595,7 +617,7 @@ function renderTabs(){
   $("tagline").textContent=+settings.radius?`Buy-and-hold rentals within ${settings.radius} miles of Dracut,\u00a0MA.`:"Buy-and-hold rentals at any distance from Dracut,\u00a0MA.";
   Object.keys(TABS).forEach(t=>{$("n_"+t).textContent=n[t];$("tab_"+t).setAttribute("aria-selected",t===tab?"true":"false");});
   $("tab_settings").setAttribute("aria-selected",tab==="settings"?"true":"false");
-  $("settingsView").hidden=tab!=="settings";$("addBtn").hidden=tab==="settings";
+  $("settingsView").hidden=tab!=="settings";$("pasteForm").hidden=tab==="settings";if(tab==="settings")$("pasteMsg").textContent="";$("addBtn").hidden=tab==="settings";
   $("addBtn").textContent=tab==="owned"?"Add a property":"Add a deal";
   $("boxDetails").hidden=tab!=="review"&&tab!=="flight";
   $("dealsView").hidden=!isList(tab);
@@ -615,8 +637,8 @@ let passHidden=0;
 const fitMode=()=>["box","look","all"].includes(settings.fit)?settings.fit:(settings.showAll?"all":"look");
 const fitShows=v=>fitMode()==="all"||v==="Buy box"||v==="Needs rent"||(fitMode()==="look"&&v==="Negotiate");
 function listFor(t){
-  let list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d))).map(d=>({d,a:score(d)}));
-  if(t==="review"){passHidden=list.filter(x=>!fitShows(x.a.verdict)).length;list=list.filter(x=>fitShows(x.a.verdict));}
+  let list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d)||d.mine)).map(d=>({d,a:score(d)}));
+  if(t==="review"){passHidden=list.filter(x=>!fitShows(x.a.verdict)&&!x.d.mine).length;list=list.filter(x=>fitShows(x.a.verdict)||x.d.mine);} /* ones you added yourself always show */
   if(t==="flight")list.sort((x,y)=>STAGES.indexOf(y.d.stage)-STAGES.indexOf(x.d.stage)||x.a.gap-y.a.gap);
   else if(t==="archive")list.sort((x,y)=>String(y.d.archivedAt||"").localeCompare(String(x.d.archivedAt||"")));
   else list.sort((x,y)=>x.a.gap-y.a.gap);
@@ -626,7 +648,7 @@ function subline(d,a){
   const lines=[];
   if(tab==="flight")lines.push(`<span class="stage">${esc(d.stage||STAGES[0])}</span>${leftWord(d)?` <span class="tag">${esc(leftWord(d))}</span>`:""}`);
   if(tab==="archive")lines.push(`<span class="meta">${esc(leftWord(d)||d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}</span>`);
-  lines.push(`<span class="meta">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}${tab==="review"&&isNew(d)?' <span class="tag">New</span>':""}${tab!=="archive"?cutTag(d):""}</span>`);
+  lines.push(`<span class="meta">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}${d.mine?' <span class="tag">Added by you</span>':tab==="review"&&isNew(d)?' <span class="tag">New</span>':""}${tab!=="archive"?cutTag(d):""}</span>`);
   return lines.join("");
 }
 /* Archive breakdown. "Passed" is anything Kevin removed himself. Sold and Off the market count every archived
@@ -650,7 +672,7 @@ function renderDeals(){
   const list=listFor(tab);
   $("listTitle").textContent=TABS[tab];
   $("listHelp").textContent=HELP[tab];
-  const beyond=tab==="review"?deals.filter(d=>statusOf(d)==="review"&&!inRadius(d)).length:0;
+  const beyond=tab==="review"?deals.filter(d=>statusOf(d)==="review"&&!inRadius(d)&&!d.mine).length:0;
   const hid=tab==="review"?passHidden:0;
   $("count").textContent=list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"";
   $("listNote").textContent=[hid?`${hid} hidden by the Show filter`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:""].filter(Boolean).join(" · ");
@@ -683,7 +705,7 @@ function renderSheet(){
   document.querySelectorAll("#rows tr").forEach(r=>r.classList.toggle("sel",r.dataset.id===selected));
   const s=dealTerms(d,settings),a=score(d);
   $("d_title").innerHTML=esc(d.address)+(offMarket(d)?' <span class="tag">Off-market</span>':"");
-  $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from Dracut`:"",`${priceWord(d)} ${usd(a.price)}${d.priceWas&&d.priceWas!==d.price?` (was ${usd(d.priceWas)})`:""}`,leftWord(d),d.from?`From ${esc(d.from)}`:"",d.fin&&d.fin.kind==="custom"?`${d.fin.lender?esc(d.fin.lender)+" terms":"Own financing"}: ${s.down}% down at ${fmtRate(s.rate)}${+s.points?`, ${+s.points} pt`:""}`:"",d.addedAt?`${offMarket(d)?"Added":"Found"} ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
+  $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from ${d.milesFrom==="home"?"home":"Dracut"}`:"",`${priceWord(d)} ${usd(a.price)}${d.priceWas&&d.priceWas!==d.price?` (was ${usd(d.priceWas)})`:""}`,leftWord(d),d.from?`From ${esc(d.from)}`:"",d.fin&&d.fin.kind==="custom"?`${d.fin.lender?esc(d.fin.lender)+" terms":"Own financing"}: ${s.down}% down at ${fmtRate(s.rate)}${+s.points?`, ${+s.points} pt`:""}`:"",d.addedAt?`${offMarket(d)?"Added":"Found"} ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
   $("d_actions").innerHTML=actionsHtml(d);
   $("d_reasons").hidden=armed!=="remove";
   $("d_reasons").innerHTML=armed==="remove"?`<span class="small muted" style="flex-basis:100%">Why? Tap one to archive it.</span>`+REASONS.map(r=>`<button class="btn chip" type="button" data-reason="${esc(r)}">${esc(r)}</button>`).join(""):"";
@@ -868,6 +890,120 @@ $("lookupBtn").addEventListener("click",async()=>{
   }catch(e){msg.textContent=rcError(e);}
   finally{$("lookupBtn").disabled=false;}
 });
+
+/* ---------- Paste a link or an address: evaluate, then save to Review or In flight ----------
+   The link itself is never opened (listing sites block apps like this). The address is read out of it, and
+   RentCast supplies the facts: property record, rent estimate, value estimate and the active listing's price.
+   That is 4 requests. Distance is measured from Kevin's home (the owned property marked "I live here"), found
+   once with one more request and kept on this device. His address never goes into the public repo. */
+let evalDeal=null,evalExisting=null;
+const homeIdOf=u=>((String(u||"")).match(/redfin\.com\/.*\/home\/(\d+)/)||[])[1];
+function findSame(p){return deals.find(d=>(p.homeId&&homeIdOf(d.url)===p.homeId)||(sameKey(d.address,d.town)&&sameKey(d.address,d.town)===sameKey(p.street,p.town)));}
+async function homeFrom(){
+  const h=owned.find(o=>o.home&&o.address&&o.town);if(!h)return null;
+  const addr=[h.address,h.town,h.state].filter(Boolean).join(", ");
+  const g=settings.homeGeo;if(g&&g.addr===addr&&isFinite(+g.lat))return [+g.lat,+g.lon];
+  try{const r=await rcGet("/properties",{address:addr});const rec=Array.isArray(r)?r[0]:r;
+    if(rec&&isFinite(+rec.latitude)){settings.homeGeo={addr,lat:+rec.latitude,lon:+rec.longitude};save();return [+rec.latitude,+rec.longitude];}}
+  catch(e){}
+  return null;}
+$("pasteForm").addEventListener("submit",async e=>{e.preventDefault();
+  const msg=$("pasteMsg"),text=$("pasteIn").value;msg.textContent="";
+  const p=parseInput(text);
+  if(!p){msg.textContent="Paste a listing link (Zillow, Redfin, Realtor.com) or type an address.";return;}
+  if(p.error){msg.textContent=p.url?`That ${p.site} link does not have the address in it. Open the listing, copy the address, and paste that instead.`:"Include the street number, street and town, for example 12 Main St, Lowell, MA.";return;}
+  const same=findSame(p);if(same){showExisting(same);return;}
+  if(!lsGet(LS_RC_KEY)){msg.textContent=RC_MSG.nokey;return;}
+  $("pasteGo").disabled=true;msg.textContent=`Looking up ${p.address}… this uses 4 of your RentCast requests.`;
+  try{
+    const recs=await rcGet("/properties",{address:p.address});const rec=Array.isArray(recs)?recs[0]:recs;
+    if(!rec){msg.textContent=`RentCast has no record for ${p.address}. Check the spelling or add the zip, or use Add a deal to enter it by hand.`;return;}
+    const canon={street:rec.addressLine1||p.street,town:rec.city||p.town,homeId:p.homeId};
+    const again=findSame(canon);if(again){msg.textContent="";showExisting(again);return;}
+    const units=(rec.features&&rec.features.unitCount)||(rec.propertyType==="Single Family"?1:0);
+    const params={address:p.address};if(rec.propertyType)params.propertyType=rec.propertyType;
+    if(rec.bedrooms>0)params.bedrooms=String(Math.max(1,Math.round(rec.bedrooms/(units||2))));
+    const [rentEst,valueEst,lst]=await Promise.all([rcGet("/avm/rent/long-term",params).catch(()=>null),rcGet("/avm/value",{address:p.address}).catch(()=>null),
+      rcGet("/listings/sale",{address:p.address,limit:"5"}).catch(()=>null)]);
+    const from=await homeFrom();
+    const {fill,facts}=mapLookup(rec,rentEst,valueEst,units?null:2,from);
+    const listing=pickListing(lst);if(listing)facts.listing=listing;facts.lookedUpAt=today();
+    const u=fill.units||units||2;
+    evalDeal={id:"d"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),mine:true,
+      address:canon.street,town:canon.town,state:rec.state||p.state||"MA",zip:fill.zip||p.zip||"",
+      type:fill.type||TYPE_BY_UNITS[u]||`${u} units`,units:u,price:listing?listing.price:"",rent:fill.rent||"",
+      ...(fill.taxes?{taxes:fill.taxes}:{}),...(fill.miles!==undefined?{miles:fill.miles}:{}),
+      url:p.url||"",source:listing||p.url?"listing":"offmarket",facts,milesFrom:from?"home":"Dracut",
+      notes:`Added from ${p.url?"a "+p.site+" link":"an address"} on ${shortDate(today())}. Rent, value${fill.taxes?", taxes":""}${listing?" and asking price":""} came from RentCast; check them against the listing.`};
+    msg.textContent="";$("pasteIn").value="";evalExisting=null;renderEval();
+  }catch(err){msg.textContent=rcError(err);}
+  finally{$("pasteGo").disabled=false;}
+});
+function showExisting(d){evalExisting=d;evalDeal=null;renderEval();}
+function renderEval(){
+  const d=evalExisting||evalDeal;if(!d)return;
+  const a=score(d),fx=d.facts||{},st=statusOf(d);
+  $("evalTitle").textContent=evalExisting?"Already in your list":"Evaluation";
+  $("evalSub").textContent=`${d.address}, ${d.town}, ${d.state}`;
+  const stat=(l,v,c="")=>`<div><span class="small muted">${l}</span><span class="v ${c}">${v}</span></div>`;
+  const priced=+d.price>0,rented=+d.rent>0;
+  const bits=[];
+  if(fx.units||d.units)bits.push(`${d.units} unit${d.units>1?"s":""}`);
+  if(fx.bedrooms!==undefined)bits.push(`${fx.bedrooms} beds`);if(fx.bathrooms!==undefined)bits.push(`${fx.bathrooms} baths`);
+  if(fx.squareFootage)bits.push(`${fx.squareFootage.toLocaleString("en-US")} sq ft`);if(fx.yearBuilt)bits.push(`built ${fx.yearBuilt}`);
+  const notes=[];
+  if(fx.listing)notes.push(`Listed ${fx.listing.status&&!/^active$/i.test(fx.listing.status)?"("+esc(fx.listing.status)+") ":""}at ${usd(fx.listing.price)}${fx.listing.daysOnMarket?`, ${fx.listing.daysOnMarket} days on the market`:""}.`);
+  else if(evalDeal)notes.push("RentCast has no active listing for this address. Enter the price you expect to pay.");
+  if(fx.valueEst)notes.push(`Estimated value ${usd(fx.valueEst)}${fx.valueLow&&fx.valueHigh?` (${usd(fx.valueLow)} to ${usd(fx.valueHigh)})`:""}.`);
+  if(fx.rentPerUnit)notes.push(`Estimated rent ${usd(fx.rentPerUnit)} a unit${fx.rentLow&&fx.rentHigh?` (${usd(fx.rentLow)} to ${usd(fx.rentHigh)})`:""}.`);
+  if(fx.lastSalePrice)notes.push(`Last sold for ${usd(fx.lastSalePrice)}${fx.lastSaleDate?" in "+fx.lastSaleDate.slice(0,4):""}.`);
+  if(fx.units>4)notes.push(`<b>This building has ${fx.units} units.</b> Your buy box is one to four; a DSCR loan for five or more is a commercial loan with different terms.`);
+  if(d.miles!==undefined)notes.push(`${+d.miles} miles from ${d.milesFrom==="home"?"your home":"Dracut"}.`);
+  const where=evalExisting?{review:"Review",flight:"In flight",archive:"Archive"}[st]||"your list":"";
+  const verdict=priced&&rented?`<span class="pill ${vclass(a.verdict)}">${a.verdict}</span>`:"";
+  $("evalBody").innerHTML=`<section>
+      ${evalExisting?`<p>This property is already in <b>${where}</b>${st==="flight"?` at the ${esc(d.stage||STAGES[0])} stage`:""}. Nothing was looked up, so no RentCast requests were used.</p>`:""}
+      <div class="row" style="gap:8px;align-items:center">${verdict}<span class="small muted">${bits.join(" · ")}</span></div>
+      <div class="evalstats">${stat(priced?(d.source==="offmarket"?"Price":"Asking"):"Price",priced?usd(+d.price):"Enter it")}${stat("Max offer",priced&&rented?usd(a.maxOffer):"—")}
+        ${stat("Left / unit / mo",priced&&rented?usd(a.cfUnit):"—",priced&&rented?(a.cfUnit>=0?"pos":"neg"):"")}${stat("Rent / mo",rented?usd(+d.rent):"Enter it")}
+        ${stat("Debt cover",priced&&rented?a.dscr.toFixed(2):"—")}${stat("Cash to close",priced?usd(a.cash):"—")}</div>
+      ${priced&&rented&&a.binding&&a.verdict!=="Buy box"?`<p class="small">What limits the offer: <b>${esc(a.binding)}</b>.</p>`:""}
+      <ul>${notes.map(x=>`<li>${x}</li>`).join("")}</ul></section>`;
+  if(evalExisting){$("evalSaveBox").innerHTML=`<div class="row"><button class="btn primary" type="button" id="evalOpen">Open it</button><button class="btn" type="button" id="evalExplain">Explain this deal</button></div>`;}
+  else $("evalSaveBox").innerHTML=`<div class="evalgrid">
+      <label>${d.source==="offmarket"?"Price":"Asking price"}<input id="ev_price" class="money" type="text" inputmode="decimal" placeholder="$" value="${priced?money(+d.price):""}"></label>
+      <label>Total rent / mo<input id="ev_rent" class="money" type="text" inputmode="decimal" placeholder="$" value="${rented?money(+d.rent):""}"></label>
+      <label>Save to<select id="ev_to"><option value="review">Review</option><option value="flight">In flight</option></select></label>
+      <label id="ev_stageWrap" hidden>Stage<select id="ev_stage">${STAGES.map(x=>`<option>${x}</option>`).join("")}</select></label>
+    </div>
+    <p class="small muted" id="ev_msg"></p>
+    <div class="row"><button class="btn primary" type="button" id="evalSave">Save</button><button class="btn" type="button" id="evalExplain">Explain this deal</button><button class="btn" type="button" id="evalCancel">Don't save</button></div>`;
+  wireEval();
+  $("evalModal").hidden=false;document.querySelector("#evalModal .modal").scrollTop=0;
+}
+function wireEval(){
+  const on=(id,ev,f)=>{const el=$(id);if(el)el.addEventListener(ev,f);};
+  on("evalOpen","click",()=>{const d=evalExisting;closeEval();setTab(statusOf(d));selected=d.id;render();
+    const el=document.querySelector(`[data-id="${CSS.escape(d.id)}"]`);if(el)el.scrollIntoView({block:"center"});});
+  on("evalExplain","click",()=>{const d=evalExisting||evalDeal;if(!(+d.price>0)||!(+d.rent>0)){$("ev_msg").textContent="Enter the price and the rent first.";return;}openExplain(d);});
+  on("evalCancel","click",closeEval);
+  const re=()=>{const sel=$("ev_to").value,stg=$("ev_stage").value,pv=$("ev_price").value,rv=$("ev_rent").value;
+    evalDeal.price=num(pv)||"";evalDeal.rent=num(rv)||"";renderEval();
+    $("ev_to").value=sel;$("ev_stage").value=stg;$("ev_stageWrap").hidden=sel!=="flight";};
+  on("ev_price","change",re);on("ev_rent","change",re);
+  on("ev_to","change",()=>{$("ev_stageWrap").hidden=$("ev_to").value!=="flight";});
+  on("evalSave","click",()=>{const d=evalDeal;
+    d.price=num($("ev_price").value)||"";d.rent=num($("ev_rent").value)||"";
+    if(!(+d.price>0)){$("ev_msg").textContent="Enter a price to save it.";$("ev_price").focus();return;}
+    const to=$("ev_to").value;d.status=to;if(to==="flight")d.stage=$("ev_stage").value;
+    d.addedAt=today();d.updatedAt=today();deals.push(d);
+    if(!save()){deals.pop();return;}
+    closeEval();setTab(to);selected=d.id;render();
+    driveToast("ok",`${d.address} saved to ${to==="flight"?"In flight":"Review"}.`);});
+}
+function closeEval(){$("evalModal").hidden=true;evalDeal=null;evalExisting=null;}
+$("evalClose").addEventListener("click",closeEval);
+$("evalModal").addEventListener("click",e=>{if(e.target===$("evalModal"))closeEval();});
 function renderLookupSettings(){const k=lsGet(LS_RC_KEY);$("rcKey").value=k||"";
   $("rcLine").textContent=k?"A key is saved on this device.":"No key saved. The Add a deal form still works; you enter the figures by hand.";}
 $("rcSave").addEventListener("click",()=>{const k=$("rcKey").value.trim();if(!k){$("rcLine").textContent="Paste the key first.";return;}lsSet(LS_RC_KEY,k);renderLookupSettings();driveToast("ok","Key saved on this device.");});

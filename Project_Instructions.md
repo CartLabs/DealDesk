@@ -33,7 +33,7 @@ handles technical execution end to end.
 | `data/listings.js` | Listings Claude has loaded. Every device picks up new ones on next open |
 | `assets/` | Logo (`logo.svg`), icon (`icon.svg`) and home-screen icons |
 | `manifest.json` | Name and icons for Add to Home Screen |
-| `lookup.js` | Turns a RentCast lookup into form values and property facts, tested by `tools/test-lookup.js` |
+| `lookup.js` | Turns a RentCast lookup into form values and property facts, and reads addresses out of pasted listing links (parseInput), tested by `tools/test-lookup.js` |
 | `sync.js` | Merge rules for Google Drive sync, tested by `tools/test-sync.js` |
 | `version.json` | Current version and plain-language release notes |
 | `tools/refresh-listings.js` | The daily listing check: folds a fresh pull into `data/listings.js`, tested by `tools/test-refresh.js` |
@@ -163,3 +163,13 @@ and the 6:49 alert says the check did not run.
   fail, it pushes nothing and reports the failure.
 - Kevin is alerted (email and phone) about new or newly price-cut listings that are Buy box or
   Negotiate within 50 miles, and about sold listings. He wants a "nothing new today" note on quiet days.
+
+## Paste a link or an address
+
+The box under the header evaluates one property. `parseInput` (lookup.js) reads the address out of a Zillow,
+Redfin, Realtor.com, Trulia or Homes.com link without opening it, or tidies a typed address. If the property
+is already in the list (same Redfin home number, or same house number, street and town by `sameKey`), it
+opens that one and spends no requests. Otherwise it makes 4 RentCast calls (property, rent, value, active
+sale listing for the asking price). Distance is from Kevin's home: the owned property marked home is
+located once with one more call and kept in `settings.homeGeo` on the device (never in the repo).
+Saved deals carry `mine: true` and always show in Review regardless of distance and the Show filter.

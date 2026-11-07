@@ -50,3 +50,27 @@ test("missing or empty responses fill nothing and do not throw", () => {
     assert.deepStrictEqual(facts, {});
   }
 });
+
+test('parseInput reads addresses from links and typed text', () => {
+  const { parseInput, sameKey, pickListing } = require('../lookup.js');
+  let r = parseInput('https://www.redfin.com/MA/Lowell/891-Bridge-St-01850/home/11641103');
+  assert.equal(r.address, '891 Bridge St, Lowell, MA, 01850'); assert.equal(r.homeId, '11641103'); assert.equal(r.site, 'Redfin');
+  r = parseInput('https://www.redfin.com/NH/Manchester/145-Pearl-St-03104/home/205041924?utm=x');
+  assert.equal(r.town, 'Manchester'); assert.equal(r.state, 'NH');
+  r = parseInput('check this https://www.zillow.com/homedetails/57-59-Marshall-St-Fitchburg-MA-01420/56789_zpid/');
+  assert.equal(r.street, '57-59 Marshall St'); assert.equal(r.town, 'Fitchburg'); assert.equal(r.zip, '01420'); assert.equal(r.site, 'Zillow');
+  r = parseInput('https://www.zillow.com/homedetails/12-Lake-View-Ave-North-Andover-MA-01845/1_zpid/');
+  assert.equal(r.street, '12 Lake View Ave'); assert.equal(r.town, 'North Andover');
+  r = parseInput('https://www.realtor.com/realestateandhomes-detail/10-Hollywood-St_Worcester_MA_01610_M12345-67890');
+  assert.equal(r.address, '10 Hollywood St, Worcester, MA, 01610');
+  assert.equal(parseInput('123 Main St, Lowell, MA 01850').address, '123 Main St, Lowell, MA, 01850');
+  assert.equal(parseInput('123 Main St, Lowell MA').address, '123 Main St, Lowell, MA');
+  r = parseInput('55 gerrish ave dracut ma'); assert.equal(r.street, '55 Gerrish Ave'); assert.equal(r.town, 'Dracut');
+  assert.equal(parseInput('https://www.zillow.com/homes/for_sale/').error, 'noaddress');
+  assert.equal(parseInput('Lowell').error, 'noaddress');
+  assert.equal(sameKey('145-147 Pearl Street', 'Manchester'), sameKey('145 Pearl St', 'manchester'));
+  assert.notEqual(sameKey('145 Pearl St', 'Manchester'), sameKey('147 Pearl St', 'Manchester'));
+  assert.deepEqual(pickListing([{ price: 500000, status: 'Inactive', listedDate: '2025-01-01' }, { price: 525000, status: 'Active', listedDate: '2026-10-20T00:00:00Z', daysOnMarket: 18 }]),
+    { price: 525000, status: 'Active', listedDate: '2026-10-20', daysOnMarket: 18 });
+  assert.equal(pickListing([{ price: 500000, status: 'Inactive' }]), null);
+});
