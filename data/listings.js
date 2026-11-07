@@ -515,13 +515,15 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Two-family",
     "units": 2,
-    "price": 699900,
+    "price": 689900,
     "rent": 4500,
     "url": "https://www.redfin.com/MA/Lowell/112-Hampshire-St-01850/home/11641286",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "priceWas": 699900,
+    "priceChangedAt": "2026-11-07T10:00:00Z"
   },
   {
     "id": "ma-lowell-1-3-harrison-pl",
@@ -635,7 +637,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 739000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-07"
+    }
   },
   {
     "id": "ma-lowell-56-58-pine-st",
@@ -2206,8 +2211,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lynn averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-06",
+      "price": 820000
     }
   },
   {
@@ -2583,7 +2589,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 689870,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceChangedAt": "2026-10-21T10:00:00Z",
+    "gone": {
+      "date": "2026-11-07"
+    }
   },
   {
     "id": "ma-brockton-34-provost-st",
@@ -5827,15 +5836,15 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 574000,
+    "price": 569900,
     "rent": 4500,
     "url": "https://www.redfin.com/MA/Worcester/78-Birch-St-01603/home/16650627",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
-    "priceWas": 585000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 574000,
+    "priceChangedAt": "2026-11-07T10:00:00Z"
   },
   {
     "id": "ma-worcester-49-1-2-ellsworth-st",
@@ -6859,7 +6868,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-07"
+    }
   },
   {
     "id": "ma-lowell-24-nichols-st",
@@ -6904,13 +6916,15 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Three-family",
     "units": 3,
-    "price": 769000,
+    "price": 767000,
     "rent": 6150,
     "url": "https://www.redfin.com/MA/Lowell/243-Appleton-St-01852/home/11637954",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "priceWas": 769000,
+    "priceChangedAt": "2026-11-07T10:00:00Z"
   },
   {
     "id": "ma-lowell-12-14-billings-st",
@@ -8230,7 +8244,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-07"
+    }
   },
   {
     "id": "ma-worcester-107-vernon-st",
@@ -8517,9 +8534,7 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
-    "gone": {
-      "date": "2026-10-30"
-    }
+    "relistedAt": "2026-11-07T10:00:00Z"
   },
   {
     "id": "nh-dover-18-maple-st",
@@ -9043,7 +9058,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 11 bedrooms split as 4BR + 4BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 11 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-15",
-    "addedAt": "2026-10-15T10:00:00Z"
+    "addedAt": "2026-10-15T10:00:00Z",
+    "gone": {
+      "date": "2026-11-07"
+    }
   },
   {
     "id": "ma-haverhill-43-highland-ave",
@@ -9669,13 +9687,15 @@ window.SEED_LISTINGS = [
     "miles": 24,
     "type": "Two-family",
     "units": 2,
-    "price": 579900,
+    "price": 569900,
     "rent": 3975,
     "url": "https://www.redfin.com/NH/Manchester/166-Comeau-St-03102/home/205022306",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-22",
-    "addedAt": "2026-10-22T10:00:00Z"
+    "addedAt": "2026-10-22T10:00:00Z",
+    "priceWas": 579900,
+    "priceChangedAt": "2026-11-07T10:00:00Z"
   },
   {
     "id": "nh-manchester-202-leda-ave",
@@ -11153,5 +11173,53 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-06",
     "addedAt": "2026-11-06T10:00:00Z"
+  },
+  {
+    "id": "ma-methuen-66-68-boston-st",
+    "address": "66-68 Boston St",
+    "town": "Methuen",
+    "state": "MA",
+    "miles": 7,
+    "type": "Three-family",
+    "units": 3,
+    "price": 799000,
+    "rent": 7200,
+    "url": "https://www.redfin.com/MA/Methuen/66-68-Boston-St-01844/home/8341165",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Methuen averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-07",
+    "addedAt": "2026-11-07T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-415-laurel-st",
+    "address": "415 Laurel St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Two-family",
+    "units": 2,
+    "price": 325000,
+    "rent": 3975,
+    "url": "https://www.redfin.com/NH/Manchester/415-Laurel-St-03103/home/88252563",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-07",
+    "addedAt": "2026-11-07T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-29-cambridge-st",
+    "address": "29 Cambridge St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 519900,
+    "rent": 6750,
+    "url": "https://www.redfin.com/MA/Worcester/29-Cambridge-St-01603/home/16649952",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-07",
+    "addedAt": "2026-11-07T10:00:00Z"
   }
 ];
