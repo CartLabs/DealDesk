@@ -1,12 +1,15 @@
 // Deal math for DealDesk. Used by index.html and by test/calc.test.js.
 // Change formulas here only, then run: node --test
-const DEFAULTS={maxPrice:550000,minCF:200,minCoC:0,minDSCR:1.2,down:25,rate:7.25,term:30,closing:3,vac:5,maint:8,capex:7,mgmt:8,
+const DEFAULTS={maxPrice:700000,maxPriceSingle:550000, // price ceilings: 2-4 units, and a single-family home (Kevin, Nov 7 2026)
+  minCF:200,minCoC:0,minDSCR:1.2,down:25,rate:7.25,term:30,closing:3,vac:5,maint:8,capex:7,mgmt:8,
   lenderDSCR:1.0,  // a DSCR lender's own test: gross rent / PITIA (principal, interest, taxes, insurance, HOA). 0 = off
   points:1,        // lender points, % of the loan, paid at closing
   reserves:6,      // months of PITIA the lender wants to see in the bank after closing (shown, not spent)
   dpSource:1,      // where the cash to close comes from: 0 = cash, 1 = a home equity loan (its payment is a cost of the deal)
   heRate:8,heTerm:20, // that home equity loan's rate and term
   funds:0};        // cash plus equity you can draw, for cash to close and reserves. 0 = not set, no check
+// the ceiling that applies to this deal: single-family homes have their own, lower one
+const ceilingFor=(d,s)=>+d.units===1?opt(s,"maxPriceSingle"):+s.maxPrice;
 function loanK(rate,term){const r=rate/1200,n=term*12;return r===0?1/term:12*r/(1-Math.pow(1+r,-n));}
 // A deal can carry its own financing (a lender's quote, seller financing, an assumable loan, a private note).
 // When it does, those terms replace the buy box's down payment, rate and term for that deal only.
@@ -51,7 +54,7 @@ function analyze(d,s,downOverride){
   // max offer: the highest price, in thousands, at which every rule passes. Every rule only gets worse as the price rises.
   const ok=p=>failing(metrics(d,s,p,downOverride),s).length===0;
   let maxOffer=0,binding="";
-  const top=Math.max(0,+s.maxPrice||0);
+  const top=Math.max(0,ceilingFor(d,s)||0);
   if(ok(top)){maxOffer=Math.floor(top/1000)*1000;binding="price ceiling";}
   else if(ok(1000)){let lo=1000,hi=top;for(let i=0;i<32;i++){const m=(lo+hi)/2;if(ok(m))lo=m;else hi=m;}
     maxOffer=Math.floor(lo/1000)*1000;binding=failing(metrics(d,s,hi,downOverride),s)[0]||"price ceiling";}
@@ -82,7 +85,7 @@ function explain(d, s) {
   const a = analyze(d, s), units = a.units, rent = +d.rent || 0;
   const at = (dd, ss) => analyze(dd, ss);
   const passes = x => x.gap <= 0;
-  const overCeiling = a.price > s.maxPrice;
+  const overCeiling = a.price > ceilingFor(d, s);
   // Interest rate: the highest rate at which the asking price still meets every rule.
   const passRateRaw = overCeiling ? null : lastTrue(r => passes(at(d, { ...s, rate: r })), 0, 15);
   const passRate = passRateRaw === null ? null : Math.floor(passRateRaw * 8) / 8;          // lenders quote in eighths
@@ -120,4 +123,4 @@ function explain(d, s) {
   };
 }
 
-if (typeof module !== "undefined") module.exports = { DEFAULTS, loanK, analyze, metrics, dealTerms, principalPaid, explain };
+if (typeof module !== "undefined") module.exports = { DEFAULTS, ceilingFor, loanK, analyze, metrics, dealTerms, principalPaid, explain };

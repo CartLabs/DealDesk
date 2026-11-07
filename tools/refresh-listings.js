@@ -25,7 +25,8 @@ const fs=require('fs'),path=require('path');
 const ROOT=path.join(__dirname,'..');
 const {DEFAULTS,analyze}=require(path.join(ROOT,'calc.js'));
 const HOME=[42.670,-71.302],RADIUS=50,CHECK_CAP=25;
-const PULL_CAP=550000; /* pull-redfin.js leaves out homes above this, so their absence from a page means nothing */
+const PULL_CAP=700000,PULL_CAP_HOUSE=550000; /* pull-redfin.js leaves out homes above these, so their absence from a page means nothing */
+const overCap=d=>+d.price>(+d.units===1?PULL_CAP_HOUSE:PULL_CAP);
 const arg=n=>{const i=process.argv.indexOf('--'+n);return i<0?null:(process.argv[i+1]||true);};
 const milesTo=(a,b)=>{const R=3958.8,r=x=>x*Math.PI/180;const dl=r(b[0]-a[0]),dn=r(b[1]-a[1]);
   const h=Math.sin(dl/2)**2+Math.cos(r(a[0]))*Math.cos(r(b[0]))*Math.sin(dn/2)**2;return Math.round(2*R*Math.asin(Math.sqrt(h)));};
@@ -102,7 +103,7 @@ function refresh(listings,state,towns,rowsText,statusText,now){
     if(T.redfinHouse&&!pulled.has(k+'|house'))rep.townsFailed.push(label(k+'|house'));}
   /* a listing missing for 14 days from a town page that was read in full (every home the page counts) has left the market */
   const fullTowns=new Set([...full].filter(x=>{const [t,s2,kd,n]=x.split('|');return pulled.get(t+'|'+s2+'|'+kd)>=+n;}).map(x=>x.split('|').slice(0,3).join('|')));
-  for(const d of listings){if(d.sold||d.gone||seen.has(d.id)||+d.price>PULL_CAP||!fullTowns.has(d.town+'|'+d.state+'|'+kindOf(d)))continue;
+  for(const d of listings){if(d.sold||d.gone||seen.has(d.id)||overCap(d)||!fullTowns.has(d.town+'|'+d.state+'|'+kindOf(d)))continue;
     const w=state[d.id]=state[d.id]||{};if(!w.missingSince)w.missingSince=day;
     if((new Date(day)-new Date(w.missingSince))>=14*864e5){d.gone={date:day};rep.gone.push(brief(d));}}
   for(const id of seen){const w={...(state[id]||{}),seen:day};delete w.missingSince;state[id]=w;}
@@ -118,7 +119,7 @@ function refresh(listings,state,towns,rowsText,statusText,now){
     else rep.errors.push('bad status: '+line);
   }
   /* missing from a town page that was read: needs its own page checked. Also sold listings still waiting on a price. */
-  const cand=listings.filter(d=>!d.gone&&((d.sold&&!d.sold.price&&(Date.now()-new Date(d.sold.date))<120*864e5)||(!d.sold&&+d.price<=PULL_CAP&&pulled.get(d.town+'|'+d.state+'|'+kindOf(d))>0&&!seen.has(d.id))))
+  const cand=listings.filter(d=>!d.gone&&((d.sold&&!d.sold.price&&(Date.now()-new Date(d.sold.date))<120*864e5)||(!d.sold&&!overCap(d)&&pulled.get(d.town+'|'+d.state+'|'+kindOf(d))>0&&!seen.has(d.id))))
     .filter(d=>(state[d.id]||{}).checked!==day)
     .sort((a,b)=>((state[a.id]||{}).checked||'').localeCompare((state[b.id]||{}).checked||'')||(a.miles-b.miles));
   rep.checkTotal=cand.length;rep.check=cand.slice(0,CHECK_CAP).map(d=>({id:d.id,url:d.url,why:d.sold?'sold, price not published yet':'missing from town page'}));

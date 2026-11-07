@@ -6,11 +6,11 @@
 
    For each town in tools/towns.json with watch:true it opens the town's search page (redfin / redfinSold),
    finds the page's own "Download all" CSV link, and reads that CSV. Only 2-4 unit multi-family homes are kept,
-   for-sale ones at or under $550,000 (MAX_PRICE). A second pass reads the same town's single-family homes (the same
+   for-sale ones at or under $700,000 (MAX_PRICE; single-family $550,000, MAX_PRICE_HOUSE). A second pass reads the same town's single-family homes (the same
    download with the home type switched from multi-family to house) and writes them under "#Town|ST|total|house". A town whose for-sale list cannot be read is left out of rows.txt
    entirely; if only its sold list fails, just the #SOLD section is left out. Nothing is ever invented. */
 const fs=require('fs'),path=require('path');
-const MAX_PRICE=550000,CSV_CAP=350; /* Kevin, Nov 7 2026: above this nothing comes close to his rules as a rental */
+const MAX_PRICE=700000,MAX_PRICE_HOUSE=550000,CSV_CAP=350; /* Kevin, Nov 7 2026: above these nothing comes close to his rules as a rental */
 const arg=n=>{const i=process.argv.indexOf('--'+n);return i<0?null:(process.argv[i+1]||true);};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const HEADERS={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36',
@@ -130,8 +130,8 @@ async function readList(pageUrl,town,sold,T,uipt=4){
   throw last;
 }
 
-function forSaleLines(rows,keep=small){
-  return rows.filter(keep).filter(o=>!/past sale/i.test(col(o,'SALE TYPE'))).filter(o=>{const p=+col(o,'PRICE').replace(/[^0-9.]/g,'');return p>0&&p<=MAX_PRICE;})
+function forSaleLines(rows,keep=small,cap=MAX_PRICE){
+  return rows.filter(keep).filter(o=>!/past sale/i.test(col(o,'SALE TYPE'))).filter(o=>{const p=+col(o,'PRICE').replace(/[^0-9.]/g,'');return p>0&&p<=cap;})
     .map(o=>[clean(col(o,'ADDRESS')),+col(o,'PRICE').replace(/[^0-9.]/g,''),0,clean(col(o,'BEDS'))||0,clean(col(o,'BATHS'))||0,pathOf(col(o,'URL'))].join('|'));
 }
 /* Redfin's "include=sold-1mo" ADDS last month's sales to the homes still for sale, so the sold download holds both.
@@ -156,7 +156,7 @@ async function main(){
     }catch(e){entry.forSale={error:String(e.message||e),...(e.hints?{hints:e.hints}:{})};}
     /* single-family homes, unless the town turns them off with "houses": false */
     if(T.houses!==false){entry.houses={forSale:null,sold:null};
-      try{const {rows,capped,via,boxRows}=await readList(T.redfin,town,false,T,1);const lines=forSaleLines(rows,house);
+      try{const {rows,capped,via,boxRows}=await readList(T.redfin,town,false,T,1);const lines=forSaleLines(rows,house,MAX_PRICE_HOUSE);
         if(!lines.length&&!rows.length&&!/box/.test(via))throw new Error('list came back empty');
         out.push(`#${town}|${st}|${capped?'':lines.length}|house`,...lines);entry.houses.forSale={rows:rows.length,kept:lines.length,capped,via,...(boxRows!=null?{boxRows}:{})};
         if(T.redfinSold){

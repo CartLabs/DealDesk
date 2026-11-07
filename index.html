@@ -276,7 +276,8 @@ input.money{text-align:left}
       <span class="edit">Edit</span>
     </summary>
     <form id="boxForm" class="grid" autocomplete="off">
-      <label>Price ceiling<input id="s_maxPrice" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Ceiling, 2-4 units<input id="s_maxPrice" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Ceiling, single-family<input id="s_maxPriceSingle" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Min cash flow / unit / mo<input id="s_minCF" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Min cash-on-cash % (0 = off)<input id="s_minCoC" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Your min DSCR<input id="s_minDSCR" type="number" step="any" min="0" inputmode="decimal"></label>
@@ -527,7 +528,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.20.1';
+const APP_VERSION = '1.21.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -546,10 +547,10 @@ const isList=t=>t==="review"||t==="flight"||t==="archive";
 let settings={...DEFAULTS}, deals=[], owned=[], removed=[], removedOwned=[], tab="review";
 /* 1.18.0: the down payment is borrowed, so cash-on-cash stops being a rule (0 = off) and the $/unit cash flow rule,
    which is after the home equity loan's payment, keeps each deal profitable. Applied once to a saved 6%. */
-function migrateSettings(){const v=+settings.rulesV||0;if(v>=3)return;
+function migrateSettings(){const v=+settings.rulesV||0;if(v>=4)return;
   if(v<2&&+settings.minCoC===6)settings.minCoC=0;
-  if(+settings.maxPrice===1000000)settings.maxPrice=550000; /* Nov 7 2026: Kevin lowered the ceiling */
-  settings.rulesV=3;settings.updatedAt=today();}
+  if(v<4&&[550000,1000000].includes(+settings.maxPrice))settings.maxPrice=700000; /* Nov 7 2026: $700k for 2-4 units, $550k single-family */
+  settings.rulesV=4;settings.updatedAt=today();}
 let selected=null, editing=null, editingOwned=null, armed=null;
 
 const statusOf=d=>d.status||"review";
@@ -594,7 +595,7 @@ const inRadius=d=>!+settings.radius||d.miles===undefined||+d.miles<=+settings.ra
 function save(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settings,removed,removedOwned,owned}));if(typeof updateSyncUI==="function")updateSyncUI();return true;}catch(e){status("Could not save on this device. Private browsing blocks saving.");return false;}}
 
 /* buy box */
-function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> · <b>${usd(s.minCF)}</b>/unit/mo · ${+s.minCoC>0?`<b>${pct(s.minCoC)}</b> cash-on-cash · `:""}<b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`+
+function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> (single-family <b>${usd(+s.maxPriceSingle||DEFAULTS.maxPriceSingle)}</b>) · <b>${usd(s.minCF)}</b>/unit/mo · ${+s.minCoC>0?`<b>${pct(s.minCoC)}</b> cash-on-cash · `:""}<b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`+
   (+s.lenderDSCR>0?` · lender DSCR <b>${(+s.lenderDSCR).toFixed(2)}</b>`:"")+
   (+s.dpSource===1?` · cash to close from home equity at <b>${pct(+s.heRate,3)}</b>`:"")+(+s.funds>0?` · funds <b>${usd(+s.funds)}</b>`:"");}
 function renderBox(){$("boxSummary").innerHTML=boxText();
@@ -1407,7 +1408,7 @@ function openExplain(d){
   const better=[];
   better.push(a.gap>0?`<b>Pay less.</b> At ${usd(a.maxOffer)}, which is ${usd(a.price-a.maxOffer)} under asking, it meets every rule.`:`<b>Price.</b> You already have room. Asking is ${usd(a.maxOffer-a.price)} under the most you could pay.`);
   let rateLine;
-  if(e.overCeiling)rateLine=`<b>Interest rate.</b> A better rate will not fix this one, because the asking price is over your ${usd(s.maxPrice)} ceiling.`;
+  if(e.overCeiling)rateLine=`<b>Interest rate.</b> A better rate will not fix this one, because the asking price is over your ${usd(ceilingFor(d,s))} ceiling${+d.units===1?" for a single-family home":""}.`;
   else if(e.passRate===null)rateLine=`<b>Interest rate.</b> No rate fixes this one. Even at 0% it misses your rules, so the problem is the price or the rent.`;
   else if(a.gap<=0)rateLine=`<b>Interest rate.</b> It works at your ${fmtRate(s.rate)}. ${e.passRate>=15?"It keeps working at any realistic rate.":"It keeps working up to about "+fmtRate(e.passRate)+"."}`;
   else rateLine=`<b>Interest rate.</b> At <b>${fmtRate(e.passRate)}</b> instead of ${fmtRate(s.rate)}, it meets every rule at the asking price. That is ${(+(s.rate-e.passRate).toFixed(3))} points lower.`;

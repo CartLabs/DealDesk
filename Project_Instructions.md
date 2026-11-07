@@ -150,8 +150,9 @@ in the task, without a person approving it; and Redfin blocks GitHub's servers (
 pull does not work. Redfin does not block home internet. If the laptop is off at 6:05 it runs when it next wakes,
 and the 6:49 alert says the check did not run.
 
-- The price cap is $550,000 (Kevin, Nov 7 2026): `MAX_PRICE` in tools/pull-redfin.js and `PULL_CAP` in
-  tools/refresh-listings.js must match. Listings above it are never marked missing or off the market.
+- Price caps (Kevin, Nov 7 2026): $700,000 for 2-4 units and $550,000 for single-family. `MAX_PRICE` /
+  `MAX_PRICE_HOUSE` in tools/pull-redfin.js and `PULL_CAP` / `PULL_CAP_HOUSE` in tools/refresh-listings.js must match,
+  as should the buy box defaults `maxPrice` / `maxPriceSingle` in calc.js. Listings above it are never marked missing or off the market.
 - Each town is read twice: 2-4 unit multi-family homes, then single-family homes (the same download with
   Redfin's home type `uipt` switched from 4 to 1; rows under `#Town|ST|total|house`). Houses are one unit;
   their rent is the town's apartment average for their bedrooms plus 10%. A town can turn houses off with

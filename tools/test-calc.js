@@ -143,3 +143,10 @@ test("a lender quote on one deal replaces the buy box rate, points and home equi
   assert.ok(Math.abs(a.points - a.loan * 0.02) < 1e-6);
   assert.ok(Math.abs(a.heDebt - a.cash * loanK(7, ALL.heTerm)) < 1e-6);
 });
+
+test("single-family homes have their own, lower ceiling", () => {
+  const { ceilingFor } = require("../calc.js");
+  assert.equal(ceilingFor({ units: 1 }, DEFAULTS), 550000); assert.equal(ceilingFor({ units: 3 }, DEFAULTS), 700000);
+  const rich = { units: 1, rent: 9000, price: 600000, state: "MA" }, multi = { units: 2, rent: 9000, price: 600000, state: "MA" };
+  assert.equal(analyze(rich, DEFAULTS).maxOffer, 550000); assert.equal(analyze(multi, DEFAULTS).maxOffer, 700000);
+});

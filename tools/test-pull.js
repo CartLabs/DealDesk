@@ -4,7 +4,7 @@ const {parseCsv,isoDate,forSaleLines,soldLines,csvLink}=require('./pull-redfin.j
 const CSV=`SALE TYPE,SOLD DATE,PROPERTY TYPE,ADDRESS,CITY,STATE OR PROVINCE,ZIP OR POSTAL CODE,PRICE,BEDS,BATHS,LOCATION,URL (SEE https://www.redfin.com/buy-a-home/comparative-market-analysis FOR INFO ON PRICING),MLS#
 "In accordance with local MLS rules, some MLS listings are not included in the download"
 MLS Listing,,Multi-Family (2-4 Unit),"12 Test St, Unit 1",Lowell,MA,01850,450000,6,3,Centralville,https://www.redfin.com/MA/Lowell/12-Test-St-01850/home/111,123
-MLS Listing,,Multi-Family (2-4 Unit),9 Big Ave,Lowell,MA,01850,650000,9,4,,https://www.redfin.com/MA/Lowell/9-Big-Ave-01850/home/222,124
+MLS Listing,,Multi-Family (2-4 Unit),9 Big Ave,Lowell,MA,01850,850000,9,4,,https://www.redfin.com/MA/Lowell/9-Big-Ave-01850/home/222,124
 MLS Listing,,Multi-Family (5+ Unit),3 Block St,Lowell,MA,01850,900000,12,6,,https://www.redfin.com/MA/Lowell/3-Block-St-01850/home/333,125
 PAST SALE,September-26-2026,Multi-Family (2-4 Unit),4 Sold Rd,Lowell,MA,01850,580000,5,2,,https://www.redfin.com/MA/Lowell/4-Sold-Rd-01850/home/444,126
 `;
@@ -12,7 +12,7 @@ test('parses the CSV and skips the disclaimer line',()=>{
   const rows=parseCsv(CSV).filter(o=>Object.values(o).some(v=>/redfin\.com\//.test(v)));
   assert.equal(rows.length,4);assert.equal(rows[0].ADDRESS,'12 Test St, Unit 1');
 });
-test('keeps 2-4 unit homes at or under $550k for sale, writes refresh-listings rows',()=>{
+test('keeps 2-4 unit homes at or under $700k for sale, writes refresh-listings rows',()=>{
   const lines=forSaleLines(parseCsv(CSV));
   assert.deepEqual(lines,['12 Test St, Unit 1|450000|0|6|3|MA/Lowell/12-Test-St-01850/home/111']);
 });

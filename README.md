@@ -30,7 +30,7 @@ Open the hosted page on your phone or laptop, or open `index.html` from a local 
 
 ## Assumptions to replace with real numbers
 
-- **Buy box defaults** (in `calc.js`): $1,000,000 ceiling, $200 per unit per month, 6% cash-on-cash, 1.20 debt coverage, 25% down at 7.25% for 30 years, 3% closing costs. The rate is a placeholder, not a quote.
+- **Buy box defaults** (in `calc.js`): $700,000 ceiling for 2-4 units and $550,000 for single-family, $200 per unit per month, 6% cash-on-cash, 1.20 debt coverage, 25% down at 7.25% for 30 years, 3% closing costs. The rate is a placeholder, not a quote.
 - **Expenses:** 5% vacancy, 8% repairs, 7% capital reserves, 8% management, each as a share of collected rent.
 - **Rents in the starting listings** are estimates from Zumper city averages by bedroom count (Oct 2, 2026), not leases.
 - **Blank taxes** are estimated at 1.9% of price in NH and 1.2% in MA. **Blank insurance** is 0.4% of price, minimum $1,500. Both are flagged as estimated on the deal sheet.

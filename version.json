@@ -1,13 +1,21 @@
 {
-  "version": "1.20.1",
+  "version": "1.21.0",
   "date": "2026-11-07",
   "notes": [
-    "Pasted links now work for homes RentCast has no property record for, which is common for new houses and condos. The listing's own details (price, beds, baths, size, location) fill in instead, and the evaluation says so.",
-    "Addresses are sent to RentCast in the format it expects (no comma before the zip), so more of them are found.",
-    "The evaluation has a Units box. If RentCast does not say how many units a building has, the app guesses and tells you to check; changing it updates the rent estimate.",
-    "Your price ceiling is now $550,000, in the buy box and in the daily check. Listings over $550,000 already in the app stay where they are but are no longer updated."
+    "Two price ceilings now: $700,000 for a 2-4 unit building and $550,000 for a single-family home. Both are in the buy box, and the daily check uses the same limits.",
+    "Your buy box moves to these on its own. Change either one under Buy box, Edit."
   ],
   "previous": [
+    {
+      "version": "1.20.1",
+      "date": "2026-11-07",
+      "notes": [
+        "Pasted links now work for homes RentCast has no property record for, which is common for new houses and condos. The listing's own details (price, beds, baths, size, location) fill in instead, and the evaluation says so.",
+        "Addresses are sent to RentCast in the format it expects (no comma before the zip), so more of them are found.",
+        "The evaluation has a Units box. If RentCast does not say how many units a building has, the app guesses and tells you to check; changing it updates the rent estimate.",
+        "Your price ceiling is now $550,000, in the buy box and in the daily check. Listings over $550,000 already in the app stay where they are but are no longer updated."
+      ]
+    },
     {
       "version": "1.20.0",
       "date": "2026-11-07",
