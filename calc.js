@@ -1,6 +1,6 @@
 // Deal math for DealDesk. Used by index.html and by test/calc.test.js.
 // Change formulas here only, then run: node --test
-const DEFAULTS={maxPrice:1000000,minCF:200,minCoC:0,minDSCR:1.2,down:25,rate:7.25,term:30,closing:3,vac:5,maint:8,capex:7,mgmt:8,
+const DEFAULTS={maxPrice:550000,minCF:200,minCoC:0,minDSCR:1.2,down:25,rate:7.25,term:30,closing:3,vac:5,maint:8,capex:7,mgmt:8,
   lenderDSCR:1.0,  // a DSCR lender's own test: gross rent / PITIA (principal, interest, taxes, insurance, HOA). 0 = off
   points:1,        // lender points, % of the loan, paid at closing
   reserves:6,      // months of PITIA the lender wants to see in the bank after closing (shown, not spent)

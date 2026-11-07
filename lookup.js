@@ -7,6 +7,8 @@ function milesBetween(a, b) {
   const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a[0])) * Math.cos(rad(b[0])) * Math.sin(dLon / 2) ** 2;
   return Math.round(2 * R * Math.asin(Math.sqrt(h)));
 }
+// RentCast types that are one home to rent: everything but multi-family and land
+const unitsForType = t => /multi/i.test(t || "") ? 0 : /single|condo|townhouse|manufactured/i.test(t || "") ? 1 : 0;
 // Most recent year's entry from an object keyed by year, e.g. {"2023":{...},"2024":{...}}
 function latestYear(obj) {
   if (!obj || typeof obj !== "object") return null;
@@ -94,7 +96,7 @@ function parseInput(text) {
         if (si > 0) r = splitTokens(tk.slice(0, si + 1 + (/^\d{5}$/.test(tk[si + 1] || "") ? 1 : 0))); }
     }
     if (!r || !r.street || !r.town) return { url: u.href, site, error: "noaddress" };
-    return { ...r, address: [r.street, r.town, r.state, r.zip].filter(Boolean).join(", "), site, url: u.href, ...(homeId ? { homeId } : {}) };
+    return { ...r, address: [r.street, r.town, [r.state, r.zip].filter(Boolean).join(" ")].filter(Boolean).join(", "), site, url: u.href, ...(homeId ? { homeId } : {}) };
   }
   if (raw.includes(",")) {                                           // "123 Main St, Lowell, MA 01850"
     const parts = raw.split(",").map(x => x.trim()).filter(Boolean);
@@ -106,11 +108,11 @@ function parseInput(text) {
     if (tw.length > 1 && STATES.includes(tw[tw.length - 1].toUpperCase())) state = tw.pop().toUpperCase();
     if (!/^\d/.test(street) || !tw.join("")) return { error: "noaddress" };
     const r = { street, town: tw.join(" "), state, zip };
-    return { ...r, address: [r.street, r.town, r.state, r.zip].filter(Boolean).join(", ") };
+    return { ...r, address: [r.street, r.town, [r.state, r.zip].filter(Boolean).join(" ")].filter(Boolean).join(", ") };
   }
   const r = splitTokens(raw.split(/\s+/));
   if (!r) return { error: "noaddress" };
-  return { ...r, address: [r.street, r.town, r.state, r.zip].filter(Boolean).join(", ") };
+  return { ...r, address: [r.street, r.town, [r.state, r.zip].filter(Boolean).join(" ")].filter(Boolean).join(", ") };
 }
 // "145-147 Pearl Street" and "145 Pearl St" are the same building: compare the first house number and the street words.
 const ABBR = { street: "st", avenue: "ave", road: "rd", drive: "dr", lane: "ln", court: "ct", place: "pl", boulevard: "blvd", terrace: "ter", circle: "cir", parkway: "pkwy", highway: "hwy", north: "n", south: "s", east: "e", west: "w" };
@@ -126,6 +128,9 @@ function pickListing(list) {
   const a = (Array.isArray(list) ? list : list ? [list] : []).filter(x => x && x.price > 0);
   const act = a.filter(x => /^(active|pending|contingent)/i.test(x.status || ""));
   const l = (act.length ? act : []).sort((x, y) => String(y.listedDate || "").localeCompare(String(x.listedDate || "")))[0];
-  return l ? { price: l.price, status: l.status, listedDate: String(l.listedDate || "").slice(0, 10), daysOnMarket: l.daysOnMarket } : null;
+  if (!l) return null;
+  // the listing record also describes the home, which stands in when RentCast has no property record (new houses, condos)
+  const home = {}; ["addressLine1", "city", "state", "zipCode", "latitude", "longitude", "propertyType", "bedrooms", "bathrooms", "squareFootage", "yearBuilt", "lotSize"].forEach(k => { if (l[k] !== undefined && l[k] !== null) home[k] = l[k]; });
+  return { price: l.price, status: l.status, listedDate: String(l.listedDate || "").slice(0, 10), daysOnMarket: l.daysOnMarket, home };
 }
-if (typeof module !== "undefined") module.exports = { DRACUT, milesBetween, latestYear, mapLookup, parseInput, sameKey, pickListing };
+if (typeof module !== "undefined") module.exports = { DRACUT, milesBetween, latestYear, mapLookup, parseInput, sameKey, pickListing, unitsForType };

@@ -527,7 +527,7 @@ input.money{text-align:left}
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
 <script>
-const APP_VERSION = '1.20.0';
+const APP_VERSION = '1.20.1';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -546,7 +546,10 @@ const isList=t=>t==="review"||t==="flight"||t==="archive";
 let settings={...DEFAULTS}, deals=[], owned=[], removed=[], removedOwned=[], tab="review";
 /* 1.18.0: the down payment is borrowed, so cash-on-cash stops being a rule (0 = off) and the $/unit cash flow rule,
    which is after the home equity loan's payment, keeps each deal profitable. Applied once to a saved 6%. */
-function migrateSettings(){if(+settings.rulesV>=2)return;if(+settings.minCoC===6)settings.minCoC=0;settings.rulesV=2;settings.updatedAt=today();}
+function migrateSettings(){const v=+settings.rulesV||0;if(v>=3)return;
+  if(v<2&&+settings.minCoC===6)settings.minCoC=0;
+  if(+settings.maxPrice===1000000)settings.maxPrice=550000; /* Nov 7 2026: Kevin lowered the ceiling */
+  settings.rulesV=3;settings.updatedAt=today();}
 let selected=null, editing=null, editingOwned=null, armed=null;
 
 const statusOf=d=>d.status||"review";
@@ -853,7 +856,7 @@ const rcError=e=>RC_MSG[e&&e.kind]||("RentCast returned an error"+(e&&e.status?"
 $("lookupBtn").addEventListener("click",async()=>{
   const msg=$("lookupMsg"),street=$("f_address").value.trim(),town=$("f_town").value.trim();
   if(!street||!town){msg.textContent="Enter the street address and town first.";return;}
-  const address=[street,town,$("f_state").value,$("f_zip").value.trim()].filter(Boolean).join(", ");
+  const address=[street,town,[$("f_state").value,$("f_zip").value.trim()].filter(Boolean).join(" ")].filter(Boolean).join(", ");
   $("lookupBtn").disabled=true;msg.textContent="Looking up "+address+"…";
   try{
     const recs=await rcGet("/properties",{address});
@@ -896,7 +899,7 @@ $("lookupBtn").addEventListener("click",async()=>{
    RentCast supplies the facts: property record, rent estimate, value estimate and the active listing's price.
    That is 4 requests. Distance is measured from Kevin's home (the owned property marked "I live here"), found
    once with one more request and kept on this device. His address never goes into the public repo. */
-let evalDeal=null,evalExisting=null;
+let evalDeal=null,evalExisting=null,evalAutoRent="";
 const homeIdOf=u=>((String(u||"")).match(/redfin\.com\/.*\/home\/(\d+)/)||[])[1];
 function findSame(p){return deals.find(d=>(p.homeId&&homeIdOf(d.url)===p.homeId)||(sameKey(d.address,d.town)&&sameKey(d.address,d.town)===sameKey(p.street,p.town)));}
 async function homeFrom(){
@@ -916,25 +919,34 @@ $("pasteForm").addEventListener("submit",async e=>{e.preventDefault();
   if(!lsGet(LS_RC_KEY)){msg.textContent=RC_MSG.nokey;return;}
   $("pasteGo").disabled=true;msg.textContent=`Looking up ${p.address}… this uses 4 of your RentCast requests.`;
   try{
-    const recs=await rcGet("/properties",{address:p.address});const rec=Array.isArray(recs)?recs[0]:recs;
-    if(!rec){msg.textContent=`RentCast has no record for ${p.address}. Check the spelling or add the zip, or use Add a deal to enter it by hand.`;return;}
-    const canon={street:rec.addressLine1||p.street,town:rec.city||p.town,homeId:p.homeId};
+    /* A key, plan or limit problem stops the lookup; a plain "not found" or server error for one call does not. */
+    const soft=pr=>pr.catch(e=>{if(e&&RC_MSG[e.kind])throw e;return null;});
+    const [recs,lst]=await Promise.all([soft(rcGet("/properties",{address:p.address})),soft(rcGet("/listings/sale",{address:p.address,limit:"5"}))]);
+    const listing=pickListing(lst);
+    /* New houses and condos are often missing from RentCast's property records while their listing is there:
+       the listing then describes the home (beds, baths, size, location). */
+    const rec0=Array.isArray(recs)?recs[0]:recs,fromListing=!rec0&&listing&&listing.home&&listing.home.addressLine1;
+    const rec=rec0||(fromListing?listing.home:null);
+    const canon={street:(rec&&rec.addressLine1)||p.street,town:(rec&&rec.city)||p.town,homeId:p.homeId};
     const again=findSame(canon);if(again){msg.textContent="";showExisting(again);return;}
-    const units=(rec.features&&rec.features.unitCount)||(rec.propertyType==="Single Family"?1:0);
-    const params={address:p.address};if(rec.propertyType)params.propertyType=rec.propertyType;
-    if(rec.bedrooms>0)params.bedrooms=String(Math.max(1,Math.round(rec.bedrooms/(units||2))));
-    const [rentEst,valueEst,lst]=await Promise.all([rcGet("/avm/rent/long-term",params).catch(()=>null),rcGet("/avm/value",{address:p.address}).catch(()=>null),
-      rcGet("/listings/sale",{address:p.address,limit:"5"}).catch(()=>null)]);
+    let units=(rec&&rec.features&&rec.features.unitCount)||unitsForType(rec&&rec.propertyType);
+    const params={address:p.address};if(rec&&rec.propertyType)params.propertyType=rec.propertyType;
+    if(rec&&rec.bedrooms>0)params.bedrooms=String(Math.max(1,Math.round(rec.bedrooms/(units||2))));
+    const [rentEst,valueEst]=await Promise.all([soft(rcGet("/avm/rent/long-term",params)),soft(rcGet("/avm/value",{address:p.address}))]);
+    if(!rec&&!rentEst&&!valueEst){msg.textContent=`RentCast has nothing on ${p.address} yet: no property record, listing or estimate. Use Add a deal to enter it by hand.`;return;}
+    const guess=!units;if(guess)units=rec?2:1;
     const from=await homeFrom();
-    const {fill,facts}=mapLookup(rec,rentEst,valueEst,units?null:2,from);
-    const listing=pickListing(lst);if(listing)facts.listing=listing;facts.lookedUpAt=today();
-    const u=fill.units||units||2;
+    const {fill,facts}=mapLookup(rec,rentEst,valueEst,units,from);
+    if(listing){const {home,...l}=listing;facts.listing=l;}facts.lookedUpAt=today();
+    if(guess)facts.unitsGuess=true;if(fromListing)facts.fromListing=true;if(!rec)facts.noRecord=true;
+    const u=fill.units||units;
     evalDeal={id:"d"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),mine:true,
-      address:canon.street,town:canon.town,state:rec.state||p.state||"MA",zip:fill.zip||p.zip||"",
-      type:fill.type||TYPE_BY_UNITS[u]||`${u} units`,units:u,price:listing?listing.price:"",rent:fill.rent||"",
+      address:canon.street,town:canon.town,state:(rec&&rec.state)||p.state||"MA",zip:fill.zip||p.zip||"",
+      type:TYPE_BY_UNITS[u]||`${u} units`,units:u,price:listing?listing.price:"",rent:fill.rent||"",
       ...(fill.taxes?{taxes:fill.taxes}:{}),...(fill.miles!==undefined?{miles:fill.miles}:{}),
       url:p.url||"",source:listing||p.url?"listing":"offmarket",facts,milesFrom:from?"home":"Dracut",
-      notes:`Added from ${p.url?"a "+p.site+" link":"an address"} on ${shortDate(today())}. Rent, value${fill.taxes?", taxes":""}${listing?" and asking price":""} came from RentCast; check them against the listing.`};
+      notes:`Added from ${p.url?"a "+p.site+" link":"an address"} on ${shortDate(today())}. Rent, value${fill.taxes?", taxes":""}${listing?" and asking price":""} came from RentCast; check them against the listing.`+(guess?` The number of units is a guess (${u}); check it.`:"")};
+    evalAutoRent=evalDeal.rent;
     msg.textContent="";$("pasteIn").value="";evalExisting=null;renderEval();
   }catch(err){msg.textContent=rcError(err);}
   finally{$("pasteGo").disabled=false;}
@@ -957,6 +969,9 @@ function renderEval(){
   if(fx.valueEst)notes.push(`Estimated value ${usd(fx.valueEst)}${fx.valueLow&&fx.valueHigh?` (${usd(fx.valueLow)} to ${usd(fx.valueHigh)})`:""}.`);
   if(fx.rentPerUnit)notes.push(`Estimated rent ${usd(fx.rentPerUnit)} a unit${fx.rentLow&&fx.rentHigh?` (${usd(fx.rentLow)} to ${usd(fx.rentHigh)})`:""}.`);
   if(fx.lastSalePrice)notes.push(`Last sold for ${usd(fx.lastSalePrice)}${fx.lastSaleDate?" in "+fx.lastSaleDate.slice(0,4):""}.`);
+  if(fx.unitsGuess)notes.push(`<b>RentCast did not say how many units this has.</b> It is set to ${d.units}; change Units below if that is wrong.`);
+  if(fx.fromListing)notes.push("RentCast has no property record for this address yet (common for new houses and condos), so the home's details come from its listing. No tax bill was found, so taxes are estimated.");
+  else if(fx.noRecord)notes.push("RentCast has no property record or listing for this address, only estimates. Taxes are estimated; check the price and units.");
   if(fx.units>4)notes.push(`<b>This building has ${fx.units} units.</b> Your buy box is one to four; a DSCR loan for five or more is a commercial loan with different terms.`);
   if(d.miles!==undefined)notes.push(`${+d.miles} miles from ${d.milesFrom==="home"?"your home":"Dracut"}.`);
   const where=evalExisting?{review:"Review",flight:"In flight",archive:"Archive"}[st]||"your list":"";
@@ -973,6 +988,7 @@ function renderEval(){
   else $("evalSaveBox").innerHTML=`<div class="evalgrid">
       <label>${d.source==="offmarket"?"Price":"Asking price"}<input id="ev_price" class="money" type="text" inputmode="decimal" placeholder="$" value="${priced?money(+d.price):""}"></label>
       <label>Total rent / mo<input id="ev_rent" class="money" type="text" inputmode="decimal" placeholder="$" value="${rented?money(+d.rent):""}"></label>
+      <label>Units<input id="ev_units" type="number" min="1" max="4" step="1" inputmode="numeric" value="${d.units}"></label>
       <label>Save to<select id="ev_to"><option value="review">Review</option><option value="flight">In flight</option></select></label>
       <label id="ev_stageWrap" hidden>Stage<select id="ev_stage">${STAGES.map(x=>`<option>${x}</option>`).join("")}</select></label>
     </div>
@@ -987,10 +1003,14 @@ function wireEval(){
     const el=document.querySelector(`[data-id="${CSS.escape(d.id)}"]`);if(el)el.scrollIntoView({block:"center"});});
   on("evalExplain","click",()=>{const d=evalExisting||evalDeal;if(!(+d.price>0)||!(+d.rent>0)){$("ev_msg").textContent="Enter the price and the rent first.";return;}openExplain(d);});
   on("evalCancel","click",closeEval);
-  const re=()=>{const sel=$("ev_to").value,stg=$("ev_stage").value,pv=$("ev_price").value,rv=$("ev_rent").value;
-    evalDeal.price=num(pv)||"";evalDeal.rent=num(rv)||"";renderEval();
+  const re=()=>{const sel=$("ev_to").value,stg=$("ev_stage").value,pv=$("ev_price").value,rv=$("ev_rent").value,uv=Math.round(num($("ev_units").value));
+    evalDeal.price=num(pv)||"";evalDeal.rent=num(rv)||"";
+    if(uv>=1&&uv!==evalDeal.units){const fx=evalDeal.facts||{};evalDeal.units=uv;evalDeal.type=TYPE_BY_UNITS[uv]||`${uv} units`;delete fx.unitsGuess;
+      /* rent was RentCast's per-unit estimate times the units: keep it in step unless Kevin typed his own */
+      if(fx.rentPerUnit&&+evalDeal.rent===+evalAutoRent){evalDeal.rent=Math.round(fx.rentPerUnit*uv/25)*25;evalAutoRent=evalDeal.rent;fx.rentUnits=uv;}}
+    renderEval();
     $("ev_to").value=sel;$("ev_stage").value=stg;$("ev_stageWrap").hidden=sel!=="flight";};
-  on("ev_price","change",re);on("ev_rent","change",re);
+  on("ev_price","change",re);on("ev_rent","change",re);on("ev_units","change",re);
   on("ev_to","change",()=>{$("ev_stageWrap").hidden=$("ev_to").value!=="flight";});
   on("evalSave","click",()=>{const d=evalDeal;
     d.price=num($("ev_price").value)||"";d.rent=num($("ev_rent").value)||"";

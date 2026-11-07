@@ -42,20 +42,21 @@ test("principal paid: first year matches payments minus interest, full term pays
   assert.strictEqual(principalPaid(120000, 0, 30, 10), 40000);
 });
 
+const BIG = { ...DEFAULTS, maxPrice: 1000000 }; // these two deals are over the $550,000 ceiling
 test("explainer: the rate it names makes a failing deal pass, and a touch higher does not", () => {
-  const e = explain(deal, DEFAULTS);
+  const e = explain(deal, BIG);
   assert.strictEqual(e.a.verdict, "Negotiate");
-  assert.ok(e.passRate !== null && e.passRate < DEFAULTS.rate);
-  assert.ok(analyze(deal, { ...DEFAULTS, rate: e.passRate }).gap <= 0);
-  assert.ok(analyze(deal, { ...DEFAULTS, rate: e.passRate + 0.125 }).gap > 0);
-  assert.ok(analyze(deal, { ...DEFAULTS, rate: e.breakEvenRate }).cf >= 0);
+  assert.ok(e.passRate !== null && e.passRate < BIG.rate);
+  assert.ok(analyze(deal, { ...BIG, rate: e.passRate }).gap <= 0);
+  assert.ok(analyze(deal, { ...BIG, rate: e.passRate + 0.125 }).gap > 0);
+  assert.ok(analyze(deal, { ...BIG, rate: e.breakEvenRate }).cf >= 0);
 });
 
 test("explainer: the rent it names is the lowest that passes", () => {
-  const e = explain(deal, DEFAULTS);
+  const e = explain(deal, BIG);
   assert.ok(e.rentToPass > deal.rent);
-  assert.ok(analyze({ ...deal, rent: e.rentToPass }, DEFAULTS).gap <= 0);
-  assert.ok(analyze({ ...deal, rent: e.rentToPass - 50 }, DEFAULTS).gap > 0);
+  assert.ok(analyze({ ...deal, rent: e.rentToPass }, BIG).gap <= 0);
+  assert.ok(analyze({ ...deal, rent: e.rentToPass - 50 }, BIG).gap > 0);
 });
 
 test("explainer: a passing deal reports how high the rate can go, and a deal over the ceiling has no fix by rate or rent", () => {

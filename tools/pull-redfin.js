@@ -6,11 +6,11 @@
 
    For each town in tools/towns.json with watch:true it opens the town's search page (redfin / redfinSold),
    finds the page's own "Download all" CSV link, and reads that CSV. Only 2-4 unit multi-family homes are kept,
-   for-sale ones at or under $1,000,000. A second pass reads the same town's single-family homes (the same
+   for-sale ones at or under $550,000 (MAX_PRICE). A second pass reads the same town's single-family homes (the same
    download with the home type switched from multi-family to house) and writes them under "#Town|ST|total|house". A town whose for-sale list cannot be read is left out of rows.txt
    entirely; if only its sold list fails, just the #SOLD section is left out. Nothing is ever invented. */
 const fs=require('fs'),path=require('path');
-const MAX_PRICE=1000000,CSV_CAP=350;
+const MAX_PRICE=550000,CSV_CAP=350; /* Kevin, Nov 7 2026: above this nothing comes close to his rules as a rental */
 const arg=n=>{const i=process.argv.indexOf('--'+n);return i<0?null:(process.argv[i+1]||true);};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const HEADERS={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36',
