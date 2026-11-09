@@ -2709,7 +2709,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 699900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-09"
+    }
   },
   {
     "id": "ma-brockton-140-clifton-ave",
@@ -5277,14 +5280,14 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Three-family",
     "units": 3,
-    "price": 610000,
+    "price": 600000,
     "rent": 6750,
     "url": "https://www.redfin.com/MA/Worcester/4-Mott-St-01604/home/16663781",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
-    "priceWas": 620000,
-    "priceChangedAt": "2026-11-01T10:00:00Z"
+    "priceWas": 610000,
+    "priceChangedAt": "2026-11-09T10:00:00Z"
   },
   {
     "id": "ma-lowell-941-lakeview-ave",
@@ -7087,7 +7090,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 4.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-09"
+    }
   },
   {
     "id": "ma-lawrence-7-9-champlain-ave",
@@ -10484,13 +10490,15 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 475000,
+    "price": 455000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Worcester/128-Endicott-St-01610/home/16664373",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-30",
-    "addedAt": "2026-10-30T10:00:00Z"
+    "addedAt": "2026-10-30T10:00:00Z",
+    "priceWas": 475000,
+    "priceChangedAt": "2026-11-09T10:00:00Z"
   },
   {
     "id": "ma-lynn-101-eutaw-ave",
@@ -16339,12 +16347,14 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 540000,
+    "price": 525000,
     "rent": 2475,
     "url": "https://www.redfin.com/MA/Worcester/6-Longworth-Rd-01602/home/16646976",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "priceWas": 540000,
+    "priceChangedAt": "2026-11-09T10:00:00Z"
   },
   {
     "id": "ma-worcester-103-commonwealth-ave",
@@ -16654,12 +16664,14 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 424000,
+    "price": 400000,
     "rent": 2800,
     "url": "https://www.redfin.com/MA/Worcester/99-Clover-St-01603/home/16653047",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "priceWas": 424000,
+    "priceChangedAt": "2026-11-09T10:00:00Z"
   },
   {
     "id": "ma-worcester-203-burncoat-st",
@@ -18859,12 +18871,14 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Single-family",
     "units": 1,
-    "price": 440000,
+    "price": 400000,
     "rent": 3075,
     "url": "https://www.redfin.com/MA/Brockton/28-Delmar-Rd-02302/home/16329050",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "priceWas": 440000,
+    "priceChangedAt": "2026-11-09T10:00:00Z"
   },
   {
     "id": "ma-brockton-99-connell-ave",
@@ -19279,12 +19293,14 @@ window.SEED_LISTINGS = [
     "miles": 47,
     "type": "Single-family",
     "units": 1,
-    "price": 370000,
+    "price": 359000,
     "rent": 2850,
     "url": "https://www.redfin.com/NH/Rochester/23-High-St-03867/home/108640825",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "priceWas": 370000,
+    "priceChangedAt": "2026-11-09T10:00:00Z"
   },
   {
     "id": "nh-rochester-13-railroad-ave",
@@ -19420,5 +19436,65 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z"
+  },
+  {
+    "id": "ma-methuen-12-hadley-rd",
+    "address": "12 Hadley Rd",
+    "town": "Methuen",
+    "state": "MA",
+    "miles": 7,
+    "type": "Single-family",
+    "units": 1,
+    "price": 479900,
+    "rent": 2650,
+    "url": "https://www.redfin.com/MA/Methuen/12-Hadley-Rd-01844/home/8326600",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-09",
+    "addedAt": "2026-11-09T10:00:00Z"
+  },
+  {
+    "id": "ma-leominster-128-birchcroft-rd",
+    "address": "128 Birchcroft Rd",
+    "town": "Leominster",
+    "state": "MA",
+    "miles": 25,
+    "type": "Single-family",
+    "units": 1,
+    "price": 485000,
+    "rent": 2900,
+    "url": "https://www.redfin.com/MA/Leominster/128-Birchcroft-Rd-01453/home/16537425",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-09",
+    "addedAt": "2026-11-09T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-778-ashburnham-st",
+    "address": "778 Ashburnham St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Single-family",
+    "units": 1,
+    "price": 459900,
+    "rent": 2200,
+    "url": "https://www.redfin.com/MA/Fitchburg/778-Ashburnham-St-01420/home/16498975",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-09",
+    "addedAt": "2026-11-09T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-165-summer-st",
+    "address": "165 Summer St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Single-family",
+    "units": 1,
+    "price": 399000,
+    "rent": 2200,
+    "url": "https://www.redfin.com/MA/Fitchburg/165-Summer-St-01420/home/39877090",
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-09",
+    "addedAt": "2026-11-09T10:00:00Z"
   }
 ];
