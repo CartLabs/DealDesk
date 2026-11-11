@@ -3,7 +3,7 @@
    tools/install-daily-task.cmd), because Redfin blocks cloud servers and Claude's scheduled runs can't open web pages.
    node tools/daily-check.js [--commit]     --commit also saves the result to GitHub (commit + push to main).
    1. tools/pull-redfin.js writes rows.txt from each watched town's Redfin lists.
-   2. tools/refresh-listings.js folds rows.txt into data/listings.js and data/watch-state.json.
+   2. tools/refresh-listings.js folds rows.txt into data/listings.js, data/watch-state.json and data/comps.js (recent sales).
    3. Tests and the version check run; if anything fails, or more than a third of existing listings changed
       at once, the data files are put back and nothing but the status file changes.
    Always writes data/last-check.json, which the 6:49am Claude task reads to send Kevin his alert.
@@ -13,7 +13,7 @@ const ROOT=path.join(__dirname,'..'),TMP=process.env.RUNNER_TEMP||require('os').
 const day=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
 const run=(args,opts={})=>execFileSync(process.execPath,args,{cwd:ROOT,encoding:'utf8',maxBuffer:64<<20,...opts});
 const status={date:day,ranAt:new Date().toISOString(),status:'ok',problem:null,towns:[],report:null};
-const DATA=['data/listings.js','data/watch-state.json'];
+const DATA=['data/listings.js','data/watch-state.json','data/comps.js'];
 const restore=()=>execFileSync('git',['checkout','--',...DATA],{cwd:ROOT});
 const git=(...a)=>execFileSync('git',a,{cwd:ROOT,encoding:'utf8',stdio:['ignore','pipe','inherit']});
 function finish(msg){

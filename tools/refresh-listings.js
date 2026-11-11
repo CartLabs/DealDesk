@@ -5,9 +5,12 @@
 
    rows.txt    One "#Town|ST|total" line per town pulled (total = the number of homes the page says it has, blank if
                not shown), then one line per for-sale listing on that town's page:
-               address|price|units|beds|baths|redfin path      (units 0 = not shown; path like MA/Lowell/1-Main-St-01850/home/123)
+               address|price|units|beds|baths|redfin path|sq ft|year built      (units 0 = not shown; path like MA/Lowell/1-Main-St-01850/home/123;
+               sq ft and year built may be blank or missing)
                Then, for the town's recently-sold page, a "#SOLD Town|ST" line and one line per sold home:
-               address|sold price|sold date (YYYY-MM-DD, blank if not shown)|redfin path
+               address|sold price|sold date (YYYY-MM-DD, blank if not shown)|redfin path|sq ft (optional)
+               Every sale with a price and square feet is kept in data/comps.js for a year, listed by us or not: the app
+               estimates a fixed-up home's value (ARV) from them.
                Single-family pages use the same rows under "#Town|ST|total|house" and "#SOLD Town|ST|house". Every listing
                there is one unit, and its rent is the town's apartment average for its bedrooms plus 10% for a house.
                Only list a town if its page was actually read. A town with a header and no rows was read and had nothing
@@ -23,7 +26,7 @@
    Rules: a listing is only ever marked sold or gone from status.txt, never just because it is missing. */
 const fs=require('fs'),path=require('path');
 const ROOT=path.join(__dirname,'..');
-const {DEFAULTS,analyze}=require(path.join(ROOT,'calc.js'));
+const {DEFAULTS,analyze,strategies,ppsfTable,arvEstimate}=require(path.join(ROOT,'calc.js'));
 const HOME=[42.670,-71.302],RADIUS=50,CHECK_CAP=25;
 const PULL_CAP=700000,PULL_CAP_HOUSE=550000; /* pull-redfin.js leaves out homes above these, so their absence from a page means nothing */
 const overCap=d=>+d.price>(+d.units===1?PULL_CAP_HOUSE:PULL_CAP);
@@ -37,12 +40,13 @@ const hit=v=>v==='Buy box'||v==='Negotiate';
 
 function rentTable(r){let [r1,r2,r3,r4]=r;r1=Math.max(r1,0.75*r2);r3=Math.min(Math.max(r3,r2),1.3*r2);r4=Math.min(Math.max(r4,r3),1.2*r3);return [0.85*r1,r1,r2,r3,r4];}
 
+const extra=row=>({...(row.sqft>0?{sqft:row.sqft}:{}),...(row.year>0?{yearBuilt:row.year}:{})});
 const HOUSE_PREMIUM=1.10; // a house usually rents for more than an apartment with the same bedrooms
 function buildHouse(row,town,state,T,now,day){
   const beds=Math.max(1,Math.round(+row.beds||0));if(!(row.price>0))return null;
   const R=rentTable(T.rents);const rent=Math.round(R[Math.min(beds,4)]*HOUSE_PREMIUM/25)*25;
   return {id:slug(state+' '+town)+'-'+slug(row.address),address:row.address,town,state,miles:milesTo(HOME,[T.lat,T.lon]),
-    type:"Single-family",units:1,price:row.price,rent,url:"https://www.redfin.com/"+row.path,
+    type:"Single-family",units:1,price:row.price,rent,url:"https://www.redfin.com/"+row.path,...extra(row),
     notes:`Light data: confirm on the listing before deciding. Rent is an estimate: the ${town} average for a ${beds}-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.`,
     source:"Redfin, pulled "+day,addedAt:now};
 }
@@ -54,14 +58,16 @@ function build(row,town,state,T,now,day){
   const rent=Math.round(per.reduce((s,n)=>s+R[Math.min(n,4)],0)/25)*25;
   return {id:slug(state+' '+town)+'-'+slug(row.address),address:row.address,town,state,miles:milesTo(HOME,[T.lat,T.lon]),
     type:["","Single-family","Two-family","Three-family","Four-family"][units],units,price:row.price,rent,
-    url:"https://www.redfin.com/"+row.path,
+    url:"https://www.redfin.com/"+row.path,...extra(row),
     notes:`Light data: confirm on the listing before deciding. Rent is an estimate from ${town} averages, assuming ${beds} bedrooms split as ${per.map(n=>n+'BR').join(' + ')}. Taxes and insurance are estimated.`+(inferred?` Unit count (${units}) is inferred from ${beds} beds and ${baths} baths; the listing page did not show it.`:""),
     ...(inferred?{unitsInferred:true}:{}),source:"Redfin, pulled "+day,addedAt:now};
 }
 
-function refresh(listings,state,towns,rowsText,statusText,now){
+function refresh(listings,state,towns,rowsText,statusText,now,comps=[]){
   const day=now.slice(0,10);
-  const rep={date:day,townsPulled:[],townsFailed:[],added:0,newMatches:[],priceChanges:[],sold:[],gone:[],skipped:[],check:[],errors:[]};
+  const rep={date:day,townsPulled:[],townsFailed:[],added:0,newMatches:[],flipCandidates:[],priceChanges:[],sold:[],gone:[],skipped:[],check:[],errors:[]};
+  const fresh=[]; /* new and price-cut listings, checked as flip or BRRRR candidates at the end */
+  const compIds=new Set(comps.map(c=>c.id).filter(Boolean));
   const byHome=new Map(),byId=new Map();
   for(const d of listings){byId.set(d.id,d);const h=homeId(d.url);if(h)byHome.set(h,d);}
   const seen=new Set(),activeNow=new Set();let town=null,st=null,soldMode=false,kind='multi';const pulled=new Map(),full=new Set();
@@ -73,7 +79,10 @@ function refresh(listings,state,towns,rowsText,statusText,now){
       kind=q.some((x,i)=>i>=2&&/^house$/i.test(x))?'house':'multi';
       if(!soldMode){pulled.set(town+'|'+st+'|'+kind,0);if(/^\d+$/.test(q[2]||''))full.add(town+'|'+st+'|'+kind+'|'+(+q[2])); /* "0" means the page said it has none */}continue;}
     if(soldMode){const p=line.split('|').map(x=>x.trim());if(p.length<4){rep.errors.push('bad sold row: '+line);continue;}
-      const h=homeId(p[3]);const d=(h&&byHome.get(h));if(!d)continue; /* a sale of a home we never listed */
+      const h=homeId(p[3]);
+      {const pr=+String(p[1]).replace(/[^0-9.]/g,'')||0,sf=+p[4]||0; /* every sale with a size is a comp, listed by us or not */
+        if(pr>0&&sf>0&&h&&!compIds.has(h)){compIds.add(h);comps.push({id:h,town,state:st,kind,price:pr,sqft:Math.round(sf),date:/^\d{4}-\d{2}-\d{2}$/.test(p[2])?p[2]:day});rep.comps=(rep.comps||0)+1;}}
+      const d=(h&&byHome.get(h));if(!d)continue; /* a sale of a home we never listed */
       if(activeNow.has(d.id)){rep.soldButActive=(rep.soldButActive||0)+1;continue;} /* on this town's for-sale list today, so not sold */
       const price=+String(p[1]).replace(/[^0-9.]/g,'')||0;const date=/^\d{4}-\d{2}-\d{2}$/.test(p[2])?p[2]:(d.sold&&d.sold.date)||day;
       seen.add(d.id);const first=!d.sold;const had=d.sold&&d.sold.price;
@@ -83,19 +92,21 @@ function refresh(listings,state,towns,rowsText,statusText,now){
     const p=line.split('|');if(p.length<6||!town){rep.errors.push('bad row: '+line);continue;}
     const key=town+'|'+st,T=towns[key];if(!T){rep.errors.push('town not in towns.json: '+key);continue;}
     const pkey=key+'|'+kind;
-    const row={address:p[0].trim(),price:+String(p[1]).replace(/[^0-9.]/g,''),units:p[2],beds:p[3],baths:p[4],path:p[5].trim().replace(/^https?:\/\/www\.redfin\.com\//,'').replace(/^\//,'')};
+    const row={address:p[0].trim(),price:+String(p[1]).replace(/[^0-9.]/g,''),units:p[2],beds:p[3],baths:p[4],path:p[5].trim().replace(/^https?:\/\/www\.redfin\.com\//,'').replace(/^\//,''),
+      sqft:Math.round(+p[6]||0),year:+p[7]||0};
     pulled.set(pkey,pulled.get(pkey)+1);
     const h=homeId(row.path);const old=(h&&byHome.get(h))||byId.get(slug(st+' '+town)+'-'+slug(row.address));
     if(old){seen.add(old.id);activeNow.add(old.id);
+      if(row.sqft>0&&!(old.sqft>0))old.sqft=row.sqft;if(row.year>0&&!(old.yearBuilt>0))old.yearBuilt=row.year;
       if(old.sold||old.gone){delete old.sold;delete old.gone;old.relistedAt=now;} /* back on the market */
       if(row.price>0&&row.price!==old.price){const was=verdict(old);const from=old.price;old.priceWas=from;old.price=row.price;old.priceChangedAt=now;
-        const b=brief(old);rep.priceChanges.push({...b,from,verdictWas:was,nowMatches:hit(b.verdict)&&!hit(was)&&old.miles<=RADIUS});}
+        const b=brief(old);rep.priceChanges.push({...b,from,verdictWas:was,nowMatches:hit(b.verdict)&&!hit(was)&&old.miles<=RADIUS});if(row.price<from)fresh.push(old);}
       continue;}
     const d=kind==='house'?buildHouse(row,town,st,T,now,day):build(row,town,st,T,now,day);
     if(!d){rep.skipped.push(row.address+', '+town);continue;}
     if(byId.has(d.id)){rep.errors.push('id clash: '+d.id);continue;}
     listings.push(d);byId.set(d.id,d);if(h)byHome.set(h,d);seen.add(d.id);activeNow.add(d.id);rep.added++;
-    const b=brief(d);if(hit(b.verdict)&&d.miles<=RADIUS)rep.newMatches.push(b);
+    const b=brief(d);if(hit(b.verdict)&&d.miles<=RADIUS)rep.newMatches.push(b);fresh.push(d);
   }
   for(const [k,n] of pulled)rep.townsPulled.push(label(k)+` (${n})`);
   for(const [k,T] of Object.entries(towns)){if(!T.watch)continue;
@@ -123,10 +134,26 @@ function refresh(listings,state,towns,rowsText,statusText,now){
     .filter(d=>(state[d.id]||{}).checked!==day)
     .sort((a,b)=>((state[a.id]||{}).checked||'').localeCompare((state[b.id]||{}).checked||'')||(a.miles-b.miles));
   rep.checkTotal=cand.length;rep.check=cand.slice(0,CHECK_CAP).map(d=>({id:d.id,url:d.url,why:d.sold?'sold, price not published yet':'missing from town page'}));
+  /* a year of sales is plenty for price per square foot */
+  for(let i=comps.length-1;i>=0;i--)if(comps[i].date&&(Date.parse(now)-Date.parse(comps[i].date))>365*864e5)comps.splice(i,1);
+  /* flip and BRRRR candidates: new or price-cut listings within 50 miles whose best play is a rehab with room in the budget */
+  const table=ppsfTable(listings,comps,now);
+  for(const d of fresh){if(d.sold||d.gone||d.miles>RADIUS)continue;const e=arvEstimate(d,table);if(!e)continue;
+    const x=strategies({...d,arvEst:e.value},DEFAULTS),k=x.rec;
+    if((k==='flip'||k==='brrrr')&&x[k].room)rep.flipCandidates.push({...brief(d),best:k==='flip'?'Flip':'BRRRR',arv:e.value,arvFrom:e.src==='sold'?`${e.n} sales`:`${e.n} listings`,maxRehab:x[k].maxRehab});}
+  rep.compsTotal=comps.length;
   rep.total=listings.length;
   return rep;
 }
-module.exports={refresh,homeId};
+/* data/comps.js: one sale per line, oldest first, so a day's new sales are a small diff */
+function compsFile(comps){const c=[...comps].sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.id).localeCompare(String(b.id)));
+  return `// Recent home sales (price and square feet) in the towns the daily check watches, kept for a year.
+// Written by tools/refresh-listings.js. The app uses them to estimate a fixed-up home's value (ARV) for flips and BRRRR.
+window.SALE_COMPS = [
+${c.map(x=>'  '+JSON.stringify(x)).join(',\n')}
+];
+`;}
+module.exports={refresh,homeId,compsFile};
 
 if(require.main===module){
   const now=arg('date')?arg('date')+'T10:00:00Z':new Date().toISOString();
@@ -134,7 +161,8 @@ if(require.main===module){
   const sp=path.join(ROOT,'data/watch-state.json');const state=fs.existsSync(sp)?JSON.parse(fs.readFileSync(sp,'utf8')):{};
   const towns=JSON.parse(fs.readFileSync(path.join(__dirname,'towns.json'),'utf8')).towns;
   const rd=f=>f&&f!==true?fs.readFileSync(f,'utf8'):'';
-  const rep=refresh(listings,state,towns,rd(arg('rows')),rd(arg('status')),now);
+  const cp=path.join(ROOT,'data/comps.js');global.window.SALE_COMPS=[];if(fs.existsSync(cp))require(cp);const comps=window.SALE_COMPS||[];
+  const rep=refresh(listings,state,towns,rd(arg('rows')),rd(arg('status')),now,comps);
   if(!arg('dry')){
     fs.writeFileSync(path.join(ROOT,'data/listings.js'),`// Listings Claude has loaded. Every device picks up new ones the next time the page opens.
 // Kept current by the daily listing check (tools/refresh-listings.js). Rents are estimates, not leases.
@@ -144,6 +172,7 @@ if(require.main===module){
 window.SEED_LISTINGS = ${JSON.stringify(listings,null,2)};
 `);
     fs.writeFileSync(sp,JSON.stringify(state,null,1)+'\n');
+    fs.writeFileSync(cp,compsFile(comps));
   }
   console.log(JSON.stringify(rep,null,2));
 }

@@ -17,9 +17,15 @@ If they disagree, stop and tell Kevin.
 
 ## The product
 
-A personal tool for Kevin. It scores buy-and-hold rental deals (one to four
-units, investor loan) within 50 miles of Dracut, MA against a buy box and works
-each one back to a maximum offer. Not for sale, no customers.
+A personal tool for Kevin. It scores deals within 50 miles of Dracut, MA three
+ways (a buy-and-hold rental on an investor loan, a flip, and a BRRRR) against his
+buy box, recommends the best fit, and works each one back to a maximum offer.
+Not for sale, no customers.
+
+Why flips (Kevin, Nov 10 2026): about one flip a year to build cash for the next
+rental's down payment, funded from the same home equity line as the rentals. He
+has a GC he trusts and enters the GC's rehab number after a walkthrough; the app
+never guesses the rehab cost.
 
 Kevin is a non-coder founder and product owner. He decides direction; Claude
 handles technical execution end to end.
@@ -31,6 +37,7 @@ handles technical execution end to end.
 | `index.html` | The whole page: buy box, pipeline, deal sheet, add/edit form |
 | `calc.js` | All deal math. Change formulas here only |
 | `data/listings.js` | Listings Claude has loaded. Every device picks up new ones on next open |
+| `data/comps.js` | Recent sales (price, square feet) kept for a year by the daily check. Used to estimate after-repair value |
 | `assets/` | Logo (`logo.svg`), icon (`icon.svg`) and home-screen icons |
 | `manifest.json` | Name and icons for Add to Home Screen |
 | `lookup.js` | Turns a RentCast lookup into form values and property facts, and reads addresses out of pasted listing links (parseInput), tested by `tools/test-lookup.js` |
@@ -66,7 +73,7 @@ handles technical execution end to end.
 
 ## How the app is organized
 
-Five tabs, opening on Review. The fifth is Settings (gear icon): Google Drive backup and sync, file backup and restore, and release notes.
+Five tabs, opening on Review. Review and In flight have a section row: All, Rentals, Flips, BRRRR. The fifth is Settings (gear icon): Google Drive backup and sync, file backup and restore, and release notes.
 
 - **Review:** listings Claude has loaded that Kevin has not decided on. Keep moves one to In flight; Remove asks for a reason and archives it.
 - **In flight:** deals Kevin is working, each with a stage: Interested, Inquired, Toured, Offer made, Under contract. Mark as bought moves it to Owned.
@@ -84,6 +91,29 @@ An owned property holds a `loans` list (type, balance, rate, payment). Propertie
 A listing in `data/listings.js` has no status, so it lands in Review on every device.
 
 Every listing carries `miles`, the straight-line distance from Dracut, MA to its town center. The Review tab filters on it using the distance Kevin picks (default 50). When loading listings, load out to 100 miles so widening the distance has something to show, and always set `miles`.
+
+## Rental, flip or BRRRR (1.22.0)
+
+- `strategies(d, s)` in `calc.js` scores all three and sets `rec`. Rental is the existing `analyze`. Flip and BRRRR
+  buy on a short-term loan (`hmLTC`% of price plus `hmRehab`% of rehab at `hmRate`, `hmPoints`); what it does not cover
+  comes from the home equity line when `dpSource` is 1. Flip: profit must clear `minFlipProfit` before tax; `flipTax`
+  is a rough placeholder. BRRRR: the refinance lends up to `refiLTV`% of ARV but only what the rent carries (both DSCR
+  tests), cash flow after the refinance and the home equity payment on what is left in must meet the rental rules,
+  and at least half the cash must come back.
+- Recommendation: the strategy with the smallest gap to asking wins; within 2 points, Rental, then BRRRR, then Flip
+  (keep the property). If nothing is within 10%, a flip or BRRRR with room in the rehab budget is the lead.
+- `rehab` is the GC's number. Blank means no walkthrough yet: flip and BRRRR then show the max rehab budget and the
+  verdict "Needs GC" when it is at least $30,000 or 10% of the price (`roomFor`). A `contingency`% cushion is added.
+- After-repair value: `d.arv` (Kevin's) wins; otherwise `arvEstimate`: square feet times the top-quarter price per
+  square foot of the same town and home type, from `data/comps.js` sales (5 or more) or else current listings.
+  Never shown without saying it is an estimate.
+- `d.strategy` (rental / flip / brrrr) is set only when Kevin files a deal under something other than the
+  recommendation. Review and In flight filter by section (`settings.section`: all, rental, flip, brrrr).
+- Stages: rentals as before; flips and BRRRR add GC walkthrough, Rehab, then Listed for sale (flip) or Rented,
+  Refinancing (BRRRR). A flip is closed with Mark as sold, which archives it as "Flipped" with `flipSold`.
+- The daily check records `sqft` and `yearBuilt` on listings and every sale with a size in `data/comps.js`, and
+  reports `flipCandidates` (new or price-cut listings within 50 miles whose best play is a flip or BRRRR with room).
+  The 6:49 alert lists them.
 
 ## Off-market deals, lookup and deal financing
 
@@ -165,7 +195,7 @@ and the 6:49 alert says the check did not run.
 - The check does not open individual listing pages, search the web or look up rents. Rent averages in
   `tools/towns.json` are updated by hand in a normal session.
 - The app archives sold and gone listings that are still in Review, and only tags ones in flight.
-- A daily check commits only `data/listings.js`, `data/watch-state.json` and `data/last-check.json`, straight to `main`
+- A daily check commits only `data/listings.js`, `data/watch-state.json`, `data/comps.js` and `data/last-check.json`, straight to `main`
   (Kevin authorized this). It does **not** bump the version or touch app code. If the tool or tests
   fail, it pushes nothing and reports the failure.
 - Kevin is alerted (email and phone) about new or newly price-cut listings that are Buy box or

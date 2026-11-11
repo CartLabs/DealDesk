@@ -130,15 +130,18 @@ async function readList(pageUrl,town,sold,T,uipt=4){
   throw last;
 }
 
+/* Square feet and year built, blank when Redfin leaves them out (1.22.0: used to estimate a fixed-up home's value) */
+const sqftCol=o=>{const v=+String(col(o,'SQUARE FEET')).replace(/[^0-9.]/g,'');return v>0?Math.round(v):'';};
+const yearCol=o=>{const v=+String(col(o,'YEAR BUILT')).replace(/[^0-9]/g,'');return v>1700&&v<2100?v:'';};
 function forSaleLines(rows,keep=small,cap=MAX_PRICE){
   return rows.filter(keep).filter(o=>!/past sale/i.test(col(o,'SALE TYPE'))).filter(o=>{const p=+col(o,'PRICE').replace(/[^0-9.]/g,'');return p>0&&p<=cap;})
-    .map(o=>[clean(col(o,'ADDRESS')),+col(o,'PRICE').replace(/[^0-9.]/g,''),0,clean(col(o,'BEDS'))||0,clean(col(o,'BATHS'))||0,pathOf(col(o,'URL'))].join('|'));
+    .map(o=>[clean(col(o,'ADDRESS')),+col(o,'PRICE').replace(/[^0-9.]/g,''),0,clean(col(o,'BEDS'))||0,clean(col(o,'BATHS'))||0,pathOf(col(o,'URL')),sqftCol(o),yearCol(o)].join('|'));
 }
 /* Redfin's "include=sold-1mo" ADDS last month's sales to the homes still for sale, so the sold download holds both.
    Only rows Redfin marks as a past sale with a sold date are sales; the rest are active listings and are dropped. */
 const isSale=o=>/past sale/i.test(col(o,'SALE TYPE'))&&!!isoDate(col(o,'SOLD DATE'));
 function soldLines(rows,keep=small){
-  return rows.filter(keep).filter(isSale).map(o=>[clean(col(o,'ADDRESS')),+col(o,'PRICE').replace(/[^0-9.]/g,'')||'',isoDate(col(o,'SOLD DATE')),pathOf(col(o,'URL'))].join('|'));
+  return rows.filter(keep).filter(isSale).map(o=>[clean(col(o,'ADDRESS')),+col(o,'PRICE').replace(/[^0-9.]/g,'')||'',isoDate(col(o,'SOLD DATE')),pathOf(col(o,'URL')),sqftCol(o)].join('|'));
 }
 
 async function main(){

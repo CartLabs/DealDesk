@@ -70,3 +70,18 @@ test('single-family pages: one unit, house rent, and kept apart from the multi-f
   refresh(L,S,towns,rows2,'',"2026-11-01T10:00:00Z");refresh(L,S,towns,rows2,'',"2026-11-16T10:00:00Z");
   assert.ok(h.gone);assert.equal(L.filter(d=>d.gone).length,1);
 });
+test('1.22.0: square feet stored, every sale with a size kept as a comp, flip candidates flagged',()=>{
+  const L=base(),S={},comps=[];
+  /* six town sales around $400/sq ft, then a cheap 1,500 sq ft house listed at $250/sq ft */
+  const sold=[1,2,3,4,5,6].map(i=>`${i} Sold St|${600000+i*1000}|2026-10-0${i}|MA/Lowell/${i}-Sold-St-01850/home/80${i}|1500`).join('\n');
+  const r=refresh(L,S,towns,`#Lowell|MA|1|house\n9 Cheap St|375000|0|3|2|MA/Lowell/9-Cheap-St-01850/home/901|1500|1920\n#SOLD Lowell|MA|house\n${sold}\n`,'',NOW,comps);
+  const d=L.find(x=>x.address==='9 Cheap St');
+  assert.equal(d.sqft,1500);assert.equal(d.yearBuilt,1920);
+  assert.equal(comps.length,6);assert.equal(comps[0].kind,'house');assert.equal(r.compsTotal,6);
+  assert.equal(r.flipCandidates.length,1);assert.equal(r.flipCandidates[0].address,'9 Cheap St');assert.ok(r.flipCandidates[0].maxRehab>=37500);
+  /* the same sales again are not added twice; an existing listing picks up its size */
+  refresh(L,S,towns,`#Lowell|MA\n2 B St|600000|2|6|2|MA/Lowell/2-B-St-01850/home/222|2400|1910\n#SOLD Lowell|MA|house\n${sold}\n`,'',NOW,comps);
+  assert.equal(comps.length,6);assert.equal(L.find(x=>x.id==='old-style-id').sqft,2400);
+  /* sales over a year old drop off */
+  refresh(L,S,towns,'','', "2027-10-20T10:00:00Z",comps);assert.equal(comps.length,0);
+});

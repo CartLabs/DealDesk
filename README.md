@@ -1,6 +1,6 @@
 # DealDesk
 
-Scores rental properties within 50 miles of Dracut, MA against a buy box and works each one back to a maximum offer. Personal tool, buy-and-hold only (one to four units, investor loan).
+Scores properties within 50 miles of Dracut, MA three ways (buy-and-hold rental, flip, BRRRR) against a buy box, recommends the best fit, and works each one back to a maximum offer. Personal tool.
 
 ## Use it
 

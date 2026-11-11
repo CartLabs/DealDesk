@@ -242,6 +242,25 @@ td .stage{display:block}
 label.check{flex-direction:row;align-items:center;gap:10px;font-size:14px;color:var(--ink);font-weight:500}
 label.check input{width:20px;height:20px;flex:none}
 input.money{text-align:left}
+/* 1.22.0: strategy sections and the rental / flip / BRRRR comparison */
+.seg{display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface);margin:2px 0 4px}
+.seg button{flex:1;border:0;background:none;font:600 13px var(--body);color:var(--muted);padding:8px 4px;cursor:pointer;border-right:1px solid var(--line);min-width:0}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.seg .n{font-weight:500;opacity:.8;margin-left:3px}
+.strat{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.stratgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stratc{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px;cursor:pointer;font:inherit;color:var(--ink);min-width:0}
+.stratc.sel{border:2px solid var(--accent);padding:9px;background:var(--accent-soft)}
+.stratc .sname{font:700 14px var(--body)}
+.stratc .sbig{font:600 18px var(--mono);font-variant-numeric:tabular-nums}
+.stratc .small{line-height:1.3}
+.stratc .rec{font:700 9px var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+@media(max-width:420px){.stratc{padding:8px}.stratc.sel{padding:7px}.stratc .sbig{font-size:15px}.stratc .sname{font-size:13px}}
+.stratin{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;gap:8px;align-items:end}
+@media(max-width:420px){.stratin{grid-template-columns:1fr 1fr}.stratin .btn{grid-column:1/-1}}
+.tag.strat{border-style:solid;border-color:var(--accent);color:var(--accent)}
+.boxsub{grid-column:1/-1;font:700 12px var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--ink);border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
 </style>
 
 </head>
@@ -298,6 +317,21 @@ input.money{text-align:left}
       <label>Repairs %<input id="s_maint" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Capital reserves %<input id="s_capex" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Management %<input id="s_mgmt" type="number" step="any" min="0" inputmode="decimal"></label>
+      <span class="boxsub">Flips and BRRRR</span>
+      <label>Min flip profit, before tax<input id="s_minFlipProfit" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Rough tax on flip profit %<input id="s_flipTax" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Short-term loan, % of price<input id="s_hmLTC" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Short-term loan, % of rehab<input id="s_hmRehab" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Short-term loan rate %<input id="s_hmRate" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Short-term loan points %<input id="s_hmPoints" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Flip: months to sold<input id="s_months" type="number" step="any" min="1" inputmode="decimal"></label>
+      <label>Selling costs % of sale<input id="s_sellCost" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Cushion on GC's number %<input id="s_contingency" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>Utilities while empty / mo<input id="s_holdMonthly" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>BRRRR: refinance % of ARV<input id="s_refiLTV" type="number" step="any" min="0" inputmode="decimal"></label>
+      <label>BRRRR: months to refinance<input id="s_refiMonths" type="number" step="any" min="1" inputmode="decimal"></label>
+      <label>BRRRR: refinance costs % of loan<input id="s_refiCost" type="number" step="any" min="0" inputmode="decimal"></label>
+      <p class="small muted span2" style="grid-column:1/-1;margin:0">What a short-term loan does not cover comes from the same place as a rental's cash to close (home equity or cash, above). Flip profit is taxed as ordinary income; the tax % is a rough placeholder, so check it with a CPA.</p>
       <div class="row span2"><button class="btn primary" type="submit">Save buy box</button><span class="small muted">Percentages of rent apply to collected rent. Your DSCR is net income ÷ mortgage; the lender's is rent ÷ mortgage, taxes, insurance and HOA. Reserves are months of that full payment. Funds available is cash plus the equity you can draw. With home equity, its payment comes out of each deal's cash flow. Changes re-score every deal.</span></div>
     </form>
   </details>
@@ -322,7 +356,9 @@ input.money{text-align:left}
       <label>Taxes / yr (blank = estimate)<input id="f_taxes" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>Insurance / yr (blank = estimate)<input id="f_ins" class="money" type="text" inputmode="decimal" placeholder="$"></label>
       <label>HOA / mo<input id="f_hoa" class="money" type="text" inputmode="decimal" placeholder="$"></label>
-      <label>Upfront repairs<input id="f_rehab" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Rehab, your GC's number (blank = none yet)<input id="f_rehab" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>After-repair value, ARV (blank = estimate)<input id="f_arv" class="money" type="text" inputmode="decimal" placeholder="$"></label>
+      <label>Square feet<input id="f_sqft" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>School rating (1-10)<input id="f_school" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Walk Score (0-100)<input id="f_walk" type="number" step="any" min="0" inputmode="decimal"></label>
       <label>Miles from Dracut<input id="f_miles" type="number" step="any" min="0" inputmode="decimal"></label>
@@ -372,6 +408,7 @@ input.money{text-align:left}
     <div class="row" style="justify-content:space-between"><h2 id="listTitle">To review</h2><span class="small muted" id="count"></span></div>
     <p class="small muted" id="listHelp"></p>
     <div id="arcStats" hidden></div>
+    <div class="seg" id="sectionSeg" role="group" aria-label="Rentals, flips or BRRRR"></div>
     <div class="filters" id="filters">
       <label id="radiusWrap">Distance from Dracut
         <select id="radius"><option value="10">Within 10 miles</option><option value="25">Within 25 miles</option><option value="50">Within 50 miles</option><option value="75">Within 75 miles</option><option value="100">Within 100 miles</option><option value="0">Any distance</option></select></label>
@@ -380,7 +417,7 @@ input.money{text-align:left}
     </div>
     <div class="tablewrap">
       <table>
-        <thead><tr><th>Property</th><th>Ask</th><th>Rent / mo</th><th>Cash flow / unit</th><th>Cash-on-cash</th><th>DSCR</th><th>Max offer</th><th>Verdict</th></tr></thead>
+        <thead id="thead"><tr><th>Property</th><th>Ask</th><th>Rent / mo</th><th>Cash flow / unit</th><th>Cash-on-cash</th><th>DSCR</th><th>Max offer</th><th>Verdict</th></tr></thead>
         <tbody id="rows"></tbody>
       </table>
       <div class="empty" id="empty"></div>
@@ -402,8 +439,11 @@ input.money{text-align:left}
     </div>
     <div class="actions" id="d_actions"></div>
     <div class="chips" id="d_reasons" hidden></div>
+    <div class="strat" id="d_strat"></div>
     <div class="sheet">
       <div class="col">
+        <div class="col" id="d_alt" hidden></div>
+        <div class="col" id="d_rentA">
         <div class="offer">
           <h3>Maximum offer</h3>
           <div class="big" id="d_max"></div>
@@ -414,9 +454,10 @@ input.money{text-align:left}
           <h3>Year-one income statement</h3>
           <table class="ledger num"><tbody id="d_ledger"></tbody></table>
         </div>
+        </div>
       </div>
       <div class="col">
-        <div>
+        <div id="d_scenWrap">
           <h3>Financing scenarios at asking price</h3>
           <div style="overflow-x:auto"><table class="scen num"><thead><tr><th>Down</th><th>Cash needed</th><th>Mortgage / mo</th><th>Cash flow / mo</th><th>Cash-on-cash</th></tr></thead><tbody id="d_scen"></tbody></table></div>
         </div>
@@ -529,8 +570,9 @@ input.money{text-align:left}
 <script src="sync.js"></script>
 <script src="lookup.js"></script>
 <script src="data/listings.js"></script>
+<script src="data/comps.js"></script>
 <script>
-const APP_VERSION = '1.21.1';
+const APP_VERSION = '1.22.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -543,6 +585,10 @@ document.addEventListener("focusout",e=>{const el=e.target;if(el.classList?.cont
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const SKEYS=Object.keys(DEFAULTS);
 const STAGES=["Interested","Inquired","Toured","Offer made","Under contract"];
+/* 1.22.0: flips and BRRRR carry on past closing, through the rehab */
+const FLIP_STAGES=["Interested","Inquired","Toured","GC walkthrough","Offer made","Under contract","Rehab","Listed for sale"];
+const BRRRR_STAGES=["Interested","Inquired","Toured","GC walkthrough","Offer made","Under contract","Rehab","Rented","Refinancing"];
+const SECTIONS={all:"All",rental:"Rentals",flip:"Flips",brrrr:"BRRRR"};
 const REASONS=["Numbers don't work","Price too high","Condition","Location","Lost to another buyer","Seller pulled it","Financing","Other"];
 const TABS={review:"To review",flight:"In flight",owned:"Owned",archive:"Archive"};
 const isList=t=>t==="review"||t==="flight"||t==="archive";
@@ -561,10 +607,42 @@ const shortDate=iso=>{const t=new Date(iso);return isNaN(t)?"":t.toLocaleDateStr
 const isNew=d=>{const t=new Date(d.addedAt||0);return (Date.now()-t)<7*864e5;};
 let statusTimer=null;
 function status(t){$("status").textContent=t||"";clearTimeout(statusTimer);if(t)statusTimer=setTimeout(()=>{$("status").textContent="";},4000);}
-function vclass(v){return v==="Buy box"?"good":v==="Negotiate"?"warn":v==="Needs rent"?"plain":"bad";}
+function vclass(v){return v==="Buy box"?"good":v==="Negotiate"||v==="Needs GC"?"warn":v==="Needs rent"||v==="Needs ARV"||v==="Needs price"?"plain":"bad";}
 /* score a deal; one with no rent yet cannot be scored, so it is marked instead of shown as a failure */
 function score(d){const a=analyze(d,settings);if(!(+d.rent>0)){a.verdict="Needs rent";a.gap=1e9;a.needs=true;}return a;}
 const offMarket=d=>d.source==="offmarket";
+/* ---- rental, flip or BRRRR (1.22.0). The math is strategies() in calc.js ---- */
+let PPSF=null;
+const ppsf=()=>PPSF||(PPSF=ppsfTable(window.SEED_LISTINGS||[],window.SALE_COMPS||[],today()));
+/* after-repair value: Kevin's figure, else an estimate from town price per square foot */
+function arvInfo(d){if(+d.arv>0)return {value:+d.arv,src:"you"};return arvEstimate(d,ppsf());}
+const EVC=new WeakMap();
+const evKey=d=>[d.price,d.rent,d.rehab,d.arv,d.units,d.taxes,d.ins,d.hoa,d.sqft,d.state,d.town,d.strategy,JSON.stringify(d.fin||0),JSON.stringify(d.facts&&d.facts.squareFootage||0),JSON.stringify(settings)].join("|");
+function evalOf(d){const key=evKey(d),c=EVC.get(d);if(c&&c.key===key)return c.v;
+  const ai=arvInfo(d),dd=ai&&ai.src!=="you"?{...d,arvEst:ai.value}:d;
+  const x=strategies(dd,settings);x.arvInfo=ai;x.chosen=SECTIONS[d.strategy]&&d.strategy!=="all"?d.strategy:x.rec;
+  EVC.set(d,{key,v:x});return x;}
+const chosenOf=d=>evalOf(d).chosen;
+const stagesFor=d=>{const k=chosenOf(d);return k==="flip"?FLIP_STAGES:k==="brrrr"?BRRRR_STAGES:STAGES;};
+const NAME={rental:"Rental",flip:"Flip",brrrr:"BRRRR"};
+/* the headline for one strategy: the big number and the line under it */
+function stratFace(x,k){const r=x[k];
+  if(k==="rental"){if(r.needs)return {big:"—",cap:"needs rent",line:"Add the rent to score it"};
+    if(!(r.maxOffer>0))return {big:"—",cap:"no price works",line:`${usd(r.cfUnit)}/unit/mo at asking`};
+    return {big:usd(r.maxOffer),cap:"max offer",line:`${usd(r.cfUnit)}/unit/mo at asking`};}
+  if(r.needs==="arv")return {big:"—",cap:"needs ARV",line:"Add the after-repair value"};
+  if(r.needs==="rent")return {big:"—",cap:"needs rent",line:"Add the rent to score it"};
+  if(r.needs==="price")return {big:"—",cap:"needs price",line:""};
+  if(r.needs==="rehab")return r.maxRehab>0?{big:usd(r.maxRehab),cap:"max rehab",line:"Works if the GC comes in under this"}:{big:"—",cap:"no room",line:"Short even with no rehab"};
+  if(!(r.maxOffer>0))return {big:"—",cap:"no price works",line:k==="flip"?`${usd(r.at.net)} after tax at asking`:`${usd(r.at.cfUnit)}/unit after refinance`};
+  return k==="flip"?{big:usd(r.maxOffer),cap:"max offer",line:`${usd(r.at.net)} after tax at asking`}
+    :{big:usd(r.maxOffer),cap:"max offer",line:`${usd(r.at.left)} left in · ${usd(r.at.cfUnit)}/unit`};}
+/* one plain sentence on the best way to play it */
+function stratWhy(x){const k=x.rec,r=x[k];
+  const offers=["rental","flip","brrrr"].filter(q=>x[q].gap<1e8&&x[q].maxOffer>0).map(q=>`${q==="brrrr"?"BRRRR":NAME[q].toLowerCase()} ${usd(x[q].maxOffer)}`);
+  if(r.needs==="rehab")return `Best lead: <b>${NAME[k]}</b>. It works if your GC's number comes in under <b>${usd(r.maxRehab)}</b> (DealDesk adds a ${+opt(settings,"contingency")}% cushion on top).`+(x.rental.gap<1e8?` As a turnkey rental it can pay up to ${usd(x.rental.maxOffer)}.`:"");
+  if(r.gap>10)return offers.length?`Nothing works at this price. The most each could pay: ${offers.join(", ")}.`:"Not enough to score it yet. Add the rent, or the GC's number and the after-repair value.";
+  return `Best fit: <b>${NAME[k]}</b>.`+(offers.length>1?` The most each could pay: ${offers.join(", ")}.`:"");}
 const priceWord=d=>offMarket(d)?"Price":"Asking";
 
 /* the daily listing check marks price changes, sales and withdrawals in data/listings.js; carry them onto this device's copy.
@@ -589,6 +667,7 @@ function load(){let j=null;try{j=JSON.parse(localStorage.getItem("dealdesk")||"n
   const byId=new Map(deals.map(d=>[d.id,d]));let changed=false;
   (window.SEED_LISTINGS||[]).forEach(d=>{const mine=byId.get(d.id);
     if(mine){if(mine.miles===undefined&&d.miles!==undefined)mine.miles=d.miles; /* fill distance on listings saved before 1.3.0 */
+      if(d.sqft>0&&!(mine.sqft>0)){mine.sqft=d.sqft;changed=true;}if(d.yearBuilt>0&&!(mine.yearBuilt>0)){mine.yearBuilt=d.yearBuilt;changed=true;} /* 1.22.0 */
       if(applySeed(mine,d))changed=true;}
     else if(!removed.includes(d.id)&&!d.sold&&!d.gone)deals.push({...d});}); /* a listing that left the market before this device saw it is not added */
   if(changed)save();
@@ -599,7 +678,8 @@ function save(){try{localStorage.setItem("dealdesk",JSON.stringify({deals,settin
 /* buy box */
 function boxText(){const s=settings;return `Under <b>${usd(s.maxPrice)}</b> (single-family <b>${usd(+s.maxPriceSingle||DEFAULTS.maxPriceSingle)}</b>) · <b>${usd(s.minCF)}</b>/unit/mo · ${+s.minCoC>0?`<b>${pct(s.minCoC)}</b> cash-on-cash · `:""}<b>${s.minDSCR.toFixed(2)}</b> DSCR · <b>${s.down}%</b> down at <b>${pct(s.rate,3)}</b>, ${s.term} yr`+
   (+s.lenderDSCR>0?` · lender DSCR <b>${(+s.lenderDSCR).toFixed(2)}</b>`:"")+
-  (+s.dpSource===1?` · cash to close from home equity at <b>${pct(+s.heRate,3)}</b>`:"")+(+s.funds>0?` · funds <b>${usd(+s.funds)}</b>`:"");}
+  (+s.dpSource===1?` · cash to close from home equity at <b>${pct(+s.heRate,3)}</b>`:"")+(+s.funds>0?` · funds <b>${usd(+s.funds)}</b>`:"")+
+  ` · flips: <b>${usd(opt(s,"minFlipProfit"))}</b> min profit, short-term loan at <b>${pct(opt(s,"hmRate"),2)}</b>`;}
 function renderBox(){$("boxSummary").innerHTML=boxText();
   if(document.activeElement?.form!==$("boxForm")) SKEYS.forEach(k=>{if(k==="funds"&&!(+settings.funds>0))$("s_funds").value="";else setField($("s_"+k),settings[k]);});}
 function readBox(){SKEYS.forEach(k=>{const raw=$("s_"+k).value;const v=num(raw);if(isFinite(v))settings[k]=v;else if(k==="funds"&&String(raw).trim()==="")settings.funds=0;});
@@ -619,8 +699,8 @@ document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>setT
 function renderTabs(){
   const n={review:0,flight:0,archive:0,owned:owned.length};
   deals.forEach(d=>{const s=statusOf(d);if(s!=="review")n[s]++;});
-  n.review=listFor("review").length;
-  $("tagline").textContent=+settings.radius?`Buy-and-hold rentals within ${settings.radius} miles of Dracut,\u00a0MA.`:"Buy-and-hold rentals at any distance from Dracut,\u00a0MA.";
+  n.review=listFor("review",true).length;
+  $("tagline").textContent=+settings.radius?`Rentals, flips and BRRRR within ${settings.radius} miles of Dracut,\u00a0MA.`:"Rentals, flips and BRRRR at any distance from Dracut,\u00a0MA.";
   Object.keys(TABS).forEach(t=>{$("n_"+t).textContent=n[t];$("tab_"+t).setAttribute("aria-selected",t===tab?"true":"false");});
   $("tab_settings").setAttribute("aria-selected",tab==="settings"?"true":"false");
   $("settingsView").hidden=tab!=="settings";$("pasteForm").hidden=tab==="settings";if(tab==="settings")$("pasteMsg").textContent="";$("addBtn").hidden=tab==="settings";
@@ -641,28 +721,50 @@ const EMPTY={review:"Nothing to review. New listings land here when they are add
 let passHidden=0;
 /* Review filter: "box" = Buy box only, "look" = Buy box and Negotiate, "all" = everything. Older saves used showAll. */
 const fitMode=()=>["box","look","all"].includes(settings.fit)?settings.fit:(settings.showAll?"all":"look");
-const fitShows=v=>fitMode()==="all"||v==="Buy box"||v==="Needs rent"||(fitMode()==="look"&&v==="Negotiate");
-function listFor(t){
-  let list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d)||d.mine)).map(d=>({d,a:score(d)}));
-  if(t==="review"){passHidden=list.filter(x=>!fitShows(x.a.verdict)&&!x.d.mine).length;list=list.filter(x=>fitShows(x.a.verdict)||x.d.mine);} /* ones you added yourself always show */
-  if(t==="flight")list.sort((x,y)=>STAGES.indexOf(y.d.stage)-STAGES.indexOf(x.d.stage)||x.a.gap-y.a.gap);
+const fitShows=v=>fitMode()==="all"||v==="Buy box"||v==="Needs rent"||v==="Needs ARV"||(fitMode()==="look"&&(v==="Negotiate"||v==="Needs GC"));
+const section=()=>SECTIONS[settings.section]?settings.section:"all";
+/* the verdict and ranking that count for a deal: those of the strategy it is filed under */
+const eff=d=>{const x=evalOf(d);return x[x.chosen];};
+function listFor(t,allSections){
+  let list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d)||d.mine)).map(d=>({d,a:score(d),e:eff(d)}));
+  if(t==="review"){const hide=list.filter(x=>!fitShows(x.e.verdict)&&!x.d.mine);list=list.filter(x=>fitShows(x.e.verdict)||x.d.mine); /* ones you added yourself always show */
+    if(!allSections)passHidden=hide.filter(x=>section()==="all"||chosenOf(x.d)===section()).length;}
+  if(!allSections&&section()!=="all"&&t!=="archive")list=list.filter(x=>chosenOf(x.d)===section());
+  if(t==="flight")list.sort((x,y)=>stagesFor(y.d).indexOf(y.d.stage)-stagesFor(x.d).indexOf(x.d.stage)||x.e.gap-y.e.gap);
   else if(t==="archive")list.sort((x,y)=>String(y.d.archivedAt||"").localeCompare(String(x.d.archivedAt||"")));
-  else list.sort((x,y)=>x.a.gap-y.a.gap);
+  else list.sort((x,y)=>x.e.gap-y.e.gap);
   return list;
 }
+function renderSections(){const box=$("sectionSeg");box.hidden=tab!=="review"&&tab!=="flight";if(box.hidden)return;
+  const all=listFor(tab,true),n={all:all.length,rental:0,flip:0,brrrr:0};all.forEach(x=>n[chosenOf(x.d)]++);
+  box.innerHTML=Object.entries(SECTIONS).map(([k,l])=>`<button type="button" data-sec="${k}" aria-pressed="${section()===k}">${l}<span class="n">${n[k]}</span></button>`).join("");}
+$("sectionSeg").addEventListener("click",e=>{const k=e.target.closest("[data-sec]")?.dataset.sec;if(!k)return;settings.section=k;settings.updatedAt=today();save();selected=null;render();});
+/* table columns for each section */
+const HEADS={rental:["Property","Ask","Rent / mo","Cash flow / unit","Cash-on-cash","DSCR","Max offer","Verdict"],
+  flip:["Property","Ask","ARV","Rehab (GC)","Profit before tax","After tax","Max offer","Verdict"],
+  brrrr:["Property","Ask","ARV","Rehab (GC)","Left in deal","Cash flow / unit","Max offer","Verdict"]};
+function rowCells(d,a,x){const k=section()==="all"?"rental":section(),e=x[x.chosen],c=(lab,v,cls="")=>`<td class="num ${cls}" data-label="${lab}">${v}</td>`;
+  const maxCell=e.needs==="rehab"&&e.maxRehab>0?c("Max rehab",usd(e.maxRehab)):c("Max offer",e.gap>=1e8||!(e.maxOffer>0)?"—":usd(e.maxOffer));
+  const pill=`<td><span class="pill ${vclass(e.verdict)}">${e.verdict}</span></td>`;
+  if(k==="rental")return c("Ask",usd(a.price))+c("Rent / mo",usd(+d.rent||0))+c("Cash flow / unit",usd(a.cfUnit),a.cfUnit>=0?"pos":"neg")+c("Cash-on-cash",pct(a.coc))+c("DSCR",a.dscr.toFixed(2))+maxCell+pill;
+  const ai=x.arvInfo,at=e.at,R=+d.rehab>0;
+  const arv=c("ARV",ai?usd(ai.value)+(ai.src==="you"?"":"*"):"—"),reh=c("Rehab (GC)",R?usd(+d.rehab):"—");
+  if(k==="flip")return c("Ask",usd(a.price))+arv+reh+c("Profit before tax",R&&at?usd(at.profit):"—",R&&at?(at.profit>=0?"pos":"neg"):"")+c("After tax",R&&at?usd(at.net):"—")+maxCell+pill;
+  return c("Ask",usd(a.price))+arv+reh+c("Left in deal",R&&at?usd(at.left):"—")+c("Cash flow / unit",R&&at?usd(at.cfUnit):"—",R&&at?(at.cfUnit>=0?"pos":"neg"):"")+maxCell+pill;}
 function subline(d,a){
   const lines=[];
   if(tab==="flight")lines.push(`<span class="stage">${esc(d.stage||STAGES[0])}</span>${leftWord(d)?` <span class="tag">${esc(leftWord(d))}</span>`:""}`);
-  if(tab==="archive")lines.push(`<span class="meta">${esc(leftWord(d)||d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}</span>`);
+  const k=chosenOf(d);if(k!=="rental"&&section()==="all")lines.push(`<span class="meta"><span class="tag strat" style="margin-left:0">${NAME[k]}</span></span>`);
+  if(tab==="archive")lines.push(`<span class="meta">${esc(d.flipSold?"Flipped for "+usd(d.flipSold.price):leftWord(d)||d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}</span>`);
   lines.push(`<span class="meta">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}${d.mine?' <span class="tag">Added by you</span>':tab==="review"&&isNew(d)?' <span class="tag">New</span>':""}${tab!=="archive"?cutTag(d):""}</span>`);
   return lines.join("");
 }
 /* Archive breakdown. "Passed" is anything Kevin removed himself. Sold and Off the market count every archived
    listing that left the market, including ones he passed on first, so the three can add up to more than the total. */
 const AUTO_REASONS=new Set(["Sold","Off the market"]);
-function archiveStats(){const a=deals.filter(d=>statusOf(d)==="archive");const mine=d=>d.reason&&!AUTO_REASONS.has(d.reason)&&d.reason!=="Bought";
+function archiveStats(){const a=deals.filter(d=>statusOf(d)==="archive");const mine=d=>d.reason&&!AUTO_REASONS.has(d.reason)&&d.reason!=="Bought"&&d.reason!=="Flipped";
   const s={passed:0,sold:0,soldAfter:0,gone:0,goneAfter:0,bought:0};
-  for(const d of a){if(d.reason==="Bought"){s.bought++;continue;}const m=mine(d);if(m)s.passed++;
+  for(const d of a){if(d.reason==="Bought"||d.reason==="Flipped"){s.bought++;continue;}const m=mine(d);if(m)s.passed++;
     if(d.sold){s.sold++;if(m)s.soldAfter++;}else if(d.gone){s.gone++;if(m)s.goneAfter++;}}
   return s;}
 function renderArchiveStats(){const box=$("arcStats");box.hidden=tab!=="archive";if(box.hidden)return;
@@ -671,7 +773,7 @@ function renderArchiveStats(){const box=$("arcStats");box.hidden=tab!=="archive"
     <div><span class="k">You passed</span><span class="v">${s.passed}</span><span class="s">&nbsp;</span></div>
     <div><span class="k">Sold</span><span class="v">${s.sold}</span><span class="s">${after(s.soldAfter)}</span></div>
     <div><span class="k">Off market</span><span class="v">${s.gone}</span><span class="s">${after(s.goneAfter)}</span></div></div>`+
-    (s.soldAfter||s.goneAfter||s.bought?`<span class="small muted">${[s.soldAfter||s.goneAfter?"Sold and Off market include ones you passed on first.":"",s.bought?`Also ${s.bought} you bought.`:""].filter(Boolean).join(" ")}</span>`:"");}
+    (s.soldAfter||s.goneAfter||s.bought?`<span class="small muted">${[s.soldAfter||s.goneAfter?"Sold and Off market include ones you passed on first.":"",s.bought?`Also ${s.bought} you bought or flipped.`:""].filter(Boolean).join(" ")}</span>`:"");}
 function renderDeals(){
   renderArchiveStats();
   if(!isList(tab))return;
@@ -681,16 +783,14 @@ function renderDeals(){
   const beyond=tab==="review"?deals.filter(d=>statusOf(d)==="review"&&!inRadius(d)&&!d.mine).length:0;
   const hid=tab==="review"?passHidden:0;
   $("count").textContent=list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"";
-  $("listNote").textContent=[hid?`${hid} hidden by the Show filter`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:""].filter(Boolean).join(" · ");
+  $("listNote").textContent=[hid?`${hid} hidden by the Show filter`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:"",section()==="flip"||section()==="brrrr"?"* ARV estimated from town price per square foot. Enter your own on the deal.":""].filter(Boolean).join(" · ");
   $("filters").hidden=tab!=="review";$("fit").value=fitMode();$("radius").value=String(+settings.radius||0);
   $("empty").hidden=list.length>0;$("empty").textContent=hid?`Nothing within ${+settings.radius?settings.radius+" miles":"range"} ${fitMode()==="box"?"meets your buy box":"meets or comes close to your buy box"}. ${hid} propert${hid>1?"ies are":"y is"} hidden by the Show filter. Change Show to see ${hid>1?"them":"it"}.`:beyond?`Nothing within ${settings.radius} miles. ${beyond} propert${beyond>1?"ies are":"y is"} farther out. Widen the distance to see ${beyond>1?"them":"it"}.`:EMPTY[tab];
+  renderSections();
+  $("thead").innerHTML="<tr>"+HEADS[section()==="all"?"rental":section()].map(h=>`<th>${h}</th>`).join("")+"</tr>";
   $("rows").innerHTML=list.map(({d,a})=>`<tr tabindex="0" data-id="${esc(d.id)}" class="${d.id===selected?"sel":""}">
     <td><span class="addr">${esc(d.address)}${offMarket(d)?' <span class="tag">Off-market</span>':""}</span>${subline(d,a)}</td>
-    <td class="num" data-label="Ask">${usd(a.price)}</td><td class="num" data-label="Rent / mo">${usd(+d.rent||0)}</td>
-    <td class="num ${a.cfUnit>=0?"pos":"neg"}" data-label="Cash flow / unit">${usd(a.cfUnit)}</td>
-    <td class="num" data-label="Cash-on-cash">${pct(a.coc)}</td><td class="num" data-label="DSCR">${a.dscr.toFixed(2)}</td>
-    <td class="num" data-label="Max offer">${a.needs?"—":usd(a.maxOffer)}</td>
-    <td><span class="pill ${vclass(a.verdict)}">${a.verdict}</span></td></tr>`).join("");
+    ${rowCells(d,a,evalOf(d))}</tr>`).join("");
   if(selected&&!list.some(x=>x.d.id===selected))selected=null;
   if(!selected&&list.length&&innerWidth>860)selected=list[0].d.id;
   renderSheet();
@@ -700,8 +800,9 @@ function actionsHtml(d){
   const st=statusOf(d);
   const ex=b("explain","Explain this deal")+b("copy","Copy for Claude");
   if(st==="review")return b("keep","Keep","primary")+b("remove","Remove")+ex+b("edit","Edit");
-  if(st==="flight")return `<label class="inline">Stage<select id="d_stage">${STAGES.map(s=>`<option${s===(d.stage||STAGES[0])?" selected":""}>${s}</option>`).join("")}</select></label>`+
-    b("bought","Mark as bought")+b("remove","Lost or remove")+ex+b("edit","Edit");
+  if(st==="flight"){const SG=stagesFor(d),cur=d.stage||SG[0],opts=SG.includes(cur)?SG:[cur,...SG];
+    return `<label class="inline">Stage<select id="d_stage">${opts.map(s=>`<option${s===cur?" selected":""}>${s}</option>`).join("")}</select></label>`+
+    (chosenOf(d)==="flip"?b("sold",armed==="sold"?"Cancel":"Mark as sold"):b("bought","Mark as bought"))+b("remove","Lost or remove")+ex+b("edit","Edit");}
   return `<span class="small muted">${esc(leftWord(d)||d.reason||"Removed")}${d.archivedAt?" on "+shortDate(d.archivedAt):""}</span>`+
     ex+b("restore","Move back to review")+b("purge",armed==="purge"?"Confirm delete":"Delete for good","danger");
 }
@@ -713,8 +814,10 @@ function renderSheet(){
   $("d_title").innerHTML=esc(d.address)+(offMarket(d)?' <span class="tag">Off-market</span>':"");
   $("d_sub").innerHTML=[`${esc(d.town)}, ${esc(d.state)}`,esc(d.type||`${a.units} units`),d.miles!==undefined?`${+d.miles} mi from ${d.milesFrom==="home"?"home":"Dracut"}`:"",`${priceWord(d)} ${usd(a.price)}${d.priceWas&&d.priceWas!==d.price?` (was ${usd(d.priceWas)})`:""}`,leftWord(d),d.from?`From ${esc(d.from)}`:"",d.fin&&d.fin.kind==="custom"?`${d.fin.lender?esc(d.fin.lender)+" terms":"Own financing"}: ${s.down}% down at ${fmtRate(s.rate)}${+s.points?`, ${+s.points} pt`:""}`:"",d.addedAt?`${offMarket(d)?"Added":"Found"} ${shortDate(d.addedAt)}`:""].filter(Boolean).map(x=>`<span>${x}</span>`).join("");
   $("d_actions").innerHTML=actionsHtml(d);
-  $("d_reasons").hidden=armed!=="remove";
-  $("d_reasons").innerHTML=armed==="remove"?`<span class="small muted" style="flex-basis:100%">Why? Tap one to archive it.</span>`+REASONS.map(r=>`<button class="btn chip" type="button" data-reason="${esc(r)}">${esc(r)}</button>`).join(""):"";
+  $("d_reasons").hidden=armed!=="remove"&&armed!=="sold";
+  if(armed==="sold"){const x=evalOf(d);$("d_reasons").innerHTML=`<label style="flex:1 1 160px">Sold for<input id="d_soldPrice" class="money" type="text" inputmode="decimal" placeholder="$" value="${x.arvInfo?money(x.arvInfo.value):""}"></label><button class="btn primary" type="button" id="d_soldGo">Record the sale</button><span class="small muted" style="flex-basis:100%">It moves to Archive as Flipped, with the sale price.</span>`;}
+  else $("d_reasons").innerHTML=armed==="remove"?`<span class="small muted" style="flex-basis:100%">Why? Tap one to archive it.</span>`+REASONS.map(r=>`<button class="btn chip" type="button" data-reason="${esc(r)}">${esc(r)}</button>`).join(""):"";
+  renderStrat(d);
   document.querySelector("#sheetSection .sheet").classList.toggle("unscored",!!a.needs);
   $("d_max").textContent=a.needs?"Not scored yet":usd(a.maxOffer);
   $("d_maxwhy").textContent=a.needs?"There is no rent figure. Tap Edit, then Look up this address or type the rent, and it will be scored.":a.gap<=0?`${offMarket(d)?"The price":"Asking price"} is ${usd(a.maxOffer-a.price)} under your limit. Limited by ${a.binding}.`:`${offMarket(d)?"The price":"Asking price"} is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) over. Limited by ${a.binding}.`;
@@ -762,6 +865,82 @@ function renderSheet(){
   $("d_notes").hidden=!d.notes; $("d_notes").textContent=d.notes||"";
   $("d_est").textContent=(a.taxEst||a.insEst)?"Estimated lines use rough regional rates. Enter the real tax bill and an insurance quote before making an offer.":"";
 }
+/* ---- the strategy card on the deal sheet, and the flip / BRRRR breakdown ---- */
+function renderStrat(d){
+  const x=evalOf(d),k=x.chosen,ai=x.arvInfo;
+  const card=q=>{const f=stratFace(x,q),r=x[q];
+    return `<button type="button" class="stratc${q===k?" sel":""}" data-strat="${q}" aria-pressed="${q===k}">
+      <span class="rec">${q===x.rec?"Recommended":"&nbsp;"}</span><span class="sname">${NAME[q]}</span>
+      <span class="pill ${vclass(r.verdict)}">${esc(r.verdict)}</span>
+      <span class="sbig">${f.big}</span><span class="small muted">${f.cap}</span><span class="small">${esc(f.line)}</span></button>`;};
+  const arvNote=ai?(ai.src==="you"?"After-repair value is your figure.":`ARV estimate ${usd(ai.value)}: ${ai.sqft.toLocaleString("en-US")} sq ft at ${usd(ai.ppsf)}/sq ft, the top quarter of ${ai.n} ${ai.src==="sold"?"recent sales":"homes for sale"} in ${esc(d.town)} (middle ${usd(ai.townPpsf)}). Rough: replace it with your agent's comps.`)
+    :"No after-repair value yet. DealDesk needs the square feet to estimate one, or type your own.";
+  $("d_strat").innerHTML=`<h3>Best way to play it</h3>
+    <div class="stratgrid">${["rental","flip","brrrr"].map(card).join("")}</div>
+    <p class="small" style="margin:0">${stratWhy(x)}${d.strategy&&d.strategy!==x.rec?` <b>You filed it under ${NAME[k]}.</b> Tap ${NAME[x.rec]} to follow the recommendation.`:""}</p>
+    <div class="stratin">
+      <label>Rehab, your GC's number<input id="q_rehab" class="money" type="text" inputmode="decimal" placeholder="Not yet" value="${+d.rehab>0?money(+d.rehab):""}"></label>
+      <label>After-repair value (ARV)<input id="q_arv" class="money" type="text" inputmode="decimal" placeholder="${ai&&ai.src!=="you"?"Est. "+usd(ai.value):"$"}" value="${+d.arv>0?money(+d.arv):""}"></label>
+      <button class="btn" type="button" id="q_save">Update</button></div>
+    <p class="small muted" style="margin:0">${arvNote}</p>`;
+  const rentShown=k==="rental";
+  $("d_rentA").hidden=!rentShown;$("d_scenWrap").hidden=!rentShown;$("d_alt").hidden=rentShown;
+  if(!rentShown)$("d_alt").innerHTML=k==="flip"?flipHtml(d,x):brrrrHtml(d,x);
+}
+const LR=(l,v,t)=>`<tr class="${t||""}"><td style="text-align:left;font-family:var(--body)">${l}</td><td>${v}</td></tr>`;
+const KV=list=>`<div class="kv">${list.map(([l,v,c])=>`<div><h3>${l}</h3><span class="v ${c||""}">${v}</span></div>`).join("")}</div>`;
+function rehabIntro(r,what){
+  if(r.needs==="arv")return `<p>There is no after-repair value yet, so the ${what} can't be worked out. Enter the square feet (Edit) or type the ARV above.</p>`;
+  if(r.needs==="rent")return `<p>There is no rent yet. A BRRRR ends as a rental, so it needs the rent. Tap Edit to add it.</p>`;
+  if(r.needs==="price")return `<p>Enter a price to score it.</p>`;
+  if(r.needs==="rehab")return r.maxRehab>0?`<p><b>No GC number yet.</b> Below is the ${what} at <b>${usd(r.maxRehab)}</b> of rehab, the most it can take and still meet your rules. Get the walkthrough, then type the real number above.</p>`
+    :`<p><b>This does not work as a ${what} at this price, even with no rehab at all.</b> The figures below assume no rehab.</p>`;
+  return "";}
+function flipHtml(d,x){const r=x.flip;if(!r.at)return `<div>${rehabIntro(r,"flip")}</div>`;
+  const f=r.at,s=settings,M=f.M,dp=+s.maxPrice*s.down/100;
+  const kv=[[r.needs?"Max rehab":"Max offer",r.needs?usd(r.maxRehab):r.maxOffer>0?usd(r.maxOffer):"—",""],["Profit before tax",usd(f.profit),f.profit>=0?"pos":"neg"],["After tax (rough)",usd(f.net),f.net>=0?"pos":"neg"],
+    ["Cash you put in",usd(f.cashNeed),""],["Return on that cash",pct(f.roi),""],["Per year",pct(f.annual),""]];
+  return `<div class="offer"><h3>${r.needs?"Most the rehab can cost":"Maximum offer as a flip"}</h3><div class="big">${r.needs?usd(r.maxRehab):r.maxOffer>0?usd(r.maxOffer):"No price works"}</div>
+      <div class="small">${r.needs?`At ${usd(f.price)}, for at least ${usd(opt(s,"minFlipProfit"))} profit before tax.`:!(r.maxOffer>0)?`It can't clear ${usd(opt(s,"minFlipProfit"))} profit at any price with this rehab and sale price.`:r.gap<=0?`Asking is ${usd(r.maxOffer-f.price)} under the most you can pay for ${usd(opt(s,"minFlipProfit"))} profit.`:`Asking is ${usd(f.price-r.maxOffer)} (${pct(r.gap)}) over the most you can pay for ${usd(opt(s,"minFlipProfit"))} profit.`}</div></div>
+    ${rehabIntro(r,"flip")}${KV(kv)}
+    <div><h3>The flip, start to sale (${M} months)</h3><table class="ledger num"><tbody>
+      ${LR("Sale price (after-repair value)",usd(f.arv))}${LR(`Selling costs (${+opt(s,"sellCost")}%)`,usd(-f.sell))}
+      ${LR("Purchase price",usd(-f.price))}${LR(`Buying closing costs (${+s.closing}%)`,usd(-f.closing))}
+      ${LR(`Short-term loan points (${+opt(s,"hmPoints")}%)`,usd(-f.points))}${LR("Rehab (GC)",usd(-f.rehab))}${LR(`Cushion (${+opt(s,"contingency")}%)`,usd(-f.cont))}
+      ${LR(`Taxes and insurance while you own it`,usd(-(f.holdTax+f.holdIns)))}${LR(`Utilities, lawn and snow`,usd(-f.holdOther))}
+      ${LR(`Short-term loan interest (${pct(+opt(s,"hmRate"),2)} on ${usd(f.loan)})`,usd(-f.loanInt))}${f.heInt?LR(`Home equity interest (${pct(+s.heRate,2)})`,usd(-f.heInt)):""}
+      ${LR("Profit before tax",usd(f.profit),"total")}${LR(`Tax, rough (${+opt(s,"flipTax")}%)`,usd(-f.tax))}${LR("Cash to your next down payment",usd(f.net),"total")}
+    </tbody></table></div>
+    <p class="small">${f.net>0?`In plain terms: buy at ${usd(f.price)}, spend ${usd(f.rehab)} fixing it, sell for ${usd(f.arv)} about ${M} months later, and roughly <b>${usd(f.net)}</b> is left after tax. That is about <b>${Math.round(f.net/dp*100)}%</b> of the ${usd(dp)} down payment on a ${usd(+s.maxPrice)} rental.`:`In plain terms: at these numbers the flip loses money or only breaks even. Selling costs, loan interest and the months of holding eat the margin.`} The tax line is a placeholder: flip profit is ordinary income, so ask a CPA.</p>`;}
+function brrrrHtml(d,x){const r=x.brrrr;if(!r.at)return `<div>${rehabIntro(r,"BRRRR")}</div>`;
+  const b=r.at,s=settings,ok=c=>c?"pos":"neg";
+  const kv=[[r.needs?"Max rehab":"Max offer",r.needs?usd(r.maxRehab):r.maxOffer>0?usd(r.maxOffer):"—",""],["Cash you put in",usd(b.putIn),""],["Back at refinance",usd(b.cashBack),b.cashBack>=0?"pos":"neg"],
+    ["Left in the deal",usd(b.left),""],["Cash flow / unit / mo",usd(b.cfUnit),ok(b.cfUnit>=s.minCF)],["Lender's DSCR",b.lenderDscr.toFixed(2),+s.lenderDSCR>0?ok(b.lenderDscr>=+s.lenderDSCR):""]];
+  return `<div class="offer"><h3>${r.needs?"Most the rehab can cost":"Maximum offer as a BRRRR"}</h3><div class="big">${r.needs?usd(r.maxRehab):r.maxOffer>0?usd(r.maxOffer):"No price works"}</div>
+      <div class="small">${r.needs?`At ${usd(b.price)}, with your cash flow rules met after the refinance.`:!(r.maxOffer>0)?`The refinance can't return enough of your cash, or the rent can't carry the new loan, at any price.`:r.gap<=0?`Asking is ${usd(r.maxOffer-b.price)} under your limit.`:`Asking is ${usd(b.price-r.maxOffer)} (${pct(r.gap)}) over your limit.`} At least half your cash must come back, or it is really a rental with repairs.</div></div>
+    ${rehabIntro(r,"BRRRR")}${KV(kv)}
+    <div><h3>Buy and fix (${b.M} months to the refinance)</h3><table class="ledger num"><tbody>
+      ${LR(`Down payment (the loan lends ${+opt(s,"hmLTC")}% of the price)`,usd(b.down))}${LR("Closing costs and points",usd(b.closing+b.points))}
+      ${b.rehabCash?LR("Rehab the loan does not cover",usd(b.rehabCash)):""}${LR(`Cushion (${+opt(s,"contingency")}%)`,usd(b.cont))}
+      ${LR("Taxes, insurance, utilities while empty",usd(b.holdTax+b.holdIns+b.holdOther))}${LR("Loan and home equity interest",usd(b.loanInt+b.heInt))}
+      ${LR("Cash you put in",usd(b.putIn),"total")}
+      ${LR(b.sized?`New loan (${pct(b.ltv,1)} of ${usd(b.arv)}, all the rent can carry)`:`New loan (${+opt(s,"refiLTV")}% of ${usd(b.arv)})`,usd(b.newLoan))}${LR("Pays off the short-term loan",usd(-b.loan))}${LR(`Refinance costs (${+opt(s,"refiCost")}%)`,usd(-b.refiCost))}
+      ${LR("Cash back",usd(b.cashBack),"total")}${LR("Left in the deal",usd(b.left),"total")}
+    </tbody></table></div>
+    <div><h3>As a rental after the refinance, per month</h3><table class="ledger num"><tbody>
+      ${LR("Rent",usd(b.rent))}${LR("Vacancy and operating costs",usd(-(b.vacancy+b.opex)/12))}${LR(`New mortgage (${pct(s.rate,2)}, ${s.term} yr)`,usd(-b.debt/12))}
+      ${b.heDebt?LR(`Home equity payment on the ${usd(b.left)} left in`,usd(-b.heDebt/12)):""}${LR("Cash flow",usd(b.cf/12),"total")}
+    </tbody></table></div>
+    <p class="small">In plain terms: you put in ${usd(b.putIn)}, the refinance hands back ${usd(Math.max(0,b.cashBack))}${b.cashBack<0?` (it falls ${usd(-b.cashBack)} short of paying off the short-term loan)`:""}, and ${b.left>0?`${usd(b.left)} stays in the property`:`you end up with ${usd(-b.left)} more than you put in`}. Then it rents for ${usd(b.rent)} a month and leaves ${usd(b.cf/12)} after every payment.</p>`;}
+$("d_strat").addEventListener("click",e=>{const d=deals.find(x=>x.id===selected);if(!d)return;
+  const q=e.target.closest("[data-strat]")?.dataset.strat;
+  if(q){const x=evalOf(d);if(q===x.rec)delete d.strategy;else d.strategy=q;
+    const SG=stagesFor(d);if(statusOf(d)==="flight"&&!SG.includes(d.stage))d.stage=SG[Math.min(SG.length-1,Math.max(0,STAGES.indexOf(d.stage)))]||SG[0];
+    if(section()!=="all")settings.section=chosenOf(d); /* follow it to its new section so it stays open */
+    d.updatedAt=today();save();status(`Filed under ${NAME[chosenOf(d)]}.`);render();return;}
+  if(e.target.id==="q_save"){const rv=num($("q_rehab").value),av=num($("q_arv").value);
+    if(isFinite(rv)&&rv>0)d.rehab=rv;else delete d.rehab;if(isFinite(av)&&av>0)d.arv=av;else delete d.arv;
+    d.updatedAt=today();save();status("Updated.");renderDeals();}});
 function pick(e){const tr=e.target.closest("tr[data-id]");if(!tr)return;selected=tr.dataset.id;armed=null;renderSheet();
   if(innerWidth<=860)$("sheetSection").scrollIntoView({behavior:"smooth",block:"start"});}
 $("rows").addEventListener("click",pick);
@@ -776,25 +955,31 @@ $("d_actions").addEventListener("click",e=>{
   if(act==="explain"){if(!(+d.rent>0)){driveToast("warn","Add the rent first, or look up the address, so there is something to explain.");return;}openExplain(d);return;}
   if(act==="copy"){copyForClaude(d);return;}
   if(act==="remove"){armed=armed==="remove"?null:"remove";renderSheet();return;}
-  if(act==="keep"){d.status="flight";d.stage=STAGES[0];d.keptAt=today();d.updatedAt=today();save();status(`Kept. ${d.address} is now in flight.`);selected=null;armed=null;render();return;}
+  if(act==="sold"){armed=armed==="sold"?null:"sold";renderSheet();return;}
+  if(act==="keep"){d.status="flight";d.stage=stagesFor(d)[0];d.keptAt=today();d.updatedAt=today();save();status(`Kept. ${d.address} is now in flight.`);selected=null;armed=null;render();return;}
   if(act==="restore"){d.status="review";delete d.reason;delete d.archivedAt;d.updatedAt=today();save();status(`${d.address} moved back to review.`);selected=null;render();return;}
   if(act==="purge"){
     if(armed!=="purge"){armed="purge";renderSheet();return;}
     deals=deals.filter(x=>x.id!==d.id);if(!removed.includes(d.id))removed.push(d.id);save();status("Deleted for good.");selected=null;armed=null;render();return;}
   if(act==="bought"){
     const a=analyze(d,settings),t=dealTerms(d,settings);
-    const o={id:"o"+Date.now().toString(36),address:d.address,town:d.town,state:d.state,units:a.units,value:a.price,
+    const x=evalOf(d),isB=x.chosen==="brrrr"&&x.arvInfo;
+    const o={id:"o"+Date.now().toString(36),address:d.address,town:d.town,state:d.state,units:a.units,value:isB?x.arvInfo.value:a.price,
       rent:+d.rent||0,expenses:0,loans:[{type:d.fin&&d.fin.kind==="custom"?"Private or seller note":"Mortgage",balance:Math.round(a.loan),rate:t.rate,payment:Math.round((a.debt+a.taxes+a.ins)/12)}],notes:"Bought. Figures copied from the deal sheet at asking price; update them with the real numbers."};
     o.updatedAt=today();owned.push(o);archive(d,"Bought");save();tab="owned";selected=null;armed=null;render();openOwned(o);status("Added to Owned. Check the figures.");}
 });
 $("d_actions").addEventListener("change",e=>{if(e.target.id!=="d_stage")return;
   const d=deals.find(x=>x.id===selected);if(!d)return;d.stage=e.target.value;d.updatedAt=today();save();status(`Stage set to ${d.stage}.`);renderDeals();});
-$("d_reasons").addEventListener("click",e=>{const r=e.target.closest("[data-reason]")?.dataset.reason;if(!r)return;
+$("d_reasons").addEventListener("click",e=>{
+  if(e.target.id==="d_soldGo"){const d=deals.find(x=>x.id===selected);if(!d)return;const v=num($("d_soldPrice").value);
+    if(!(v>0)){status("Enter the sale price.");return;}d.flipSold={price:v,date:today()};archive(d,"Flipped");save();
+    status(`Recorded: ${d.address} sold for ${usd(v)}.`);selected=null;armed=null;render();return;}
+  const r=e.target.closest("[data-reason]")?.dataset.reason;if(!r)return;
   const d=deals.find(x=>x.id===selected);if(!d)return;archive(d,r);save();status(`Archived: ${r}.`);selected=null;armed=null;render();});
 
 /* deal form */
-const F=["source","from","address","town","state","zip","type","units","price","rent","taxes","ins","hoa","rehab","school","walk","miles","url","notes"];
-const NUMF=["units","price","rent","taxes","ins","hoa","rehab","school","walk","miles"];
+const F=["source","from","address","town","state","zip","type","units","price","rent","taxes","ins","hoa","rehab","arv","sqft","school","walk","miles","url","notes"];
+const NUMF=["units","price","rent","taxes","ins","hoa","rehab","arv","sqft","school","walk","miles"];
 let formFacts=null;
 const LOOKUP_HINT="Address and price are enough to save. Look up fills in what it can find: units, taxes, rent, distance and more.";
 function syncFormShape(){
@@ -824,7 +1009,7 @@ $("f_type").addEventListener("change",()=>{const m={"Two-family":2,"Three-family
 $("dealForm").addEventListener("submit",e=>{e.preventDefault();
   let d=editing?deals.find(x=>x.id===editing):null;
   if(!d){d={id:"d"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),addedAt:today(),status:tab==="flight"?"flight":"review"};
-    if(d.status==="flight")d.stage=STAGES[0];deals.push(d);if(tab==="archive")tab="review";}
+    if(d.status==="flight")d.stage=STAGES[0];if(section()!=="all")d.strategy=section();deals.push(d);if(tab==="archive")tab="review";}
   F.forEach(k=>{const raw=$("f_"+k).value.trim();
     if(NUMF.includes(k)){const v=num(raw);if(raw===""||!isFinite(v))delete d[k];else d[k]=v;}else d[k]=raw;});
   if(!d.source)d.source="listing";if(!offMarket(d))delete d.from;
@@ -834,7 +1019,8 @@ $("dealForm").addEventListener("submit",e=>{e.preventDefault();
   else delete d.fin;
   if(formFacts)d.facts=formFacts;
   d.updatedAt=today();
-  if(save()){selected=d.id;$("formSection").hidden=true;status(+d.rent>0?"Deal saved":"Deal saved. Add the rent to score it.");render();}});
+  if(d.status==="flight"&&!stagesFor(d).includes(d.stage))d.stage=stagesFor(d)[0];
+  if(save()){selected=d.id;$("formSection").hidden=true;status(+d.rent>0||chosenOf(d)==="flip"?"Deal saved":"Deal saved. Add the rent to score it.");render();}});
 
 /* ---------- property lookup (RentCast, with the user's own key kept on this device) ---------- */
 const LS_RC_KEY="dealdesk_rentcast_key";
@@ -986,6 +1172,7 @@ function renderEval(){
         ${stat("Left / unit / mo",priced&&rented?usd(a.cfUnit):"—",priced&&rented?(a.cfUnit>=0?"pos":"neg"):"")}${stat("Rent / mo",rented?usd(+d.rent):"Enter it")}
         ${stat("Debt cover",priced&&rented?a.dscr.toFixed(2):"—")}${stat("Cash to close",priced?usd(a.cash):"—")}</div>
       ${priced&&rented&&a.binding&&a.verdict!=="Buy box"?`<p class="small">What limits the offer: <b>${esc(a.binding)}</b>.</p>`:""}
+      ${priced?(()=>{const x=evalOf(d);return `<p class="small">${stratWhy(x)}${x.arvInfo&&x.arvInfo.src!=="you"?` (After-repair value estimated at ${usd(x.arvInfo.value)} from ${x.arvInfo.n} ${x.arvInfo.src==="sold"?"recent sales":"listings"} in ${esc(d.town)}.)`:""}</p>`;})():""}
       <ul>${notes.map(x=>`<li>${x}</li>`).join("")}</ul></section>`;
   if(evalExisting){$("evalSaveBox").innerHTML=`<div class="row"><button class="btn primary" type="button" id="evalOpen">Open it</button><button class="btn" type="button" id="evalExplain">Explain this deal</button></div>`;}
   else $("evalSaveBox").innerHTML=`<div class="evalgrid">
@@ -993,7 +1180,7 @@ function renderEval(){
       <label>Total rent / mo<input id="ev_rent" class="money" type="text" inputmode="decimal" placeholder="$" value="${rented?money(+d.rent):""}"></label>
       <label>Units<input id="ev_units" type="number" min="1" max="4" step="1" inputmode="numeric" value="${d.units}"></label>
       <label>Save to<select id="ev_to"><option value="review">Review</option><option value="flight">In flight</option></select></label>
-      <label id="ev_stageWrap" hidden>Stage<select id="ev_stage">${STAGES.map(x=>`<option>${x}</option>`).join("")}</select></label>
+      <label id="ev_stageWrap" hidden>Stage<select id="ev_stage">${stagesFor(d).map(x=>`<option>${x}</option>`).join("")}</select></label>
     </div>
     <p class="small muted" id="ev_msg"></p>
     <div class="row"><button class="btn primary" type="button" id="evalSave">Save</button><button class="btn" type="button" id="evalExplain">Explain this deal</button><button class="btn" type="button" id="evalCancel">Don't save</button></div>`;
@@ -1050,7 +1237,9 @@ function copyForClaude(d){
   L.push(`Rent I have: ${+d.rent>0?usd(+d.rent)+" a month total":"none yet"}`);
   L.push(`Taxes: ${a.taxEst?"not known (app estimates "+usd(a.taxes)+")":usd(a.taxes)+" a year"}`);
   L.push(`Insurance: ${a.insEst?"not known (app estimates "+usd(a.ins)+")":usd(a.ins)+" a year"}`);
-  if(+d.rehab)L.push(`Upfront repairs: ${usd(+d.rehab)}`);
+  {const x=evalOf(d);if(+d.rehab)L.push(`Rehab (GC's number): ${usd(+d.rehab)}`);
+    if(x.arvInfo)L.push(`After-repair value: ${usd(x.arvInfo.value)}${x.arvInfo.src==="you"?" (mine)":` (DealDesk estimate from ${x.arvInfo.n} ${x.arvInfo.src==="sold"?"sales":"listings"} at ${usd(x.arvInfo.ppsf)}/sq ft)`}`);
+    L.push(`DealDesk's best fit: ${NAME[x.rec]}${d.strategy?`; I filed it under ${NAME[x.chosen]}`:""}. ${stratWhy(x).replace(/<[^>]+>/g,"")}`);}
   L.push(`Financing: ${d.fin&&d.fin.kind==="custom"?(d.fin.lender?d.fin.lender+" terms":"seller or other terms"):"investor loan"}, ${t.down}% down at ${fmtRate(t.rate)} over ${t.term} years${d.fin&&d.fin.balloon?", balance due after "+d.fin.balloon+" years":""}`);
   const fx=[];
   if(f.bedrooms!==undefined)fx.push(`${f.bedrooms} beds`);if(f.bathrooms!==undefined)fx.push(`${f.bathrooms} baths`);

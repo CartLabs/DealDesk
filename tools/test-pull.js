@@ -14,11 +14,11 @@ test('parses the CSV and skips the disclaimer line',()=>{
 });
 test('keeps 2-4 unit homes at or under $700k for sale, writes refresh-listings rows',()=>{
   const lines=forSaleLines(parseCsv(CSV));
-  assert.deepEqual(lines,['12 Test St, Unit 1|450000|0|6|3|MA/Lowell/12-Test-St-01850/home/111']);
+  assert.deepEqual(lines,['12 Test St, Unit 1|450000|0|6|3|MA/Lowell/12-Test-St-01850/home/111||']);
 });
 test('sold rows carry ISO dates',()=>{
   assert.equal(isoDate('September-26-2026'),'2026-09-26');assert.equal(isoDate('Oct-3-2026'),'2026-10-03');assert.equal(isoDate(''),'');
-  assert.ok(soldLines(parseCsv(CSV)).includes('4 Sold Rd|580000|2026-09-26|MA/Lowell/4-Sold-Rd-01850/home/444'));
+  assert.ok(soldLines(parseCsv(CSV)).includes('4 Sold Rd|580000|2026-09-26|MA/Lowell/4-Sold-Rd-01850/home/444|'));
 });
 test('finds the download link on the search page',()=>{
   const html='<a id="download-and-save" href="/stingray/api/gis-csv?al=1&amp;region_id=9416&amp;region_type=6&amp;uipt=4">Download</a>';
@@ -41,7 +41,7 @@ test('Merrimack-style pages try the likely region types',()=>{
 });
 test('the sold download also holds homes still for sale: only past sales with a date count as sold (Oct 13 bug)',()=>{
   const rows=parseCsv(CSV);
-  assert.deepEqual(soldLines(rows),['4 Sold Rd|580000|2026-09-26|MA/Lowell/4-Sold-Rd-01850/home/444']);
+  assert.deepEqual(soldLines(rows),['4 Sold Rd|580000|2026-09-26|MA/Lowell/4-Sold-Rd-01850/home/444|']);
   const undated=parseCsv(CSV.replace('PAST SALE,September-26-2026','PAST SALE,'));
   assert.deepEqual(soldLines(undated),[]);
 });
@@ -70,7 +70,16 @@ MLS Listing,,Single Family Residential,8 Grand Ln,Lowell,MA,01850,1450000,5,4,,h
 PAST SALE,October-30-2026,Single Family Residential,9 Sold Ln,Lowell,MA,01850,505000,3,2,,https://www.redfin.com/MA/Lowell/9-Sold-Ln-01850/home/999,129
 `;
   const rows=parseCsv(H);
-  assert.deepEqual(forSaleLines(rows,house),['7 Maple Rd|449900|0|3|2|MA/Lowell/7-Maple-Rd-01850/home/777']);
-  assert.deepEqual(soldLines(rows,house),['9 Sold Ln|505000|2026-10-30|MA/Lowell/9-Sold-Ln-01850/home/999']);
+  assert.deepEqual(forSaleLines(rows,house),['7 Maple Rd|449900|0|3|2|MA/Lowell/7-Maple-Rd-01850/home/777||']);
+  assert.deepEqual(soldLines(rows,house),['9 Sold Ln|505000|2026-10-30|MA/Lowell/9-Sold-Ln-01850/home/999|']);
   assert.ok(!forSaleLines(rows).some(l=>l.startsWith('7 Maple')));   /* the multi-family pass still ignores houses */
+});
+test('square feet and year built ride along when Redfin has them (1.22.0)',()=>{
+  const csv=`SALE TYPE,SOLD DATE,PROPERTY TYPE,ADDRESS,CITY,STATE OR PROVINCE,PRICE,BEDS,BATHS,SQUARE FEET,YEAR BUILT,$/SQUARE FEET,URL (SEE X)
+MLS Listing,,Single Family Residential,5 Elm St,Lowell,MA,399000,3,2,"1,450",1925,275,https://www.redfin.com/MA/Lowell/5-Elm-St-01850/home/555
+PAST SALE,October-2-2026,Single Family Residential,6 Elm St,Lowell,MA,520000,3,2,1600,1950,325,https://www.redfin.com/MA/Lowell/6-Elm-St-01850/home/556
+`;
+  const {house}=require('./pull-redfin.js');
+  assert.deepEqual(forSaleLines(parseCsv(csv),house,550000),['5 Elm St|399000|0|3|2|MA/Lowell/5-Elm-St-01850/home/555|1450|1925']);
+  assert.deepEqual(soldLines(parseCsv(csv),house),['6 Elm St|520000|2026-10-02|MA/Lowell/6-Elm-St-01850/home/556|1600']);
 });
