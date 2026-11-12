@@ -20,7 +20,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T01:20:00Z",
     "priceWas": 725000,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceChangedAt": "2026-10-21T10:00:00Z",
+    "sqft": 4167,
+    "yearBuilt": 1900
   },
   {
     "id": "man-18-south",
@@ -38,7 +40,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T01:20:00Z",
     "priceWas": 675000,
-    "priceChangedAt": "2026-10-15T10:00:00Z"
+    "priceChangedAt": "2026-10-15T10:00:00Z",
+    "sqft": 3416,
+    "yearBuilt": 1895
   },
   {
     "id": "man-217-spruce",
@@ -56,7 +60,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T01:20:00Z",
     "priceWas": 670000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 4136,
+    "yearBuilt": 1900
   },
   {
     "id": "man-282-cartier",
@@ -94,7 +100,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T01:20:00Z",
     "priceWas": 610000,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceChangedAt": "2026-10-21T10:00:00Z",
+    "sqft": 2594,
+    "yearBuilt": 1920
   },
   {
     "id": "man-371-spruce",
@@ -199,7 +207,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/14-Mulberry-St-03060/home/60374874",
     "notes": "Rent is an estimate from Zumper city averages by bedroom count (Oct 2, 2026), not actual leases. Get the rent roll before offering. 3BR + 1BR + 1BR. Unit 2 vacant at delivery. 156 days on market, price cut $20,000.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T01:20:00Z"
+    "addedAt": "2026-10-03T01:20:00Z",
+    "sqft": 2962,
+    "yearBuilt": 1868
   },
   {
     "id": "nas-18-maple",
@@ -216,7 +226,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T01:20:00Z",
     "priceWas": 425000,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceChangedAt": "2026-10-21T10:00:00Z",
+    "sqft": 2604,
+    "yearBuilt": 1880
   },
   {
     "id": "nas-22-kinsley",
@@ -234,7 +246,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T01:20:00Z",
     "priceWas": 529900,
-    "priceChangedAt": "2026-11-05T10:00:00Z"
+    "priceChangedAt": "2026-11-05T10:00:00Z",
+    "sqft": 2862,
+    "yearBuilt": 1860
   },
   {
     "id": "nas-23-grand",
@@ -285,7 +299,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/72-Palm-St-03060/home/88077580",
     "notes": "Rent is an estimate from Zumper city averages by bedroom count (Oct 2, 2026), not actual leases. Get the rent roll before offering. 3BR + 2BR plus garage rented at $200. Fully rented. 64 days on market.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T01:20:00Z"
+    "addedAt": "2026-10-03T01:20:00Z",
+    "sqft": 2310,
+    "yearBuilt": 1880
   },
   {
     "id": "ma-lowell-891-bridge-st",
@@ -319,8 +335,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-10",
+      "price": 740000
     }
   },
   {
@@ -414,7 +431,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 589000,
-    "priceChangedAt": "2026-10-22T10:00:00Z"
+    "priceChangedAt": "2026-10-22T10:00:00Z",
+    "sqft": 3688,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-82-84-willie-st",
@@ -449,7 +468,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 2132,
+    "yearBuilt": 1850
   },
   {
     "id": "ma-lowell-46-howard-st",
@@ -484,7 +505,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 2404,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-lowell-61-butterfield-st",
@@ -523,7 +546,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 699900,
-    "priceChangedAt": "2026-11-07T10:00:00Z"
+    "priceChangedAt": "2026-11-07T10:00:00Z",
+    "sqft": 2047,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-lowell-1-3-harrison-pl",
@@ -690,7 +715,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 1812,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-lowell-33-s-whipple-st",
@@ -757,7 +784,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 7 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 3064,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-28-warnock-st",
@@ -775,7 +804,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 649999,
-    "priceChangedAt": "2026-10-17T10:00:00Z"
+    "priceChangedAt": "2026-10-17T10:00:00Z",
+    "sqft": 1867,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-lowell-716-lawrence-st",
@@ -791,7 +822,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lowell averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 7 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 2585,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-18-appleton-st",
@@ -843,7 +876,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 700000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 3497,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-lawrence-1-grove-st",
@@ -912,7 +947,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 699900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1464,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lawrence-12-warren-st",
@@ -1025,7 +1062,9 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "relistedAt": "2026-11-10T10:00:00Z"
+    "relistedAt": "2026-11-10T10:00:00Z",
+    "sqft": 2488,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-haverhill-10-patricia-ann-dr",
@@ -1092,7 +1131,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/297-S-Main-St-01835/home/11331448",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Haverhill averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 2640,
+    "yearBuilt": 1917
   },
   {
     "id": "ma-haverhill-16-gilbert-ave",
@@ -1110,7 +1151,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 700000,
-    "priceChangedAt": "2026-10-16T10:00:00Z"
+    "priceChangedAt": "2026-10-16T10:00:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-haverhill-24-blaisdell-st",
@@ -1184,8 +1228,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Methuen averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-10",
+      "price": 1025000
     }
   },
   {
@@ -1219,7 +1264,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/21-Old-Leominster-Rd-01420/home/16497058",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-fitchburg-15-cascade-st",
@@ -1236,7 +1284,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 440000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2178,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-fitchburg-25-goddard-st",
@@ -1269,8 +1319,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-10",
+      "price": 407000
     }
   },
   {
@@ -1307,7 +1358,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 4938,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-28-institute-st",
@@ -1343,7 +1396,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 530000,
-    "priceChangedAt": "2026-11-03T10:00:00Z"
+    "priceChangedAt": "2026-11-03T10:00:00Z",
+    "sqft": 1878,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-fitchburg-161-plymouth-st",
@@ -1361,7 +1416,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 399900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-fitchburg-88-ashburnham-st",
@@ -1393,7 +1451,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 1584,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-21-read-st",
@@ -1411,7 +1471,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 660000,
-    "priceChangedAt": "2026-10-22T10:00:00Z"
+    "priceChangedAt": "2026-10-22T10:00:00Z",
+    "sqft": 3954,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-123-myrtle-ave",
@@ -1470,7 +1532,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 619900,
-    "priceChangedAt": "2026-10-29T10:00:00Z"
+    "priceChangedAt": "2026-10-29T10:00:00Z",
+    "sqft": 2400,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-8-jay-st",
@@ -1488,7 +1552,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 529900,
-    "priceChangedAt": "2026-10-23T10:00:00Z"
+    "priceChangedAt": "2026-10-23T10:00:00Z",
+    "sqft": 2757,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-143-highland-ave",
@@ -1561,7 +1627,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 645000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 3334,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-fitchburg-156-summer-st",
@@ -1577,7 +1645,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Fitchburg averages, assuming 8 bedrooms split as 2BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 8 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 4564,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-18-mount-vernon-st",
@@ -1595,7 +1665,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 729900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 5744,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-26-28-eureka-st",
@@ -1670,7 +1742,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 499900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1986,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-70-myrtle-ave",
@@ -1727,7 +1801,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 464900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1738,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-fitchburg-815-819-river-st",
@@ -1764,7 +1840,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 665000,
-    "priceChangedAt": "2026-10-23T10:00:00Z"
+    "priceChangedAt": "2026-10-23T10:00:00Z",
+    "sqft": 2508,
+    "yearBuilt": 1905
   },
   {
     "id": "ma-fitchburg-119-woodland-st",
@@ -1820,7 +1898,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 569000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 3447,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-fitchburg-80-82-laurel-st",
@@ -1873,7 +1953,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/151-Central-St-01453/home/108355159",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-leominster-167-seventh-st",
@@ -1888,7 +1971,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/167-7th-St-01453/home/16544334",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 5 bedrooms split as 2BR + 2BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 2800,
+    "yearBuilt": 1924
   },
   {
     "id": "ma-leominster-163-165-central-st",
@@ -1920,7 +2005,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 649900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2698,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-leominster-287-sixth-st",
@@ -1938,7 +2025,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 619900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 5474,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-109-4th-st",
@@ -2029,7 +2118,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 3111,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-54-56-mechanic-st",
@@ -2080,7 +2171,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 1935,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-leominster-264-mechanic-st",
@@ -2112,7 +2205,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 3280,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-10-green-st",
@@ -2128,7 +2223,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 1854,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-29-31-cotton-st",
@@ -2181,7 +2278,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Leominster averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 2 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 4914,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-105-spruce-st",
@@ -2255,7 +2354,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 579900,
-    "priceChangedAt": "2026-10-26T10:00:00Z"
+    "priceChangedAt": "2026-10-26T10:00:00Z",
+    "sqft": 1368,
+    "yearBuilt": 1970
   },
   {
     "id": "ma-lynn-74-myrtle-st",
@@ -2272,8 +2373,9 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-06",
+      "price": 600000
     }
   },
   {
@@ -2284,15 +2386,17 @@ window.SEED_LISTINGS = [
     "miles": 23,
     "type": "Two-family",
     "units": 2,
-    "price": 572000,
+    "price": 550000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Lynn/35-Ridgeway-St-01902/home/11577280",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lynn averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 2 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "priceWas": 590000,
-    "priceChangedAt": "2026-10-24T10:00:00Z"
+    "priceWas": 572000,
+    "priceChangedAt": "2026-11-12T10:00:00Z",
+    "sqft": 1916,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-lynn-14-union-ct",
@@ -2308,7 +2412,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Lynn averages, assuming 3 bedrooms split as 2BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 3 beds and 2.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 1289,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-lynn-431-broadway",
@@ -2530,13 +2636,17 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Two-family",
     "units": 2,
-    "price": 629900,
+    "price": 599900,
     "rent": 4300,
     "url": "https://www.redfin.com/MA/Brockton/47-Kingman-St-02302/home/16335805",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Brockton averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 1563,
+    "yearBuilt": 1900,
+    "priceWas": 629900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-brockton-557-montello-st",
@@ -2554,7 +2664,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 749900,
-    "priceChangedAt": "2026-11-03T10:00:00Z"
+    "priceChangedAt": "2026-11-03T10:00:00Z",
+    "sqft": 2870,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-brockton-30-riverview-st",
@@ -2592,7 +2704,9 @@ window.SEED_LISTINGS = [
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 689870,
     "priceChangedAt": "2026-10-21T10:00:00Z",
-    "relistedAt": "2026-11-10T10:00:00Z"
+    "relistedAt": "2026-11-10T10:00:00Z",
+    "sqft": 2006,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-brockton-34-provost-st",
@@ -2730,7 +2844,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 654900,
-    "priceChangedAt": "2026-11-06T10:00:00Z"
+    "priceChangedAt": "2026-11-06T10:00:00Z",
+    "sqft": 2490,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-brockton-282-belmont-st",
@@ -2873,7 +2989,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 599999,
-    "priceChangedAt": "2026-10-16T10:00:00Z"
+    "priceChangedAt": "2026-10-16T10:00:00Z",
+    "sqft": 2070,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-brockton-80-winthrop-st",
@@ -2910,7 +3028,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 749049,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1630,
+    "yearBuilt": 1956
   },
   {
     "id": "ma-fallriver-30-harvard-st",
@@ -4110,7 +4230,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 465000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2136,
+    "yearBuilt": 1890
   },
   {
     "id": "nh-concord-12-14-west-st",
@@ -4166,7 +4288,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 700000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 4545,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-concord-273-279-s-main-st",
@@ -4203,7 +4327,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 660000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2981,
+    "yearBuilt": 1880
   },
   {
     "id": "nh-derry-31-juniper-rd",
@@ -4236,7 +4362,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 549900,
-    "priceChangedAt": "2026-11-08T10:00:00Z"
+    "priceChangedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1962,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-rochester-45-hanson-st",
@@ -4270,7 +4398,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/2-Pleasant-St-03867/home/96669509",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Rochester averages, assuming 5 bedrooms split as 2BR + 2BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 3360,
+    "yearBuilt": 1881
   },
   {
     "id": "nh-rochester-17-academy-st",
@@ -4286,7 +4416,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Rochester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 2090,
+    "yearBuilt": 1906
   },
   {
     "id": "nh-rochester-32-mill-st",
@@ -4547,7 +4679,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 1750,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-manchester-183-cartier-st",
@@ -4563,7 +4697,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 2860,
+    "yearBuilt": 1885
   },
   {
     "id": "nh-manchester-859-clay-st",
@@ -4578,7 +4714,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/859-Clay-St-03103/home/96368141",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 2226,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-manchester-606-hanover-st",
@@ -4610,7 +4748,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 585000,
-    "priceChangedAt": "2026-11-06T10:00:00Z"
+    "priceChangedAt": "2026-11-06T10:00:00Z",
+    "sqft": 2832,
+    "yearBuilt": 1910
   },
   {
     "id": "nh-manchester-83-sagamore-st",
@@ -4626,7 +4766,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "relistedAt": "2026-10-14T10:00:00Z"
+    "relistedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2472,
+    "yearBuilt": 1917
   },
   {
     "id": "nh-manchester-418-central-st",
@@ -4643,7 +4785,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 530000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1839,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-manchester-424-gold-st",
@@ -4677,7 +4821,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/292-Main-St-03102/home/108656988",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 1720,
+    "yearBuilt": 1910
   },
   {
     "id": "nh-manchester-754-rimmon-st",
@@ -4692,7 +4838,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/754-Rimmon-St-03102/home/108655489",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 2734,
+    "yearBuilt": 1912
   },
   {
     "id": "nh-manchester-32-mitchell-st",
@@ -4779,7 +4927,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/422-Lake-Ave-03103/home/88243967",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T02:45:00Z"
+    "addedAt": "2026-10-03T02:45:00Z",
+    "sqft": 3913,
+    "yearBuilt": 1910
   },
   {
     "id": "nh-manchester-41-parker-st",
@@ -4814,8 +4964,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-08",
+      "price": 415000
     }
   },
   {
@@ -4848,7 +4999,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 499900,
-    "priceChangedAt": "2026-10-16T10:00:00Z"
+    "priceChangedAt": "2026-10-16T10:00:00Z",
+    "sqft": 1680,
+    "yearBuilt": 1950
   },
   {
     "id": "nh-manchester-463-lake-ave",
@@ -4899,7 +5052,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 525000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1728,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-manchester-2484-elm-st",
@@ -5004,7 +5159,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
     "priceWas": 649000,
-    "priceChangedAt": "2026-10-16T10:00:00Z"
+    "priceChangedAt": "2026-10-16T10:00:00Z",
+    "sqft": 2266,
+    "yearBuilt": 1901
   },
   {
     "id": "ma-worcester-169-perry-ave",
@@ -5014,15 +5171,17 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Three-family",
     "units": 3,
-    "price": 724999,
+    "price": 639000,
     "rent": 6750,
     "url": "https://www.redfin.com/MA/Worcester/169-Perry-Ave-01610/home/16676601",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
-    "gone": {
-      "date": "2026-10-28"
-    }
+    "sqft": 4026,
+    "yearBuilt": 1915,
+    "relistedAt": "2026-11-12T10:00:00Z",
+    "priceWas": 724999,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-58-austin-st",
@@ -5068,7 +5227,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/1552-Main-St-01603/home/140152765",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 10 bedrooms split as 4BR + 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T03:25:00Z"
+    "addedAt": "2026-10-03T03:25:00Z",
+    "sqft": 4096,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-158-austin-st",
@@ -5100,7 +5261,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
     "priceWas": 659000,
-    "priceChangedAt": "2026-10-29T10:00:00Z"
+    "priceChangedAt": "2026-10-29T10:00:00Z",
+    "sqft": 2661,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-worcester-16-reservoir-st",
@@ -5185,7 +5348,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/328-Brooks-St-01606/home/16647972",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Zumper Worcester averages, assuming 5 bedrooms split as 2BR + 2BR + 1BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-02",
-    "addedAt": "2026-10-03T03:25:00Z"
+    "addedAt": "2026-10-03T03:25:00Z",
+    "sqft": 2926,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-worcester-81-ward-st",
@@ -5202,7 +5367,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
     "priceWas": 724900,
-    "priceChangedAt": "2026-10-16T10:00:00Z"
+    "priceChangedAt": "2026-10-16T10:00:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-worcester-69-fox-st",
@@ -5236,7 +5404,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
     "priceWas": 240000,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceChangedAt": "2026-10-21T10:00:00Z",
+    "sqft": 2406,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-3-clifton-ter",
@@ -5253,7 +5423,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
     "priceWas": 399000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1486,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-11-diamond-st",
@@ -5288,7 +5460,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T03:25:00Z",
     "priceWas": 610000,
-    "priceChangedAt": "2026-11-09T10:00:00Z"
+    "priceChangedAt": "2026-11-09T10:00:00Z",
+    "sqft": 3936,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-lowell-941-lakeview-ave",
@@ -5326,7 +5500,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 699900,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceChangedAt": "2026-10-21T10:00:00Z",
+    "sqft": 2064,
+    "yearBuilt": 1870
   },
   {
     "id": "ma-lowell-316-rogers-st",
@@ -5669,7 +5845,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sqft": 3111,
+    "yearBuilt": 1893
   },
   {
     "id": "ma-worcester-49-beaver-st",
@@ -5752,15 +5930,17 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 644999,
+    "price": 639999,
     "rent": 4500,
     "url": "https://www.redfin.com/MA/Worcester/6-Delaware-St-01603/home/16650271",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
-    "priceWas": 649999,
-    "priceChangedAt": "2026-10-29T10:00:00Z"
+    "priceWas": 644999,
+    "priceChangedAt": "2026-11-12T10:00:00Z",
+    "sqft": 2438,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-15-maple-tree-ln",
@@ -5778,7 +5958,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 699900,
-    "priceChangedAt": "2026-10-31T10:00:00Z"
+    "priceChangedAt": "2026-10-31T10:00:00Z",
+    "sqft": 2400,
+    "yearBuilt": 1870
   },
   {
     "id": "ma-worcester-5-freeland-ter",
@@ -5794,7 +5976,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sqft": 3198,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-34-dorchester-st",
@@ -5851,7 +6035,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 574000,
-    "priceChangedAt": "2026-11-07T10:00:00Z"
+    "priceChangedAt": "2026-11-07T10:00:00Z",
+    "sqft": 3168,
+    "yearBuilt": 1840
   },
   {
     "id": "ma-worcester-49-1-2-ellsworth-st",
@@ -5861,13 +6047,17 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Three-family",
     "units": 3,
-    "price": 599000,
+    "price": 590000,
     "rent": 6000,
     "url": "https://www.redfin.com/MA/Worcester/49-1-2-Ellsworth-St-01610/home/16663494",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sqft": 3000,
+    "yearBuilt": 1910,
+    "priceWas": 599000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-51-randall-st",
@@ -5877,15 +6067,17 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 590000,
+    "price": 549000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Worcester/51-Randall-St-01606/home/16680255",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 3.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
-    "priceWas": 599000,
-    "priceChangedAt": "2026-10-27T10:00:00Z"
+    "priceWas": 590000,
+    "priceChangedAt": "2026-11-12T10:00:00Z",
+    "sqft": 2301,
+    "yearBuilt": 2007
   },
   {
     "id": "ma-worcester-38-oberlin-st",
@@ -5942,7 +6134,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sqft": 1365,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-15-genessee-st",
@@ -5952,15 +6146,17 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 375000,
+    "price": 350000,
     "rent": 3600,
     "url": "https://www.redfin.com/MA/Worcester/15-Genessee-St-01603/home/16650417",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 2 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
-    "priceWas": 399000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 375000,
+    "priceChangedAt": "2026-11-12T10:00:00Z",
+    "sqft": 2978,
+    "yearBuilt": 1918
   },
   {
     "id": "ma-worcester-44-alsada-dr",
@@ -5976,7 +6172,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sqft": 2040,
+    "yearBuilt": 1970
   },
   {
     "id": "ma-worcester-36-cedar-st",
@@ -6010,7 +6208,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 599900,
-    "priceChangedAt": "2026-10-17T10:00:00Z"
+    "priceChangedAt": "2026-10-17T10:00:00Z",
+    "sqft": 1908,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-worcester-3-aetna-st",
@@ -6045,7 +6245,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sqft": 2364,
+    "yearBuilt": 1860
   },
   {
     "id": "ma-worcester-12-richmond-ave",
@@ -6079,7 +6281,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 589999,
-    "priceChangedAt": "2026-10-31T10:00:00Z"
+    "priceChangedAt": "2026-10-31T10:00:00Z",
+    "sqft": 2647,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-11-leon-st",
@@ -6127,8 +6331,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
-    "gone": {
-      "date": "2026-10-28"
+    "sold": {
+      "date": "2026-11-10",
+      "price": 385000
     }
   },
   {
@@ -6165,7 +6370,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 520000,
-    "priceChangedAt": "2026-11-06T10:00:00Z"
+    "priceChangedAt": "2026-11-06T10:00:00Z",
+    "sqft": 2112,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-worcester-17-rockdale-st",
@@ -6191,15 +6398,17 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 468000,
+    "price": 439000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Worcester/312-Plantation-St-01604/home/16671515",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
-    "priceWas": 478000,
-    "priceChangedAt": "2026-11-02T10:00:00Z"
+    "priceWas": 468000,
+    "priceChangedAt": "2026-11-12T10:00:00Z",
+    "sqft": 2272,
+    "yearBuilt": 1853
   },
   {
     "id": "ma-worcester-120-southgate-st",
@@ -6263,13 +6472,17 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Two-family",
     "units": 2,
-    "price": 550000,
+    "price": 539888,
     "rent": 4500,
     "url": "https://www.redfin.com/MA/Worcester/58-Gage-St-01605/home/16671693",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sqft": 2088,
+    "yearBuilt": 1920,
+    "priceWas": 550000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-435-lake-ave",
@@ -6349,13 +6562,17 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Four-family",
     "units": 4,
-    "price": 753000,
+    "price": 699900,
     "rent": 8500,
     "url": "https://www.redfin.com/MA/Worcester/73-Southgate-St-01603/home/16655560",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 10 bedrooms split as 3BR + 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 10 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sqft": 4087,
+    "yearBuilt": 1900,
+    "priceWas": 753000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-126-sterling-st",
@@ -6373,7 +6590,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 715000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 3480,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-worcester-12-nelson-pl",
@@ -6492,7 +6711,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 749000,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceChangedAt": "2026-10-21T10:00:00Z",
+    "sqft": 4041,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-49-granite-st",
@@ -6659,7 +6880,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-07",
     "addedAt": "2026-10-07T10:55:37.577Z",
     "priceWas": 799000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "sqft": 3210,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-6-buffum-st",
@@ -6691,7 +6914,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-07",
-    "addedAt": "2026-10-07T10:55:37.577Z"
+    "addedAt": "2026-10-07T10:55:37.577Z",
+    "sqft": 3500,
+    "yearBuilt": 1913
   },
   {
     "id": "ma-worcester-12-winslow-st",
@@ -6824,14 +7049,15 @@ window.SEED_LISTINGS = [
     "miles": 39,
     "type": "Two-family",
     "units": 2,
-    "price": 219900,
+    "price": 209900,
     "rent": 5075,
     "url": "https://www.redfin.com/NH/Boscawen/7-Tremont-St-03303/home/205113635",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Concord averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-10-10",
     "addedAt": "2026-10-10T12:53:00.858Z",
-    "priceWas": 234900,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceWas": 219900,
+    "priceChangedAt": "2026-11-12T10:00:00Z",
+    "yearBuilt": 1825
   },
   {
     "id": "ma-lowell-68-70-b-st",
@@ -6849,7 +7075,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 679900,
-    "priceChangedAt": "2026-10-31T10:00:00Z"
+    "priceChangedAt": "2026-10-31T10:00:00Z",
+    "sqft": 1872,
+    "yearBuilt": 1965
   },
   {
     "id": "ma-lowell-40-bunker-hill-ave",
@@ -6993,7 +7221,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 675000,
-    "priceChangedAt": "2026-11-01T10:00:00Z"
+    "priceChangedAt": "2026-11-01T10:00:00Z",
+    "sqft": 2979,
+    "yearBuilt": 1850
   },
   {
     "id": "ma-lowell-60-62-4th-st",
@@ -7043,7 +7273,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1636,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-methuen-82-84-haverhill-st",
@@ -7059,7 +7291,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Methuen averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1824,
+    "yearBuilt": 1922
   },
   {
     "id": "ma-methuen-35-37-buco-ave",
@@ -7221,7 +7455,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 599900,
-    "priceChangedAt": "2026-10-15T10:00:00Z"
+    "priceChangedAt": "2026-10-15T10:00:00Z",
+    "sqft": 2048,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lawrence-107-oxford-st",
@@ -7256,7 +7492,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1843,
+    "yearBuilt": 1905
   },
   {
     "id": "ma-lawrence-15-17-allyn-ter",
@@ -7583,7 +7821,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 525000,
-    "priceChangedAt": "2026-10-26T10:00:00Z"
+    "priceChangedAt": "2026-10-26T10:00:00Z",
+    "sqft": 3645,
+    "yearBuilt": 1890
   },
   {
     "id": "nh-manchester-1601-front-st",
@@ -7601,7 +7841,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 665000,
-    "priceChangedAt": "2026-10-26T10:00:00Z"
+    "priceChangedAt": "2026-10-26T10:00:00Z",
+    "sqft": 2483,
+    "yearBuilt": 1800
   },
   {
     "id": "nh-manchester-301-amherst-st",
@@ -7617,7 +7859,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 3327,
+    "yearBuilt": 1906
   },
   {
     "id": "nh-manchester-349-351-s-beech-st",
@@ -7635,7 +7879,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 759900,
-    "priceChangedAt": "2026-10-22T10:00:00Z"
+    "priceChangedAt": "2026-10-22T10:00:00Z",
+    "sqft": 2708,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-manchester-359-pearl-st",
@@ -7653,7 +7899,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 650000,
-    "priceChangedAt": "2026-10-15T10:00:00Z"
+    "priceChangedAt": "2026-10-15T10:00:00Z",
+    "sqft": 3002,
+    "yearBuilt": 1930
   },
   {
     "id": "nh-manchester-272-lake-ave",
@@ -7669,7 +7917,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2044,
+    "yearBuilt": 1911
   },
   {
     "id": "nh-manchester-170-oakland-ave",
@@ -7687,7 +7937,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 570000,
-    "priceChangedAt": "2026-11-04T10:00:00Z"
+    "priceChangedAt": "2026-11-04T10:00:00Z",
+    "sqft": 1824,
+    "yearBuilt": 1911
   },
   {
     "id": "ma-leominster-199-prospect-st",
@@ -7743,7 +7995,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 419900,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 3531,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-57-chester-st",
@@ -7777,7 +8031,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2657,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-83-85-marshall-st",
@@ -7829,7 +8085,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 479900,
-    "priceChangedAt": "2026-10-23T10:00:00Z"
+    "priceChangedAt": "2026-10-23T10:00:00Z",
+    "sqft": 2426,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-fitchburg-61-congress-st",
@@ -7845,7 +8103,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 8 bedrooms split as 4BR + 4BR. Taxes and insurance are estimated. Unit count (2) is inferred from 8 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 4388,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-112-marshall-st",
@@ -7861,7 +8121,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1725,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-282-charles-st",
@@ -7879,7 +8141,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 524900,
-    "priceChangedAt": "2026-10-28T10:00:00Z"
+    "priceChangedAt": "2026-10-28T10:00:00Z",
+    "sqft": 2196,
+    "yearBuilt": 1897
   },
   {
     "id": "ma-fitchburg-15-nutting-st",
@@ -7897,7 +8161,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 489000,
-    "priceChangedAt": "2026-10-28T10:00:00Z"
+    "priceChangedAt": "2026-10-28T10:00:00Z",
+    "sqft": 1984,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-53-55-cascade-st",
@@ -7933,7 +8199,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 645000,
-    "priceChangedAt": "2026-10-18T10:00:00Z"
+    "priceChangedAt": "2026-10-18T10:00:00Z",
+    "sqft": 3016,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-58-marshall-st",
@@ -7949,7 +8217,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-fitchburg-151-mechanic-st",
@@ -7967,7 +8238,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 560000,
-    "priceChangedAt": "2026-10-16T10:00:00Z"
+    "priceChangedAt": "2026-10-16T10:00:00Z",
+    "sqft": 2680,
+    "yearBuilt": 1830
   },
   {
     "id": "ma-fitchburg-31-33-cascade-st",
@@ -7983,7 +8256,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-fitchburg-564-fairmount-st",
@@ -8020,7 +8296,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 3177,
+    "yearBuilt": 1922
   },
   {
     "id": "ma-fitchburg-15-congress-st",
@@ -8036,7 +8314,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1800,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-fitchburg-62-1-2-hazel-st",
@@ -8052,7 +8332,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2040,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-99-milk-st",
@@ -8087,7 +8369,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1365,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-29-forest-st",
@@ -8142,7 +8426,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 399900,
-    "priceChangedAt": "2026-10-27T10:00:00Z"
+    "priceChangedAt": "2026-10-27T10:00:00Z",
+    "sqft": 2118,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-109-albee-st",
@@ -8158,7 +8444,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-fitchburg-67-69-central-st",
@@ -8176,7 +8465,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 458000,
-    "priceChangedAt": "2026-10-30T10:00:00Z"
+    "priceChangedAt": "2026-10-30T10:00:00Z",
+    "sqft": 3078,
+    "yearBuilt": 1800
   },
   {
     "id": "ma-worcester-33-jefferson-st",
@@ -8228,7 +8519,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 460000,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceChangedAt": "2026-10-21T10:00:00Z",
+    "sqft": 1252,
+    "yearBuilt": 1898
   },
   {
     "id": "ma-worcester-225-fairmont-ave",
@@ -8284,7 +8577,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 650000,
-    "priceChangedAt": "2026-10-29T10:00:00Z"
+    "priceChangedAt": "2026-10-29T10:00:00Z",
+    "sqft": 3586,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-29-passway-5",
@@ -8300,7 +8595,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2506,
+    "yearBuilt": 1954
   },
   {
     "id": "ma-worcester-6-piedmont-st",
@@ -8316,7 +8613,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 8 bedrooms split as 2BR + 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (4) is inferred from 8 beds and 4.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 4005,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-99-paine-st",
@@ -8414,7 +8713,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2705,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-104-sterling-st",
@@ -8536,7 +8837,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 620000,
-    "priceChangedAt": "2026-11-06T10:00:00Z"
+    "priceChangedAt": "2026-11-06T10:00:00Z",
+    "sqft": 2521,
+    "yearBuilt": 1899
   },
   {
     "id": "nh-dover-29-31-silver-st",
@@ -8571,7 +8874,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 530000,
-    "priceChangedAt": "2026-10-30T10:00:00Z"
+    "priceChangedAt": "2026-10-30T10:00:00Z",
+    "sqft": 1727,
+    "yearBuilt": 1880
   },
   {
     "id": "nh-dover-33-35-st-thomas-st",
@@ -8681,8 +8986,9 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
-    "gone": {
-      "date": "2026-11-04"
+    "sold": {
+      "date": "2026-11-09",
+      "price": 858000
     }
   },
   {
@@ -8701,7 +9007,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 670000,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1988,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-brockton-382-green-st-ext",
@@ -8800,7 +9108,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2361,
+    "yearBuilt": 1890
   },
   {
     "id": "nh-rochester-9-lincoln-st",
@@ -8818,7 +9128,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 479900,
-    "priceChangedAt": "2026-10-17T10:00:00Z"
+    "priceChangedAt": "2026-10-17T10:00:00Z",
+    "sqft": 2576,
+    "yearBuilt": 1881
   },
   {
     "id": "nh-rochester-18-morton-ave",
@@ -8834,7 +9146,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 3 bedrooms split as 2BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 3 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 1678,
+    "yearBuilt": 1902
   },
   {
     "id": "nh-rochester-352-portland-st",
@@ -8850,7 +9164,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 4358,
+    "yearBuilt": 1902
   },
   {
     "id": "nh-rochester-80-chestnut-hill-rd",
@@ -8866,7 +9182,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 2 beds and 1.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "sqft": 2254,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-lowell-10-rockdale-ave",
@@ -8917,7 +9235,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-15",
-    "addedAt": "2026-10-15T10:00:00Z"
+    "addedAt": "2026-10-15T10:00:00Z",
+    "sqft": 2804,
+    "yearBuilt": 1987
   },
   {
     "id": "ma-haverhill-67-moore-st",
@@ -8933,7 +9253,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-15",
-    "addedAt": "2026-10-15T10:00:00Z"
+    "addedAt": "2026-10-15T10:00:00Z",
+    "sqft": 1746,
+    "yearBuilt": 1885
   },
   {
     "id": "ma-lynn-11-11a-concord-st",
@@ -9000,7 +9322,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-15",
-    "addedAt": "2026-10-15T10:00:00Z"
+    "addedAt": "2026-10-15T10:00:00Z",
+    "sqft": 3759,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-285-hamilton-st",
@@ -9016,7 +9340,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-15",
-    "addedAt": "2026-10-15T10:00:00Z"
+    "addedAt": "2026-10-15T10:00:00Z",
+    "sqft": 4563,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-worcester-8-3-chilmark",
@@ -9066,7 +9392,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-15",
-    "addedAt": "2026-10-15T10:00:00Z"
+    "addedAt": "2026-10-15T10:00:00Z",
+    "sqft": 2410,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-brockton-65-richmond-st",
@@ -9117,7 +9445,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-16",
-    "addedAt": "2026-10-16T10:00:00Z"
+    "addedAt": "2026-10-16T10:00:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-worcester-1-wayne-st",
@@ -9133,7 +9464,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-16",
-    "addedAt": "2026-10-16T10:00:00Z"
+    "addedAt": "2026-10-16T10:00:00Z",
+    "sqft": 2913,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-55-endicott",
@@ -9168,7 +9501,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-16",
-    "addedAt": "2026-10-16T10:00:00Z"
+    "addedAt": "2026-10-16T10:00:00Z",
+    "sqft": 1597,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-lowell-321-323-lawrence-st",
@@ -9220,7 +9555,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-17",
     "addedAt": "2026-10-17T10:00:00Z",
     "priceWas": 479000,
-    "priceChangedAt": "2026-11-03T10:00:00Z"
+    "priceChangedAt": "2026-11-03T10:00:00Z",
+    "sqft": 1688,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-9-mount-ave",
@@ -9236,7 +9573,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-17",
-    "addedAt": "2026-10-17T10:00:00Z"
+    "addedAt": "2026-10-17T10:00:00Z",
+    "sqft": 2613,
+    "yearBuilt": 1903
   },
   {
     "id": "ma-brockton-33-columbia",
@@ -9325,7 +9664,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-19",
     "addedAt": "2026-10-19T10:00:00Z",
     "priceWas": 699000,
-    "priceChangedAt": "2026-10-29T10:00:00Z"
+    "priceChangedAt": "2026-10-29T10:00:00Z",
+    "sqft": 3359,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-brockton-933-warren-ave",
@@ -9441,7 +9782,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-21",
     "addedAt": "2026-10-21T10:00:00Z",
     "priceWas": 494000,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 3014,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-57-59-marshall-st",
@@ -9457,7 +9800,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-21",
-    "addedAt": "2026-10-21T10:00:00Z"
+    "addedAt": "2026-10-21T10:00:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-fitchburg-9-fulton-st",
@@ -9669,7 +10015,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Nashua averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-22",
-    "addedAt": "2026-10-22T10:00:00Z"
+    "addedAt": "2026-10-22T10:00:00Z",
+    "sqft": 2170,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-derry-15-juniper-rd",
@@ -9719,7 +10067,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-22",
     "addedAt": "2026-10-22T10:00:00Z",
     "priceWas": 579900,
-    "priceChangedAt": "2026-11-07T10:00:00Z"
+    "priceChangedAt": "2026-11-07T10:00:00Z",
+    "sqft": 1733,
+    "yearBuilt": 1960
   },
   {
     "id": "nh-manchester-202-leda-ave",
@@ -9751,7 +10101,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-22",
-    "addedAt": "2026-10-22T10:00:00Z"
+    "addedAt": "2026-10-22T10:00:00Z",
+    "sqft": 2747,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-50-commonwealth-ave",
@@ -9767,7 +10119,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 2 bedrooms split as 1BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 2 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-22",
-    "addedAt": "2026-10-22T10:00:00Z"
+    "addedAt": "2026-10-22T10:00:00Z",
+    "gone": {
+      "date": "2026-11-12"
+    }
   },
   {
     "id": "ma-worcester-5-7-thenius-st",
@@ -9834,7 +10189,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Dover averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-22",
-    "addedAt": "2026-10-22T10:00:00Z"
+    "addedAt": "2026-10-22T10:00:00Z",
+    "sqft": 1512,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-brockton-361-n-montello",
@@ -9844,13 +10201,17 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Three-family",
     "units": 3,
-    "price": 729999,
+    "price": 699000,
     "rent": 6450,
     "url": "https://www.redfin.com/MA/Brockton/361-N-Montello-St-02301/home/16321727",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-22",
-    "addedAt": "2026-10-22T10:00:00Z"
+    "addedAt": "2026-10-22T10:00:00Z",
+    "sqft": 2598,
+    "yearBuilt": 1920,
+    "priceWas": 729999,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-lowell-31-33-bourne-st",
@@ -9978,7 +10339,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Leominster averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-24",
-    "addedAt": "2026-10-24T10:00:00Z"
+    "addedAt": "2026-10-24T10:00:00Z",
+    "sqft": 1536,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-brockton-208-spring-st",
@@ -10028,7 +10391,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-26",
     "addedAt": "2026-10-26T10:00:00Z",
     "priceWas": 705000,
-    "priceChangedAt": "2026-11-08T10:00:00Z"
+    "priceChangedAt": "2026-11-08T10:00:00Z",
+    "sqft": 3035,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lawrence-72-byron-ave",
@@ -10092,7 +10457,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-27",
-    "addedAt": "2026-10-27T10:00:00Z"
+    "addedAt": "2026-10-27T10:00:00Z",
+    "sqft": 3436,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-145-eastern-ave",
@@ -10172,7 +10539,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Derry averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-28",
-    "addedAt": "2026-10-28T10:00:00Z"
+    "addedAt": "2026-10-28T10:00:00Z",
+    "sqft": 2457,
+    "yearBuilt": 1880
   },
   {
     "id": "nh-manchester-227-laval-st",
@@ -10188,7 +10557,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-28",
-    "addedAt": "2026-10-28T10:00:00Z"
+    "addedAt": "2026-10-28T10:00:00Z",
+    "sqft": 1924,
+    "yearBuilt": 1915
   },
   {
     "id": "nh-manchester-331-spruce-st",
@@ -10204,7 +10575,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-28",
-    "addedAt": "2026-10-28T10:00:00Z"
+    "addedAt": "2026-10-28T10:00:00Z",
+    "sqft": 2067,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-120-academy-st",
@@ -10214,13 +10587,17 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Two-family",
     "units": 2,
-    "price": 373000,
+    "price": 359999,
     "rent": 3500,
     "url": "https://www.redfin.com/MA/Fitchburg/120-Academy-St-01420/home/16503135",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-28",
-    "addedAt": "2026-10-28T10:00:00Z"
+    "addedAt": "2026-10-28T10:00:00Z",
+    "sqft": 2052,
+    "yearBuilt": 1920,
+    "priceWas": 373000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-1296-main",
@@ -10268,7 +10645,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-29",
-    "addedAt": "2026-10-29T10:00:00Z"
+    "addedAt": "2026-10-29T10:00:00Z",
+    "sqft": 2270,
+    "yearBuilt": 1950
   },
   {
     "id": "ma-lawrence-903-905-essex-st",
@@ -10364,7 +10743,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Leominster averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-29",
-    "addedAt": "2026-10-29T10:00:00Z"
+    "addedAt": "2026-10-29T10:00:00Z",
+    "sqft": 2324,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-256-plymouth-st",
@@ -10380,7 +10761,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-29",
-    "addedAt": "2026-10-29T10:00:00Z"
+    "addedAt": "2026-10-29T10:00:00Z",
+    "sqft": 2312,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-17-19-king-st",
@@ -10422,13 +10805,17 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Two-family",
     "units": 2,
-    "price": 625000,
+    "price": 600000,
     "rent": 4300,
     "url": "https://www.redfin.com/MA/Brockton/133-Tribou-St-02301/home/16324155",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-29",
-    "addedAt": "2026-10-29T10:00:00Z"
+    "addedAt": "2026-10-29T10:00:00Z",
+    "sqft": 2103,
+    "yearBuilt": 1887,
+    "priceWas": 625000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-brockton-170-tribou-st",
@@ -10462,7 +10849,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-29",
     "addedAt": "2026-10-29T10:00:00Z",
     "priceWas": 440000,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1750,
+    "yearBuilt": 1872
   },
   {
     "id": "nh-manchester-91-youville-st",
@@ -10478,7 +10867,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-30",
-    "addedAt": "2026-10-30T10:00:00Z"
+    "addedAt": "2026-10-30T10:00:00Z",
+    "sqft": 2882,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-28-june-st",
@@ -10512,7 +10903,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-30",
     "addedAt": "2026-10-30T10:00:00Z",
     "priceWas": 475000,
-    "priceChangedAt": "2026-11-09T10:00:00Z"
+    "priceChangedAt": "2026-11-09T10:00:00Z",
+    "sqft": 1300,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-lynn-101-eutaw-ave",
@@ -10560,7 +10953,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-01",
-    "addedAt": "2026-11-01T10:00:00Z"
+    "addedAt": "2026-11-01T10:00:00Z",
+    "sqft": 4368,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-fitchburg-30-34-pleasant-st",
@@ -10576,7 +10971,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-02",
-    "addedAt": "2026-11-02T10:00:00Z"
+    "addedAt": "2026-11-02T10:00:00Z",
+    "sqft": 3010,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-256-belmont-st",
@@ -10592,7 +10989,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-02",
-    "addedAt": "2026-11-02T10:00:00Z"
+    "addedAt": "2026-11-02T10:00:00Z",
+    "sqft": 3090,
+    "yearBuilt": 1923
   },
   {
     "id": "ma-worcester-5-flower-st",
@@ -10608,7 +11007,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-02",
-    "addedAt": "2026-11-02T10:00:00Z"
+    "addedAt": "2026-11-02T10:00:00Z",
+    "sqft": 4050,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-worcester-3-beamon-ave",
@@ -10640,7 +11041,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-03",
-    "addedAt": "2026-11-03T10:00:00Z"
+    "addedAt": "2026-11-03T10:00:00Z",
+    "sqft": 3325,
+    "yearBuilt": 1880
   },
   {
     "id": "nh-manchester-36-clinton-st",
@@ -10656,7 +11059,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-03",
-    "addedAt": "2026-11-03T10:00:00Z"
+    "addedAt": "2026-11-03T10:00:00Z",
+    "sqft": 2716,
+    "yearBuilt": 1910
   },
   {
     "id": "nh-manchester-108-110-w-elmwood-ave",
@@ -10688,7 +11093,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-03",
-    "addedAt": "2026-11-03T10:00:00Z"
+    "addedAt": "2026-11-03T10:00:00Z",
+    "sqft": 3436,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-2-gordon-st",
@@ -10736,7 +11143,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-04",
-    "addedAt": "2026-11-04T10:00:00Z"
+    "addedAt": "2026-11-04T10:00:00Z",
+    "sqft": 3008,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lawrence-23-wesley-st",
@@ -10752,7 +11161,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-04",
-    "addedAt": "2026-11-04T10:00:00Z"
+    "addedAt": "2026-11-04T10:00:00Z",
+    "sqft": 2224,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-haverhill-454-washington-st",
@@ -10784,7 +11195,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-04",
-    "addedAt": "2026-11-04T10:00:00Z"
+    "addedAt": "2026-11-04T10:00:00Z",
+    "sqft": 2426,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-20-wyola-dr",
@@ -10800,7 +11213,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-04",
-    "addedAt": "2026-11-04T10:00:00Z"
+    "addedAt": "2026-11-04T10:00:00Z",
+    "sqft": 2112,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-rochester-33-35-river-st",
@@ -10816,7 +11231,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Rochester averages, assuming 7 bedrooms split as 4BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 7 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-04",
-    "addedAt": "2026-11-04T10:00:00Z"
+    "addedAt": "2026-11-04T10:00:00Z",
+    "sqft": 2574,
+    "yearBuilt": 1881
   },
   {
     "id": "ma-lowell-40-robert-st",
@@ -10832,7 +11249,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lowell averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 2987,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lawrence-160-walnut-st",
@@ -10848,7 +11267,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 2360,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-nashua-17-norton-st",
@@ -10864,7 +11285,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Nashua averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 2580,
+    "yearBuilt": 1964
   },
   {
     "id": "ma-haverhill-24-4th-ave",
@@ -10880,7 +11303,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 1702,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-haverhill-14-lamoille",
@@ -10896,7 +11321,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 3095,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-haverhill-127-129-cedar-st",
@@ -10944,7 +11371,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 2275,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-138-plymouth-st",
@@ -10960,7 +11389,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 7 bedrooms split as 3BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 7 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 2492,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-91-providence-st",
@@ -10992,7 +11423,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 1920,
+    "yearBuilt": 1880
   },
   {
     "id": "ma-worcester-27-cambridge",
@@ -11008,7 +11441,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 2845,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-3-ives-st",
@@ -11024,7 +11459,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 3756,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-worcester-17-tampa-st",
@@ -11040,7 +11477,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-05",
-    "addedAt": "2026-11-05T10:00:00Z"
+    "addedAt": "2026-11-05T10:00:00Z",
+    "sqft": 1889,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-lawrence-76-tewksbury-st",
@@ -11088,7 +11527,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lynn averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-06",
-    "addedAt": "2026-11-06T10:00:00Z"
+    "addedAt": "2026-11-06T10:00:00Z",
+    "sqft": 1931,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-200-pleasant-st",
@@ -11104,7 +11545,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Leominster averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-06",
-    "addedAt": "2026-11-06T10:00:00Z"
+    "addedAt": "2026-11-06T10:00:00Z",
+    "sqft": 2040,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-90-92-pleasant-st",
@@ -11120,7 +11563,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-06",
-    "addedAt": "2026-11-06T10:00:00Z"
+    "addedAt": "2026-11-06T10:00:00Z",
+    "sqft": 2090,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-49-richland-st-and-10-dorchester",
@@ -11152,7 +11597,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-06",
-    "addedAt": "2026-11-06T10:00:00Z"
+    "addedAt": "2026-11-06T10:00:00Z",
+    "sqft": 3892,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-31-euclid-ave",
@@ -11168,7 +11615,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-06",
-    "addedAt": "2026-11-06T10:00:00Z"
+    "addedAt": "2026-11-06T10:00:00Z",
+    "sqft": 3840,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-dover-55-prospect-st",
@@ -11200,7 +11649,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-06",
-    "addedAt": "2026-11-06T10:00:00Z"
+    "addedAt": "2026-11-06T10:00:00Z",
+    "sqft": 1983,
+    "yearBuilt": 1950
   },
   {
     "id": "ma-methuen-66-68-boston-st",
@@ -11232,7 +11683,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-07",
-    "addedAt": "2026-11-07T10:00:00Z"
+    "addedAt": "2026-11-07T10:00:00Z",
+    "sqft": 1876,
+    "yearBuilt": 1950
   },
   {
     "id": "ma-worcester-29-cambridge-st",
@@ -11248,7 +11701,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-07",
-    "addedAt": "2026-11-07T10:00:00Z"
+    "addedAt": "2026-11-07T10:00:00Z",
+    "sqft": 2746,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-45-barrington-st",
@@ -11278,7 +11733,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/191-Burnham-Rd-01852/home/11663265",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 960,
+    "yearBuilt": 1955
   },
   {
     "id": "ma-lowell-79-w-3rd-st",
@@ -11288,12 +11745,16 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Single-family",
     "units": 1,
-    "price": 495000,
+    "price": 485000,
     "rent": 2700,
     "url": "https://www.redfin.com/MA/Lowell/79-W-3rd-St-01850/home/11643050",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1450,
+    "yearBuilt": 1910,
+    "priceWas": 495000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-lowell-671-beacon-st",
@@ -11308,7 +11769,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/671-Beacon-St-01850/home/11647031",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1474,
+    "yearBuilt": 1950
   },
   {
     "id": "ma-lowell-37-south-whipple-st",
@@ -11323,7 +11786,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/37-S-Whipple-St-01852/home/11651067",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1394,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-60-columbia-rd",
@@ -11338,7 +11803,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/60-Columbia-Rd-01854/home/11615559",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1056,
+    "yearBuilt": 1940
   },
   {
     "id": "ma-lowell-93-lilley-ave",
@@ -11348,12 +11815,16 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Single-family",
     "units": 1,
-    "price": 524900,
+    "price": 519900,
     "rent": 3225,
     "url": "https://www.redfin.com/MA/Lowell/93-Lilley-Ave-01850/home/11636143",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1708,
+    "yearBuilt": 1925,
+    "priceWas": 524900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-lowell-115-puffer-st",
@@ -11368,7 +11839,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/115-Puffer-St-01851/home/11624026",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1296,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-199-mount-hope-st",
@@ -11383,7 +11856,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/199-Mount-Hope-St-01854/home/11618896",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1400,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lowell-112-fisher-st",
@@ -11393,12 +11868,16 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Single-family",
     "units": 1,
-    "price": 539999,
+    "price": 519999,
     "rent": 2700,
     "url": "https://www.redfin.com/MA/Lowell/112-Fisher-St-01850/home/11635595",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1739,
+    "yearBuilt": 1955,
+    "priceWas": 539999,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-lowell-39-boisvert-st",
@@ -11413,7 +11892,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/39-Boisvert-St-01850/home/11636895",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1503,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lowell-174-willard-st",
@@ -11428,7 +11909,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/174-Willard-St-01850/home/11646826",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1123,
+    "yearBuilt": 1940
   },
   {
     "id": "ma-lowell-1088-bridge-st",
@@ -11443,7 +11926,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/1088-Bridge-St-01850/home/11639854",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1302,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-142-university-ave",
@@ -11458,7 +11943,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/142-University-Ave-01854/home/11618959",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1422,
+    "yearBuilt": 1950
   },
   {
     "id": "ma-lowell-47-pemberton-st",
@@ -11473,7 +11960,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/47-Pemberton-St-01850/home/201334512",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 845,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lowell-76-fremont-st",
@@ -11488,7 +11977,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/76-Fremont-St-01850/home/11648834",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1788,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-23-second-st",
@@ -11503,7 +11994,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/23-2nd-St-01850/home/11642605",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1294,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lowell-55-arlington-st",
@@ -11518,7 +12011,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/55-Arlington-St-01854/home/11626778",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1486,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-255-plain-st",
@@ -11535,7 +12030,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 369800,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1385,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-lowell-100-west-st",
@@ -11550,7 +12047,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/100-West-St-01850/home/11642195",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1505,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-57-llewellyn-st",
@@ -11565,7 +12064,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/57-Llewellyn-St-01850/home/11653197",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1342,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-lowell-37-barclay-st",
@@ -11580,7 +12081,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/37-Barclay-St-01851/home/11628875",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1534,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-35-farmland-rd",
@@ -11595,7 +12098,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/35-Farmland-Rd-01850/home/11636485",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1464,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-lowell-46-north-st",
@@ -11610,7 +12115,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/46-North-St-01852/home/11643315",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1235,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lowell-133-farmland-rd",
@@ -11625,7 +12132,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/133-Farmland-Rd-01850/home/11635425",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1456,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lowell-35-sparks-st",
@@ -11640,7 +12149,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/35-Sparks-St-01854/home/11626120",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1091,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lowell-12-l-st",
@@ -11655,7 +12166,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/12-L-St-01850/home/11642539",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 875,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-lowell-131-london-st",
@@ -11670,7 +12183,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/131-London-St-01852/home/11638783",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1650,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-methuen-117-harris-st",
@@ -11700,7 +12215,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/17-Armory-St-01844/home/8301549",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1170,
+    "yearBuilt": 1928
   },
   {
     "id": "ma-methuen-192-tyler-st",
@@ -11715,7 +12232,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/192-Tyler-St-01844/home/8296602",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1229,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-methuen-197-oakland-ave",
@@ -11730,7 +12249,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/197-Oakland-Ave-01844/home/8307681",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1272,
+    "yearBuilt": 1940
   },
   {
     "id": "ma-methuen-22-houston-ave",
@@ -11760,7 +12281,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/41-Linwood-Ave-01844/home/8344725",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 737,
+    "yearBuilt": 1950
   },
   {
     "id": "ma-methuen-31-milk-st",
@@ -11775,7 +12298,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/31-Milk-St-01844/home/8359169",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1276,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-methuen-54-capitol-st",
@@ -11790,7 +12315,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/54-Capitol-St-01844/home/8308069",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1718,
+    "yearBuilt": 1964
   },
   {
     "id": "ma-methuen-62-merrimack",
@@ -11805,7 +12332,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/62-Merrimack-St-01844/home/11533187",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2234,
+    "yearBuilt": 1940
   },
   {
     "id": "ma-methuen-18-woodland-cir",
@@ -11820,7 +12349,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/18-Woodland-Cir-01844/home/8318034",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 890,
+    "yearBuilt": 1950
   },
   {
     "id": "ma-methuen-7-goldsmith-ct",
@@ -11835,7 +12366,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/7-Goldsmith-Ct-01844/home/11338486",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1707,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lawrence-213-mount-vernon",
@@ -11865,7 +12398,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/16-E-Pleasant-St-01841/home/11309291",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lawrence average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1740,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lawrence-12-center-st",
@@ -11880,7 +12415,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/12-Center-St-01841/home/11324732",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lawrence average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1482,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-lawrence-57-bodwell-st",
@@ -11895,7 +12432,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/57-Bodwell-St-01841/home/11334194",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lawrence average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1398,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-lawrence-22-crestshire-dr",
@@ -11925,7 +12464,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/33-Garfield-St-01843/home/189408132",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lawrence average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 3208,
+    "yearBuilt": 2010
   },
   {
     "id": "ma-lawrence-2-a-lasalle-ave",
@@ -11940,7 +12481,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/2A-Lasalle-Ave-01843/home/185022289",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lawrence average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 640,
+    "yearBuilt": 1935
   },
   {
     "id": "ma-lawrence-87-abbott-st",
@@ -11955,7 +12498,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/87-Abbott-St-01843/home/11312940",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lawrence average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1109,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-lawrence-90-gilbert-st",
@@ -11970,7 +12515,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/90-Gilbert-St-01843/home/11314436",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lawrence average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1145,
+    "yearBuilt": 1930
   },
   {
     "id": "nh-nashua-53-newbury-st",
@@ -11985,7 +12532,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/53-Newbury-St-03060/home/60350786",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2064,
+    "yearBuilt": 1975
   },
   {
     "id": "nh-nashua-13-middle-st",
@@ -12000,7 +12549,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/13-Middle-St-03060/home/88094102",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1566,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-nashua-29-w-hobart-st",
@@ -12015,7 +12566,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/29-W-Hobart-St-03060/home/88088017",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1536,
+    "yearBuilt": 1962
   },
   {
     "id": "nh-nashua-35-sioux-ave",
@@ -12030,7 +12583,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/35-Sioux-Ave-03063/home/88095095",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1733,
+    "yearBuilt": 1965
   },
   {
     "id": "nh-nashua-60-e-dunstable-rd",
@@ -12040,12 +12595,16 @@ window.SEED_LISTINGS = [
     "miles": 11,
     "type": "Single-family",
     "units": 1,
-    "price": 550000,
+    "price": 545000,
     "rent": 2925,
     "url": "https://www.redfin.com/NH/Nashua/60-E-Dunstable-Rd-03060/home/88077720",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1240,
+    "yearBuilt": 1954,
+    "priceWas": 550000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-nashua-77-marshall-st",
@@ -12075,7 +12634,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/17-Eldorado-Cir-03062/home/88097587",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1845,
+    "yearBuilt": 1986
   },
   {
     "id": "nh-nashua-24-harris-rd",
@@ -12090,7 +12651,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/24-Harris-Rd-03062/home/60342466",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1391,
+    "yearBuilt": 1960
   },
   {
     "id": "nh-nashua-33-prescott-st",
@@ -12100,12 +12663,16 @@ window.SEED_LISTINGS = [
     "miles": 11,
     "type": "Single-family",
     "units": 1,
-    "price": 489900,
+    "price": 479900,
     "rent": 3500,
     "url": "https://www.redfin.com/NH/Nashua/33-Prescott-St-03064/home/88087990",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1606,
+    "yearBuilt": 1920,
+    "priceWas": 489900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-nashua-166-amherst-st",
@@ -12120,7 +12687,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/166-Amherst-St-03064/home/88086285",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2163,
+    "yearBuilt": 1949
   },
   {
     "id": "nh-nashua-68-burke-st",
@@ -12135,7 +12704,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/68-Burke-St-03060/home/88080004",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 980,
+    "yearBuilt": 1952
   },
   {
     "id": "nh-nashua-209-west-hollis-st",
@@ -12150,7 +12721,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/209-W-Hollis-St-03060/home/88082948",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2000,
+    "yearBuilt": 1953
   },
   {
     "id": "nh-nashua-377-broad-st",
@@ -12165,7 +12738,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/377-Broad-St-03063/home/88087043",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1092,
+    "yearBuilt": 1978
   },
   {
     "id": "nh-nashua-3-alice-dr",
@@ -12180,7 +12755,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/3-Alice-Dr-03063/home/88092456",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2302,
+    "yearBuilt": 1963
   },
   {
     "id": "nh-nashua-40-grand-ave",
@@ -12195,7 +12772,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/40-Grand-Ave-03060/home/88085829",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1988,
+    "yearBuilt": 1964
   },
   {
     "id": "nh-nashua-4-markar-st",
@@ -12210,7 +12789,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/4-Markar-St-03060/home/88096889",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1334,
+    "yearBuilt": 1957
   },
   {
     "id": "nh-nashua-106-burke-st",
@@ -12255,7 +12836,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/44-Atherton-Ave-03064/home/88093701",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1480,
+    "yearBuilt": 1955
   },
   {
     "id": "nh-nashua-97-king-st",
@@ -12295,12 +12878,16 @@ window.SEED_LISTINGS = [
     "miles": 11,
     "type": "Single-family",
     "units": 1,
-    "price": 499900,
+    "price": 489900,
     "rent": 2925,
     "url": "https://www.redfin.com/NH/Nashua/91-Conant-Rd-03062/home/88082947",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1908,
+    "yearBuilt": 1969,
+    "priceWas": 499900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-nashua-1-park-ave",
@@ -12315,7 +12902,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/1-Park-Ave-03060/home/88077093",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1656,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-nashua-8-antrim-st",
@@ -12330,7 +12919,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/8-Antrim-St-03063/home/88088448",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1464,
+    "yearBuilt": 1983
   },
   {
     "id": "nh-nashua-53-tenby-dr",
@@ -12345,7 +12936,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/53-Tenby-Dr-03062/home/88098922",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1544,
+    "yearBuilt": 1969
   },
   {
     "id": "nh-nashua-43-new-searles-rd",
@@ -12360,7 +12953,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/43-New-Searles-Rd-03062/home/60340760",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1040,
+    "yearBuilt": 1980
   },
   {
     "id": "nh-nashua-11-victor-ave",
@@ -12370,12 +12965,16 @@ window.SEED_LISTINGS = [
     "miles": 11,
     "type": "Single-family",
     "units": 1,
-    "price": 469900,
+    "price": 459900,
     "rent": 2925,
     "url": "https://www.redfin.com/NH/Nashua/11-Victor-Ave-03060/home/88078395",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1808,
+    "yearBuilt": 1951,
+    "priceWas": 469900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-nashua-4-cheyenne-dr",
@@ -12390,7 +12989,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/4-Cheyenne-Dr-03063/home/88083220",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1900,
+    "yearBuilt": 1956
   },
   {
     "id": "nh-nashua-33-charlotte-ave",
@@ -12405,7 +13006,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/33-Charlotte-Ave-03064/home/88093319",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 974,
+    "yearBuilt": 1947
   },
   {
     "id": "nh-nashua-193-e-dunstable-rd",
@@ -12420,7 +13023,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/193-E-Dunstable-Rd-03062/home/88088776",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1250,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-nashua-17-prescott-st",
@@ -12435,7 +13040,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/17-Prescott-St-03064/home/88083291",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1628,
+    "yearBuilt": 1935
   },
   {
     "id": "nh-nashua-193-pine-hill-rd",
@@ -12450,7 +13057,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/193-Pine-Hill-Rd-03063/home/88091116",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1818,
+    "yearBuilt": 1790
   },
   {
     "id": "nh-nashua-1b-e-dunstable-rd",
@@ -12480,7 +13089,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/19-Rosedale-Ave-01830/home/11325598",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2611,
+    "yearBuilt": 1912
   },
   {
     "id": "ma-haverhill-77-cogswell-st",
@@ -12495,7 +13106,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/77-Cogswell-St-01832/home/11311810",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2324,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-haverhill-86-n-broadway",
@@ -12510,7 +13123,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/86-N-Broadway-01832/home/11313684",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1072,
+    "yearBuilt": 1946
   },
   {
     "id": "ma-haverhill-27-marshland-st",
@@ -12525,7 +13140,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/27-Marshland-St-01830/home/11323215",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 882,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-haverhill-176-brickett-hill-cir-176",
@@ -12540,7 +13157,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/176-Brickett-Hill-Cir-01830/unit-176/home/138234413",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2182,
+    "yearBuilt": 1987
   },
   {
     "id": "ma-haverhill-27a-south-elm-2",
@@ -12555,7 +13174,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/27A-S-Elm-St-01835/unit-2/home/202299432",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 3703,
+    "yearBuilt": 1879
   },
   {
     "id": "ma-haverhill-38-woodland-park-dr-38",
@@ -12585,7 +13206,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/11-Lackey-St-01830/home/11306515",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1740,
+    "yearBuilt": 1945
   },
   {
     "id": "ma-haverhill-53-westminster-ave",
@@ -12600,7 +13223,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/53-Westminster-Ave-01830/home/11327184",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2262,
+    "yearBuilt": 1945
   },
   {
     "id": "ma-haverhill-45-agawam-ave",
@@ -12615,7 +13240,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/45-Agawam-Ave-01835/home/11335830",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1200,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-haverhill-71-wilson-st",
@@ -12630,7 +13257,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/71-Wilson-St-01832/home/11308945",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1700,
+    "yearBuilt": 1940
   },
   {
     "id": "ma-haverhill-164-north-broadway",
@@ -12645,7 +13274,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/164-N-Broadway-01832/home/11313788",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1044,
+    "yearBuilt": 1955
   },
   {
     "id": "ma-haverhill-10-arch-pl",
@@ -12660,7 +13291,8 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/10-Arch-Pl-01832/home/12438887",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1872
   },
   {
     "id": "ma-haverhill-21-south-river-st",
@@ -12675,7 +13307,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/21-S-River-St-01835/home/11328795",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 952,
+    "yearBuilt": 1852
   },
   {
     "id": "ma-haverhill-184-groveland-st",
@@ -12690,7 +13324,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/184-Groveland-St-01830/home/11304769",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1395,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-haverhill-7-s-green-st",
@@ -12720,7 +13356,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/718-N-Broadway-01832/home/11316300",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1344,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-haverhill-41-linwood-st",
@@ -12735,7 +13373,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/41-Linwood-St-01830/home/11303922",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1445,
+    "yearBuilt": 1905
   },
   {
     "id": "ma-haverhill-301-washington-st",
@@ -12750,7 +13390,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/301-Washington-St-01832/home/201616494",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 1-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1916,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-derry-183-bypass-28",
@@ -12765,7 +13407,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/183-Bypass-28-03038/home/60338547",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1820,
+    "yearBuilt": 1977
   },
   {
     "id": "nh-derry-217-chases-grove-rd",
@@ -12780,7 +13424,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/217-Chases-Grove-Rd-03038/home/96658753",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2520,
+    "yearBuilt": 1930
   },
   {
     "id": "nh-derry-43-e-derry-rd",
@@ -12795,7 +13441,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/43-E-Derry-Rd-03038/home/88321225",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1681,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-derry-12-saint-charles-st",
@@ -12810,7 +13458,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/12-Saint-Charles-St-03038/home/103050728",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1690,
+    "yearBuilt": 1946
   },
   {
     "id": "nh-derry-19-lane-rd",
@@ -12825,7 +13475,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/19-Lane-Rd-03038/home/88319612",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1535,
+    "yearBuilt": 1928
   },
   {
     "id": "nh-derry-12-sheldon-rd",
@@ -12840,7 +13492,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/12-Sheldon-Rd-03038/home/88319912",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1691,
+    "yearBuilt": 1984
   },
   {
     "id": "nh-derry-1r-maurice-rd",
@@ -12850,12 +13504,16 @@ window.SEED_LISTINGS = [
     "miles": 15,
     "type": "Single-family",
     "units": 1,
-    "price": 385000,
+    "price": 365000,
     "rent": 2375,
     "url": "https://www.redfin.com/NH/Derry/1-Maurice-Rd-03038/unit-R/home/103052863",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1294,
+    "yearBuilt": 1987,
+    "priceWas": 385000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-derry-2-carroll-cir",
@@ -12870,7 +13528,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/2-Carroll-Cir-03038/home/88321512",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1769,
+    "yearBuilt": 1971
   },
   {
     "id": "nh-derry-18-e-derry-rd",
@@ -12885,7 +13545,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/18-E-Derry-Rd-03038/home/103054461",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2180,
+    "yearBuilt": 1964
   },
   {
     "id": "nh-derry-601-collettes-grove-rd",
@@ -12900,7 +13562,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/601-Collettes-Grove-Rd-03038/home/88321947",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 996,
+    "yearBuilt": 1930
   },
   {
     "id": "nh-derry-9-beaver-lake-rd",
@@ -12915,7 +13579,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/9-Beaver-Lake-Rd-03038/home/103050854",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1630,
+    "yearBuilt": 1996
   },
   {
     "id": "nh-derry-33-beacon-hill-rd",
@@ -12930,7 +13596,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/33-Beacon-Hill-Rd-03038/home/103050947",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1344,
+    "yearBuilt": 1945
   },
   {
     "id": "nh-derry-19-jade",
@@ -12945,7 +13613,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/19-Jade-Ct-03038/home/103050814",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1499,
+    "yearBuilt": 1990
   },
   {
     "id": "nh-derry-35-highland-ave",
@@ -12960,7 +13630,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Derry/35-Highland-Ave-03038/home/88320012",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1256,
+    "yearBuilt": 1925
   },
   {
     "id": "nh-merrimack-11-stevens-ave",
@@ -12975,7 +13647,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Merrimack/11-Stevens-Ave-03054/home/88138680",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Merrimack average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1344,
+    "yearBuilt": 1962
   },
   {
     "id": "nh-merrimack-76-tinker-rd",
@@ -12985,12 +13659,16 @@ window.SEED_LISTINGS = [
     "miles": 17,
     "type": "Single-family",
     "units": 1,
-    "price": 550000,
+    "price": 530000,
     "rent": 3750,
     "url": "https://www.redfin.com/NH/Merrimack/76-Tinker-Rd-03054/home/108628855",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Merrimack average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2173,
+    "yearBuilt": 1880,
+    "priceWas": 550000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-merrimack-138-turkey-hill-rd",
@@ -13005,7 +13683,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Merrimack/138-Turkey-Hill-Rd-03054/home/96558786",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Merrimack average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1848,
+    "yearBuilt": 1953
   },
   {
     "id": "nh-merrimack-6-waterville-dr",
@@ -13030,12 +13710,16 @@ window.SEED_LISTINGS = [
     "miles": 17,
     "type": "Single-family",
     "units": 1,
-    "price": 535000,
+    "price": 500000,
     "rent": 3125,
     "url": "https://www.redfin.com/NH/Merrimack/654-Daniel-Webster-Hwy-03054/home/88138686",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Merrimack average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1536,
+    "yearBuilt": 1956,
+    "priceWas": 535000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-merrimack-72-back-river-rd",
@@ -13065,7 +13749,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/26-Archer-St-01902/home/11323467",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 950,
+    "yearBuilt": 1905
   },
   {
     "id": "ma-lynn-323-euclid-ave",
@@ -13080,7 +13766,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/323-Euclid-Ave-01904/home/11537247",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1264,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-lynn-22-waitt-ave",
@@ -13095,7 +13783,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/22-Waitt-Ave-01902/home/11558643",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 884,
+    "yearBuilt": 1945
   },
   {
     "id": "ma-lynn-14-woodman-st",
@@ -13140,7 +13830,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/18-Valley-Rd-01902/home/11556921",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1008,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lynn-53-cook-st",
@@ -13155,7 +13847,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/53-Cook-St-01902/home/11576228",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1056,
+    "yearBuilt": 1965
   },
   {
     "id": "ma-lynn-221-chatham-st",
@@ -13170,7 +13864,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/221-Chatham-St-01902/home/11560716",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1003,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lynn-20-moulton",
@@ -13185,7 +13881,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/20-Moulton-St-01905/home/11582488",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1330,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-lynn-347-western-ave",
@@ -13200,7 +13898,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/347-Western-Ave-01904/home/11322109",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1456,
+    "yearBuilt": 1892
   },
   {
     "id": "ma-lynn-16-churchill-pl",
@@ -13215,7 +13915,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/16-Churchill-Pl-01902/home/11575459",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1435,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lynn-6-cliff-st",
@@ -13230,7 +13932,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/6-Cliff-St-01905/home/11546254",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1370,
+    "yearBuilt": 1924
   },
   {
     "id": "ma-lynn-12-boston-st",
@@ -13245,7 +13949,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/12-Boston-St-01904/home/11546491",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1211,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lynn-18-melvin-ave",
@@ -13260,7 +13966,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/18-Melvin-Ave-01902/home/11323487",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 941,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-lynn-24-rockaway-ct",
@@ -13275,7 +13983,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/24-Rockaway-Ct-01902/home/11577003",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1313,
+    "yearBuilt": 1880
   },
   {
     "id": "ma-lynn-18-lambert-ave",
@@ -13290,7 +14000,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/18-Lambert-Ave-01902/home/11560113",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1060,
+    "yearBuilt": 1860
   },
   {
     "id": "ma-lynn-22-emerson",
@@ -13305,7 +14017,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/22-Emerson-Pl-01902/home/11557128",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1299,
+    "yearBuilt": 1880
   },
   {
     "id": "ma-lynn-638-boston-st",
@@ -13320,7 +14034,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/638-Boston-St-01905/home/11549259",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 990,
+    "yearBuilt": 1840
   },
   {
     "id": "ma-lynn-75-marianna-st",
@@ -13335,7 +14051,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/75-Marianna-St-01902/home/11560587",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1163,
+    "yearBuilt": 1875
   },
   {
     "id": "ma-lynn-30-clifton-ave",
@@ -13350,7 +14068,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/30-Clifton-Ave-01902/home/11323904",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 830,
+    "yearBuilt": 1907
   },
   {
     "id": "ma-lynn-135-allen-ave",
@@ -13365,7 +14085,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lynn/135-Allen-Ave-01902/home/11575245",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1855,
+    "yearBuilt": 1892
   },
   {
     "id": "nh-manchester-739-hall-st",
@@ -13381,7 +14103,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 4 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2085,
+    "yearBuilt": 1910
   },
   {
     "id": "nh-manchester-205-bourne-st",
@@ -13396,7 +14120,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/205-Bourne-St-03103/home/80167230",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1563,
+    "yearBuilt": 1960
   },
   {
     "id": "nh-manchester-421-proctor-rd",
@@ -13411,7 +14137,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/421-Proctor-Rd-03109/home/88244608",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1218,
+    "yearBuilt": 1960
   },
   {
     "id": "nh-manchester-19-mapleton-rd",
@@ -13441,7 +14169,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/400-Dubuque-St-03102/home/88250226",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1728,
+    "yearBuilt": 1885
   },
   {
     "id": "nh-manchester-388-cypress-st",
@@ -13456,7 +14186,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/388-Cypress-St-03103/home/88245004",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1547,
+    "yearBuilt": 1957
   },
   {
     "id": "nh-manchester-126-glen-forest-dr",
@@ -13471,7 +14203,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/126-Glen-Forest-Dr-03109/home/88245562",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2036,
+    "yearBuilt": 1978
   },
   {
     "id": "nh-manchester-158-maurice-st",
@@ -13486,7 +14220,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/158-Maurice-St-03103/home/88247754",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1648,
+    "yearBuilt": 1955
   },
   {
     "id": "nh-manchester-63-leandre-st",
@@ -13501,7 +14237,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/63-Leandre-St-03102/home/96524576",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 3050,
+    "yearBuilt": 1928
   },
   {
     "id": "nh-manchester-179-alsace-st",
@@ -13516,7 +14254,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/179-Alsace-St-03102/home/88246066",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1512,
+    "yearBuilt": 1960
   },
   {
     "id": "nh-manchester-30-armand-ave",
@@ -13561,7 +14301,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/67-Gantry-St-03103/home/60354353",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1613,
+    "yearBuilt": 1992
   },
   {
     "id": "nh-manchester-30-ashmere-dr",
@@ -13578,7 +14320,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 540000,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 2049,
+    "yearBuilt": 1995
   },
   {
     "id": "nh-manchester-62-parkview-st",
@@ -13593,7 +14337,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/62-Parkview-St-03103/home/88246614",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2032,
+    "yearBuilt": 1957
   },
   {
     "id": "nh-manchester-122-riley-ave",
@@ -13623,7 +14369,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/426-Milford-St-03102/home/108657626",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1038,
+    "yearBuilt": 1930
   },
   {
     "id": "nh-manchester-101-ruth-ave",
@@ -13633,12 +14381,16 @@ window.SEED_LISTINGS = [
     "miles": 24,
     "type": "Single-family",
     "units": 1,
-    "price": 479900,
+    "price": 469900,
     "rent": 2900,
     "url": "https://www.redfin.com/NH/Manchester/101-Ruth-Ave-03109/home/96645938",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1296,
+    "yearBuilt": 1947,
+    "priceWas": 479900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-manchester-42-old-wellington-rd",
@@ -13653,7 +14405,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/42-Old-Wellington-Rd-03104/home/63642252",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1668,
+    "yearBuilt": 1955
   },
   {
     "id": "nh-manchester-29-s-hall-st",
@@ -13668,7 +14422,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/29-S-Hall-St-03103/home/73710627",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1546,
+    "yearBuilt": 1925
   },
   {
     "id": "nh-manchester-520-s-beech-st",
@@ -13683,7 +14439,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/520-S-Beech-St-03103/home/88253616",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1056,
+    "yearBuilt": 1958
   },
   {
     "id": "nh-manchester-223-melrose-st",
@@ -13698,7 +14456,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/223-Melrose-St-03109/home/88244428",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 864,
+    "yearBuilt": 1948
   },
   {
     "id": "nh-manchester-663-amory-st",
@@ -13713,7 +14473,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/663-Amory-St-03102/home/108655405",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1696,
+    "yearBuilt": 1921
   },
   {
     "id": "nh-manchester-275-cilley-rd",
@@ -13728,7 +14490,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/275-Cilley-Rd-03103/home/108295731",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1260,
+    "yearBuilt": 1940
   },
   {
     "id": "nh-manchester-500-granite-st",
@@ -13743,7 +14507,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/500-Granite-St-03102/home/88253762",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1024,
+    "yearBuilt": 1890
   },
   {
     "id": "nh-manchester-88-dunbar-st",
@@ -13758,7 +14524,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/88-Dunbar-St-03103/home/96536575",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1254,
+    "yearBuilt": 1967
   },
   {
     "id": "nh-manchester-108-arizona-st",
@@ -13773,7 +14541,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/108-Arizona-St-03104/home/108661298",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1468,
+    "yearBuilt": 1940
   },
   {
     "id": "nh-manchester-26-claire-st",
@@ -13788,7 +14558,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/26-Claire-St-03103/home/96623532",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1508,
+    "yearBuilt": 1954
   },
   {
     "id": "nh-manchester-26-college-rd",
@@ -13818,7 +14590,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/478-Front-St-03102/home/88253587",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1155,
+    "yearBuilt": 1901
   },
   {
     "id": "nh-manchester-131-riley-ave",
@@ -13833,7 +14607,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/131-Riley-Ave-03103/home/88245738",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1666,
+    "yearBuilt": 1925
   },
   {
     "id": "nh-manchester-186-peabody-ave",
@@ -13848,7 +14624,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/186-Peabody-Ave-03109/home/88253780",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 884,
+    "yearBuilt": 1940
   },
   {
     "id": "nh-manchester-37-longwood-ave",
@@ -13863,7 +14641,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/37-Longwood-Ave-03109/home/196854395",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1432,
+    "yearBuilt": 2025
   },
   {
     "id": "nh-manchester-45-varney-st",
@@ -13878,7 +14658,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/45-Varney-St-03102/home/88249572",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2172,
+    "yearBuilt": 2016
   },
   {
     "id": "nh-manchester-21-brock-st",
@@ -13895,7 +14677,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 409900,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1208,
+    "yearBuilt": 1949
   },
   {
     "id": "nh-manchester-46-myrtle-st",
@@ -13910,7 +14694,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/46-Myrtle-St-03104/home/109841621",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1064,
+    "yearBuilt": 1968
   },
   {
     "id": "nh-manchester-132-rhode-island-ave",
@@ -13925,7 +14711,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/132-Rhode-Island-Ave-03104/home/96627335",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1456,
+    "yearBuilt": 1915
   },
   {
     "id": "nh-manchester-141-hoyt-st",
@@ -13940,7 +14728,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/141-Hoyt-St-03103/home/96566101",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2568,
+    "yearBuilt": 1983
   },
   {
     "id": "nh-manchester-247-s-jewett-st",
@@ -13955,7 +14745,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/247-S-Jewett-St-03103/home/88246368",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1596,
+    "yearBuilt": 1960
   },
   {
     "id": "nh-manchester-532-oak-st",
@@ -13970,7 +14762,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/532-Oak-St-03104/home/108657457",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2006,
+    "yearBuilt": 1966
   },
   {
     "id": "nh-manchester-17-desaulnier-st",
@@ -14000,7 +14794,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/540-Concord-St-03104/home/108661381",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1811,
+    "yearBuilt": 1930
   },
   {
     "id": "nh-manchester-542-merrimack-st",
@@ -14015,7 +14811,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/542-Merrimack-St-03103/home/88246961",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1458,
+    "yearBuilt": 1960
   },
   {
     "id": "nh-manchester-354-seames-dr",
@@ -14030,7 +14828,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Manchester/354-Seames-Dr-03103/home/88251338",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1200,
+    "yearBuilt": 1955
   },
   {
     "id": "nh-manchester-64-laval-st",
@@ -14060,7 +14860,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/167-5th-St-01453/home/16535084",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1140,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-leominster-5-orchard-ter",
@@ -14075,7 +14877,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/5-Orchard-Ter-01453/home/16534210",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1282,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-49-monarch-st",
@@ -14090,7 +14894,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/49-Monarch-St-01453/home/16543198",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1055,
+    "yearBuilt": 1901
   },
   {
     "id": "ma-leominster-443-merriam-ave",
@@ -14105,7 +14911,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/443-Merriam-Ave-01453/home/16533813",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1616,
+    "yearBuilt": 1928
   },
   {
     "id": "ma-leominster-246-tisdale-st",
@@ -14120,7 +14928,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/246-Tisdale-St-01453/home/16536907",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 884,
+    "yearBuilt": 1953
   },
   {
     "id": "ma-leominster-183-hall-st",
@@ -14135,7 +14945,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/183-Hall-St-01453/home/16533493",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1452,
+    "yearBuilt": 1905
   },
   {
     "id": "ma-leominster-21-orchard-ter",
@@ -14150,7 +14962,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/21-Orchard-Ter-01453/home/16534206",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1362,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-10-crown-st",
@@ -14165,7 +14979,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/10-Crown-St-01453/home/16533756",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1524,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-leominster-668-main-st",
@@ -14180,7 +14996,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/668-Main-St-01453/home/16543433",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2125,
+    "yearBuilt": 1830
   },
   {
     "id": "ma-leominster-17-notre-dame",
@@ -14195,7 +15013,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/17-Notre-Dame-St-01453/home/16544041",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1380,
+    "yearBuilt": 1977
   },
   {
     "id": "ma-leominster-70-r-wilder-rd",
@@ -14210,7 +15030,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/70R-Wilder-Rd-01453/home/169283094",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1293,
+    "yearBuilt": 1948
   },
   {
     "id": "ma-leominster-485-central-st",
@@ -14225,7 +15047,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/485-Central-St-01453/home/16542286",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1876,
+    "yearBuilt": 1955
   },
   {
     "id": "ma-leominster-74-arlington-st",
@@ -14240,7 +15064,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/74-Arlington-St-01453/home/16534135",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2151,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-562-union-st",
@@ -14255,7 +15081,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/562-Union-St-01453/home/16540630",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1007,
+    "yearBuilt": 1952
   },
   {
     "id": "ma-leominster-1012-main-st",
@@ -14270,7 +15098,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/1012-Main-St-01453/home/175535636",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1080,
+    "yearBuilt": 1950
   },
   {
     "id": "ma-leominster-1476-main-st",
@@ -14295,12 +15125,16 @@ window.SEED_LISTINGS = [
     "miles": 25,
     "type": "Single-family",
     "units": 1,
-    "price": 460000,
+    "price": 440000,
     "rent": 2425,
     "url": "https://www.redfin.com/MA/Leominster/19-Kittredge-St-01453/home/16541638",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1473,
+    "yearBuilt": 1925,
+    "priceWas": 460000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-leominster-21-graham",
@@ -14315,7 +15149,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/21-Graham-St-01453/home/16533764",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1440,
+    "yearBuilt": 1951
   },
   {
     "id": "ma-leominster-3-regan-pl",
@@ -14330,7 +15166,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/3-Regan-Pl-01453/home/16534686",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1238,
+    "yearBuilt": 1912
   },
   {
     "id": "ma-leominster-64-mooreland-ave",
@@ -14345,7 +15183,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/64-Mooreland-Ave-01453/home/16543424",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1630,
+    "yearBuilt": 1895
   },
   {
     "id": "ma-leominster-38f-cottage-st",
@@ -14355,12 +15195,16 @@ window.SEED_LISTINGS = [
     "miles": 25,
     "type": "Single-family",
     "units": 1,
-    "price": 409500,
+    "price": 419900,
     "rent": 2425,
     "url": "https://www.redfin.com/MA/Leominster/38-Cottage-St-01453/home/16535542",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1700,
+    "yearBuilt": 1920,
+    "priceWas": 409500,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-leominster-29-dale-ave",
@@ -14390,7 +15234,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/96-N-Main-St-01453/home/16534899",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1320,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-leominster-161-11th",
@@ -14405,7 +15251,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/161-11th-St-01453/home/16544468",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1524,
+    "yearBuilt": 1939
   },
   {
     "id": "ma-leominster-31-johnson-st",
@@ -14420,7 +15268,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/31-Johnson-St-01453/home/16543560",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1726,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-71-river-st",
@@ -14435,7 +15285,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/71-River-St-01453/home/16543124",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1644,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-397-mechanic-st",
@@ -14450,7 +15302,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/397-Mechanic-St-01453/home/16543789",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1336,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-leominster-60-judy-dr",
@@ -14460,12 +15314,16 @@ window.SEED_LISTINGS = [
     "miles": 25,
     "type": "Single-family",
     "units": 1,
-    "price": 519900,
+    "price": 510000,
     "rent": 2900,
     "url": "https://www.redfin.com/MA/Leominster/60-Judy-Dr-01453/home/16536530",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2028,
+    "yearBuilt": 1977,
+    "priceWas": 519900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-leominster-153-johnny-appleseed-ln",
@@ -14480,7 +15338,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/153-Johnny-Appleseed-Ln-01453/home/16541095",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2650,
+    "yearBuilt": 1801
   },
   {
     "id": "ma-leominster-368-litchfield-st",
@@ -14495,7 +15355,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/368-Litchfield-St-01453/home/16540367",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1343,
+    "yearBuilt": 1948
   },
   {
     "id": "ma-leominster-39-lakeview-dr",
@@ -14510,7 +15372,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/39-Lakeview-Dr-01453/home/16538981",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 900,
+    "yearBuilt": 1955
   },
   {
     "id": "ma-leominster-202-pierce-st",
@@ -14525,7 +15389,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/202-Pierce-St-01453/home/16539134",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2028,
+    "yearBuilt": 1916
   },
   {
     "id": "ma-leominster-13-campbell-ave",
@@ -14540,7 +15406,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/13-Campbell-Ave-01453/home/16534337",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1533,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-leominster-37-highland-ave",
@@ -14555,7 +15423,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/37-Highland-Ave-01453/home/16543980",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 1-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1004,
+    "yearBuilt": 1952
   },
   {
     "id": "ma-leominster-214-grove-ave",
@@ -14570,7 +15440,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/214-Grove-Ave-01453/home/16534545",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1696,
+    "yearBuilt": 1957
   },
   {
     "id": "ma-leominster-56-valleyview-rd",
@@ -14585,7 +15457,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/56-Valleyview-Rd-01453/home/16540679",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1144,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-leominster-64-jordans-way",
@@ -14600,7 +15474,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/64-Jordans-Way-01453/home/16535935",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1636,
+    "yearBuilt": 2000
   },
   {
     "id": "ma-leominster-36-caffoni-17",
@@ -14615,7 +15491,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/36-Caffoni-Dr-01453/unit-17/home/179757589",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1843,
+    "yearBuilt": 2013
   },
   {
     "id": "ma-leominster-54-colbert-st",
@@ -14630,7 +15508,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/54-Colbert-St-01453/home/16544054",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1458,
+    "yearBuilt": 1951
   },
   {
     "id": "ma-fitchburg-19-george-st",
@@ -14660,7 +15540,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/74-Marshall-Rd-01420/home/16503845",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1473,
+    "yearBuilt": 1965
   },
   {
     "id": "ma-fitchburg-243-saint-joseph-ave",
@@ -14690,7 +15572,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/48-Phelps-St-01420/home/16501475",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1212,
+    "yearBuilt": 1970
   },
   {
     "id": "ma-fitchburg-113-harvard-st",
@@ -14705,7 +15589,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/113-Harvard-St-01420/home/16500690",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1242,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-30-clark-rd",
@@ -14720,7 +15606,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/30-Clark-Rd-01420/home/16503407",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1882,
+    "yearBuilt": 1947
   },
   {
     "id": "ma-fitchburg-43-billings-rd",
@@ -14735,7 +15623,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/43-Billings-Rd-01420/home/145134961",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1703,
+    "yearBuilt": 2019
   },
   {
     "id": "ma-fitchburg-107-valley-st",
@@ -14750,7 +15640,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/107-Valley-St-01420/home/206651744",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1666,
+    "yearBuilt": 2026
   },
   {
     "id": "ma-fitchburg-17-gage-st",
@@ -14765,7 +15657,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/17-Gage-St-01420/home/16503066",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1440,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-fitchburg-18-morris",
@@ -14780,7 +15674,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/18-Morris-St-01420/home/16502602",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1350,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-360-blossom-st",
@@ -14795,7 +15691,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/360-Blossom-St-01420/home/16503486",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1764,
+    "yearBuilt": 1968
   },
   {
     "id": "ma-fitchburg-279-pearl-st",
@@ -14810,7 +15708,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/279-Pearl-St-01420/home/146083229",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1440,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-fitchburg-141-olin-ave",
@@ -14825,7 +15725,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/141-Olin-Ave-01420/home/16496957",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1344,
+    "yearBuilt": 1962
   },
   {
     "id": "ma-fitchburg-174-ashburnham-hill-rd",
@@ -14840,7 +15742,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/174-Ashburnham-Hill-Rd-01420/home/16496485",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1379,
+    "yearBuilt": 1949
   },
   {
     "id": "ma-fitchburg-86-lawton-ave",
@@ -14855,7 +15759,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/86-Lawton-Ave-01420/home/16503346",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1144,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-90-birch-st",
@@ -14872,7 +15778,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 425000,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1712,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-fitchburg-56-orange-st",
@@ -14887,7 +15795,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/56-Orange-St-01420/home/16502916",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2540,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-27-legros-st",
@@ -14902,7 +15812,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/27-Legros-St-01420/home/16499741",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1150,
+    "yearBuilt": 1959
   },
   {
     "id": "ma-fitchburg-624-westminster-hill-rd",
@@ -14917,7 +15829,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/624-Westminster-Hill-Rd-01420/home/16496946",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1587,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-103-walton-st",
@@ -14932,7 +15846,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/103-Walton-St-01420/home/16500729",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1679,
+    "yearBuilt": 1894
   },
   {
     "id": "ma-fitchburg-64-mayland-st",
@@ -14947,7 +15863,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/64-Mayland-St-01420/home/16496973",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1073,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-179-reingold-ave",
@@ -14977,7 +15895,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/509-Ashby-State-Rd-01420/home/16495503",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2488,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-fitchburg-35-newtonville-ave",
@@ -14992,7 +15912,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/35-Newtonville-Ave-01420/home/16500958",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1896,
+    "yearBuilt": 1952
   },
   {
     "id": "ma-fitchburg-72-mount-vernon-st",
@@ -15007,7 +15929,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/72-Mount-Vernon-St-01420/home/16503110",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2015,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-12-ryefield-rd",
@@ -15022,7 +15946,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/12-Ryefield-Rd-01420/home/16503491",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1800,
+    "yearBuilt": 1932
   },
   {
     "id": "ma-fitchburg-37-devlin-passway",
@@ -15037,7 +15963,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/37-Devlin-Passway-01420/home/16497737",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1530,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-fitchburg-406-lincoln-st",
@@ -15052,7 +15980,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/406-Lincoln-St-01420/home/16504186",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1700,
+    "yearBuilt": 1944
   },
   {
     "id": "ma-fitchburg-20-boutelle-st",
@@ -15067,7 +15997,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/20-Boutelle-St-01420/home/16502107",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1374,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-127-payson-st",
@@ -15082,7 +16014,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/127-Payson-St-01420/home/16501539",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1008,
+    "yearBuilt": 2001
   },
   {
     "id": "ma-fitchburg-305-mount-vernon-st",
@@ -15097,7 +16031,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/305-Mount-Vernon-St-01420/home/16504108",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1536,
+    "yearBuilt": 2000
   },
   {
     "id": "ma-fitchburg-109-culley-st",
@@ -15114,7 +16050,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 369900,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1454,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-93-york-ave",
@@ -15144,7 +16082,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/323-Rollstone-St-01420/home/16501084",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1064,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-fitchburg-407-clarendon-st",
@@ -15159,7 +16099,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/407-Clarendon-St-01420/home/16498492",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1440,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-91-south-st",
@@ -15174,7 +16116,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/91-South-St-01420/home/16501566",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2038,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-193-milk-st",
@@ -15189,7 +16133,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/193-Milk-St-01420/home/16500618",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1728,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-fitchburg-113-simonds-st",
@@ -15204,7 +16150,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/113-Simonds-St-01420/home/16504269",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1496,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-fitchburg-107-townsend",
@@ -15219,7 +16167,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/107-Townsend-St-01420/home/16503207",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1085,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-14-reeves-st",
@@ -15235,7 +16185,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 3 bedrooms split as 2BR + 1BR. Taxes and insurance are estimated. Unit count (2) is inferred from 3 beds and 2 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1890,
+    "yearBuilt": 1895
   },
   {
     "id": "ma-worcester-9-andover-st",
@@ -15251,7 +16203,9 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 3852,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-worcester-76-valmor-st",
@@ -15266,7 +16220,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/76-Valmor-St-01604/home/201543970",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1972,
+    "yearBuilt": 2023
   },
   {
     "id": "ma-worcester-46-cleveland-ave",
@@ -15281,7 +16237,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/46-Cleveland-Ave-01603/home/16672912",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1449,
+    "yearBuilt": 1940
   },
   {
     "id": "ma-worcester-33-warner-ave",
@@ -15296,7 +16254,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/33-Warner-Ave-01604/home/16667502",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 945,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-56-berwick-st",
@@ -15311,7 +16271,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/56-Berwick-St-01602/home/16675679",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2156,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-79-andrews-ave",
@@ -15326,7 +16288,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/79-Andrews-Ave-01605/home/16654329",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2248,
+    "yearBuilt": 1986
   },
   {
     "id": "ma-worcester-25-evers-st",
@@ -15341,7 +16305,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/25-Evers-St-01603/home/16652705",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1876,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-49-sylvan-st",
@@ -15356,7 +16322,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/49-Sylvan-St-01603/home/16672996",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1620,
+    "yearBuilt": 1919
   },
   {
     "id": "ma-worcester-5-monterey-rd",
@@ -15386,7 +16354,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/18-Marland-Rd-01606/home/16661185",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1352,
+    "yearBuilt": 1927
   },
   {
     "id": "ma-worcester-466-plantation-st",
@@ -15401,7 +16371,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/466-Plantation-St-01605/home/16679750",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1032,
+    "yearBuilt": 2004
   },
   {
     "id": "ma-worcester-17-beaumont-rd",
@@ -15416,7 +16388,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/17-Beaumont-Rd-01604/home/16659833",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1573,
+    "yearBuilt": 1982
   },
   {
     "id": "ma-worcester-168-chester-st",
@@ -15426,12 +16400,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 549900,
+    "price": 525000,
     "rent": 2475,
     "url": "https://www.redfin.com/MA/Worcester/168-Chester-St-01605/home/16665978",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1500,
+    "yearBuilt": 1953,
+    "priceWas": 549900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-27-greendale-ave",
@@ -15446,7 +16424,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/27-Greendale-Ave-01606/home/16674927",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1412,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-148-beverly-rd",
@@ -15461,7 +16441,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/148-Beverly-Rd-01605/home/16654437",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1484,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-worcester-45-pilgrim-ave",
@@ -15476,7 +16458,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/45-Pilgrim-Ave-01604/home/16669512",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 936,
+    "yearBuilt": 1951
   },
   {
     "id": "ma-worcester-18-intervale-rd",
@@ -15491,7 +16475,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/18-Intervale-Rd-01602/home/16675971",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2112,
+    "yearBuilt": 1931
   },
   {
     "id": "ma-worcester-2-pakachoag-st",
@@ -15506,7 +16492,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/2-Pakachoag-St-01610/home/16655776",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1221,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-26-calumet-ave",
@@ -15521,7 +16509,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/26-Calumet-Ave-01606/home/16657597",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1200,
+    "yearBuilt": 1943
   },
   {
     "id": "ma-worcester-223-beverly-rd",
@@ -15536,7 +16526,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/223-Beverly-Rd-01605/home/16654400",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1410,
+    "yearBuilt": 1938
   },
   {
     "id": "ma-worcester-10-pershing-st",
@@ -15551,7 +16543,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/10-Pershing-St-01606/home/16659985",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1304,
+    "yearBuilt": 1987
   },
   {
     "id": "ma-worcester-21-marland-rd",
@@ -15561,12 +16555,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 455000,
+    "price": 425000,
     "rent": 2800,
     "url": "https://www.redfin.com/MA/Worcester/21-Marland-Rd-01606/home/16661176",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1377,
+    "yearBuilt": 1950,
+    "priceWas": 455000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-46-lyman-st",
@@ -15581,7 +16579,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/46-Lyman-St-01603/home/16650193",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1382,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-136-grandview-ave",
@@ -15611,7 +16611,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/4B-Rural-St-01604/home/22047655",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2000,
+    "yearBuilt": 1985
   },
   {
     "id": "ma-worcester-130-ledgecrest-dr",
@@ -15626,7 +16628,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/130-Ledgecrest-Dr-01603/home/16680085",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1865,
+    "yearBuilt": 2005
   },
   {
     "id": "ma-worcester-300-greenwood-st",
@@ -15641,7 +16645,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/300-Greenwood-St-01607/home/16649411",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 912,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-worcester-25-johnson-st",
@@ -15673,7 +16679,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 519000,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1744,
+    "yearBuilt": 1935
   },
   {
     "id": "ma-worcester-143-uncatena-ave",
@@ -15688,7 +16696,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/143-Uncatena-Ave-01606/home/16657033",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1220,
+    "yearBuilt": 1954
   },
   {
     "id": "ma-worcester-821-pleasant-st",
@@ -15703,7 +16713,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/821-Pleasant-St-01602/home/16675959",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2520,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-138-fairhaven-rd",
@@ -15718,7 +16730,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/138-Fairhaven-Rd-01606/home/16675204",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1606,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-58-glezen-st",
@@ -15748,7 +16762,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/153-Copperfield-Rd-01602/home/16654047",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1027,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-15-basswood-blvd-15",
@@ -15763,7 +16779,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/15-Basswood-Blvd-01605/unit-15/home/206645227",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1690,
+    "yearBuilt": 2016
   },
   {
     "id": "ma-worcester-43-vincent-cir",
@@ -15778,7 +16796,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/43-Vincent-Cir-01604/home/16647077",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1728,
+    "yearBuilt": 1990
   },
   {
     "id": "ma-worcester-31-crowningshield-rd",
@@ -15793,7 +16813,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/31-Crowningshield-Rd-01604/home/16659898",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 963,
+    "yearBuilt": 1940
   },
   {
     "id": "ma-worcester-50-dillon-st",
@@ -15810,7 +16832,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 455000,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1568,
+    "yearBuilt": 1979
   },
   {
     "id": "ma-worcester-16-maverick-rd",
@@ -15825,7 +16849,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/16-Maverick-Rd-01604/home/16670221",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1274,
+    "yearBuilt": 1917
   },
   {
     "id": "ma-worcester-45-indian-hill-rd",
@@ -15840,7 +16866,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/45-Indian-Hill-Rd-01606/home/16656885",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1328,
+    "yearBuilt": 1954
   },
   {
     "id": "ma-worcester-194-whitmarsh-ave",
@@ -15855,7 +16883,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/194-Whitmarsh-Ave-01606/home/16674837",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1409,
+    "yearBuilt": 1915
   },
   {
     "id": "ma-worcester-21-greenwood-st",
@@ -15870,7 +16900,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/21-Greenwood-St-01607/home/16677061",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1400,
+    "yearBuilt": 1870
   },
   {
     "id": "ma-worcester-11-sonoma-dr",
@@ -15885,7 +16917,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/11-Sonoma-Dr-01605/home/16646810",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 968,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-19-joppa-rd",
@@ -15900,7 +16934,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/19-Joppa-Rd-01602/home/16646007",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 960,
+    "yearBuilt": 1980
   },
   {
     "id": "ma-worcester-23-montague-st",
@@ -15915,7 +16951,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/23-Montague-St-01603/home/16677705",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2586,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-15-enid-st",
@@ -15930,7 +16968,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/15-Enid-St-01604/home/16654833",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1150,
+    "yearBuilt": 1987
   },
   {
     "id": "ma-worcester-16-hycrest-dr",
@@ -15945,7 +16985,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/16-Hycrest-Dr-01606/home/16662708",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1900,
+    "yearBuilt": 1964
   },
   {
     "id": "ma-worcester-59-iroquois-st",
@@ -15960,7 +17002,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/59-Iroquois-St-01602/home/16645097",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1728,
+    "yearBuilt": 1989
   },
   {
     "id": "ma-worcester-605-chandler-st",
@@ -15975,7 +17019,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/605-Chandler-St-01602/home/16649244",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1086,
+    "yearBuilt": 1957
   },
   {
     "id": "ma-worcester-42-44-maravista-rd",
@@ -15990,7 +17036,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/42-Maravista-Rd-01606/home/16644382",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1344,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-48-beverly-rd",
@@ -16000,12 +17048,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 399000,
+    "price": 385000,
     "rent": 2475,
     "url": "https://www.redfin.com/MA/Worcester/48-Beverly-Rd-01605/home/16654544",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1235,
+    "yearBuilt": 1910,
+    "priceWas": 399000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-77-progressive-st",
@@ -16020,7 +17072,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/77-Progressive-St-01604/home/16665246",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1386,
+    "yearBuilt": 1957
   },
   {
     "id": "ma-worcester-5-branch-st",
@@ -16037,7 +17091,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 386900,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1203,
+    "yearBuilt": 1905
   },
   {
     "id": "ma-worcester-125-maywood-st",
@@ -16052,7 +17108,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/125-Maywood-St-01603/home/16673659",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1337,
+    "yearBuilt": 1894
   },
   {
     "id": "ma-worcester-5-winston-rd",
@@ -16067,7 +17125,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/5-Winston-Rd-01606/home/16659567",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1360,
+    "yearBuilt": 1947
   },
   {
     "id": "ma-worcester-10-de-marco-ter-unit-a",
@@ -16082,7 +17142,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/10-De-Marco-Ter-01604/unit-A/home/206197879",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2073,
+    "yearBuilt": 2022
   },
   {
     "id": "ma-worcester-11-timrod-dr",
@@ -16124,12 +17186,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 430000,
+    "price": 415000,
     "rent": 2475,
     "url": "https://www.redfin.com/MA/Worcester/8-Agate-Ave-01604/home/16671612",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1333,
+    "yearBuilt": 1889,
+    "priceWas": 430000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-22-vassar-st",
@@ -16144,7 +17210,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/22-Vassar-St-01602/home/16676256",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1450,
+    "yearBuilt": 1926
   },
   {
     "id": "ma-worcester-18-a-kennebec-st",
@@ -16159,7 +17227,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/18A-Kennebec-St-01606/home/103187968",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1680,
+    "yearBuilt": 2006
   },
   {
     "id": "ma-worcester-50-barry-rd",
@@ -16174,7 +17244,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/50-Barry-Rd-01609/home/16642830",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1452,
+    "yearBuilt": 1964
   },
   {
     "id": "ma-worcester-20-ridgewood-rd",
@@ -16189,7 +17261,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/20-Ridgewood-Rd-01606/home/16655426",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1240,
+    "yearBuilt": 1943
   },
   {
     "id": "ma-worcester-6-rochelle-st",
@@ -16219,7 +17293,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/32-Tyson-Rd-01606/home/16667083",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1171,
+    "yearBuilt": 1950
   },
   {
     "id": "ma-worcester-118-ararat-st",
@@ -16234,7 +17310,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/118-Ararat-St-01606/home/16655439",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1152,
+    "yearBuilt": 1943
   },
   {
     "id": "ma-worcester-675-burncoat-st",
@@ -16249,7 +17327,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/675-Burncoat-St-01606/home/16643788",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1145,
+    "yearBuilt": 1947
   },
   {
     "id": "ma-worcester-19-genessee",
@@ -16279,7 +17359,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/47-Dartmouth-St-01604/home/16669516",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1418,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-3-a-gates-cir",
@@ -16289,12 +17371,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 539900,
+    "price": 499900,
     "rent": 2475,
     "url": "https://www.redfin.com/MA/Worcester/3A-Gates-Cir-01603/home/132150842",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1428,
+    "yearBuilt": 2001,
+    "priceWas": 539900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-85-quinapoxet-ln",
@@ -16309,7 +17395,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/85-Quinapoxet-Ln-01606/home/16659411",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1000,
+    "yearBuilt": 1931
   },
   {
     "id": "ma-worcester-46-pine-hill-rd",
@@ -16324,7 +17412,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/46-Pine-Hill-Rd-01604/home/16680377",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1472,
+    "yearBuilt": 2007
   },
   {
     "id": "ma-worcester-1343-pleasant-st",
@@ -16354,7 +17444,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/7-Snowberry-CIR-01607/home/184598141",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1236,
+    "yearBuilt": 2023
   },
   {
     "id": "ma-worcester-8-guilford-st",
@@ -16386,7 +17478,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 540000,
-    "priceChangedAt": "2026-11-09T10:00:00Z"
+    "priceChangedAt": "2026-11-09T10:00:00Z",
+    "sqft": 2294,
+    "yearBuilt": 1938
   },
   {
     "id": "ma-worcester-103-commonwealth-ave",
@@ -16401,7 +17495,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/103-Commonwealth-Ave-01604/home/69071060",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1951,
+    "yearBuilt": 2015
   },
   {
     "id": "ma-worcester-25-barrett-ave",
@@ -16416,7 +17512,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/25-Barrett-Ave-01605/home/16666859",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 870,
+    "yearBuilt": 1929
   },
   {
     "id": "ma-worcester-10-mildred-ave",
@@ -16431,7 +17529,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/10-Mildred-Ave-01603/home/16672674",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1264,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-worcester-165-fairmont-ave",
@@ -16461,7 +17561,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/298-Greenwood-St-01607/home/16649412",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1364,
+    "yearBuilt": 1939
   },
   {
     "id": "ma-worcester-42-marlboro-st",
@@ -16476,7 +17578,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/42-Marlboro-St-01604/home/16671245",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1502,
+    "yearBuilt": 1952
   },
   {
     "id": "ma-worcester-10-arbutus-rd",
@@ -16491,7 +17595,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/10-Arbutus-Rd-01606/home/16659382",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1876,
+    "yearBuilt": 1928
   },
   {
     "id": "ma-worcester-34-saint-elmo-rd",
@@ -16506,7 +17612,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/34-Saint-Elmo-Rd-01602/home/16658818",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1449,
+    "yearBuilt": 1941
   },
   {
     "id": "ma-worcester-8-timrod-dr",
@@ -16521,7 +17629,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/8-Timrod-Dr-01603/home/16642556",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1826,
+    "yearBuilt": 1985
   },
   {
     "id": "ma-worcester-133-whipple-st",
@@ -16536,7 +17646,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/133-Whipple-St-01610/home/16649322",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1615,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-worcester-67-everard-st",
@@ -16551,7 +17663,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/67-Everard-St-01605/home/16672164",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 750,
+    "yearBuilt": 1987
   },
   {
     "id": "ma-worcester-126-orton-street-ext",
@@ -16566,7 +17680,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/126-Orton-Street-Ext-01604/home/16654624",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1448,
+    "yearBuilt": 1988
   },
   {
     "id": "ma-worcester-16-winnipeg-st",
@@ -16581,7 +17697,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/16-Winnipeg-St-01607/home/16648630",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1235,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-worcester-79-chilmark-st",
@@ -16596,7 +17714,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/79-Chilmark-St-01604/home/16671437",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 1-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1131,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-worcester-134-commonwealth-ave",
@@ -16606,12 +17726,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 465000,
+    "price": 455000,
     "rent": 2800,
     "url": "https://www.redfin.com/MA/Worcester/134-Commonwealth-Ave-01604/home/16654836",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2040,
+    "yearBuilt": 1920,
+    "priceWas": 465000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-133-commonwealth-ave-unit-b",
@@ -16626,7 +17750,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/133-Commonwealth-Ave-01604/unit-B/home/185165693",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1282,
+    "yearBuilt": 1987
   },
   {
     "id": "ma-worcester-432-mower-st",
@@ -16636,12 +17762,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 478900,
+    "price": 469900,
     "rent": 2475,
     "url": "https://www.redfin.com/MA/Worcester/432-Mower-St-01602/home/16645343",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1008,
+    "yearBuilt": 1952,
+    "priceWas": 478900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-550-sunderland-rd",
@@ -16656,7 +17786,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/550-Sunderland-Rd-01604/home/16651704",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1688,
+    "yearBuilt": 1940
   },
   {
     "id": "ma-worcester-55-clover-st",
@@ -16671,7 +17803,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/55-Clover-St-01603/home/16653073",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1729,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-worcester-100-clover-st",
@@ -16686,7 +17820,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/100-Clover-St-01603/home/16650449",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1536,
+    "yearBuilt": 1911
   },
   {
     "id": "ma-worcester-99-clover-st",
@@ -16703,7 +17839,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 424000,
-    "priceChangedAt": "2026-11-09T10:00:00Z"
+    "priceChangedAt": "2026-11-09T10:00:00Z",
+    "sqft": 1208,
+    "yearBuilt": 1910
   },
   {
     "id": "ma-worcester-203-burncoat-st",
@@ -16718,7 +17856,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/203-Burncoat-St-01606/home/16661564",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2394,
+    "yearBuilt": 1939
   },
   {
     "id": "ma-worcester-2-burncoat-hts",
@@ -16733,7 +17873,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/2-Burncoat-Hts-01606/home/69070783",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1850,
+    "yearBuilt": 2017
   },
   {
     "id": "ma-worcester-30-2nd-st",
@@ -16748,7 +17890,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/30-2nd-St-01602/home/16681004",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1584,
+    "yearBuilt": 2004
   },
   {
     "id": "ma-worcester-65-carter-rd",
@@ -16763,7 +17907,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/65-Carter-Rd-01609/home/16644009",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1520,
+    "yearBuilt": 1923
   },
   {
     "id": "ma-worcester-8-hawkins-st",
@@ -16793,7 +17939,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/68-Brooks-St-01606/home/16675144",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1031,
+    "yearBuilt": 1919
   },
   {
     "id": "ma-worcester-8-nelson-park-dr",
@@ -16810,7 +17958,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 475000,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1899,
+    "yearBuilt": 1954
   },
   {
     "id": "ma-worcester-133-puritan-ave",
@@ -16825,7 +17975,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/133-Puritan-Ave-01604/home/16665733",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1888,
+    "yearBuilt": 2007
   },
   {
     "id": "ma-worcester-65-paris-ave",
@@ -16840,7 +17992,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/65-Paris-Ave-01603/home/16650956",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1931,
+    "yearBuilt": 1984
   },
   {
     "id": "ma-worcester-4-pearlbush-path",
@@ -16855,7 +18009,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/4-Pearlbush-Path-01607/home/21747976",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1428,
+    "yearBuilt": 2010
   },
   {
     "id": "ma-worcester-30-parsons-hill-dr",
@@ -16870,7 +18026,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/30-Parsons-Hill-Dr-01603/home/16642549",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1988,
+    "yearBuilt": 1981
   },
   {
     "id": "ma-worcester-54-warner-ave",
@@ -16885,7 +18043,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/54-Warner-Ave-01604/home/205309304",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1600,
+    "yearBuilt": 2026
   },
   {
     "id": "ma-worcester-52-warner-ave",
@@ -16900,7 +18060,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/52-Warner-Ave-01604/home/205309302",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1600,
+    "yearBuilt": 2026
   },
   {
     "id": "ma-worcester-15-gibbs-st-unit-g",
@@ -16915,7 +18077,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/15-Gibbs-St-01607/unit-G/home/16649214",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1080,
+    "yearBuilt": 1988
   },
   {
     "id": "ma-worcester-8-cardinal-rd",
@@ -16930,7 +18094,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/8-Cardinal-Rd-01602/home/16648053",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1743,
+    "yearBuilt": 1939
   },
   {
     "id": "ma-worcester-1-belvidere-ave",
@@ -16940,12 +18106,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 410000,
+    "price": 395000,
     "rent": 2475,
     "url": "https://www.redfin.com/MA/Worcester/1-Belvidere-Ave-01605/home/16661823",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1544,
+    "yearBuilt": 1929,
+    "priceWas": 410000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-9-idalla-ave",
@@ -16960,7 +18130,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/9-Idalla-Ave-01606/home/16648306",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1092,
+    "yearBuilt": 1919
   },
   {
     "id": "ma-worcester-33-clearview-ave",
@@ -16977,7 +18149,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 439500,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1946,
+    "yearBuilt": 1926
   },
   {
     "id": "ma-worcester-434-hamilton",
@@ -16992,7 +18166,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/434-Hamilton-St-01604/home/16670447",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1549,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-worcester-22-new-york-st",
@@ -17002,12 +18178,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 499900,
+    "price": 484900,
     "rent": 2475,
     "url": "https://www.redfin.com/MA/Worcester/22-New-York-St-01603/home/204705121",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2000,
+    "yearBuilt": 2026,
+    "priceWas": 499900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-worcester-52-eagle-rd",
@@ -17022,7 +18202,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/52-Eagle-Rd-01605/home/16662066",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1500,
+    "yearBuilt": 1929
   },
   {
     "id": "ma-worcester-43-chilmark",
@@ -17052,7 +18234,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/139-Endicott-St-01610/home/16664164",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1358,
+    "yearBuilt": 1860
   },
   {
     "id": "ma-worcester-14-saint-elmo-rd",
@@ -17067,7 +18251,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/14-Saint-Elmo-Rd-01602/home/16659062",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2087,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-worcester-20-orient-st",
@@ -17082,7 +18268,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/20-Orient-St-01604/home/16664575",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1416,
+    "yearBuilt": 1880
   },
   {
     "id": "ma-worcester-90-locust-ave",
@@ -17097,7 +18285,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/90-Locust-Ave-01604/home/16670637",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1747,
+    "yearBuilt": 1870
   },
   {
     "id": "ma-worcester-10-marmion-ave",
@@ -17112,7 +18302,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/10-Marmion-Ave-01606/home/16674424",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1975,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-worcester-41-drexel-st",
@@ -17127,7 +18319,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/41-Drexel-St-01602/home/16652580",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1850,
+    "yearBuilt": 1985
   },
   {
     "id": "ma-worcester-19-pocasset-ave",
@@ -17142,7 +18336,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/19-Pocasset-Ave-01606/home/194629146",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 864,
+    "yearBuilt": 1946
   },
   {
     "id": "ma-worcester-18-frongillo-farm-rd",
@@ -17157,7 +18353,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/18-Frongillo-Farm-Rd-01604/home/16680888",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1688,
+    "yearBuilt": 2002
   },
   {
     "id": "ma-worcester-2-ely-st",
@@ -17172,7 +18370,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/2-Ely-St-01610/home/16663234",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1464,
+    "yearBuilt": 1850
   },
   {
     "id": "ma-worcester-21-arbutus-rd",
@@ -17187,7 +18387,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/21-Arbutus-Rd-01606/home/16659396",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1937,
+    "yearBuilt": 1926
   },
   {
     "id": "ma-worcester-21-dryden-st",
@@ -17202,7 +18404,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/21-Dryden-St-01605/home/16677899",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 936,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-22-pelican-ave",
@@ -17217,7 +18421,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/22-Pelican-Ave-01605/home/16666035",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1288,
+    "yearBuilt": 1913
   },
   {
     "id": "ma-worcester-7-clarence-st",
@@ -17232,7 +18438,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/7-Clarence-St-01605/home/16666381",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1196,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-worcester-154-barnard-rd",
@@ -17247,7 +18455,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/154-Barnard-Rd-01605/home/16661968",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1614,
+    "yearBuilt": 1935
   },
   {
     "id": "ma-worcester-8-westland-st",
@@ -17262,7 +18472,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/8-Westland-St-01602/home/16676210",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 6-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2811,
+    "yearBuilt": 1895
   },
   {
     "id": "ma-worcester-20-7-rice-ln",
@@ -17277,7 +18489,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/20-27-Rice-Ln-01604/home/202405528",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1040,
+    "yearBuilt": 1987
   },
   {
     "id": "ma-worcester-74-sophia-dr",
@@ -17292,7 +18506,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/74-Sophia-Dr-01607/home/18907632",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1526,
+    "yearBuilt": 2008
   },
   {
     "id": "ma-worcester-16a-burghardt-st",
@@ -17307,7 +18523,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/16A-Burghardt-St-01604/home/134941266",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1953,
+    "yearBuilt": 2006
   },
   {
     "id": "ma-worcester-78-whipple-st",
@@ -17322,7 +18540,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/78-Whipple-St-01607/home/16649672",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1458,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-worcester-259-massasoit-rd",
@@ -17337,7 +18557,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/259-Massasoit-Rd-01604/home/16661376",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1128,
+    "yearBuilt": 1930
   },
   {
     "id": "ma-worcester-32-indian-lake-pkwy",
@@ -17352,7 +18574,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/32-Indian-Lake-Pkwy-01605/home/16666606",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1158,
+    "yearBuilt": 1941
   },
   {
     "id": "ma-worcester-200-beacon-st",
@@ -17367,7 +18591,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/200-Beacon-St-01610/home/16656345",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1598,
+    "yearBuilt": 2005
   },
   {
     "id": "ma-worcester-10-minthorne-st",
@@ -17382,7 +18608,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/10-Minthorne-St-01603/home/16673761",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2315,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-worcester-2-fiske-st",
@@ -17397,7 +18625,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/2-Fiske-St-01602/home/16658876",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1542,
+    "yearBuilt": 1898
   },
   {
     "id": "nh-concord-12-first-st",
@@ -17412,7 +18642,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/12-1st-St-03301/home/88315508",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1469,
+    "yearBuilt": 1936
   },
   {
     "id": "nh-concord-140-peaceful-ln",
@@ -17427,7 +18659,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/140-Peaceful-Ln-03303/home/88316923",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1128,
+    "yearBuilt": 1906
   },
   {
     "id": "nh-concord-7-park-st",
@@ -17442,7 +18676,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Boscawen/7-Park-St-03303/home/88129964",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1489,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-concord-7-school-st",
@@ -17452,12 +18688,16 @@ window.SEED_LISTINGS = [
     "miles": 39,
     "type": "Single-family",
     "units": 1,
-    "price": 325000,
+    "price": 300000,
     "rent": 2800,
     "url": "https://www.redfin.com/NH/Boscawen/7-School-St-03303/home/64450561",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1441,
+    "yearBuilt": 1915,
+    "priceWas": 325000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-concord-2-electric-ave",
@@ -17474,7 +18714,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 519900,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1686,
+    "yearBuilt": 1987
   },
   {
     "id": "nh-concord-42-lake-view-dr",
@@ -17504,7 +18746,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/Beacon-Way-03301/unit-158/home/206282636",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1501,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-concord-17-joffre-st",
@@ -17519,7 +18763,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/17-Joffre-St-03301/home/88316092",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1194,
+    "yearBuilt": 1950
   },
   {
     "id": "nh-concord-204-high-st",
@@ -17534,7 +18780,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Boscawen/204-High-St-03303/home/96515843",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2072,
+    "yearBuilt": 1965
   },
   {
     "id": "nh-concord-153-rumford-st",
@@ -17549,7 +18797,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/153-Rumford-St-03301/home/103048923",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 938,
+    "yearBuilt": 1967
   },
   {
     "id": "nh-concord-17-5-clinton-st-51",
@@ -17564,7 +18814,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/Clinton-St-03301/unit-51/home/206025686",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1302,
+    "yearBuilt": 1850
   },
   {
     "id": "nh-concord-234-corn-hill-rd",
@@ -17574,14 +18826,16 @@ window.SEED_LISTINGS = [
     "miles": 39,
     "type": "Single-family",
     "units": 1,
-    "price": 524100,
+    "price": 499900,
     "rent": 2800,
     "url": "https://www.redfin.com/NH/Boscawen/234-Corn-Hill-Rd-03303/home/88129281",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
-    "priceWas": 524200,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceWas": 524100,
+    "priceChangedAt": "2026-11-12T10:00:00Z",
+    "sqft": 2438,
+    "yearBuilt": 1976
   },
   {
     "id": "nh-concord-10-tremont-st",
@@ -17596,7 +18850,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/10-Tremont-St-03301/home/103048594",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1246,
+    "yearBuilt": 1860
   },
   {
     "id": "nh-concord-23-jackson-st",
@@ -17611,7 +18867,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/23-Jackson-St-03301/home/103046553",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1296,
+    "yearBuilt": 1890
   },
   {
     "id": "nh-concord-30-hannah-dustin-dr",
@@ -17626,7 +18884,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/30-Hannah-Dustin-Dr-03301/home/102805723",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1766,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-concord-66-currier-rd",
@@ -17641,7 +18901,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/66-Currier-Rd-03301/home/103049662",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1254,
+    "yearBuilt": 1940
   },
   {
     "id": "nh-concord-74-snow-pond-rd",
@@ -17651,12 +18913,16 @@ window.SEED_LISTINGS = [
     "miles": 39,
     "type": "Single-family",
     "units": 1,
-    "price": 549999,
+    "price": 535000,
     "rent": 2800,
     "url": "https://www.redfin.com/NH/Concord/74-Snow-Pond-Rd-03301/home/96625076",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1456,
+    "yearBuilt": 2006,
+    "priceWas": 549999,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-concord-144-white-plains-rd",
@@ -17671,7 +18937,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Webster/144-White-Plains-Rd-03303/home/88110203",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1560,
+    "yearBuilt": 1966
   },
   {
     "id": "nh-concord-5-mountain-rd",
@@ -17686,7 +18954,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/5-Mountain-Rd-03301/home/96448822",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2132,
+    "yearBuilt": 1810
   },
   {
     "id": "nh-concord-3-sylvester-st",
@@ -17701,7 +18971,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/3-Sylvester-St-03303/home/88313821",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1791,
+    "yearBuilt": 1934
   },
   {
     "id": "nh-concord-616-tyler-rd",
@@ -17716,7 +18988,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Webster/616-Tyler-Rd-03303/home/88110067",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1785,
+    "yearBuilt": 1990
   },
   {
     "id": "nh-concord-3-hanover-st",
@@ -17731,7 +19005,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/3-Hanover-St-03301/home/103046581",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1128,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-concord-330-hopkinton-rd",
@@ -17761,7 +19037,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/72-Riverhill-Ave-03303/home/88317806",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 764,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-concord-151-new-hampshire-dr",
@@ -17786,12 +19064,16 @@ window.SEED_LISTINGS = [
     "miles": 39,
     "type": "Single-family",
     "units": 1,
-    "price": 433000,
+    "price": 415000,
     "rent": 2800,
     "url": "https://www.redfin.com/NH/Boscawen/1-Circle-Dr-03303/home/96475233",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1637,
+    "yearBuilt": 1955,
+    "priceWas": 433000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "nh-concord-51-laurel-st",
@@ -17806,7 +19088,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/51-Laurel-St-03301/home/103048494",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1340,
+    "yearBuilt": 1900
   },
   {
     "id": "nh-dover-15-court-st",
@@ -17821,7 +19105,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/15-Court-St-03820/home/96532338",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1380,
+    "yearBuilt": 1920
   },
   {
     "id": "nh-dover-11-nicholas-cir",
@@ -17836,7 +19122,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/11-Nicholas-Cir-03820/home/60350497",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1465,
+    "yearBuilt": 1993
   },
   {
     "id": "nh-dover-136-garrison-rd",
@@ -17851,7 +19139,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/136-Garrison-Rd-03820/home/96618651",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1484,
+    "yearBuilt": 2005
   },
   {
     "id": "nh-dover-84-henry-law-ave",
@@ -17896,7 +19186,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/77-Knox-Marsh-Rd-03820/home/103020792",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1814,
+    "yearBuilt": 1967
   },
   {
     "id": "nh-dover-5-alder-ln",
@@ -17911,7 +19203,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/5-Alder-Ln-03820/home/96667974",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1248,
+    "yearBuilt": 1971
   },
   {
     "id": "nh-dover-5-linda-ave",
@@ -17926,7 +19220,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/5-Linda-Ave-03820/home/103019906",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1304,
+    "yearBuilt": 1960
   },
   {
     "id": "nh-dover-8-cornerstone-dr",
@@ -17941,7 +19237,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/8-Corner-Stone-Dr-03820/home/96510169",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1886,
+    "yearBuilt": 1995
   },
   {
     "id": "nh-dover-45-oak-st",
@@ -17956,7 +19254,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/45-Oak-St-03820/home/88162296",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1567,
+    "yearBuilt": 1882
   },
   {
     "id": "nh-dover-80-glenwood-ave",
@@ -17971,7 +19271,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Dover/80-Glenwood-Ave-03820/home/88161795",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1200,
+    "yearBuilt": 1946
   },
   {
     "id": "ma-brockton-66-prospect-st",
@@ -17986,7 +19288,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/66-Prospect-St-02301/home/16322779",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1500,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-brockton-166-elliot-st",
@@ -18001,7 +19305,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/166-Elliot-St-02302/home/16333188",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1576,
+    "yearBuilt": 1963
   },
   {
     "id": "ma-brockton-129-wentworth-ave",
@@ -18016,7 +19322,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/129-Wentworth-Ave-02301/home/16330895",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1116,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-55-taylor-ave",
@@ -18031,7 +19339,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/55-Taylor-Ave-02302/home/16316597",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1269,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-brockton-526-crescent-st",
@@ -18046,7 +19356,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/526-Crescent-St-02302/home/16317488",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1008,
+    "yearBuilt": 1945
   },
   {
     "id": "ma-brockton-25-ettrick-st",
@@ -18061,7 +19373,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/25-Ettrick-St-02301/home/16331212",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1236,
+    "yearBuilt": 1965
   },
   {
     "id": "ma-brockton-15-elsie-rd",
@@ -18076,7 +19390,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/15-Elsie-Rd-02302/home/16328425",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1312,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-28-lorrie-ave",
@@ -18091,7 +19407,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/28-Lorrie-Ave-02301/home/205306706",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1409,
+    "yearBuilt": 1963
   },
   {
     "id": "ma-brockton-43-delmar-rd",
@@ -18106,7 +19424,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/43-Delmar-Rd-02302/home/16329046",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1428,
+    "yearBuilt": 1964
   },
   {
     "id": "ma-brockton-161-edward-st",
@@ -18121,7 +19441,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/161-Edward-St-02302/home/16334206",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 984,
+    "yearBuilt": 1963
   },
   {
     "id": "ma-brockton-110-crane-rd",
@@ -18131,12 +19453,16 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Single-family",
     "units": 1,
-    "price": 549900,
+    "price": 535000,
     "rent": 3075,
     "url": "https://www.redfin.com/MA/Brockton/110-Crane-Rd-02302/home/16333755",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1428,
+    "yearBuilt": 1962,
+    "priceWas": 549900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-brockton-27-woodbine-st",
@@ -18151,7 +19477,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/27-Woodbine-St-02301/home/16323974",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1874,
+    "yearBuilt": 1951
   },
   {
     "id": "ma-brockton-21-doris-ave",
@@ -18161,12 +19489,16 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Single-family",
     "units": 1,
-    "price": 525000,
+    "price": 499900,
     "rent": 3075,
     "url": "https://www.redfin.com/MA/Brockton/21-Doris-Ave-02301/home/16330680",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1408,
+    "yearBuilt": 1925,
+    "priceWas": 525000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-brockton-84-temi-rd",
@@ -18181,7 +19513,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/84-Temi-Rd-02302/home/16335061",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1464,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-38-arthur-st",
@@ -18196,7 +19530,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/38-Arthur-St-02302/home/16315932",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1284,
+    "yearBuilt": 2002
   },
   {
     "id": "ma-brockton-31-willow",
@@ -18206,12 +19542,16 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Single-family",
     "units": 1,
-    "price": 534000,
+    "price": 526000,
     "rent": 3700,
     "url": "https://www.redfin.com/MA/Brockton/31-Willow-St-02301/home/16322180",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1365,
+    "yearBuilt": 1925,
+    "priceWas": 534000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-brockton-30-ettrick-st",
@@ -18226,7 +19566,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/30-Ettrick-St-02301/home/16331209",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1547,
+    "yearBuilt": 1987
   },
   {
     "id": "ma-brockton-279-menlo-st",
@@ -18241,7 +19583,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/279-Menlo-St-02301/home/16331184",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1180,
+    "yearBuilt": 1926
   },
   {
     "id": "ma-brockton-105-crestfield-dr",
@@ -18256,7 +19600,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/105-Crestfield-Dr-02302/home/16336104",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1324,
+    "yearBuilt": 1964
   },
   {
     "id": "ma-brockton-90-george-st",
@@ -18266,12 +19612,16 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Single-family",
     "units": 1,
-    "price": 550000,
+    "price": 530000,
     "rent": 3700,
     "url": "https://www.redfin.com/MA/Brockton/90-George-St-02302/home/14804828",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1374,
+    "yearBuilt": 1992,
+    "priceWas": 550000,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-brockton-142-short-st",
@@ -18286,7 +19636,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/142-Short-St-02302/home/16334157",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1336,
+    "yearBuilt": 1964
   },
   {
     "id": "ma-brockton-11-montauk-rd",
@@ -18301,7 +19653,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/11-Montauk-Rd-02301/home/16329172",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1044,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-79-bonney-st",
@@ -18316,7 +19670,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/79-Bonney-St-02302/home/16326876",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2189,
+    "yearBuilt": 1959
   },
   {
     "id": "ma-brockton-10-lynn-rd",
@@ -18331,7 +19687,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/10-Lynn-Rd-02302/home/16328892",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1312,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-25-anita-rd",
@@ -18346,7 +19704,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/25-Anita-Rd-02302/home/16326950",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1225,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-28-eames-ave",
@@ -18361,7 +19721,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/28-Eames-Ave-02302/home/16336065",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1184,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-56-eleventh-ave",
@@ -18391,7 +19753,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/53-Bernice-Ave-02301/home/16331140",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1226,
+    "yearBuilt": 1929
   },
   {
     "id": "ma-brockton-116-gladstone-st",
@@ -18406,7 +19770,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/116-Gladstone-St-02302/home/16336045",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1329,
+    "yearBuilt": 1920
   },
   {
     "id": "ma-brockton-29-aberdeen-st",
@@ -18421,7 +19787,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/29-Aberdeen-St-02302/home/16317391",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1316,
+    "yearBuilt": 1965
   },
   {
     "id": "ma-brockton-31-hope-st",
@@ -18436,7 +19804,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/31-Hope-St-02302/home/16316263",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1444,
+    "yearBuilt": 1954
   },
   {
     "id": "ma-brockton-51-n-manchester",
@@ -18451,7 +19821,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/51-N-Manchester-St-02302/home/16332983",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1179,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-brockton-247-howard-st",
@@ -18466,7 +19838,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/247-Howard-St-02302/home/16326300",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1288,
+    "yearBuilt": 1967
   },
   {
     "id": "ma-brockton-19-hayward-ave",
@@ -18481,7 +19855,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/19-Hayward-Ave-02301/home/16323457",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1548,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-brockton-18-ford-st",
@@ -18491,12 +19867,16 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Single-family",
     "units": 1,
-    "price": 499900,
+    "price": 475000,
     "rent": 3075,
     "url": "https://www.redfin.com/MA/Brockton/18-Ford-St-02301/home/16322547",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1548,
+    "yearBuilt": 1925,
+    "priceWas": 499900,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-brockton-138-copeland-st",
@@ -18511,7 +19891,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/138-Copeland-St-02301/home/16323630",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1318,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-brockton-18-julie-ave",
@@ -18526,7 +19908,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/18-Julie-Ave-02301/home/16331515",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1462,
+    "yearBuilt": 1967
   },
   {
     "id": "ma-brockton-46-otis-st",
@@ -18541,7 +19925,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/46-Otis-St-02302/home/16337122",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1478,
+    "yearBuilt": 1889
   },
   {
     "id": "ma-brockton-65-gary-rd",
@@ -18556,7 +19942,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/65-Gary-Rd-02302/home/16326582",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2512,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-60-gerald-ave",
@@ -18571,7 +19959,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/60-Gerald-Ave-02302/home/16333515",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 864,
+    "yearBuilt": 1957
   },
   {
     "id": "ma-brockton-75-sterling-ave",
@@ -18586,7 +19976,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/75-Sterling-Rd-02302/home/16335665",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 825,
+    "yearBuilt": 1945
   },
   {
     "id": "ma-brockton-186-pearl-st",
@@ -18601,7 +19993,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/186-Pearl-St-02301/home/16334686",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 964,
+    "yearBuilt": 1976
   },
   {
     "id": "ma-brockton-62-carlisle-st",
@@ -18616,7 +20010,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/62-Carlisle-St-02302/home/16320181",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1584,
+    "yearBuilt": 1969
   },
   {
     "id": "ma-brockton-47-mercedes-rd",
@@ -18631,7 +20027,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/47-Mercedes-Rd-02301/home/16323776",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1404,
+    "yearBuilt": 1956
   },
   {
     "id": "ma-brockton-19-anawan-st",
@@ -18646,7 +20044,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/19-Anawan-St-02302/home/16333374",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1412,
+    "yearBuilt": 1969
   },
   {
     "id": "ma-brockton-200-lynn-rd",
@@ -18661,7 +20061,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/200-Lynn-Rd-02302/home/16328868",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1032,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-19-waleco-rd",
@@ -18676,7 +20078,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/19-Waleco-Rd-02302/home/16328954",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1856,
+    "yearBuilt": 1962
   },
   {
     "id": "ma-brockton-148-ettrick-st",
@@ -18691,7 +20095,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/148-Ettrick-St-02301/home/16331196",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1314,
+    "yearBuilt": 1924
   },
   {
     "id": "ma-brockton-211-alger-st",
@@ -18721,7 +20127,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/156-Boundary-St-02302/home/16326607",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1172,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-118-carroll-ave",
@@ -18736,7 +20144,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/118-Carroll-Ave-02301/home/16324293",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1600,
+    "yearBuilt": 1922
   },
   {
     "id": "ma-brockton-55-emory-st",
@@ -18751,7 +20161,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/55-Emory-St-02301/home/16331630",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1728,
+    "yearBuilt": 1773
   },
   {
     "id": "ma-brockton-171-bartlett-st",
@@ -18766,7 +20178,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/171-Bartlett-St-02301/home/16325489",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1229,
+    "yearBuilt": 1890
   },
   {
     "id": "ma-brockton-25-marie-ave",
@@ -18781,7 +20195,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/25-Marie-Ave-02302/home/16316135",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1172,
+    "yearBuilt": 1957
   },
   {
     "id": "ma-brockton-39-twelfth-ave",
@@ -18796,7 +20212,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/39-12th-Ave-02302/home/16320744",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1540,
+    "yearBuilt": 1965
   },
   {
     "id": "ma-brockton-223-elsie-rd",
@@ -18811,7 +20229,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/223-Elsie-Rd-02302/home/16327283",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1536,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-126-intervale-st",
@@ -18826,7 +20246,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/126-Intervale-St-02302/home/16330492",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1172,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-brockton-73-longwood-ave",
@@ -18841,7 +20263,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/73-Longwood-Ave-02301/home/16318062",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1326,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-brockton-50-emory-st",
@@ -18856,7 +20280,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/50-Emory-St-02301/home/16331685",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1411,
+    "yearBuilt": 1993
   },
   {
     "id": "ma-brockton-33-cross-st",
@@ -18871,7 +20297,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/33-Cross-St-02301/home/16326826",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1071,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-129-florence-st",
@@ -18886,7 +20314,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/129-Florence-St-02301/home/16325856",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1434,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-54-carter-st",
@@ -18901,7 +20331,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/54-Carter-St-02302/home/16333174",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1412,
+    "yearBuilt": 1973
   },
   {
     "id": "ma-brockton-28-delmar-rd",
@@ -18918,7 +20350,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 440000,
-    "priceChangedAt": "2026-11-09T10:00:00Z"
+    "priceChangedAt": "2026-11-09T10:00:00Z",
+    "sqft": 1216,
+    "yearBuilt": 1964
   },
   {
     "id": "ma-brockton-99-connell-ave",
@@ -18933,7 +20367,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/99-Connell-Ave-02302/home/16333526",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 864,
+    "yearBuilt": 1956
   },
   {
     "id": "ma-brockton-32-sycamore-ave",
@@ -18948,7 +20384,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/32-Sycamore-Ave-02301/home/16327323",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1577,
+    "yearBuilt": 1914
   },
   {
     "id": "ma-brockton-260-pearl-st",
@@ -18963,7 +20401,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/260-Pearl-St-02301/home/16334657",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1584,
+    "yearBuilt": 1962
   },
   {
     "id": "ma-brockton-15-clara-rd",
@@ -18978,7 +20418,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/15-Clara-Rd-02302/home/16316783",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1172,
+    "yearBuilt": 1957
   },
   {
     "id": "ma-brockton-95-augustine-st",
@@ -18993,7 +20435,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/95-Augustine-St-02301/home/16321853",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1600,
+    "yearBuilt": 1942
   },
   {
     "id": "ma-brockton-52-jacob-st",
@@ -19008,7 +20452,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/52-Jacob-St-02302/home/16337246",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1328,
+    "yearBuilt": 1960
   },
   {
     "id": "ma-brockton-72-kurland-ave",
@@ -19023,7 +20469,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/72-Kurland-Ave-02301/home/16327470",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1456,
+    "yearBuilt": 1966
   },
   {
     "id": "ma-brockton-54-clinton-st",
@@ -19038,7 +20486,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/54-Clinton-St-02302/home/16320028",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1407,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-brockton-17-west-st",
@@ -19053,7 +20503,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/17-West-St-02301/home/16332111",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1216,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-brockton-32-grant-ave",
@@ -19063,12 +20515,16 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Single-family",
     "units": 1,
-    "price": 509999,
+    "price": 499000,
     "rent": 3075,
     "url": "https://www.redfin.com/MA/Brockton/32-Grant-Ave-02301/home/16323593",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1662,
+    "yearBuilt": 1900,
+    "priceWas": 509999,
+    "priceChangedAt": "2026-11-12T10:00:00Z"
   },
   {
     "id": "ma-brockton-74-oakland-st",
@@ -19083,7 +20539,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/74-Oakland-St-02302/home/16318981",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 976,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-brockton-18-lawrence-st",
@@ -19098,7 +20556,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/18-Lawrence-St-02301/home/16317432",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1148,
+    "yearBuilt": 1894
   },
   {
     "id": "nh-rochester-218-milton-rd",
@@ -19128,7 +20588,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/89-Walnut-St-03867/home/108639338",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2234,
+    "yearBuilt": 1882
   },
   {
     "id": "nh-rochester-10-glenwood-ave",
@@ -19143,7 +20605,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/10-Glenwood-Ave-03867/home/88206849",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1686,
+    "yearBuilt": 1911
   },
   {
     "id": "nh-rochester-32-forest-park-dr",
@@ -19158,7 +20622,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/32-Forest-Park-Dr-03868/home/101648358",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1458,
+    "yearBuilt": 1973
   },
   {
     "id": "nh-rochester-9-crockett-st",
@@ -19173,7 +20639,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/9-Crockett-St-03867/home/88207421",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1536,
+    "yearBuilt": 1958
   },
   {
     "id": "nh-rochester-20-anctil-ct",
@@ -19188,7 +20656,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/20-Anctil-Ct-03839/home/96568469",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1900,
+    "yearBuilt": 1957
   },
   {
     "id": "nh-rochester-32-pine-st",
@@ -19205,7 +20675,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 330000,
-    "priceChangedAt": "2026-11-10T10:00:00Z"
+    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1230,
+    "yearBuilt": 1906
   },
   {
     "id": "nh-rochester-562-pickering-rd",
@@ -19220,7 +20692,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/562-Pickering-Rd-03867/home/108637815",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1288,
+    "yearBuilt": 2022
   },
   {
     "id": "nh-rochester-1-duquette-st",
@@ -19235,7 +20709,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/1-Duquette-St-03867/home/108637469",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1128,
+    "yearBuilt": 1949
   },
   {
     "id": "nh-rochester-49-ledgeview-dr",
@@ -19250,7 +20726,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/49-Ledgeview-Dr-03839/home/96586369",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1588,
+    "yearBuilt": 1989
   },
   {
     "id": "nh-rochester-4-westview-dr",
@@ -19265,7 +20743,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/4-Westview-Dr-03867/home/96504883",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1816,
+    "yearBuilt": 1970
   },
   {
     "id": "nh-rochester-39-salmon-falls-rd",
@@ -19280,7 +20760,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/39-Salmon-Falls-Rd-03868/home/96500665",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1271,
+    "yearBuilt": 1972
   },
   {
     "id": "nh-rochester-40-grove-st",
@@ -19295,7 +20777,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/40-Grove-St-03868/home/88207175",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1125,
+    "yearBuilt": 1932
   },
   {
     "id": "nh-rochester-476-pickering-rd",
@@ -19310,7 +20794,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/476-Pickering-Rd-03867/home/206729743",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1288,
+    "yearBuilt": 2022
   },
   {
     "id": "nh-rochester-10-norway-plains-rd",
@@ -19325,7 +20811,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/10-Norway-Plains-Rd-03868/home/173449797",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1848,
+    "yearBuilt": 2020
   },
   {
     "id": "nh-rochester-23-high-st",
@@ -19342,7 +20830,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "priceWas": 370000,
-    "priceChangedAt": "2026-11-09T10:00:00Z"
+    "priceChangedAt": "2026-11-09T10:00:00Z",
+    "sqft": 1638,
+    "yearBuilt": 1935
   },
   {
     "id": "nh-rochester-13-railroad-ave",
@@ -19357,7 +20847,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/13-Railroad-Ave-03839/home/108640482",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 2190,
+    "yearBuilt": 1925
   },
   {
     "id": "nh-rochester-18-roberts-rd",
@@ -19372,7 +20864,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/18-Roberts-Rd-03867/home/96586020",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 3170,
+    "yearBuilt": 1986
   },
   {
     "id": "nh-rochester-27-cross-rd",
@@ -19387,7 +20881,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/27-Cross-Rd-03868/home/108638602",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1226,
+    "yearBuilt": 1956
   },
   {
     "id": "nh-rochester-9a-trestle-rd",
@@ -19417,7 +20913,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/126-Rochester-Hill-Rd-03867/home/108639065",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 927,
+    "yearBuilt": 1931
   },
   {
     "id": "nh-rochester-21-maple-st",
@@ -19432,7 +20930,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/21-Maple-St-03867/home/96608021",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1084,
+    "yearBuilt": 1881
   },
   {
     "id": "nh-rochester-4-olsen-way",
@@ -19447,7 +20947,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/4-Olsen-Way-03867/home/96462669",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1347,
+    "yearBuilt": 1922
   },
   {
     "id": "nh-rochester-8-merlin-rd",
@@ -19477,7 +20979,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Rochester/19-Pine-St-03867/home/101648504",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1650,
+    "yearBuilt": 1901
   },
   {
     "id": "ma-methuen-12-hadley-rd",
@@ -19492,7 +20996,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/12-Hadley-Rd-01844/home/8326600",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-09",
-    "addedAt": "2026-11-09T10:00:00Z"
+    "addedAt": "2026-11-09T10:00:00Z",
+    "sqft": 1000,
+    "yearBuilt": 1955
   },
   {
     "id": "ma-leominster-128-birchcroft-rd",
@@ -19507,7 +21013,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Leominster/128-Birchcroft-Rd-01453/home/16537425",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-09",
-    "addedAt": "2026-11-09T10:00:00Z"
+    "addedAt": "2026-11-09T10:00:00Z",
+    "sqft": 1224,
+    "yearBuilt": 1984
   },
   {
     "id": "ma-fitchburg-778-ashburnham-st",
@@ -19522,7 +21030,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/778-Ashburnham-St-01420/home/16498975",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-09",
-    "addedAt": "2026-11-09T10:00:00Z"
+    "addedAt": "2026-11-09T10:00:00Z",
+    "sqft": 1821,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-fitchburg-165-summer-st",
@@ -19537,7 +21047,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Fitchburg/165-Summer-St-01420/home/39877090",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-09",
-    "addedAt": "2026-11-09T10:00:00Z"
+    "addedAt": "2026-11-09T10:00:00Z",
+    "sqft": 1535,
+    "yearBuilt": 1870
   },
   {
     "id": "ma-lowell-19-blinkhorn-ave",
@@ -19552,7 +21064,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lowell/19-Blinkhorn-Ave-01850/home/11642011",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1064,
+    "yearBuilt": 1880
   },
   {
     "id": "ma-lawrence-301-salem-st",
@@ -19567,7 +21081,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/301-Salem-St-01843/home/11319983",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lawrence average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1436,
+    "yearBuilt": 1880
   },
   {
     "id": "ma-lawrence-171-ferry-st",
@@ -19582,7 +21098,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Lawrence/171-Ferry-St-01841/home/11311815",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lawrence average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1526,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-worcester-17-bigelow-st",
@@ -19597,7 +21115,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/17-Bigelow-St-01610/home/16680455",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1296,
+    "yearBuilt": 2003
   },
   {
     "id": "ma-worcester-29-buckley-rd",
@@ -19612,7 +21132,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/29-Buckley-Rd-01602/home/69070700",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1684,
+    "yearBuilt": 2014
   },
   {
     "id": "ma-worcester-34-forsberg-st",
@@ -19627,7 +21149,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/34-Forsberg-St-01607/home/16649729",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1152,
+    "yearBuilt": 1958
   },
   {
     "id": "ma-worcester-5-cutting-ave",
@@ -19642,7 +21166,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/5-Cutting-Ave-01606/home/16674821",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1323,
+    "yearBuilt": 1925
   },
   {
     "id": "ma-worcester-42-ernest-ave",
@@ -19657,7 +21183,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Worcester/42-Ernest-Ave-01604/home/16654890",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 2728,
+    "yearBuilt": 1935
   },
   {
     "id": "nh-concord-79-abbott-rd",
@@ -19672,7 +21200,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/79-Abbott-Rd-03303/home/103047548",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1882,
+    "yearBuilt": 2009
   },
   {
     "id": "ma-brockton-93-portland-st",
@@ -19687,7 +21217,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/93-Portland-St-02302/home/16335936",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1278,
+    "yearBuilt": 1963
   },
   {
     "id": "ma-brockton-11-rodwell-st",
@@ -19702,6 +21234,953 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Brockton/11-Rodwell-St-02302/home/16328499",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
-    "addedAt": "2026-11-10T10:00:00Z"
+    "addedAt": "2026-11-10T10:00:00Z",
+    "sqft": 1056,
+    "yearBuilt": 1960
+  },
+  {
+    "id": "ma-lowell-120-foster-st",
+    "address": "120 Foster St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Single-family",
+    "units": 1,
+    "price": 489900,
+    "rent": 2250,
+    "url": "https://www.redfin.com/MA/Lowell/120-Foster-St-01851/home/11615902",
+    "sqft": 1032,
+    "yearBuilt": 1966,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-27-fay-st",
+    "address": "27 Fay St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Single-family",
+    "units": 1,
+    "price": 399000,
+    "rent": 3225,
+    "url": "https://www.redfin.com/MA/Lowell/27-Fay-St-01852/home/11646218",
+    "sqft": 1432,
+    "yearBuilt": 1900,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-21-cascade-ave",
+    "address": "21 Cascade Ave",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Single-family",
+    "units": 1,
+    "price": 530000,
+    "rent": 3225,
+    "url": "https://www.redfin.com/MA/Lowell/21-Cascade-Ave-01851/home/11613237",
+    "sqft": 1664,
+    "yearBuilt": 1920,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-28-brunswick-st",
+    "address": "28 Brunswick St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Single-family",
+    "units": 1,
+    "price": 499900,
+    "rent": 2250,
+    "url": "https://www.redfin.com/MA/Lowell/28-Brunswick-St-01852/home/11658496",
+    "sqft": 1152,
+    "yearBuilt": 1956,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-343-clark-rd",
+    "address": "343 Clark Rd",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Single-family",
+    "units": 1,
+    "price": 549900,
+    "rent": 3225,
+    "url": "https://www.redfin.com/MA/Lowell/343-Clark-Rd-01852/home/11664334",
+    "sqft": 1731,
+    "yearBuilt": 1960,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-methuen-10-salem-st",
+    "address": "10 Salem St",
+    "town": "Methuen",
+    "state": "MA",
+    "miles": 7,
+    "type": "Single-family",
+    "units": 1,
+    "price": 545000,
+    "rent": 3175,
+    "url": "https://www.redfin.com/MA/Methuen/10-Salem-St-01844/home/8356418",
+    "sqft": 1860,
+    "yearBuilt": 1941,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-methuen-6-woodburn-dr",
+    "address": "6 Woodburn Dr",
+    "town": "Methuen",
+    "state": "MA",
+    "miles": 7,
+    "type": "Single-family",
+    "units": 1,
+    "price": 479900,
+    "rent": 2650,
+    "url": "https://www.redfin.com/MA/Methuen/6-Woodburn-Dr-01844/home/8307010",
+    "sqft": 1234,
+    "yearBuilt": 1966,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-methuen-219-pelham-st",
+    "address": "219 Pelham St",
+    "town": "Methuen",
+    "state": "MA",
+    "miles": 7,
+    "type": "Single-family",
+    "units": 1,
+    "price": 549900,
+    "rent": 3175,
+    "url": "https://www.redfin.com/MA/Methuen/219-Pelham-St-01844/home/8303546",
+    "sqft": 1834,
+    "yearBuilt": 1939,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-nashua-15-morton-st",
+    "address": "15 Morton St",
+    "town": "Nashua",
+    "state": "NH",
+    "miles": 11,
+    "type": "Single-family",
+    "units": 1,
+    "price": 445000,
+    "rent": 2925,
+    "url": "https://www.redfin.com/NH/Nashua/15-Morton-St-03060/home/88092127",
+    "sqft": 1505,
+    "yearBuilt": 1945,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-nashua-4-prescott-st",
+    "address": "4 Prescott St",
+    "town": "Nashua",
+    "state": "NH",
+    "miles": 11,
+    "type": "Single-family",
+    "units": 1,
+    "price": 449000,
+    "rent": 2925,
+    "url": "https://www.redfin.com/NH/Nashua/4-Prescott-St-03064/home/88080670",
+    "sqft": 1836,
+    "yearBuilt": 1928,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-nashua-28-almont-st",
+    "address": "28 Almont St",
+    "town": "Nashua",
+    "state": "NH",
+    "miles": 11,
+    "type": "Single-family",
+    "units": 1,
+    "price": 439000,
+    "rent": 2525,
+    "url": "https://www.redfin.com/NH/Nashua/28-Almont-St-03060/home/88087167",
+    "sqft": 905,
+    "yearBuilt": 1938,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-590-washington-st",
+    "address": "590 Washington St",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Two-family",
+    "units": 2,
+    "price": 699000,
+    "rent": 5000,
+    "url": "https://www.redfin.com/MA/Haverhill/590-Washington-St-01832/home/11309293",
+    "sqft": 2757,
+    "yearBuilt": 1900,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Haverhill averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-6-summit-ave",
+    "address": "6 Summit Ave",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Single-family",
+    "units": 1,
+    "price": 499900,
+    "rent": 2750,
+    "url": "https://www.redfin.com/MA/Haverhill/6-Summit-Ave-01830/home/11302533",
+    "sqft": 1725,
+    "yearBuilt": 1910,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-30-kelly-st",
+    "address": "30 Kelly St",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Single-family",
+    "units": 1,
+    "price": 479999,
+    "rent": 2300,
+    "url": "https://www.redfin.com/MA/Haverhill/30-Kelly-St-01832/home/11315454",
+    "sqft": 1296,
+    "yearBuilt": 1940,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-56-jordan-st-56",
+    "address": "56 Jordan St #56",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Single-family",
+    "units": 1,
+    "price": 549900,
+    "rent": 2750,
+    "url": "https://www.redfin.com/MA/Haverhill/56-Jordan-St-01830/unit-56/home/206737318",
+    "sqft": 1514,
+    "yearBuilt": 2026,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-derry-4-desforge-ln",
+    "address": "4 Desforge Ln",
+    "town": "Derry",
+    "state": "NH",
+    "miles": 15,
+    "type": "Two-family",
+    "units": 2,
+    "price": 699900,
+    "rent": 4325,
+    "url": "https://www.redfin.com/NH/Derry/4-Desforge-Ln-03038/home/103051494",
+    "sqft": 2208,
+    "yearBuilt": 1987,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Derry averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-derry-13-norton-st",
+    "address": "13 Norton St",
+    "town": "Derry",
+    "state": "NH",
+    "miles": 15,
+    "type": "Single-family",
+    "units": 1,
+    "price": 424900,
+    "rent": 3100,
+    "url": "https://www.redfin.com/NH/Derry/13-Norton-St-03038/home/88320490",
+    "sqft": 1450,
+    "yearBuilt": 1910,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-merrimack-132-wire-rd",
+    "address": "132 Wire Rd",
+    "town": "Merrimack",
+    "state": "NH",
+    "miles": 17,
+    "type": "Single-family",
+    "units": 1,
+    "price": 539000,
+    "rent": 3125,
+    "url": "https://www.redfin.com/NH/Merrimack/132-Wire-Rd-03054/home/88139533",
+    "sqft": 2180,
+    "yearBuilt": 1968,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Merrimack average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-merrimack-1-cobblestone-pl",
+    "address": "1 Cobblestone Pl",
+    "town": "Merrimack",
+    "state": "NH",
+    "miles": 17,
+    "type": "Single-family",
+    "units": 1,
+    "price": 497000,
+    "rent": 3750,
+    "url": "https://www.redfin.com/NH/Merrimack/1-Cobblestone-Pl-03054/home/88138983",
+    "sqft": 2312,
+    "yearBuilt": 1988,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Merrimack average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-lynn-25-clarendon-ave",
+    "address": "25 Clarendon Ave",
+    "town": "Lynn",
+    "state": "MA",
+    "miles": 23,
+    "type": "Single-family",
+    "units": 1,
+    "price": 450000,
+    "rent": 3300,
+    "url": "https://www.redfin.com/MA/Lynn/25-Clarendon-Ave-01902/home/11559318",
+    "sqft": 1347,
+    "yearBuilt": 1910,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-lynn-223-linwood-st",
+    "address": "223 Linwood St",
+    "town": "Lynn",
+    "state": "MA",
+    "miles": 23,
+    "type": "Single-family",
+    "units": 1,
+    "price": 525000,
+    "rent": 3300,
+    "url": "https://www.redfin.com/MA/Lynn/223-Linwood-St-01905/home/11545725",
+    "sqft": 1924,
+    "yearBuilt": 1920,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lynn average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-526-montgomery-st",
+    "address": "526 Montgomery St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Two-family",
+    "units": 2,
+    "price": 569900,
+    "rent": 4375,
+    "url": "https://www.redfin.com/NH/Manchester/526-Montgomery-St-03102/home/108657216",
+    "sqft": 2426,
+    "yearBuilt": 1905,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-521-merrimack-st",
+    "address": "521 Merrimack St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Two-family",
+    "units": 2,
+    "price": 510000,
+    "rent": 3975,
+    "url": "https://www.redfin.com/NH/Manchester/521-Merrimack-St-03103/home/108655482",
+    "sqft": 2420,
+    "yearBuilt": 1970,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-360-harvard-st",
+    "address": "360 Harvard St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Two-family",
+    "units": 2,
+    "price": 645000,
+    "rent": 4800,
+    "url": "https://www.redfin.com/NH/Manchester/360-Harvard-St-03103/home/174551224",
+    "sqft": 2488,
+    "yearBuilt": 2020,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Manchester averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-118-s-lincoln-st",
+    "address": "118 S Lincoln St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Single-family",
+    "units": 1,
+    "price": 549000,
+    "rent": 2900,
+    "url": "https://www.redfin.com/NH/Manchester/118-S-Lincoln-St-03103/home/108661103",
+    "sqft": 1981,
+    "yearBuilt": 1960,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-324-hazelton-ave",
+    "address": "324 Hazelton Ave",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Single-family",
+    "units": 1,
+    "price": 491000,
+    "rent": 2650,
+    "url": "https://www.redfin.com/NH/Manchester/324-Hazelton-Ave-03103/home/96569970",
+    "sqft": 1850,
+    "yearBuilt": 1978,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-501-concord-st",
+    "address": "501 Concord St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Single-family",
+    "units": 1,
+    "price": 409000,
+    "rent": 2900,
+    "url": "https://www.redfin.com/NH/Manchester/501-Concord-St-03104/home/108660549",
+    "sqft": 1525,
+    "yearBuilt": 1880,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-40-pine-hill-ave",
+    "address": "40 Pine Hill Ave",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Single-family",
+    "units": 1,
+    "price": 420000,
+    "rent": 2175,
+    "url": "https://www.redfin.com/NH/Goffstown/40-Pine-Hill-AVE-03045/home/206923727",
+    "sqft": 1587,
+    "yearBuilt": 1983,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-73-constant-st",
+    "address": "73 Constant St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Single-family",
+    "units": 1,
+    "price": 415000,
+    "rent": 2650,
+    "url": "https://www.redfin.com/NH/Manchester/73-Constant-St-03103/home/88248064",
+    "sqft": 1188,
+    "yearBuilt": 1960,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-leominster-13-piper-st",
+    "address": "13 Piper St",
+    "town": "Leominster",
+    "state": "MA",
+    "miles": 25,
+    "type": "Single-family",
+    "units": 1,
+    "price": 399900,
+    "rent": 2425,
+    "url": "https://www.redfin.com/MA/Leominster/13-Piper-St-01453/home/16541594",
+    "sqft": 1092,
+    "yearBuilt": 1952,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-20-22-hazel-st",
+    "address": "20-22 Hazel St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Two-family",
+    "units": 2,
+    "price": 374900,
+    "rent": 3500,
+    "url": "https://www.redfin.com/MA/Fitchburg/20-22-Hazel-St-01420/home/206933088",
+    "sqft": 1998,
+    "yearBuilt": 1930,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-560-pearl-st",
+    "address": "560 Pearl St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Two-family",
+    "units": 2,
+    "price": 475000,
+    "rent": 3750,
+    "url": "https://www.redfin.com/MA/Fitchburg/560-Pearl-St-01420/home/16503853",
+    "sqft": 2100,
+    "yearBuilt": 1926,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-15-pepper-rd",
+    "address": "15 Pepper Rd",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Single-family",
+    "units": 1,
+    "price": 485000,
+    "rent": 2200,
+    "url": "https://www.redfin.com/MA/Fitchburg/15-Pepper-Rd-01420/home/16496254",
+    "sqft": 1410,
+    "yearBuilt": 1999,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-82-alice-ave",
+    "address": "82 Alice Ave",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Single-family",
+    "units": 1,
+    "price": 370000,
+    "rent": 2200,
+    "url": "https://www.redfin.com/MA/Fitchburg/82-Alice-Ave-01420/home/16497985",
+    "sqft": 1196,
+    "yearBuilt": 1963,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-8-arcadia-st",
+    "address": "8 Arcadia St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Two-family",
+    "units": 2,
+    "price": 629900,
+    "rent": 4000,
+    "url": "https://www.redfin.com/MA/Worcester/8-Arcadia-St-01604/home/16661706",
+    "sqft": 1952,
+    "yearBuilt": 1923,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-21-falmouth",
+    "address": "21 Falmouth",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 650000,
+    "rent": 6000,
+    "url": "https://www.redfin.com/MA/Worcester/21-Falmouth-St-01607/home/16677286",
+    "sqft": 2326,
+    "yearBuilt": 1880,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-404-cambridge-st",
+    "address": "404 Cambridge St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 660000,
+    "rent": 6750,
+    "url": "https://www.redfin.com/MA/Worcester/404-Cambridge-St-01610/home/16655792",
+    "sqft": 3528,
+    "yearBuilt": 1870,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-54-dawson-rd",
+    "address": "54 Dawson Rd",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 300000,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/54-Dawson-Rd-01602/home/16643274",
+    "sqft": 1360,
+    "yearBuilt": 1926,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-86-clark-st",
+    "address": "86 Clark St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 499900,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/86-Clark-St-01606/home/16657581",
+    "sqft": 1492,
+    "yearBuilt": 1920,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-59-north-st",
+    "address": "59 North St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 399999,
+    "rent": 2200,
+    "url": "https://www.redfin.com/MA/Worcester/59-North-St-01605/home/16677903",
+    "sqft": 858,
+    "yearBuilt": 1962,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-16-glen-ellen-rd",
+    "address": "16 Glen Ellen Rd",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 450000,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/16-Glen-Ellen-Rd-01602/home/16645973",
+    "sqft": 1656,
+    "yearBuilt": 1942,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-5-phoenix-st",
+    "address": "5 Phoenix St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 419000,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/5-Phoenix-St-01604/home/16654805",
+    "sqft": 1215,
+    "yearBuilt": 1940,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-26-rollinson-rd",
+    "address": "26 Rollinson Rd",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 399900,
+    "rent": 2200,
+    "url": "https://www.redfin.com/MA/Worcester/26-Rollinson-Rd-01606/home/16659378",
+    "sqft": 1103,
+    "yearBuilt": 1941,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-3-rochelle-st",
+    "address": "3 Rochelle St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 499000,
+    "rent": 2800,
+    "url": "https://www.redfin.com/MA/Worcester/3-Rochelle-St-01606/home/16644594",
+    "sqft": 1275,
+    "yearBuilt": 1951,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-44-brigham-rd",
+    "address": "44 Brigham Rd",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 519900,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/44-Brigham-Rd-01609/home/16644059",
+    "sqft": 1636,
+    "yearBuilt": 1981,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-1-wahnita-rd",
+    "address": "1 Wahnita Rd",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 479000,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/1-Wahnita-Rd-01606/home/16657671",
+    "sqft": 1872,
+    "yearBuilt": 1926,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-6-ellestuen-rd",
+    "address": "6 Ellestuen Rd",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 385000,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/6-Ellestuen-Rd-01606/home/16667100",
+    "sqft": 1044,
+    "yearBuilt": 1940,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-37-moreland-green-dr",
+    "address": "37 Moreland Green Dr",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 549000,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/37-Moreland-Green-Dr-01609/home/16652946",
+    "sqft": 1641,
+    "yearBuilt": 1996,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-16-thayer-st",
+    "address": "16 Thayer St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 528500,
+    "rent": 2800,
+    "url": "https://www.redfin.com/MA/Worcester/16-Thayer-St-01603/home/16673599",
+    "sqft": 3053,
+    "yearBuilt": 1920,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-concord-35-summer-st",
+    "address": "35 Summer St",
+    "town": "Concord",
+    "state": "NH",
+    "miles": 39,
+    "type": "Single-family",
+    "units": 1,
+    "price": 519900,
+    "rent": 3350,
+    "url": "https://www.redfin.com/NH/Penacook/35-Summer-St-03303/home/88313725",
+    "sqft": 2051,
+    "yearBuilt": 1900,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 5-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-dover-128-court-st",
+    "address": "128 Court St",
+    "town": "Dover",
+    "state": "NH",
+    "miles": 42,
+    "type": "Single-family",
+    "units": 1,
+    "price": 479900,
+    "rent": 3000,
+    "url": "https://www.redfin.com/NH/Dover/128-Court-St-03820/home/96641292",
+    "sqft": 1628,
+    "yearBuilt": 1861,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-235-hillberg-ave",
+    "address": "235 Hillberg Ave",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Single-family",
+    "units": 1,
+    "price": 499999,
+    "rent": 3075,
+    "url": "https://www.redfin.com/MA/Brockton/235-Hillberg-Ave-02301/home/16319798",
+    "sqft": 1619,
+    "yearBuilt": 1951,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-20-anne-marie-dr",
+    "address": "20 Anne Marie Dr",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Single-family",
+    "units": 1,
+    "price": 465000,
+    "rent": 3075,
+    "url": "https://www.redfin.com/MA/Brockton/20-Anne-Marie-Dr-02302/home/16330351",
+    "sqft": 1944,
+    "yearBuilt": 1967,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-rochester-48-prospect-st",
+    "address": "48 Prospect St",
+    "town": "Rochester",
+    "state": "NH",
+    "miles": 47,
+    "type": "Single-family",
+    "units": 1,
+    "price": 424000,
+    "rent": 2850,
+    "url": "https://www.redfin.com/NH/Rochester/48-Prospect-St-03867/home/101648588",
+    "sqft": 1059,
+    "yearBuilt": 1947,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
+  },
+  {
+    "id": "nh-rochester-7-spruce-st",
+    "address": "7 Spruce St",
+    "town": "Rochester",
+    "state": "NH",
+    "miles": 47,
+    "type": "Single-family",
+    "units": 1,
+    "price": 229900,
+    "rent": 2850,
+    "url": "https://www.redfin.com/NH/Rochester/7-Spruce-St-03867/home/96636150",
+    "sqft": 1232,
+    "yearBuilt": 1906,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-12",
+    "addedAt": "2026-11-12T10:00:00Z"
   }
 ];
