@@ -208,3 +208,41 @@ test("ARV estimate: top quarter of town price per square foot, sales before list
   assert.strictEqual(fromSales.value, 360000);                   // 540k / 1,500 = $360
   assert.strictEqual(arvEstimate({ ...d, units: 3 }, ppsfTable(listings, sales)), null);  // no multi-family comps
 });
+
+// ---- best flips under Buy box (1.23.0) ----
+{
+  const C = require("../calc.js"), S = { ...C.DEFAULTS, rate: 7 };
+  const house = (id, price, sqft) => ({ id, price, sqft, units: 1, rent: 2500, town: "Nashua", state: "NH", kind: "house" });
+  const est = (sqft, top, mid, src = "sold") => ({ value: Math.round(sqft * top / 1000) * 1000, ppsf: top, townPpsf: mid, n: 20, src, sqft });
+
+  test("a flip is ranked on the rehab room left at the town's middle price per square foot", () => {
+    const d = house("a", 400000, 1600), ai = est(1600, 450, 400), x = C.flipLead(d, S, ai);
+    assert.ok(x && x.lead > 0);
+    assert.strictEqual(x.midArv, 640000);
+    const top = C.rehabPlay({ ...d, arvEst: ai.value }, C.dealTerms(d, S), "flip");
+    assert.ok(x.midRehab < top.maxRehab, "the plainer value leaves less room than the top-quarter estimate");
+  });
+
+  test("estimates from listings only, or more than double the asking, are not ranked", () => {
+    assert.strictEqual(C.flipLead(house("b", 400000, 1600), S, est(1600, 450, 400, "listed")), null);
+    assert.strictEqual(C.flipLead(house("c", 300000, 1600), S, est(1600, 450, 400)), null);   // $720,000 on $300,000
+  });
+
+  test("a flip the GC has priced, or one with no room, is not a lead", () => {
+    assert.strictEqual(C.flipLead({ ...house("d", 400000, 1600), rehab: 50000 }, S, est(1600, 450, 400)), null);
+    assert.strictEqual(C.flipLead(house("e", 600000, 1600), S, est(1600, 400, 380)), null);
+  });
+
+  test("Kevin's own after-repair value counts as is", () => {
+    const d = { ...house("f", 400000, 1600), arv: 640000 }, x = C.flipLead(d, S, { value: 640000, src: "you" });
+    assert.ok(x && x.midArv === 640000 && x.lead > 0);
+  });
+
+  test("rankFlips keeps the best ones, best first, numbered", () => {
+    const items = [345000, 370000, 390000, 355000].map((p, i) => ({ d: house("h" + i, p, 1600), ai: est(1600, 420, 400) }));
+    const r = C.rankFlips(items, S, 3);
+    assert.deepStrictEqual(r.map(x => x.id), ["h0", "h3", "h1"]);
+    assert.deepStrictEqual(r.map(x => x.rank), [1, 2, 3]);
+    assert.strictEqual(C.TOP_FLIPS, 12);
+  });
+}

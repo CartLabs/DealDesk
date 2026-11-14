@@ -80,7 +80,7 @@ Five tabs, opening on Review. Review and In flight have a section row: All, Rent
 - **Owned:** properties Kevin owns, with value, equity and net rental income. Entered on the device only. Never put owned-property figures in this repo; it is public.
 - **Archive:** removed properties and lost deals, with reason and date.
 
-Review has a Show filter: Buy box only, Worth a look (Buy box and Negotiate, the default), or Everything.
+Review has a Show filter: Buy box only (Buy box plus the top flips), Worth a look (adds Negotiate and every flip waiting on the GC, the default), or Everything.
 
 Dollar boxes are text inputs with class `money`: they accept plain or formatted numbers and reformat as $1,234.56 on leaving the box. Read them with `num()`, never `parseFloat`. Other number inputs must use `step="any"`. A fixed step rejects real figures (cents, prices that are not round thousands) on iPhone. Inputs stay at 16px so the iPhone does not zoom into them.
 
@@ -111,6 +111,11 @@ Every listing carries `miles`, the straight-line distance from Dracut, MA to its
   recommendation. Review and In flight filter by section (`settings.section`: all, rental, flip, brrrr).
 - Stages: rentals as before; flips and BRRRR add GC walkthrough, Rehab, then Listed for sale (flip) or Rented,
   Refinancing (BRRRR). A flip is closed with Mark as sold, which archives it as "Flipped" with `flipSold`.
+- Top flips (1.23.0, Kevin Nov 14 2026: "the best 10 to 15 flips under Buy box, the rest under Worth a look"):
+  `rankFlips()` in `calc.js` ranks the Review flips within the distance that are waiting on the GC. It re-runs the flip
+  at the town's middle price per square foot and ranks by the rehab budget left there as a share of the asking price.
+  Only ARVs from 5+ sales (or Kevin's own) count, and an estimate over twice the asking is not ranked. The top
+  `TOP_FLIPS` (12) show as "Top flip" under Buy box; the rest stay "Needs GC" under Worth a look.
 - The daily check records `sqft` and `yearBuilt` on listings and every sale with a size in `data/comps.js`, and
   reports `flipCandidates` (new or price-cut listings within 50 miles whose best play is a flip or BRRRR with room).
   The 6:49 alert lists them.

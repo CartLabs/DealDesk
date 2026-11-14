@@ -1,17 +1,27 @@
 {
-  "version": "1.22.0",
-  "date": "2026-11-10",
+  "version": "1.23.0",
+  "date": "2026-11-14",
   "notes": [
-    "Every property is now scored three ways: as a rental, a flip, and a BRRRR (buy, rehab, rent, refinance, repeat). The deal sheet opens with a \"Best way to play it\" card showing all three side by side, with a recommendation.",
-    "Review and In flight have a new row on top: All, Rentals, Flips, BRRRR. Each property is filed under its recommended strategy. Tap a different strategy on its card to file it there yourself.",
-    "Type your GC's number and the after-repair value right on the card. Before the walkthrough, DealDesk shows the most the rehab can cost and still work, so you walk in knowing your ceiling.",
-    "The after-repair value is estimated from price per square foot in the same town. Starting with tomorrow morning's check, the daily check records square feet and recent sales, so these estimates appear over the next few days. Your own number always wins.",
-    "Flips show the profit before tax, a rough after-tax figure, and how much of your next rental's down payment it would cover. BRRRR shows the cash you put in, what comes back at the refinance, what stays in, and the cash flow afterwards.",
-    "Flips and BRRRR have their own stages in In flight (GC walkthrough, Rehab, Listed for sale, Rented, Refinancing). A flip gets a Mark as sold button that records the sale price.",
-    "New settings under Buy box, Edit, Flips and BRRRR: minimum flip profit ($50,000), the short-term loan (90% of price, 100% of rehab, 11%, 2 points), months to sell, selling costs, a 10% cushion on the GC's number, and the refinance terms. The tax on flip profit is a rough 30% placeholder; check it with a CPA.",
-    "The morning alert now lists flip and BRRRR candidates: new or price-cut listings that work if the rehab comes in under a set amount."
+    "Buy box now shows the 12 best flips waiting on your GC, marked Top flip. The rest of the flips are still there under Worth a look.",
+    "Flips are ranked by how much rehab budget they leave at the town's middle price per square foot, not the optimistic top-quarter estimate, so a flip near the top still works if the fixed-up value comes in lower.",
+    "A flip whose estimated value is more than double the asking price, or that is estimated only from homes for sale, is not ranked. Those usually mean the square feet are wrong. They stay under Worth a look.",
+    "Open a top flip to see its rank and the rehab budget at the plainer value."
   ],
   "previous": [
+    {
+      "version": "1.22.0",
+      "date": "2026-11-10",
+      "notes": [
+        "Every property is now scored three ways: as a rental, a flip, and a BRRRR (buy, rehab, rent, refinance, repeat). The deal sheet opens with a \"Best way to play it\" card showing all three side by side, with a recommendation.",
+        "Review and In flight have a new row on top: All, Rentals, Flips, BRRRR. Each property is filed under its recommended strategy. Tap a different strategy on its card to file it there yourself.",
+        "Type your GC's number and the after-repair value right on the card. Before the walkthrough, DealDesk shows the most the rehab can cost and still work, so you walk in knowing your ceiling.",
+        "The after-repair value is estimated from price per square foot in the same town. Starting with tomorrow morning's check, the daily check records square feet and recent sales, so these estimates appear over the next few days. Your own number always wins.",
+        "Flips show the profit before tax, a rough after-tax figure, and how much of your next rental's down payment it would cover. BRRRR shows the cash you put in, what comes back at the refinance, what stays in, and the cash flow afterwards.",
+        "Flips and BRRRR have their own stages in In flight (GC walkthrough, Rehab, Listed for sale, Rented, Refinancing). A flip gets a Mark as sold button that records the sale price.",
+        "New settings under Buy box, Edit, Flips and BRRRR: minimum flip profit ($50,000), the short-term loan (90% of price, 100% of rehab, 11%, 2 points), months to sell, selling costs, a 10% cushion on the GC's number, and the refinance terms. The tax on flip profit is a rough 30% placeholder; check it with a CPA.",
+        "The morning alert now lists flip and BRRRR candidates: new or price-cut listings that work if the rehab comes in under a set amount."
+      ]
+    },
     {
       "version": "1.21.1",
       "date": "2026-11-07",

@@ -572,7 +572,7 @@ input.money{text-align:left}
 <script src="data/listings.js"></script>
 <script src="data/comps.js"></script>
 <script>
-const APP_VERSION = '1.22.0';
+const APP_VERSION = '1.23.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -607,7 +607,7 @@ const shortDate=iso=>{const t=new Date(iso);return isNaN(t)?"":t.toLocaleDateStr
 const isNew=d=>{const t=new Date(d.addedAt||0);return (Date.now()-t)<7*864e5;};
 let statusTimer=null;
 function status(t){$("status").textContent=t||"";clearTimeout(statusTimer);if(t)statusTimer=setTimeout(()=>{$("status").textContent="";},4000);}
-function vclass(v){return v==="Buy box"?"good":v==="Negotiate"||v==="Needs GC"?"warn":v==="Needs rent"||v==="Needs ARV"||v==="Needs price"?"plain":"bad";}
+function vclass(v){return v==="Buy box"||v==="Top flip"?"good":v==="Negotiate"||v==="Needs GC"?"warn":v==="Needs rent"||v==="Needs ARV"||v==="Needs price"?"plain":"bad";}
 /* score a deal; one with no rent yet cannot be scored, so it is marked instead of shown as a failure */
 function score(d){const a=analyze(d,settings);if(!(+d.rent>0)){a.verdict="Needs rent";a.gap=1e9;a.needs=true;}return a;}
 const offMarket=d=>d.source==="offmarket";
@@ -623,6 +623,16 @@ function evalOf(d){const key=evKey(d),c=EVC.get(d);if(c&&c.key===key)return c.v;
   const x=strategies(dd,settings);x.arvInfo=ai;x.chosen=SECTIONS[d.strategy]&&d.strategy!=="all"?d.strategy:x.rec;
   EVC.set(d,{key,v:x});return x;}
 const chosenOf=d=>evalOf(d).chosen;
+/* the best flips waiting on the GC (1.23.0): rankFlips() in calc.js picks up to TOP_FLIPS from the flips in Review within
+   the distance. They show as "Top flip" under Buy box; the other flips stay "Needs GC" under Worth a look. */
+let TOPF=new Map(),topfKey=null;
+function topFlips(){const pool=deals.filter(d=>statusOf(d)==="review"&&inRadius(d)&&chosenOf(d)==="flip");
+  const key=JSON.stringify(settings)+"|"+pool.map(d=>[d.id,d.price,d.rehab,d.arv,d.sqft].join(":")).join(",");
+  if(key!==topfKey){topfKey=key;TOPF=new Map(rankFlips(pool.map(d=>({d,ai:evalOf(d).arvInfo})),settings).map(r=>[r.id,r]));}
+  return TOPF;}
+const topOf=d=>statusOf(d)==="review"?topFlips().get(d.id):undefined;
+/* the verdict shown for a deal: a top flip reads "Top flip" instead of "Needs GC" */
+const shownVerdict=(d,e)=>e.verdict==="Needs GC"&&chosenOf(d)==="flip"&&topOf(d)?"Top flip":e.verdict;
 const stagesFor=d=>{const k=chosenOf(d);return k==="flip"?FLIP_STAGES:k==="brrrr"?BRRRR_STAGES:STAGES;};
 const NAME={rental:"Rental",flip:"Flip",brrrr:"BRRRR"};
 /* the headline for one strategy: the big number and the line under it */
@@ -643,6 +653,11 @@ function stratWhy(x){const k=x.rec,r=x[k];
   if(r.needs==="rehab")return `Best lead: <b>${NAME[k]}</b>. It works if your GC's number comes in under <b>${usd(r.maxRehab)}</b> (DealDesk adds a ${+opt(settings,"contingency")}% cushion on top).`+(x.rental.gap<1e8?` As a turnkey rental it can pay up to ${usd(x.rental.maxOffer)}.`:"");
   if(r.gap>10)return offers.length?`Nothing works at this price. The most each could pay: ${offers.join(", ")}.`:"Not enough to score it yet. Add the rent, or the GC's number and the after-repair value.";
   return `Best fit: <b>${NAME[k]}</b>.`+(offers.length>1?` The most each could pay: ${offers.join(", ")}.`:"");}
+/* why a top flip ranks where it does */
+function topWhy(d){const top=chosenOf(d)==="flip"&&evalOf(d).flip.needs==="rehab"?topOf(d):null;if(!top)return "";
+  const n=topFlips().size;
+  return ` <b>Top flip #${top.rank} of ${n}.</b> `+(top.midRehab>0?`Even at the town's middle price per square foot (${usd(top.midArv)} fixed up), it still works with a rehab up to ${usd(top.midRehab)}.`
+    :`At the town's middle price per square foot (${usd(top.midArv)} fixed up) it would not work, so this one leans on the higher estimate.`);}
 const priceWord=d=>offMarket(d)?"Price":"Asking";
 
 /* the daily listing check marks price changes, sales and withdrawals in data/listings.js; carry them onto this device's copy.
@@ -719,20 +734,21 @@ const EMPTY={review:"Nothing to review. New listings land here when they are add
   flight:"No deals in flight. Keep a property from To review and it moves here.",
   archive:"Nothing archived yet. Removed properties and lost deals are kept here with the reason."};
 let passHidden=0;
-/* Review filter: "box" = Buy box only, "look" = Buy box and Negotiate, "all" = everything. Older saves used showAll. */
+/* Review filter: "box" = Buy box and the top flips, "look" = adds Negotiate and every flip waiting on the GC, "all" = everything. Older saves used showAll. */
 const fitMode=()=>["box","look","all"].includes(settings.fit)?settings.fit:(settings.showAll?"all":"look");
-const fitShows=v=>fitMode()==="all"||v==="Buy box"||v==="Needs rent"||v==="Needs ARV"||(fitMode()==="look"&&(v==="Negotiate"||v==="Needs GC"));
+const fitShows=v=>fitMode()==="all"||v==="Buy box"||v==="Top flip"||v==="Needs rent"||v==="Needs ARV"||(fitMode()==="look"&&(v==="Negotiate"||v==="Needs GC"));
 const section=()=>SECTIONS[settings.section]?settings.section:"all";
 /* the verdict and ranking that count for a deal: those of the strategy it is filed under */
 const eff=d=>{const x=evalOf(d);return x[x.chosen];};
 function listFor(t,allSections){
-  let list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d)||d.mine)).map(d=>({d,a:score(d),e:eff(d)}));
-  if(t==="review"){const hide=list.filter(x=>!fitShows(x.e.verdict)&&!x.d.mine);list=list.filter(x=>fitShows(x.e.verdict)||x.d.mine); /* ones you added yourself always show */
+  let list=deals.filter(d=>statusOf(d)===t&&(t!=="review"||inRadius(d)||d.mine)).map(d=>{const e=eff(d),v=shownVerdict(d,e),top=v==="Top flip"?topOf(d):null;
+    return {d,a:score(d),e,v,key:top?top.rank/1000:e.gap};});
+  if(t==="review"){const hide=list.filter(x=>!fitShows(x.v)&&!x.d.mine);list=list.filter(x=>fitShows(x.v)||x.d.mine); /* ones you added yourself always show */
     if(!allSections)passHidden=hide.filter(x=>section()==="all"||chosenOf(x.d)===section()).length;}
   if(!allSections&&section()!=="all"&&t!=="archive")list=list.filter(x=>chosenOf(x.d)===section());
-  if(t==="flight")list.sort((x,y)=>stagesFor(y.d).indexOf(y.d.stage)-stagesFor(x.d).indexOf(x.d.stage)||x.e.gap-y.e.gap);
+  if(t==="flight")list.sort((x,y)=>stagesFor(y.d).indexOf(y.d.stage)-stagesFor(x.d).indexOf(x.d.stage)||x.key-y.key);
   else if(t==="archive")list.sort((x,y)=>String(y.d.archivedAt||"").localeCompare(String(x.d.archivedAt||"")));
-  else list.sort((x,y)=>x.e.gap-y.e.gap);
+  else list.sort((x,y)=>x.key-y.key);
   return list;
 }
 function renderSections(){const box=$("sectionSeg");box.hidden=tab!=="review"&&tab!=="flight";if(box.hidden)return;
@@ -745,7 +761,7 @@ const HEADS={rental:["Property","Ask","Rent / mo","Cash flow / unit","Cash-on-ca
   brrrr:["Property","Ask","ARV","Rehab (GC)","Left in deal","Cash flow / unit","Max offer","Verdict"]};
 function rowCells(d,a,x){const k=section()==="all"?"rental":section(),e=x[x.chosen],c=(lab,v,cls="")=>`<td class="num ${cls}" data-label="${lab}">${v}</td>`;
   const maxCell=e.needs==="rehab"&&e.maxRehab>0?c("Max rehab",usd(e.maxRehab)):c("Max offer",e.gap>=1e8||!(e.maxOffer>0)?"—":usd(e.maxOffer));
-  const pill=`<td><span class="pill ${vclass(e.verdict)}">${e.verdict}</span></td>`;
+  const v=shownVerdict(d,e),pill=`<td><span class="pill ${vclass(v)}">${v}</span></td>`;
   if(k==="rental")return c("Ask",usd(a.price))+c("Rent / mo",usd(+d.rent||0))+c("Cash flow / unit",usd(a.cfUnit),a.cfUnit>=0?"pos":"neg")+c("Cash-on-cash",pct(a.coc))+c("DSCR",a.dscr.toFixed(2))+maxCell+pill;
   const ai=x.arvInfo,at=e.at,R=+d.rehab>0;
   const arv=c("ARV",ai?usd(ai.value)+(ai.src==="you"?"":"*"):"—"),reh=c("Rehab (GC)",R?usd(+d.rehab):"—");
@@ -783,7 +799,7 @@ function renderDeals(){
   const beyond=tab==="review"?deals.filter(d=>statusOf(d)==="review"&&!inRadius(d)&&!d.mine).length:0;
   const hid=tab==="review"?passHidden:0;
   $("count").textContent=list.length?`${list.length} propert${list.length>1?"ies":"y"}`:"";
-  $("listNote").textContent=[hid?`${hid} hidden by the Show filter`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:"",section()==="flip"||section()==="brrrr"?"* ARV estimated from town price per square foot. Enter your own on the deal.":""].filter(Boolean).join(" · ");
+  $("listNote").textContent=[hid?`${hid} hidden by the Show filter`:"",beyond?`${beyond} more beyond ${settings.radius} miles`:"",tab==="review"&&fitMode()==="box"&&(section()==="flip"||section()==="all")&&topFlips().size?`Buy box shows the ${topFlips().size} best flips waiting on your GC. The rest are under Worth a look.`:"",section()==="flip"||section()==="brrrr"?"* ARV estimated from town price per square foot. Enter your own on the deal.":""].filter(Boolean).join(" · ");
   $("filters").hidden=tab!=="review";$("fit").value=fitMode();$("radius").value=String(+settings.radius||0);
   $("empty").hidden=list.length>0;$("empty").textContent=hid?`Nothing within ${+settings.radius?settings.radius+" miles":"range"} ${fitMode()==="box"?"meets your buy box":"meets or comes close to your buy box"}. ${hid} propert${hid>1?"ies are":"y is"} hidden by the Show filter. Change Show to see ${hid>1?"them":"it"}.`:beyond?`Nothing within ${settings.radius} miles. ${beyond} propert${beyond>1?"ies are":"y is"} farther out. Widen the distance to see ${beyond>1?"them":"it"}.`:EMPTY[tab];
   renderSections();
@@ -871,13 +887,13 @@ function renderStrat(d){
   const card=q=>{const f=stratFace(x,q),r=x[q];
     return `<button type="button" class="stratc${q===k?" sel":""}" data-strat="${q}" aria-pressed="${q===k}">
       <span class="rec">${q===x.rec?"Recommended":"&nbsp;"}</span><span class="sname">${NAME[q]}</span>
-      <span class="pill ${vclass(r.verdict)}">${esc(r.verdict)}</span>
+      <span class="pill ${vclass(q==="flip"&&k==="flip"?shownVerdict(d,r):r.verdict)}">${esc(q==="flip"&&k==="flip"?shownVerdict(d,r):r.verdict)}</span>
       <span class="sbig">${f.big}</span><span class="small muted">${f.cap}</span><span class="small">${esc(f.line)}</span></button>`;};
   const arvNote=ai?(ai.src==="you"?"After-repair value is your figure.":`ARV estimate ${usd(ai.value)}: ${ai.sqft.toLocaleString("en-US")} sq ft at ${usd(ai.ppsf)}/sq ft, the top quarter of ${ai.n} ${ai.src==="sold"?"recent sales":"homes for sale"} in ${esc(d.town)} (middle ${usd(ai.townPpsf)}). Rough: replace it with your agent's comps.`)
     :"No after-repair value yet. DealDesk needs the square feet to estimate one, or type your own.";
   $("d_strat").innerHTML=`<h3>Best way to play it</h3>
     <div class="stratgrid">${["rental","flip","brrrr"].map(card).join("")}</div>
-    <p class="small" style="margin:0">${stratWhy(x)}${d.strategy&&d.strategy!==x.rec?` <b>You filed it under ${NAME[k]}.</b> Tap ${NAME[x.rec]} to follow the recommendation.`:""}</p>
+    <p class="small" style="margin:0">${stratWhy(x)}${topWhy(d)}${d.strategy&&d.strategy!==x.rec?` <b>You filed it under ${NAME[k]}.</b> Tap ${NAME[x.rec]} to follow the recommendation.`:""}</p>
     <div class="stratin">
       <label>Rehab, your GC's number<input id="q_rehab" class="money" type="text" inputmode="decimal" placeholder="Not yet" value="${+d.rehab>0?money(+d.rehab):""}"></label>
       <label>After-repair value (ARV)<input id="q_arv" class="money" type="text" inputmode="decimal" placeholder="${ai&&ai.src!=="you"?"Est. "+usd(ai.value):"$"}" value="${+d.arv>0?money(+d.arv):""}"></label>

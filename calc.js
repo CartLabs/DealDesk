@@ -274,5 +274,30 @@ function strategies(d, s) {
   return { ...all, rec };
 }
 
+// The best flips waiting on a GC walkthrough (1.23.0, Kevin Nov 14 2026: show the best 10 to 15 under Buy box, the rest
+// under Worth a look). The estimated after-repair value uses the town's top-quarter price per square foot, which flatters
+// every flip, so the ranking re-runs the math at the town's middle price per square foot instead: the more rehab budget
+// left at that plainer value, as a share of the asking price, the better the lead. Only values from 5+ sales count, or
+// Kevin's own; an estimate more than double the asking usually means wrong square feet or a teardown, so it is not ranked.
+const TOP_FLIPS = 12, FLIP_ARV_MAX = 2;
+function flipLead(d, s, ai) {
+  const P = +d.price || 0;
+  if (!(P > 0) || !ai || !(ai.value > 0) || +d.rehab > 0) return null;
+  const mine = ai.src === "you";
+  if (!mine && (ai.src !== "sold" || ai.value > FLIP_ARV_MAX * P)) return null;
+  const t = dealTerms(d, s), est = rehabPlay(mine ? d : { ...d, arvEst: ai.value }, t, "flip");
+  if (est.needs !== "rehab" || !est.room) return null;
+  const midArv = mine ? +d.arv : Math.round(ai.sqft * ai.townPpsf / 1000) * 1000;
+  const mid = mine ? est : rehabPlay({ ...d, arv: 0, arvEst: midArv }, t, "flip");
+  const midRehab = mid.maxRehab || 0;
+  return { lead: midRehab / P, midArv, midRehab };
+}
+// items: [{d, ai}] where ai is the after-repair value info (arvEstimate, or {value, src:"you"}). Best first, at most n.
+function rankFlips(items, s, n = TOP_FLIPS) {
+  return items.map(x => ({ id: x.d.id, ...(flipLead(x.d, s, x.ai) || { lead: null }) })).filter(x => x.lead !== null)
+    .sort((a, b) => b.lead - a.lead || String(a.id).localeCompare(String(b.id))).slice(0, n)
+    .map((x, i) => ({ ...x, rank: i + 1 }));
+}
+
 if (typeof module !== "undefined") module.exports = { DEFAULTS, ceilingFor, loanK, analyze, metrics, dealTerms, principalPaid, explain,
-  kindOf, townKey, sqftOf, quantile, ppsfTable, arvEstimate, arvOf, flipAt, brrrrAt, rehabPlay, strategies, roomFor, NAMES };
+  kindOf, townKey, sqftOf, quantile, ppsfTable, arvEstimate, arvOf, flipAt, brrrrAt, rehabPlay, strategies, roomFor, NAMES, flipLead, rankFlips, TOP_FLIPS };
