@@ -1,13 +1,24 @@
 {
-  "version": "1.23.0",
-  "date": "2026-11-14",
+  "version": "1.24.0",
+  "date": "2026-11-15",
   "notes": [
-    "Buy box now shows the 12 best flips waiting on your GC, marked Top flip. The rest of the flips are still there under Worth a look.",
-    "Flips are ranked by how much rehab budget they leave at the town's middle price per square foot, not the optimistic top-quarter estimate, so a flip near the top still works if the fixed-up value comes in lower.",
-    "A flip whose estimated value is more than double the asking price, or that is estimated only from homes for sale, is not ranked. Those usually mean the square feet are wrong. They stay under Worth a look.",
-    "Open a top flip to see its rank and the rehab budget at the plainer value."
+    "Every monthly cost on a property now has a checkbox: vacancy, taxes, insurance, HOA, repairs, capital reserves, management, the mortgage and the home equity loan. They start checked.",
+    "Uncheck one to see the deal without it, for example managing it yourself. The cash flow, total costs, verdict and max offer update right away, on the property and in Explain this deal.",
+    "The cost table on a property now shows each line per month and per year, with a Total costs line.",
+    "Unchecked costs apply to that property only and stay that way until you check them again. The list shows a small \"costs unchecked\" tag so you know its numbers are customized. Check all puts everything back.",
+    "The lender's debt coverage still uses the real taxes, insurance and mortgage, because a lender won't leave them out."
   ],
   "previous": [
+    {
+      "version": "1.23.0",
+      "date": "2026-11-14",
+      "notes": [
+        "Buy box now shows the 12 best flips waiting on your GC, marked Top flip. The rest of the flips are still there under Worth a look.",
+        "Flips are ranked by how much rehab budget they leave at the town's middle price per square foot, not the optimistic top-quarter estimate, so a flip near the top still works if the fixed-up value comes in lower.",
+        "A flip whose estimated value is more than double the asking price, or that is estimated only from homes for sale, is not ranked. Those usually mean the square feet are wrong. They stay under Worth a look.",
+        "Open a top flip to see its rank and the rehab budget at the plainer value."
+      ]
+    },
     {
       "version": "1.22.0",
       "date": "2026-11-10",

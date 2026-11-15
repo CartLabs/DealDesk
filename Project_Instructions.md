@@ -120,6 +120,13 @@ Every listing carries `miles`, the straight-line distance from Dracut, MA to its
   reports `flipCandidates` (new or price-cut listings within 50 miles whose best play is a flip or BRRRR with room).
   The 6:49 alert lists them.
 
+## Unchecked costs (1.24.0)
+
+- `d.off` = {vacancy, taxes, ins, hoa, maint, capex, mgmt, debt, heDebt: true} for costs Kevin unchecked on that
+  property (checkboxes on the sheet's cost table and in Explain this deal). `metrics` keeps the full amounts for display
+  and puts what counts in `counted`; `costs` is the counted total. Cash flow, NOI, verdict and max offer follow the
+  checkboxes; DSCR and the lender's DSCR always use the real loan, taxes and insurance. Absent `d.off` = everything counts.
+
 ## Off-market deals, lookup and deal financing
 
 - A deal has `source`: `listing` or `offmarket`. Off-market deals are entered by Kevin in the app and live only on his devices and in his Drive file. Never put an off-market deal in `data/listings.js`; the repo is public.

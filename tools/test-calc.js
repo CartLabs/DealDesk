@@ -246,3 +246,19 @@ test("ARV estimate: top quarter of town price per square foot, sales before list
     assert.strictEqual(C.TOP_FLIPS, 12);
   });
 }
+
+// ---- 1.24.0: monthly costs unchecked on one property ----
+test("an unchecked cost leaves the cash flow, the total and the max offer, and only that cost", () => {
+  const s = { ...ALL, rate: 7 }, d = { price: 500000, units: 3, rent: 6300, state: "NH", town: "Manchester" };
+  const a = analyze(d, s), b = analyze({ ...d, off: { mgmt: true } }, s);
+  assert.ok(Math.abs((b.cf - a.cf) - a.mgmt) < 0.01);              // exactly the manager's fee comes back
+  assert.ok(Math.abs(b.mgmt - a.mgmt) < 0.01);                     // the full figure is still there to show
+  assert.ok(b.maxOffer >= a.maxOffer);
+  for (const x of [a, b]) assert.ok(Math.abs(x.gross - x.costs - x.cf) < 0.01);   // rent less total costs is the cash flow
+  const noLoan = analyze({ ...d, off: { debt: true, heDebt: true } }, s);
+  assert.ok(Math.abs(noLoan.cf - noLoan.noi) < 0.01);
+  assert.strictEqual(noLoan.dscr, a.dscr);                         // debt coverage still measures the real loan
+  assert.strictEqual(noLoan.lenderDscr, a.lenderDscr);             // and so does the lender's test
+  const noVac = analyze({ ...d, off: { vacancy: true } }, s);
+  assert.ok(noVac.cf > a.cf && noVac.counted.vacancy === 0 && noVac.vacancy > 0);
+});

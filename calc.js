@@ -41,18 +41,25 @@ function metrics(d,s,price,downOverride){
   const taxEst=!(+d.taxes>0),insEst=!(+d.ins>0);
   const taxes=taxEst?price*(d.state==="NH"?0.019:0.012):+d.taxes;
   const ins=insEst?Math.max(1500,price*0.004):+d.ins;
-  const gross=(+d.rent||0)*12, vacancy=gross*s.vac/100, egi=gross-vacancy;
+  // d.off (1.24.0): monthly costs Kevin has unchecked on this property, e.g. {mgmt:true} to manage it himself.
+  // The amounts below stay the full figures for display; `counted` holds what goes into the totals.
+  const on=k=>!(d.off&&d.off[k]);
+  const gross=(+d.rent||0)*12, vacancy=gross*s.vac/100, egi=gross-(on("vacancy")?vacancy:0);
   const maint=egi*s.maint/100,capex=egi*s.capex/100,mgmt=egi*s.mgmt/100,hoa=(+d.hoa||0)*12;
-  const opex=taxes+ins+hoa+maint+capex+mgmt, noi=egi-opex;
+  const opex=(on("taxes")?taxes:0)+(on("ins")?ins:0)+(on("hoa")?hoa:0)+(on("maint")?maint:0)+(on("capex")?capex:0)+(on("mgmt")?mgmt:0), noi=egi-opex;
   const dn=(downOverride??s.down)/100, cl=s.closing/100, k=loanK(s.rate,s.term);
   const loan=price*(1-dn), debt=loan*k, points=loan*opt(s,"points")/100;
   const cash=price*(dn+cl)+points+rehab;                       // cash to close: down payment, closing costs, points, rehab
   const pitia=debt+taxes+ins+hoa, reserves=pitia/12*opt(s,"reserves");
   const fromEquity=opt(s,"dpSource")===1, heLoan=fromEquity?cash:0, heDebt=heLoan*loanK(opt(s,"heRate"),opt(s,"heTerm"));
-  const cf=noi-debt-heDebt;                                    // what is left after the mortgage and the home equity loan
+  const counted={vacancy:on("vacancy")?vacancy:0,taxes:on("taxes")?taxes:0,ins:on("ins")?ins:0,hoa:on("hoa")?hoa:0,maint:on("maint")?maint:0,
+    capex:on("capex")?capex:0,mgmt:on("mgmt")?mgmt:0,debt:on("debt")?debt:0,heDebt:on("heDebt")?heDebt:0};
+  const costs=counted.vacancy+opex+counted.debt+counted.heDebt;      // everything taken out of the rent, as counted
+  const cf=noi-counted.debt-counted.heDebt;                    // what is left after the mortgage and the home equity loan
   const coc=cash>0?cf/cash*100:0, dscr=debt>0?noi/debt:99, lenderDscr=pitia>0?gross/pitia:99, cap=price>0?noi/price*100:0;
   const cfUnit=cf/12/units, need=cash+reserves, funds=opt(s,"funds");
-  return {price,units,taxes,ins,taxEst,insEst,gross,vacancy,egi,maint,capex,mgmt,hoa,opex,noi,loan,debt,points,cash,pitia,reserves,need,
+  return {price,units,taxes,ins,taxEst,insEst,gross,vacancy,egi,maint,capex,mgmt,hoa,opex,noi,loan,debt,points,cash,pitia,reserves,need,counted,costs,
+    offCount:Object.keys(counted).filter(k=>!on(k)).length,
     fromEquity,heLoan,heDebt,cf,coc,dscr,lenderDscr,cap,cfUnit,overFunds:funds>0&&need>funds,rentRatio:price>0?(+d.rent||0)/price*100:0};
 }
 // The buy box rules, in the order they are named when one sets the maximum offer.
@@ -116,17 +123,17 @@ function explain(d, s) {
     if (rentToPass !== null && !passes(at({ ...d, rent: rentToPass }, s))) rentToPass += 25;
   }
   const y1 = principalPaid(a.loan, s.rate, s.term, 1), y5 = principalPaid(a.loan, s.rate, s.term, 5);
-  const outgo = a.opex + a.debt;
+  const outgo = a.opex + a.counted.debt;
   const lower = at({ ...d, rent: rent * 0.9 }, s), higher = at(d, { ...s, rate: s.rate + 1 }), self = at(d, { ...s, mgmt: 0 });
   const rates = [-1.5, -1, -0.5, 0, 0.5, 1].map(x => Math.max(0, s.rate + x)).filter((v, i, arr) => arr.indexOf(v) === i)
     .map(r => { const x = at(d, { ...s, rate: r }); return { rate: r, payment: x.debt / 12, cfUnit: x.cfUnit, coc: x.coc, verdict: x.verdict, current: r === s.rate }; });
   return {
     a, units, rent,
-    monthly: { rent, vacancy: a.vacancy / 12, taxes: a.taxes / 12, ins: a.ins / 12, hoa: a.hoa / 12, maint: a.maint / 12, capex: a.capex / 12, mgmt: a.mgmt / 12, mortgage: a.debt / 12, equity: a.heDebt / 12, left: a.cf / 12 },
+    monthly: { rent, vacancy: a.vacancy / 12, taxes: a.taxes / 12, ins: a.ins / 12, hoa: a.hoa / 12, maint: a.maint / 12, capex: a.capex / 12, mgmt: a.mgmt / 12, mortgage: a.debt / 12, equity: a.heDebt / 12, left: a.cf / 12, costs: a.costs / 12 },
     principalY1: y1, principalY5: y5,
     totalReturnY1: a.cash > 0 ? (a.cf + y1) / a.cash * 100 : 0,
     growth3: a.price * 0.03,                                   // what a 3% rise in value would be worth, for illustration
-    breakEvenOccupancy: a.gross > 0 ? Math.min(999, (a.gross - a.vacancy - a.cf) / a.gross * 100) : 0,
+    breakEvenOccupancy: a.gross > 0 ? Math.min(999, (a.gross - a.counted.vacancy - a.cf) / a.gross * 100) : 0,
     monthsEmptyToZero: a.cf > 0 && units > 0 && rent > 0 ? a.cf / (rent / units) : 0,
     rentDown10: { cfUnit: lower.cfUnit, cf: lower.cf / 12, verdict: lower.verdict },
     rateUp1: { cfUnit: higher.cfUnit, cf: higher.cf / 12, verdict: higher.verdict },
@@ -220,10 +227,10 @@ function brrrrAt(d, s, P, R, V) {
   const putIn = p.cashNeed + p.heInt, left = putIn - cashBack;              // cash still in the deal afterwards (negative: you took out more)
   // kept as a rental on the new loan: the rental math at the after-repair value, with the refinance as the mortgage
   const r = metrics(d, rs, V, 100 - ltv);
-  const heDebt = p.fromEquity && left > 0 ? left * loanK(opt(s, "heRate"), opt(s, "heTerm")) : 0;
-  const cf = r.noi - r.debt - heDebt, units = r.units;
+  const heDebt = p.fromEquity && left > 0 && !(d.off && d.off.heDebt) ? left * loanK(opt(s, "heRate"), opt(s, "heTerm")) : 0;
+  const cf = r.noi - r.counted.debt - heDebt, units = r.units;
   return { ...p, price: P, rehab: R, arv: V, newLoan, ltv, sized: ltv < cap, refiCost, cashBack, putIn, left, back: putIn > 0 ? Math.min(100, Math.max(0, cashBack / putIn * 100)) : 0,
-    rent: r.gross / 12, noi: r.noi, opex: r.opex, vacancy: r.vacancy, debt: r.debt, heDebt, cf, cfUnit: cf / 12 / units, units,
+    rent: r.gross / 12, noi: r.noi, opex: r.opex, vacancy: r.counted.vacancy, debt: r.counted.debt, heDebt, cf, cfUnit: cf / 12 / units, units,
     dscr: r.debt > 0 ? r.noi / r.debt : 99, lenderDscr: r.lenderDscr };
 }
 const flipOk = (d, s) => (P, R) => flipAt(d, s, P, R, arvOf(d)).profit >= opt(s, "minFlipProfit");

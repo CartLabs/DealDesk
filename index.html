@@ -99,6 +99,17 @@ td .addr{font-weight:600}
 .ledger tr.total td{border-top:1px solid var(--ink);border-bottom:0;font-weight:600}
 .ledger tr{cursor:default}
 .ledger tbody tr:hover{background:none}
+/* 1.24.0: cost lines you can uncheck */
+.ledger td:has(label.ck){text-align:left}
+.ledger label.ck{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;text-align:left;gap:10px;cursor:pointer;font:400 14px var(--body);color:inherit;margin:0;text-transform:none;letter-spacing:0}
+.ledger label.ck span{flex:1;min-width:0}
+.ledger label.ck input{width:18px;height:18px;margin:0;flex:none;accent-color:var(--accent)}
+.ledger tr.off td{color:var(--muted)}
+.ledger tr.off td.amt{text-decoration:line-through}
+.ledger tr.lhead td{font:700 11px var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border-bottom:1px solid var(--line)}
+.ledger td.mo{white-space:nowrap;text-align:right;padding-left:12px}
+.costnote{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;margin:6px 0 0}
+.costnote button{border:0;background:none;padding:0;font:600 13px var(--body);color:var(--accent);text-decoration:underline;cursor:pointer}
 .scen{width:100%;min-width:0}
 .scen td,.scen th{padding:7px 10px;white-space:nowrap}
 @media(max-width:640px){.scen td,.scen th{padding:7px 4px;font-size:13px}.scen th{white-space:normal;vertical-align:bottom}}
@@ -453,6 +464,7 @@ input.money{text-align:left}
         <div>
           <h3>Year-one income statement</h3>
           <table class="ledger num"><tbody id="d_ledger"></tbody></table>
+          <div id="d_costNote"></div>
         </div>
         </div>
       </div>
@@ -572,7 +584,7 @@ input.money{text-align:left}
 <script src="data/listings.js"></script>
 <script src="data/comps.js"></script>
 <script>
-const APP_VERSION = '1.23.0';
+const APP_VERSION = '1.24.0';
 const $=id=>document.getElementById(id);
 const usd=n=>(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString("en-US");
 const pct=(n,p=1)=>n.toFixed(p)+"%";
@@ -611,13 +623,20 @@ function vclass(v){return v==="Buy box"||v==="Top flip"?"good":v==="Negotiate"||
 /* score a deal; one with no rent yet cannot be scored, so it is marked instead of shown as a failure */
 function score(d){const a=analyze(d,settings);if(!(+d.rent>0)){a.verdict="Needs rent";a.gap=1e9;a.needs=true;}return a;}
 const offMarket=d=>d.source==="offmarket";
+/* ---- monthly costs you can uncheck per property (1.24.0). Stored as d.off = {mgmt:true, ...}; calc.js leaves them out ---- */
+const isOff=(d,k)=>!!(d.off&&d.off[k]);
+function setCost(d,k,on){d.off={...(d.off||{})};if(on)delete d.off[k];else d.off[k]=true;if(!Object.keys(d.off).length)delete d.off;d.updatedAt=today();save();}
+/* one cost line with its checkbox. cols: the amounts to show, e.g. [monthly, yearly] */
+function costRow(d,k,label,cols){const off=isOff(d,k);
+  return `<tr class="${off?"off":""}"><td><label class="ck"><input type="checkbox" data-cost="${k}"${off?"":" checked"} aria-label="Count ${esc(label.replace(/<[^>]+>/g,""))}"><span>${label}</span></label></td>${cols.map(v=>`<td class="amt mo">${v}</td>`).join("")}</tr>`;}
+const costNote=d=>d.off?`<p class="small costnote"><span><b>${Object.keys(d.off).length} cost${Object.keys(d.off).length>1?"s":""} unchecked.</b> Left out of the cash flow, verdict and max offer for this property only.</span><button type="button" data-cost-reset>Check all</button></p>`:"";
 /* ---- rental, flip or BRRRR (1.22.0). The math is strategies() in calc.js ---- */
 let PPSF=null;
 const ppsf=()=>PPSF||(PPSF=ppsfTable(window.SEED_LISTINGS||[],window.SALE_COMPS||[],today()));
 /* after-repair value: Kevin's figure, else an estimate from town price per square foot */
 function arvInfo(d){if(+d.arv>0)return {value:+d.arv,src:"you"};return arvEstimate(d,ppsf());}
 const EVC=new WeakMap();
-const evKey=d=>[d.price,d.rent,d.rehab,d.arv,d.units,d.taxes,d.ins,d.hoa,d.sqft,d.state,d.town,d.strategy,JSON.stringify(d.fin||0),JSON.stringify(d.facts&&d.facts.squareFootage||0),JSON.stringify(settings)].join("|");
+const evKey=d=>[d.price,d.rent,d.rehab,d.arv,d.units,d.taxes,d.ins,d.hoa,d.sqft,d.state,d.town,d.strategy,JSON.stringify(d.fin||0),JSON.stringify(d.off||0),JSON.stringify(d.facts&&d.facts.squareFootage||0),JSON.stringify(settings)].join("|");
 function evalOf(d){const key=evKey(d),c=EVC.get(d);if(c&&c.key===key)return c.v;
   const ai=arvInfo(d),dd=ai&&ai.src!=="you"?{...d,arvEst:ai.value}:d;
   const x=strategies(dd,settings);x.arvInfo=ai;x.chosen=SECTIONS[d.strategy]&&d.strategy!=="all"?d.strategy:x.rec;
@@ -770,6 +789,7 @@ function rowCells(d,a,x){const k=section()==="all"?"rental":section(),e=x[x.chos
 function subline(d,a){
   const lines=[];
   if(tab==="flight")lines.push(`<span class="stage">${esc(d.stage||STAGES[0])}</span>${leftWord(d)?` <span class="tag">${esc(leftWord(d))}</span>`:""}`);
+  if(d.off&&tab!=="archive")lines.push(`<span class="meta"><span class="tag" style="margin-left:0">${Object.keys(d.off).length} cost${Object.keys(d.off).length>1?"s":""} unchecked</span></span>`);
   const k=chosenOf(d);if(k!=="rental"&&section()==="all")lines.push(`<span class="meta"><span class="tag strat" style="margin-left:0">${NAME[k]}</span></span>`);
   if(tab==="archive")lines.push(`<span class="meta">${esc(d.flipSold?"Flipped for "+usd(d.flipSold.price):leftWord(d)||d.reason||"Removed")}${d.archivedAt?" · "+shortDate(d.archivedAt):""}</span>`);
   lines.push(`<span class="meta">${esc(d.town)}, ${esc(d.state)} · ${a.units} unit${a.units>1?"s":""}${d.miles!==undefined?" · "+(+d.miles)+" mi":""}${d.mine?' <span class="tag">Added by you</span>':tab==="review"&&isNew(d)?' <span class="tag">New</span>':""}${tab!=="archive"?cutTag(d):""}</span>`);
@@ -849,13 +869,16 @@ function renderSheet(){
     ["Reserves to show",usd(a.reserves),""],
     ["Total needed",usd(a.need),+s.funds>0?ok(!a.overFunds):""]
   ].map(([l,v,c])=>`<div><h3>${l}</h3><span class="v ${c}">${v}</span></div>`).join("");
-  const L=(l,v,t)=>`<tr class="${t||""}"><td style="text-align:left;font-family:var(--body)">${l}</td><td>${v}</td></tr>`;
-  $("d_ledger").innerHTML=
-    L("Gross rent",usd(a.gross))+L(`Vacancy (${s.vac}%)`,usd(-a.vacancy))+
-    L("Property taxes"+(a.taxEst?" (estimated)":""),usd(-a.taxes))+L("Insurance"+(a.insEst?" (estimated)":""),usd(-a.ins))+
-    (a.hoa?L("HOA",usd(-a.hoa)):"")+
-    L(`Repairs (${s.maint}%)`,usd(-a.maint))+L(`Capital reserves (${s.capex}%)`,usd(-a.capex))+L(`Management (${s.mgmt}%)`,usd(-a.mgmt))+
-    L("Net operating income",usd(a.noi),"total")+L("Mortgage (principal and interest)",usd(-a.debt))+(a.heDebt?L(`Home equity loan for the cash to close (${pct(+s.heRate,3)})`,usd(-a.heDebt)):"")+L("Cash flow before tax",usd(a.cf),"total");
+  const L=(l,y,t)=>`<tr class="${t||""}"><td style="text-align:left;font-family:var(--body)">${l}</td><td class="mo">${usd(y/12)}</td><td>${usd(y)}</td></tr>`;
+  const C=(k,l,y)=>costRow(d,k,l,[usd(-y/12),usd(-y)]);
+  $("d_ledger").innerHTML=`<tr class="lhead"><td>Uncheck a cost to leave it out</td><td class="mo">Month</td><td>Year</td></tr>`+
+    L("Gross rent",a.gross)+C("vacancy",`Vacancy (${s.vac}%)`,a.vacancy)+
+    C("taxes","Property taxes"+(a.taxEst?" (estimated)":""),a.taxes)+C("ins","Insurance"+(a.insEst?" (estimated)":""),a.ins)+
+    (a.hoa?C("hoa","HOA",a.hoa):"")+
+    C("maint",`Repairs (${s.maint}%)`,a.maint)+C("capex",`Capital reserves (${s.capex}%)`,a.capex)+C("mgmt",`Management (${s.mgmt}%)`,a.mgmt)+
+    L("Net operating income",a.noi,"total")+C("debt","Mortgage (principal and interest)",a.debt)+(a.heDebt?C("heDebt",`Home equity loan for the cash to close (${pct(+s.heRate,3)})`,a.heDebt):"")+
+    L("Total costs",-a.costs,"total")+L("Cash flow before tax",a.cf,"total");
+  $("d_costNote").innerHTML=costNote(d);
   $("d_scen").innerHTML=[...new Set([20,25,30,s.down])].sort((x,y)=>x-y).map(p=>{const x=analyze(d,s,p);return `<tr><td>${p}%</td><td>${usd(x.cash)}</td><td>${usd(x.debt/12)}</td><td class="${x.cf>=0?"pos":"neg"}">${usd(x.cf/12)}</td><td>${pct(x.coc)}</td></tr>`;}).join("");
   $("d_hood").innerHTML=[["School rating",d.school?d.school+" / 10":"Not entered"],["Walk Score",d.walk||d.walk===0?d.walk+" / 100":"Not entered"]].map(([l,v])=>`<div><h3>${l}</h3><span class="v" style="font-size:16px">${esc(v)}</span></div>`).join("");
   const q=encodeURIComponent(`${d.address}, ${d.town}, ${d.state}`);
@@ -1253,6 +1276,7 @@ function copyForClaude(d){
   L.push(`Rent I have: ${+d.rent>0?usd(+d.rent)+" a month total":"none yet"}`);
   L.push(`Taxes: ${a.taxEst?"not known (app estimates "+usd(a.taxes)+")":usd(a.taxes)+" a year"}`);
   L.push(`Insurance: ${a.insEst?"not known (app estimates "+usd(a.ins)+")":usd(a.ins)+" a year"}`);
+  if(d.off)L.push(`Costs I unchecked (left out of the numbers): ${Object.keys(d.off).map(k=>({vacancy:"vacancy",taxes:"property taxes",ins:"insurance",hoa:"HOA",maint:"repairs",capex:"capital reserves",mgmt:"management",debt:"mortgage",heDebt:"home equity loan"})[k]||k).join(", ")}`);
   {const x=evalOf(d);if(+d.rehab)L.push(`Rehab (GC's number): ${usd(+d.rehab)}`);
     if(x.arvInfo)L.push(`After-repair value: ${usd(x.arvInfo.value)}${x.arvInfo.src==="you"?" (mine)":` (DealDesk estimate from ${x.arvInfo.n} ${x.arvInfo.src==="sold"?"sales":"listings"} at ${usd(x.arvInfo.ppsf)}/sq ft)`}`);
     L.push(`DealDesk's best fit: ${NAME[x.rec]}${d.strategy?`; I filed it under ${NAME[x.chosen]}`:""}. ${stratWhy(x).replace(/<[^>]+>/g,"")}`);}
@@ -1553,7 +1577,9 @@ function renderAbout(){
 
 /* ---------- "Explain this deal": the same numbers, in plain words ---------- */
 const fmtRate=r=>(+(+r).toFixed(3))+"%";
+let explaining=null;
 function openExplain(d){
+  explaining=d;
   const e=explain(d,settings),s=e.terms,a=e.a,m=e.monthly,u=e.units,fx=d.facts||{};
   const per=u>1?` (${usd(a.cfUnit)} per unit)`:"";
   const mark=ok=>`<span class="${ok?"pos":"neg"}">${ok?"Meets your rule":"Misses your rule"}</span>`;
@@ -1566,18 +1592,21 @@ function openExplain(d){
         a.verdict==="Negotiate"?`<b class="warnc">It misses your rules at the asking price, but it is close.</b> It works at ${usd(a.maxOffer)} or less, which is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) below asking.`:
         `<b class="neg">It misses your rules by a wide margin.</b> The price would have to fall to ${usd(a.maxOffer)}, which is ${usd(a.price-a.maxOffer)} (${pct(a.gap)}) below asking.`}</p>`;
 
-  const money=`<table class="ledger num"><tbody>
+  const C=(k,l,v)=>costRow(d,k,l,[usd(-v)]);
+  const money=`<table class="ledger num"><tbody id="explainCosts">
     ${row("Rent coming in",usd(m.rent))}
-    ${row(`Set aside for empty units (${s.vac}%)`,usd(-m.vacancy))}
-    ${row("Property taxes"+(a.taxEst?" (estimated)":""),usd(-m.taxes))}
-    ${row("Insurance"+(a.insEst?" (estimated)":""),usd(-m.ins))}
-    ${m.hoa?row("Association fee",usd(-m.hoa)):""}
-    ${row(`Repairs (${s.maint}%)`,usd(-m.maint))}
-    ${row(`Saving for big replacements like a roof or boiler (${s.capex}%)`,usd(-m.capex))}
-    ${row(`Property manager (${s.mgmt}%)`,usd(-m.mgmt))}
-    ${row(`${e.custom?"Loan payment":"Mortgage"} at ${fmtRate(s.rate)}`,usd(-m.mortgage))}
-    ${m.equity?row(`Home equity loan that paid the cash to close, at ${fmtRate(+s.heRate)}`,usd(-m.equity)):""}
-    ${row("Left over each month",usd(m.left),"total")}</tbody></table>`;
+    ${C("vacancy",`Set aside for empty units (${s.vac}%)`,m.vacancy)}
+    ${C("taxes","Property taxes"+(a.taxEst?" (estimated)":""),m.taxes)}
+    ${C("ins","Insurance"+(a.insEst?" (estimated)":""),m.ins)}
+    ${m.hoa?C("hoa","Association fee",m.hoa):""}
+    ${C("maint",`Repairs (${s.maint}%)`,m.maint)}
+    ${C("capex",`Saving for big replacements like a roof or boiler (${s.capex}%)`,m.capex)}
+    ${C("mgmt",`Property manager (${s.mgmt}%)`,m.mgmt)}
+    ${C("debt",`${e.custom?"Loan payment":"Mortgage"} at ${fmtRate(s.rate)}`,m.mortgage)}
+    ${m.equity?C("heDebt",`Home equity loan that paid the cash to close, at ${fmtRate(+s.heRate)}`,m.equity):""}
+    ${row("Total monthly costs",usd(-m.costs),"total")}
+    ${row("Left over each month",usd(m.left),"total")}</tbody></table>${costNote(d)}
+    <p class="small muted" style="margin:4px 0 0">Uncheck a cost to see the deal without it, for example managing it yourself. It changes this property only.</p>`;
 
   const terms=`<dl>
     <dt>Cash flow</dt><dd>What is left each month after every bill and the mortgage. Here: ${usd(m.left)} a month${per}. Your rule is at least ${usd(s.minCF)} per unit. ${mark(a.cfUnit>=s.minCF)}</dd>
@@ -1624,7 +1653,7 @@ function openExplain(d){
   better.push(a.gap<=0?`<b>Rent.</b> It works at the estimated rent. ${e.rentToPass?`It would still work with rent as low as ${usd(e.rentToPass)} a month.`:""}`:
     e.rentToPass===null?`<b>Rent.</b> Higher rent will not fix this one, because the price is over your ceiling.`:
     `<b>Rent.</b> At ${usd(e.rentToPass)} a month in total, it meets every rule. That is ${usd(e.rentToPass-e.rent)} more than the estimate (${pct((e.rentToPass-e.rent)/Math.max(1,e.rent)*100,0)}), or about ${usd((e.rentToPass-e.rent)/u)} per unit.`);
-  if(s.mgmt>0)better.push(`<b>Manage it yourself.</b> Dropping the ${s.mgmt}% manager adds about ${usd(e.selfManage.gain)} a month. That gives ${usd(e.selfManage.cfUnit)} per unit and a verdict of ${e.selfManage.verdict}. It costs you time instead of money.`);
+  if(s.mgmt>0&&!isOff(d,"mgmt"))better.push(`<b>Manage it yourself.</b> Dropping the ${s.mgmt}% manager adds about ${usd(e.selfManage.gain)} a month. That gives ${usd(e.selfManage.cfUnit)} per unit and a verdict of ${e.selfManage.verdict}. It costs you time instead of money.`);
   better.push(`<b>Down payment.</b> More money down means a smaller mortgage and more cash each month, but it usually lowers the return on your cash. The financing table on the deal sheet compares 20%, 25% and 30%.`);
   const rateTable=`<div style="overflow-x:auto"><table class="scen num"><thead><tr><th>Rate</th><th>Mortgage / mo</th><th>Left / unit</th><th>Return on cash</th><th>Verdict</th></tr></thead><tbody>${
     e.rates.map(r=>`<tr class="${r.current?"cur":""}"><td>${fmtRate(r.rate)}${r.current?'<span class="yours">yours</span>':""}</td><td>${usd(r.payment)}</td><td class="${r.cfUnit>=0?"pos":"neg"}">${usd(r.cfUnit)}</td><td>${pct(r.coc)}</td><td><span class="pill ${vclass(r.verdict)}">${r.verdict}</span></td></tr>`).join("")}</tbody></table></div>
@@ -1645,6 +1674,13 @@ function closeExplain(){$("explainModal").hidden=true;}
 $("explainClose").addEventListener("click",closeExplain);
 $("explainClose2").addEventListener("click",closeExplain);
 $("explainModal").addEventListener("click",e=>{if(e.target===$("explainModal"))closeExplain();});
+/* checking or unchecking a cost: re-figure the sheet, the list and, when it is open, the explanation (keeping its scroll) */
+function costChanged(d){renderDeals();
+  if(!$("explainModal").hidden&&explaining===d){const m=document.querySelector("#explainModal .modal"),y=m.scrollTop;openExplain(d);m.scrollTop=y;}}
+for(const id of ["d_ledger","d_costNote","explainBody"])$(id).addEventListener("change",e=>{const k=e.target.dataset&&e.target.dataset.cost;if(!k)return;
+  const d=id==="explainBody"?explaining:deals.find(x=>x.id===selected);if(!d)return;setCost(d,k,e.target.checked);costChanged(d);});
+for(const id of ["d_costNote","explainBody"])$(id).addEventListener("click",e=>{if(!e.target.closest("[data-cost-reset]"))return;
+  const d=id==="explainBody"?explaining:deals.find(x=>x.id===selected);if(!d)return;delete d.off;d.updatedAt=today();save();costChanged(d);});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeExplain();});
 
 /* ---------- Release notes: the same idea as DebtFree Dashboard's What's New ----------
