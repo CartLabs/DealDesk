@@ -1305,7 +1305,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "priceWas": 425000,
-    "priceChangedAt": "2026-10-14T10:00:00Z"
+    "priceChangedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-16"
+    }
   },
   {
     "id": "ma-fitchburg-61-central-st",
@@ -8367,7 +8370,7 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Two-family",
     "units": 2,
-    "price": 405000,
+    "price": 399000,
     "rent": 4000,
     "url": "https://www.redfin.com/MA/Fitchburg/62-1-2-Hazel-St-01420/home/16501250",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
@@ -8375,7 +8378,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "sqft": 2040,
-    "yearBuilt": 1900
+    "yearBuilt": 1900,
+    "priceWas": 405000,
+    "priceChangedAt": "2026-11-16T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-99-milk-st",
@@ -8738,7 +8743,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-16"
+    }
   },
   {
     "id": "ma-worcester-56-plantation-st",
@@ -9040,15 +9048,15 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Two-family",
     "units": 2,
-    "price": 669900,
+    "price": 659900,
     "rent": 4950,
     "url": "https://www.redfin.com/MA/Brockton/6-Bolton-Pl-02301/home/16336760",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2.5 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
-    "priceWas": 670000,
-    "priceChangedAt": "2026-11-10T10:00:00Z",
+    "priceWas": 669900,
+    "priceChangedAt": "2026-11-16T10:00:00Z",
     "sqft": 1988,
     "yearBuilt": 1925
   },
@@ -11007,7 +11015,7 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Three-family",
     "units": 3,
-    "price": 699000,
+    "price": 677600,
     "rent": 6750,
     "url": "https://www.redfin.com/MA/Worcester/6-Lucian-St-01603/home/16650893",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 9 bedrooms split as 3BR + 3BR + 3BR. Taxes and insurance are estimated. Unit count (3) is inferred from 9 beds and 3 baths; the listing page did not show it.",
@@ -11015,7 +11023,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-01",
     "addedAt": "2026-11-01T10:00:00Z",
     "sqft": 4368,
-    "yearBuilt": 1920
+    "yearBuilt": 1920,
+    "priceWas": 699000,
+    "priceChangedAt": "2026-11-16T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-30-34-pleasant-st",
@@ -11497,7 +11507,7 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Three-family",
     "units": 3,
-    "price": 499000,
+    "price": 478800,
     "rent": 6000,
     "url": "https://www.redfin.com/MA/Worcester/27-Cambridge-St-01603/home/16649951",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
@@ -11505,7 +11515,9 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-05",
     "addedAt": "2026-11-05T10:00:00Z",
     "sqft": 2845,
-    "yearBuilt": 1890
+    "yearBuilt": 1890,
+    "priceWas": 499000,
+    "priceChangedAt": "2026-11-16T10:00:00Z"
   },
   {
     "id": "ma-worcester-3-ives-st",
@@ -11809,7 +11821,7 @@ window.SEED_LISTINGS = [
     "miles": 3,
     "type": "Single-family",
     "units": 1,
-    "price": 485000,
+    "price": 469900,
     "rent": 2700,
     "url": "https://www.redfin.com/MA/Lowell/79-W-3rd-St-01850/home/11643050",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
@@ -11817,8 +11829,8 @@ window.SEED_LISTINGS = [
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1450,
     "yearBuilt": 1910,
-    "priceWas": 495000,
-    "priceChangedAt": "2026-11-12T10:00:00Z"
+    "priceWas": 485000,
+    "priceChangedAt": "2026-11-16T10:00:00Z"
   },
   {
     "id": "ma-lowell-671-beacon-st",
@@ -15270,14 +15282,16 @@ window.SEED_LISTINGS = [
     "miles": 25,
     "type": "Single-family",
     "units": 1,
-    "price": 439000,
+    "price": 435000,
     "rent": 2425,
     "url": "https://www.redfin.com/MA/Leominster/64-Mooreland-Ave-01453/home/16543424",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1630,
-    "yearBuilt": 1895
+    "yearBuilt": 1895,
+    "priceWas": 439000,
+    "priceChangedAt": "2026-11-16T10:00:00Z"
   },
   {
     "id": "ma-leominster-38f-cottage-st",
@@ -16600,14 +16614,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 480000,
+    "price": 467000,
     "rent": 2475,
     "url": "https://www.redfin.com/MA/Worcester/26-Calumet-Ave-01606/home/16657597",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1200,
-    "yearBuilt": 1943
+    "yearBuilt": 1943,
+    "priceWas": 480000,
+    "priceChangedAt": "2026-11-16T10:00:00Z"
   },
   {
     "id": "ma-worcester-223-beverly-rd",
@@ -20781,14 +20797,16 @@ window.SEED_LISTINGS = [
     "miles": 47,
     "type": "Single-family",
     "units": 1,
-    "price": 430000,
+    "price": 419000,
     "rent": 2850,
     "url": "https://www.redfin.com/NH/Rochester/20-Anctil-Ct-03839/home/96568469",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1900,
-    "yearBuilt": 1957
+    "yearBuilt": 1957,
+    "priceWas": 430000,
+    "priceChangedAt": "2026-11-16T10:00:00Z"
   },
   {
     "id": "nh-rochester-32-pine-st",
@@ -21310,14 +21328,16 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 444900,
+    "price": 429900,
     "rent": 2800,
     "url": "https://www.redfin.com/MA/Worcester/42-Ernest-Ave-01604/home/16654890",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-10",
     "addedAt": "2026-11-10T10:00:00Z",
     "sqft": 2728,
-    "yearBuilt": 1935
+    "yearBuilt": 1935,
+    "priceWas": 444900,
+    "priceChangedAt": "2026-11-16T10:00:00Z"
   },
   {
     "id": "nh-concord-79-abbott-rd",
@@ -23227,5 +23247,56 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-15",
     "addedAt": "2026-11-15T10:00:00Z"
+  },
+  {
+    "id": "ma-haverhill-346-hilldale-ave",
+    "address": "346 Hilldale Ave",
+    "town": "Haverhill",
+    "state": "MA",
+    "miles": 14,
+    "type": "Single-family",
+    "units": 1,
+    "price": 549000,
+    "rent": 3250,
+    "url": "https://www.redfin.com/MA/Haverhill/346-Hilldale-Ave-01832/home/11311260",
+    "sqft": 2400,
+    "yearBuilt": 1890,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-16",
+    "addedAt": "2026-11-16T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-45-townsend-st",
+    "address": "45 Townsend St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Single-family",
+    "units": 1,
+    "price": 299000,
+    "rent": 2200,
+    "url": "https://www.redfin.com/MA/Fitchburg/45-Townsend-St-01420/home/16503197",
+    "sqft": 1033,
+    "yearBuilt": 1900,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-16",
+    "addedAt": "2026-11-16T10:00:00Z"
+  },
+  {
+    "id": "nh-concord-182-south-st",
+    "address": "182 South St",
+    "town": "Concord",
+    "state": "NH",
+    "miles": 39,
+    "type": "Single-family",
+    "units": 1,
+    "price": 449000,
+    "rent": 2375,
+    "url": "https://www.redfin.com/NH/Concord/182-South-St-03301/home/88315606",
+    "sqft": 810,
+    "yearBuilt": 1950,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-16",
+    "addedAt": "2026-11-16T10:00:00Z"
   }
 ];
