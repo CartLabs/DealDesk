@@ -8502,7 +8502,10 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
-    "addedAt": "2026-10-14T10:00:00Z"
+    "addedAt": "2026-10-14T10:00:00Z",
+    "gone": {
+      "date": "2026-11-22"
+    }
   },
   {
     "id": "ma-fitchburg-126-payson-st",
@@ -8595,7 +8598,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "priceWas": 435000,
-    "priceChangedAt": "2026-10-21T10:00:00Z"
+    "priceChangedAt": "2026-10-21T10:00:00Z",
+    "gone": {
+      "date": "2026-11-22"
+    }
   },
   {
     "id": "ma-worcester-33-coburn-ave",
@@ -13529,7 +13535,9 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Haverhill/7-S-Green-St-01835/home/11329392",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Haverhill average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "sqft": 1918,
+    "yearBuilt": 1900
   },
   {
     "id": "ma-haverhill-718-n-broadway",
@@ -15905,14 +15913,16 @@ window.SEED_LISTINGS = [
     "miles": 26,
     "type": "Single-family",
     "units": 1,
-    "price": 360000,
+    "price": 350000,
     "rent": 2200,
     "url": "https://www.redfin.com/MA/Fitchburg/18-Morris-St-01420/home/16502602",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1350,
-    "yearBuilt": 1900
+    "yearBuilt": 1900,
+    "priceWas": 360000,
+    "priceChangedAt": "2026-11-22T10:00:00Z"
   },
   {
     "id": "ma-fitchburg-360-blossom-st",
@@ -19402,14 +19412,16 @@ window.SEED_LISTINGS = [
     "miles": 42,
     "type": "Single-family",
     "units": 1,
-    "price": 475000,
+    "price": 449900,
     "rent": 3600,
     "url": "https://www.redfin.com/NH/Dover/15-Court-St-03820/home/96532338",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Dover average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1380,
-    "yearBuilt": 1920
+    "yearBuilt": 1920,
+    "priceWas": 475000,
+    "priceChangedAt": "2026-11-22T10:00:00Z"
   },
   {
     "id": "nh-dover-11-nicholas-cir",
@@ -23127,14 +23139,16 @@ window.SEED_LISTINGS = [
     "miles": 47,
     "type": "Single-family",
     "units": 1,
-    "price": 435000,
+    "price": 399000,
     "rent": 2850,
     "url": "https://www.redfin.com/NH/Rochester/154-Milton-Rd-03868/home/108639450",
     "sqft": 1392,
     "yearBuilt": 1953,
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-13",
-    "addedAt": "2026-11-13T10:00:00Z"
+    "addedAt": "2026-11-13T10:00:00Z",
+    "priceWas": 435000,
+    "priceChangedAt": "2026-11-22T10:00:00Z"
   },
   {
     "id": "nh-rochester-50-olde-farm-ln",
@@ -24807,5 +24821,127 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-21",
     "addedAt": "2026-11-21T10:00:00Z"
+  },
+  {
+    "id": "ma-lawrence-54-marston-st",
+    "address": "54 Marston St",
+    "town": "Lawrence",
+    "state": "MA",
+    "miles": 8,
+    "type": "Two-family",
+    "units": 2,
+    "price": 599900,
+    "rent": 4300,
+    "url": "https://www.redfin.com/MA/Lawrence/54-Marston-St-01841/home/11308124",
+    "sqft": 1401,
+    "yearBuilt": 1900,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Lawrence averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-22",
+    "addedAt": "2026-11-22T10:00:00Z"
+  },
+  {
+    "id": "nh-manchester-520-s-main-st",
+    "address": "520 S Main St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "type": "Single-family",
+    "units": 1,
+    "price": 439000,
+    "rent": 2175,
+    "url": "https://www.redfin.com/NH/Manchester/520-S-Main-St-03102/home/88246170",
+    "sqft": 1122,
+    "yearBuilt": 1890,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-22",
+    "addedAt": "2026-11-22T10:00:00Z"
+  },
+  {
+    "id": "ma-leominster-129-adams-st",
+    "address": "129 Adams St",
+    "town": "Leominster",
+    "state": "MA",
+    "miles": 25,
+    "type": "Three-family",
+    "units": 3,
+    "price": 460000,
+    "rent": 6250,
+    "url": "https://www.redfin.com/MA/Leominster/129-Adams-St-01453/home/16535617",
+    "sqft": 2966,
+    "yearBuilt": 1900,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Leominster averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-22",
+    "addedAt": "2026-11-22T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-28-hollywood-st",
+    "address": "28 Hollywood St",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Single-family",
+    "units": 1,
+    "price": 389900,
+    "rent": 1925,
+    "url": "https://www.redfin.com/MA/Fitchburg/28-Hollywood-St-01420/home/16497831",
+    "sqft": 1092,
+    "yearBuilt": 1955,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Fitchburg average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-22",
+    "addedAt": "2026-11-22T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-5-benefit-ter",
+    "address": "5 Benefit Ter",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 680000,
+    "rent": 6500,
+    "url": "https://www.redfin.com/MA/Worcester/5-Benefit-Ter-01610/home/16656120",
+    "sqft": 3293,
+    "yearBuilt": 1890,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 8 bedrooms split as 3BR + 3BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 8 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-22",
+    "addedAt": "2026-11-22T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-167-grand-st",
+    "address": "167 Grand St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 499900,
+    "rent": 2800,
+    "url": "https://www.redfin.com/MA/Worcester/167-Grand-St-01603/home/16655558",
+    "sqft": 1329,
+    "yearBuilt": 1900,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-22",
+    "addedAt": "2026-11-22T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-117-healey-ter",
+    "address": "117 Healey Ter",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Single-family",
+    "units": 1,
+    "price": 499900,
+    "rent": 3075,
+    "url": "https://www.redfin.com/MA/Brockton/117-Healey-Ter-02301/home/16336796",
+    "sqft": 1128,
+    "yearBuilt": 1959,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-22",
+    "addedAt": "2026-11-22T10:00:00Z"
   }
 ];
