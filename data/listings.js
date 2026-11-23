@@ -12446,7 +12446,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/MA/Methuen/22-Houston-Ave-01844/home/8338167",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "gone": {
+      "date": "2026-11-23"
+    }
   },
   {
     "id": "ma-methuen-41-linwood-ave",
@@ -13009,7 +13012,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Nashua/19-Monadnock-St-03064/home/88087123",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Nashua average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "gone": {
+      "date": "2026-11-23"
+    }
   },
   {
     "id": "nh-nashua-44-atherton-ave",
@@ -13912,7 +13918,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Merrimack/6-Waterville-Dr-03054/home/88139721",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Merrimack average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "gone": {
+      "date": "2026-11-23"
+    }
   },
   {
     "id": "nh-merrimack-654-daniel-webster-hwy",
@@ -13946,7 +13955,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Merrimack/72-Back-River-Rd-03054/home/88139256",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Merrimack average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "gone": {
+      "date": "2026-11-23"
+    }
   },
   {
     "id": "ma-lynn-26-archer-st",
@@ -18014,7 +18026,7 @@ window.SEED_LISTINGS = [
     "miles": 38,
     "type": "Single-family",
     "units": 1,
-    "price": 455000,
+    "price": 425000,
     "rent": 2800,
     "url": "https://www.redfin.com/MA/Worcester/134-Commonwealth-Ave-01604/home/16654836",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
@@ -18022,8 +18034,8 @@ window.SEED_LISTINGS = [
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 2040,
     "yearBuilt": 1920,
-    "priceWas": 465000,
-    "priceChangedAt": "2026-11-12T10:00:00Z"
+    "priceWas": 455000,
+    "priceChangedAt": "2026-11-23T10:00:00Z"
   },
   {
     "id": "ma-worcester-133-commonwealth-ave-unit-b",
@@ -19334,7 +19346,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Concord/330-Hopkinton-Rd-03301/home/96454748",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Concord average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "gone": {
+      "date": "2026-11-23"
+    }
   },
   {
     "id": "nh-concord-72-riverhill-ave",
@@ -21320,7 +21335,10 @@ window.SEED_LISTINGS = [
     "url": "https://www.redfin.com/NH/Farmington/8-Merlin-Rd-03835/home/88177503",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
-    "addedAt": "2026-11-08T10:00:00Z"
+    "addedAt": "2026-11-08T10:00:00Z",
+    "gone": {
+      "date": "2026-11-23"
+    }
   },
   {
     "id": "nh-rochester-19-pine-st",
@@ -24943,5 +24961,73 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-22",
     "addedAt": "2026-11-22T10:00:00Z"
+  },
+  {
+    "id": "ma-lowell-160-hampshire-st",
+    "address": "160 Hampshire St",
+    "town": "Lowell",
+    "state": "MA",
+    "miles": 3,
+    "type": "Single-family",
+    "units": 1,
+    "price": 399900,
+    "rent": 3225,
+    "url": "https://www.redfin.com/MA/Lowell/160-Hampshire-St-01850/home/11641342",
+    "sqft": 1422,
+    "yearBuilt": 1920,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Lowell average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-23",
+    "addedAt": "2026-11-23T10:00:00Z"
+  },
+  {
+    "id": "nh-derry-17-hilda-ave",
+    "address": "17 Hilda Ave",
+    "town": "Derry",
+    "state": "NH",
+    "miles": 15,
+    "type": "Single-family",
+    "units": 1,
+    "price": 290000,
+    "rent": 1900,
+    "url": "https://www.redfin.com/NH/Derry/17-Hilda-Ave-03038/home/88320294",
+    "sqft": 664,
+    "yearBuilt": 1960,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Derry average for a 1-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-23",
+    "addedAt": "2026-11-23T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-6-north-worcester-ave",
+    "address": "6 North Worcester Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 464900,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/6-N-Worcester-Ave-01606/home/16644424",
+    "sqft": 1633,
+    "yearBuilt": 1955,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-23",
+    "addedAt": "2026-11-23T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-105-cairn-rd",
+    "address": "105 Cairn Rd",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Single-family",
+    "units": 1,
+    "price": 400000,
+    "rent": 3700,
+    "url": "https://www.redfin.com/MA/Brockton/105-Cairn-Rd-02302/home/16333571",
+    "sqft": 1266,
+    "yearBuilt": 1950,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-23",
+    "addedAt": "2026-11-23T10:00:00Z"
   }
 ];
