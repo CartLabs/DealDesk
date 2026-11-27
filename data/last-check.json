@@ -1,6 +1,6 @@
 {
- "date": "2026-11-26",
- "ranAt": "2026-11-26T10:05:04.440Z",
+ "date": "2026-11-27",
+ "ranAt": "2026-11-27T10:05:04.339Z",
  "status": "ok",
  "problem": null,
  "towns": [
@@ -18,13 +18,13 @@
    },
    "houses": {
     "forSale": {
-     "rows": 60,
+     "rows": 59,
      "kept": 26,
      "capped": false,
      "via": "region page"
     },
     "sold": {
-     "rows": 98,
+     "rows": 97,
      "kept": 37
     }
    }
@@ -44,13 +44,13 @@
    "houses": {
     "forSale": {
      "rows": 48,
-     "kept": 15,
+     "kept": 16,
      "capped": false,
      "via": "region page"
     },
     "sold": {
-     "rows": 79,
-     "kept": 31
+     "rows": 77,
+     "kept": 29
     }
    }
   },
@@ -99,8 +99,8 @@
      "via": "region address"
     },
     "sold": {
-     "rows": 100,
-     "kept": 41
+     "rows": 99,
+     "kept": 40
     }
    }
   },
@@ -124,8 +124,8 @@
      "via": "region address"
     },
     "sold": {
-     "rows": 85,
-     "kept": 28
+     "rows": 82,
+     "kept": 25
     }
    }
   },
@@ -149,8 +149,8 @@
      "via": "region address"
     },
     "sold": {
-     "rows": 59,
-     "kept": 27
+     "rows": 58,
+     "kept": 26
     }
    }
   },
@@ -170,14 +170,14 @@
    },
    "houses": {
     "forSale": {
-     "rows": 21,
-     "kept": 7,
+     "rows": 20,
+     "kept": 6,
      "capped": false,
      "via": "town box",
-     "boxRows": 102
+     "boxRows": 100
     },
     "sold": {
-     "rows": 36,
+     "rows": 35,
      "kept": 15
     }
    }
@@ -196,14 +196,14 @@
    },
    "houses": {
     "forSale": {
-     "rows": 65,
+     "rows": 64,
      "kept": 19,
      "capped": false,
      "via": "region address"
     },
     "sold": {
-     "rows": 87,
-     "kept": 22
+     "rows": 85,
+     "kept": 21
     }
    }
   },
@@ -216,8 +216,8 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 68,
-    "kept": 18
+    "rows": 67,
+    "kept": 17
    },
    "houses": {
     "forSale": {
@@ -227,8 +227,8 @@
      "via": "region address"
     },
     "sold": {
-     "rows": 125,
-     "kept": 63
+     "rows": 124,
+     "kept": 62
     }
    }
   },
@@ -260,13 +260,13 @@
   {
    "town": "Fitchburg|MA",
    "forSale": {
-    "rows": 45,
-    "kept": 41,
+    "rows": 46,
+    "kept": 42,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 57,
+    "rows": 58,
     "kept": 10
    },
    "houses": {
@@ -277,33 +277,33 @@
      "via": "region address"
     },
     "sold": {
-     "rows": 74,
-     "kept": 23
+     "rows": 71,
+     "kept": 20
     }
    }
   },
   {
    "town": "Worcester|MA",
    "forSale": {
-    "rows": 109,
-    "kept": 55,
+    "rows": 107,
+    "kept": 54,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 139,
-    "kept": 28
+    "rows": 135,
+    "kept": 26
    },
    "houses": {
     "forSale": {
-     "rows": 188,
-     "kept": 137,
+     "rows": 186,
+     "kept": 136,
      "capped": false,
      "via": "region address"
     },
     "sold": {
-     "rows": 252,
-     "kept": 64
+     "rows": 249,
+     "kept": 63
     }
    }
   },
@@ -316,8 +316,8 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 11,
-    "kept": 4
+    "rows": 10,
+    "kept": 3
    },
    "houses": {
     "forSale": {
@@ -327,8 +327,8 @@
      "via": "region address"
     },
     "sold": {
-     "rows": 75,
-     "kept": 27
+     "rows": 74,
+     "kept": 26
     }
    }
   },
@@ -366,32 +366,32 @@
     "via": "region address"
    },
    "sold": {
-    "rows": 34,
-    "kept": 6
+    "rows": 33,
+    "kept": 5
    },
    "houses": {
     "forSale": {
-     "rows": 125,
-     "kept": 78,
+     "rows": 124,
+     "kept": 76,
      "capped": false,
      "via": "region address"
     },
     "sold": {
      "rows": 152,
-     "kept": 27
+     "kept": 28
     }
    }
   },
   {
    "town": "Rochester|NH",
    "forSale": {
-    "rows": 11,
-    "kept": 7,
+    "rows": 10,
+    "kept": 6,
     "capped": false,
     "via": "region address"
    },
    "sold": {
-    "rows": 12,
+    "rows": 11,
     "kept": 1
    },
    "houses": {
@@ -402,19 +402,19 @@
      "via": "region address"
     },
     "sold": {
-     "rows": 62,
-     "kept": 25
+     "rows": 59,
+     "kept": 22
     }
    }
   }
  ],
  "report": {
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "townsPulled": [
    "Lowell, MA (18)",
    "Lowell, MA single-family (26)",
    "Methuen, MA (2)",
-   "Methuen, MA single-family (15)",
+   "Methuen, MA single-family (16)",
    "Lawrence, MA (6)",
    "Lawrence, MA single-family (6)",
    "Nashua, NH (6)",
@@ -424,646 +424,257 @@
    "Derry, NH (1)",
    "Derry, NH single-family (12)",
    "Merrimack, NH (0)",
-   "Merrimack, NH single-family (7)",
+   "Merrimack, NH single-family (6)",
    "Lynn, MA (2)",
    "Lynn, MA single-family (19)",
    "Manchester, NH (30)",
    "Manchester, NH single-family (37)",
    "Leominster, MA (13)",
    "Leominster, MA single-family (32)",
-   "Fitchburg, MA (41)",
+   "Fitchburg, MA (42)",
    "Fitchburg, MA single-family (37)",
-   "Worcester, MA (55)",
-   "Worcester, MA single-family (137)",
+   "Worcester, MA (54)",
+   "Worcester, MA single-family (136)",
    "Concord, NH (5)",
    "Concord, NH single-family (22)",
    "Dover, NH (3)",
    "Dover, NH single-family (12)",
    "Brockton, MA (9)",
-   "Brockton, MA single-family (78)",
-   "Rochester, NH (7)",
+   "Brockton, MA single-family (76)",
+   "Rochester, NH (6)",
    "Rochester, NH single-family (23)"
   ],
   "townsFailed": [],
-  "added": 11,
+  "added": 2,
   "newMatches": [],
-  "flipCandidates": [
+  "flipCandidates": [],
+  "priceChanges": [],
+  "sold": [],
+  "gone": [
    {
-    "id": "nh-manchester-19-westminster-st",
-    "address": "19 Westminster St",
-    "town": "Manchester",
-    "state": "NH",
-    "miles": 24,
-    "units": 1,
-    "price": 399900,
-    "rent": 2175,
-    "verdict": "Pass",
-    "maxOffer": 139000,
-    "url": "https://www.redfin.com/NH/Manchester/19-Westminster-St-03103/home/108658917",
-    "best": "Flip",
-    "arv": 640000,
-    "arvFrom": "86 sales",
-    "maxRehab": 87000
-   },
-   {
-    "id": "ma-leominster-74-arlington-st",
-    "address": "74 Arlington St",
-    "town": "Leominster",
+    "id": "ma-lynn-9-11-dungeon-ave",
+    "address": "9-11 Dungeon Ave",
+    "town": "Lynn",
     "state": "MA",
-    "miles": 25,
-    "units": 1,
-    "price": 548999,
-    "rent": 2900,
-    "verdict": "Pass",
-    "maxOffer": 210000,
-    "url": "https://www.redfin.com/MA/Leominster/74-Arlington-St-01453/home/16534135",
-    "best": "Flip",
-    "arv": 820000,
-    "arvFrom": "27 sales",
-    "maxRehab": 91000
-   }
-  ],
-  "priceChanges": [
-   {
-    "id": "ma-leominster-6-ruth-st",
-    "address": "6 Ruth St",
-    "town": "Leominster",
-    "state": "MA",
-    "miles": 25,
-    "units": 1,
-    "price": 499000,
-    "rent": 2425,
-    "verdict": "Pass",
-    "maxOffer": 170000,
-    "url": "https://www.redfin.com/MA/Leominster/6-Ruth-St-01453/home/16539736",
-    "from": 505000,
-    "verdictWas": "Pass",
-    "nowMatches": false
-   },
-   {
-    "id": "ma-leominster-74-arlington-st",
-    "address": "74 Arlington St",
-    "town": "Leominster",
-    "state": "MA",
-    "miles": 25,
-    "units": 1,
-    "price": 548999,
-    "rent": 2900,
-    "verdict": "Pass",
-    "maxOffer": 210000,
-    "url": "https://www.redfin.com/MA/Leominster/74-Arlington-St-01453/home/16534135",
-    "from": 549999,
-    "verdictWas": "Pass",
-    "nowMatches": false
-   },
-   {
-    "id": "nh-concord-7-9-tremont-st",
-    "address": "7-9 Tremont St",
-    "town": "Concord",
-    "state": "NH",
-    "miles": 39,
+    "miles": 23,
     "units": 2,
-    "price": 209800,
-    "rent": 5075,
-    "verdict": "Buy box",
+    "price": 549900,
+    "rent": 4800,
+    "verdict": "Pass",
     "maxOffer": 350000,
-    "url": "https://www.redfin.com/NH/Boscawen/7-Tremont-St-03303/home/205113635",
-    "from": 209900,
-    "verdictWas": "Buy box",
-    "nowMatches": false
+    "url": "https://www.redfin.com/MA/Lynn/9-11-Dungeon-Ave-01905/home/195222169"
    },
    {
-    "id": "nh-rochester-19-pine-st",
-    "address": "19 Pine St",
-    "town": "Rochester",
-    "state": "NH",
-    "miles": 47,
-    "units": 1,
-    "price": 160000,
-    "rent": 2850,
-    "verdict": "Buy box",
-    "maxOffer": 193000,
-    "url": "https://www.redfin.com/NH/Rochester/19-Pine-St-03867/home/101648504",
-    "from": 185000,
-    "verdictWas": "Buy box",
-    "nowMatches": false
-   }
-  ],
-  "sold": [
-   {
-    "id": "ma-lowell-55-57-frothingham-st",
-    "address": "55-57 Frothingham St",
-    "town": "Lowell",
-    "state": "MA",
-    "miles": 3,
-    "units": 2,
-    "price": 825000,
-    "rent": 4900,
-    "verdict": "Pass",
-    "maxOffer": 359000,
-    "url": "https://www.redfin.com/MA/Lowell/55-Frothingham-St-01852/home/11657028",
-    "soldPrice": 845000,
-    "soldDate": "2026-11-20",
-    "priceJustPublished": false
-   },
-   {
-    "id": "ma-leominster-163-165-central-st",
-    "address": "163-165 Central St",
-    "town": "Leominster",
-    "state": "MA",
-    "miles": 25,
-    "units": 2,
-    "price": 430000,
-    "rent": 3450,
-    "verdict": "Pass",
-    "maxOffer": 234000,
-    "url": "https://www.redfin.com/MA/Leominster/163-165-Central-St-01453/home/187075614",
-    "soldPrice": 430000,
-    "soldDate": "2026-11-25",
-    "priceJustPublished": false
-   },
-   {
-    "id": "ma-worcester-50-commonwealth-ave",
-    "address": "50 Commonwealth Ave",
+    "id": "ma-worcester-4-mott-st",
+    "address": "4 Mott St",
     "town": "Worcester",
     "state": "MA",
     "miles": 38,
-    "units": 2,
-    "price": 419900,
-    "rent": 3600,
-    "verdict": "Pass",
-    "maxOffer": 247000,
-    "url": "https://www.redfin.com/MA/Worcester/50-Commonwealth-Ave-01604/home/16670745",
-    "soldPrice": 405000,
-    "soldDate": "2026-11-23",
-    "priceJustPublished": false
-   },
-   {
-    "id": "ma-brockton-33-park-st",
-    "address": "33 Park St",
-    "town": "Brockton",
-    "state": "MA",
-    "miles": 43,
     "units": 3,
-    "price": 999900,
-    "rent": 10050,
+    "price": 600000,
+    "rent": 6750,
     "verdict": "Pass",
-    "maxOffer": 700000,
-    "url": "https://www.redfin.com/MA/Brockton/33-Park-St-02301/home/16322570",
-    "soldPrice": 999999,
-    "soldDate": "2026-11-25",
-    "priceJustPublished": false
+    "maxOffer": 489000,
+    "url": "https://www.redfin.com/MA/Worcester/4-Mott-St-01604/home/16663781"
    },
    {
-    "id": "nh-rochester-22-highland-st",
-    "address": "22 Highland St",
+    "id": "nh-manchester-1601-front-st",
+    "address": "1601 Front St",
+    "town": "Manchester",
+    "state": "NH",
+    "miles": 24,
+    "units": 3,
+    "price": 639900,
+    "rent": 6375,
+    "verdict": "Pass",
+    "maxOffer": 430000,
+    "url": "https://www.redfin.com/NH/Manchester/1601-Front-St-03102/home/96677862"
+   },
+   {
+    "id": "nh-rochester-10-school-st",
+    "address": "10 School St",
     "town": "Rochester",
     "state": "NH",
     "miles": 47,
     "units": 2,
-    "price": 569900,
+    "price": 499900,
     "rent": 4000,
     "verdict": "Pass",
     "maxOffer": 263000,
-    "url": "https://www.redfin.com/NH/Rochester/22-Highland-St-03868/home/108638469",
-    "soldPrice": 563500,
-    "soldDate": "2026-11-17",
-    "priceJustPublished": false
-   }
-  ],
-  "gone": [
-   {
-    "id": "ma-fitchburg-28-institute-st",
-    "address": "28 Institute St",
-    "town": "Fitchburg",
-    "state": "MA",
-    "miles": 26,
-    "units": 2,
-    "price": 479000,
-    "rent": 3750,
-    "verdict": "Pass",
-    "maxOffer": 260000,
-    "url": "https://www.redfin.com/MA/Fitchburg/28-Institute-St-01420/home/16496618"
+    "url": "https://www.redfin.com/NH/Rochester/10-School-St-03867/home/85009248"
    },
    {
-    "id": "ma-fitchburg-76-78-nashua-st",
-    "address": "76-78 Nashua St",
-    "town": "Fitchburg",
-    "state": "MA",
-    "miles": 26,
-    "units": 3,
-    "price": 569000,
-    "rent": 5750,
-    "verdict": "Pass",
-    "maxOffer": 407000,
-    "url": "https://www.redfin.com/MA/Fitchburg/76-78-Nashua-St-01420/home/196599926"
-   },
-   {
-    "id": "nh-dover-29-31-silver-st",
-    "address": "29-31 Silver St",
-    "town": "Dover",
-    "state": "NH",
-    "miles": 42,
-    "units": 2,
-    "price": 679900,
-    "rent": 4875,
-    "verdict": "Pass",
-    "maxOffer": 334000,
-    "url": "https://www.redfin.com/NH/Dover/31-Silver-St-03820/home/96671821"
-   },
-   {
-    "id": "nh-nashua-8-blue-hill-ave",
-    "address": "8 Blue Hill Ave",
-    "town": "Nashua",
-    "state": "NH",
-    "miles": 11,
-    "units": 2,
-    "price": 659999,
-    "rent": 4600,
-    "verdict": "Pass",
-    "maxOffer": 311000,
-    "url": "https://www.redfin.com/NH/Nashua/8-Blue-Hill-Ave-03064/home/60374708"
-   },
-   {
-    "id": "ma-brockton-170-tribou-st",
-    "address": "170 Tribou St",
-    "town": "Brockton",
-    "state": "MA",
-    "miles": 43,
-    "units": 2,
-    "price": 674900,
-    "rent": 4950,
-    "verdict": "Pass",
-    "maxOffer": 363000,
-    "url": "https://www.redfin.com/MA/Brockton/170-Tribou-St-02301/home/16318082"
-   },
-   {
-    "id": "nh-manchester-108-110-w-elmwood-ave",
-    "address": "108-110 W Elmwood Ave",
-    "town": "Manchester",
-    "state": "NH",
-    "miles": 24,
-    "units": 2,
-    "price": 589000,
-    "rent": 3975,
-    "verdict": "Pass",
-    "maxOffer": 261000,
-    "url": "https://www.redfin.com/NH/Manchester/110-W-Elmwood-Ave-03103/home/108655301"
-   },
-   {
-    "id": "ma-worcester-2-gordon-st",
-    "address": "2 Gordon St",
+    "id": "ma-worcester-20-wyola-dr",
+    "address": "20 Wyola Dr",
     "town": "Worcester",
     "state": "MA",
     "miles": 38,
     "units": 2,
-    "price": 649000,
-    "rent": 4250,
+    "price": 524995,
+    "rent": 4500,
     "verdict": "Pass",
-    "maxOffer": 303000,
-    "url": "https://www.redfin.com/MA/Worcester/2-Gordon-St-01604/home/16667526"
+    "maxOffer": 324000,
+    "url": "https://www.redfin.com/MA/Worcester/20-Wyola-Dr-01603/home/16651120"
    },
    {
-    "id": "ma-lowell-341-343-high-st",
-    "address": "341-343 High St",
-    "town": "Lowell",
-    "state": "MA",
-    "miles": 3,
-    "units": 2,
-    "price": 559900,
-    "rent": 4100,
-    "verdict": "Pass",
-    "maxOffer": 290000,
-    "url": "https://www.redfin.com/MA/Lowell/341-High-St-01852/home/203313485"
-   },
-   {
-    "id": "ma-methuen-117-harris-st",
-    "address": "117 Harris St",
-    "town": "Methuen",
-    "state": "MA",
-    "miles": 7,
-    "units": 1,
-    "price": 479000,
-    "rent": 2650,
-    "verdict": "Pass",
-    "maxOffer": 189000,
-    "url": "https://www.redfin.com/MA/Methuen/117-Harris-St-01844/home/8295735"
-   },
-   {
-    "id": "nh-nashua-77-marshall-st",
-    "address": "77 Marshall St",
-    "town": "Nashua",
-    "state": "NH",
-    "miles": 11,
-    "units": 1,
-    "price": 525000,
-    "rent": 3500,
-    "verdict": "Pass",
-    "maxOffer": 245000,
-    "url": "https://www.redfin.com/NH/Nashua/77-Marshall-St-03060/home/88077741"
-   },
-   {
-    "id": "nh-nashua-1b-e-dunstable-rd",
-    "address": "1b E Dunstable Rd",
-    "town": "Nashua",
-    "state": "NH",
-    "miles": 11,
-    "units": 1,
-    "price": 485000,
-    "rent": 2525,
-    "verdict": "Pass",
-    "maxOffer": 167000,
-    "url": "https://www.redfin.com/NH/Nashua/1B-E-Dunstable-Rd-03060/home/88088754"
-   },
-   {
-    "id": "ma-haverhill-38-woodland-park-dr-38",
-    "address": "38 Woodland Park Dr #38",
+    "id": "ma-haverhill-11-lackey-st",
+    "address": "11 Lackey St",
     "town": "Haverhill",
     "state": "MA",
     "miles": 14,
     "units": 1,
-    "price": 499900,
+    "price": 449000,
     "rent": 2750,
     "verdict": "Pass",
     "maxOffer": 197000,
-    "url": "https://www.redfin.com/MA/Haverhill/38-Woodland-Park-Dr-01830/unit-38/home/179764714"
+    "url": "https://www.redfin.com/MA/Haverhill/11-Lackey-St-01830/home/11306515"
    },
    {
-    "id": "ma-lynn-14-woodman-st",
-    "address": "14 Woodman St",
-    "town": "Lynn",
+    "id": "ma-haverhill-718-n-broadway",
+    "address": "718 N Broadway",
+    "town": "Haverhill",
     "state": "MA",
-    "miles": 23,
+    "miles": 14,
     "units": 1,
-    "price": 499000,
-    "rent": 3300,
+    "price": 549000,
+    "rent": 2750,
     "verdict": "Pass",
-    "maxOffer": 245000,
-    "url": "https://www.redfin.com/MA/Lynn/14-Woodman-St-01905/home/11548282"
+    "maxOffer": 197000,
+    "url": "https://www.redfin.com/MA/Haverhill/718-N-Broadway-01832/home/11316300"
    },
    {
-    "id": "ma-lynn-58-webster-st",
-    "address": "58 Webster St",
-    "town": "Lynn",
-    "state": "MA",
-    "miles": 23,
-    "units": 1,
-    "price": 545000,
-    "rent": 3300,
-    "verdict": "Pass",
-    "maxOffer": 245000,
-    "url": "https://www.redfin.com/MA/Lynn/58-Webster-St-01902/home/11560339"
-   },
-   {
-    "id": "nh-manchester-19-mapleton-rd",
-    "address": "19 Mapleton Rd",
+    "id": "nh-manchester-388-cypress-st",
+    "address": "388 Cypress St",
     "town": "Manchester",
     "state": "NH",
     "miles": 24,
     "units": 1,
-    "price": 465000,
+    "price": 479900,
     "rent": 2650,
     "verdict": "Pass",
     "maxOffer": 177000,
-    "url": "https://www.redfin.com/NH/Manchester/19-Mapleton-Rd-03103/home/96660696"
+    "url": "https://www.redfin.com/NH/Manchester/388-Cypress-St-03103/home/88245004"
    },
    {
-    "id": "nh-manchester-30-armand-ave",
-    "address": "30 Armand Ave",
+    "id": "nh-manchester-63-leandre-st",
+    "address": "63 Leandre St",
     "town": "Manchester",
     "state": "NH",
     "miles": 24,
     "units": 1,
-    "price": 400000,
-    "rent": 2650,
+    "price": 479900,
+    "rent": 2900,
     "verdict": "Pass",
-    "maxOffer": 177000,
-    "url": "https://www.redfin.com/NH/Manchester/30-Armand-Ave-03103/home/96450566"
+    "maxOffer": 197000,
+    "url": "https://www.redfin.com/NH/Manchester/63-Leandre-St-03102/home/96524576"
    },
    {
-    "id": "nh-manchester-227-riverdale-ave",
-    "address": "227 Riverdale Ave",
-    "town": "Manchester",
-    "state": "NH",
-    "miles": 24,
-    "units": 1,
-    "price": 430000,
-    "rent": 2650,
-    "verdict": "Pass",
-    "maxOffer": 177000,
-    "url": "https://www.redfin.com/NH/Manchester/227-Riverdale-Ave-03103/home/79073525"
-   },
-   {
-    "id": "nh-manchester-122-riley-ave",
-    "address": "122 Riley Ave",
-    "town": "Manchester",
-    "state": "NH",
-    "miles": 24,
-    "units": 1,
-    "price": 360000,
-    "rent": 2650,
-    "verdict": "Pass",
-    "maxOffer": 177000,
-    "url": "https://www.redfin.com/NH/Manchester/122-Riley-Ave-03103/home/88248947"
-   },
-   {
-    "id": "nh-manchester-17-desaulnier-st",
-    "address": "17 Desaulnier St",
-    "town": "Manchester",
-    "state": "NH",
-    "miles": 24,
-    "units": 1,
-    "price": 424900,
-    "rent": 2650,
-    "verdict": "Pass",
-    "maxOffer": 177000,
-    "url": "https://www.redfin.com/NH/Goffstown/17-Desaulnier-ST-03045/home/204646305"
-   },
-   {
-    "id": "ma-leominster-1476-main-st",
-    "address": "1476 Main St",
+    "id": "ma-leominster-246-tisdale-st",
+    "address": "246 Tisdale St",
     "town": "Leominster",
     "state": "MA",
     "miles": 25,
     "units": 1,
-    "price": 499000,
-    "rent": 2425,
+    "price": 350000,
+    "rent": 2025,
     "verdict": "Pass",
-    "maxOffer": 170000,
-    "url": "https://www.redfin.com/MA/Leominster/1476-Main-St-01453/home/16542640"
+    "maxOffer": 135000,
+    "url": "https://www.redfin.com/MA/Leominster/246-Tisdale-St-01453/home/16536907"
    },
    {
-    "id": "ma-leominster-29-dale-ave",
-    "address": "29 Dale Ave",
+    "id": "ma-leominster-183-hall-st",
+    "address": "183 Hall St",
     "town": "Leominster",
     "state": "MA",
     "miles": 25,
     "units": 1,
-    "price": 475000,
+    "price": 299900,
     "rent": 2900,
     "verdict": "Pass",
     "maxOffer": 210000,
-    "url": "https://www.redfin.com/MA/Leominster/29-Dale-Ave-01453/home/16536517"
+    "url": "https://www.redfin.com/MA/Leominster/183-Hall-St-01453/home/16533493"
    },
    {
-    "id": "ma-fitchburg-19-george-st",
-    "address": "19 George St",
-    "town": "Fitchburg",
+    "id": "ma-leominster-17-notre-dame",
+    "address": "17 Notre Dame",
+    "town": "Leominster",
     "state": "MA",
-    "miles": 26,
+    "miles": 25,
     "units": 1,
-    "price": 349000,
+    "price": 430000,
+    "rent": 2425,
+    "verdict": "Pass",
+    "maxOffer": 170000,
+    "url": "https://www.redfin.com/MA/Leominster/17-Notre-Dame-St-01453/home/16544041"
+   },
+   {
+    "id": "ma-worcester-46-cleveland-ave",
+    "address": "46 Cleveland Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 1,
+    "price": 355000,
+    "rent": 2475,
+    "verdict": "Pass",
+    "maxOffer": 174000,
+    "url": "https://www.redfin.com/MA/Worcester/46-Cleveland-Ave-01603/home/16672912"
+   },
+   {
+    "id": "ma-worcester-45-indian-hill-rd",
+    "address": "45 Indian Hill Rd",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "units": 1,
+    "price": 375000,
     "rent": 2200,
     "verdict": "Pass",
     "maxOffer": 150000,
-    "url": "https://www.redfin.com/MA/Fitchburg/19-George-St-01420/home/16499716"
+    "url": "https://www.redfin.com/MA/Worcester/45-Indian-Hill-Rd-01606/home/16656885"
    },
    {
-    "id": "ma-fitchburg-243-saint-joseph-ave",
-    "address": "243 Saint Joseph Ave",
-    "town": "Fitchburg",
-    "state": "MA",
-    "miles": 26,
-    "units": 1,
-    "price": 435000,
-    "rent": 2650,
-    "verdict": "Pass",
-    "maxOffer": 189000,
-    "url": "https://www.redfin.com/MA/Fitchburg/243-Saint-Joseph-Ave-01420/home/16499311"
-   },
-   {
-    "id": "ma-fitchburg-179-reingold-ave",
-    "address": "179 Reingold Ave",
-    "town": "Fitchburg",
-    "state": "MA",
-    "miles": 26,
-    "units": 1,
-    "price": 410000,
-    "rent": 2200,
-    "verdict": "Pass",
-    "maxOffer": 150000,
-    "url": "https://www.redfin.com/MA/Fitchburg/179-Reingold-Ave-01420/home/16500457"
-   },
-   {
-    "id": "ma-fitchburg-93-york-ave",
-    "address": "93 York Ave",
-    "town": "Fitchburg",
-    "state": "MA",
-    "miles": 26,
-    "units": 1,
-    "price": 409900,
-    "rent": 1925,
-    "verdict": "Pass",
-    "maxOffer": 127000,
-    "url": "https://www.redfin.com/MA/Fitchburg/93-York-Ave-01420/home/16500115"
-   },
-   {
-    "id": "ma-worcester-58-glezen-st",
-    "address": "58 Glezen St",
+    "id": "ma-worcester-8-agate-ave",
+    "address": "8 Agate Ave",
     "town": "Worcester",
     "state": "MA",
     "miles": 38,
     "units": 1,
-    "price": 449700,
+    "price": 415000,
     "rent": 2475,
     "verdict": "Pass",
     "maxOffer": 174000,
-    "url": "https://www.redfin.com/MA/Worcester/58-Glezen-St-01604/home/16654771"
+    "url": "https://www.redfin.com/MA/Worcester/8-Agate-Ave-01604/home/16671612"
    },
    {
-    "id": "ma-worcester-11-timrod-dr",
-    "address": "11 Timrod Dr",
-    "town": "Worcester",
+    "id": "ma-brockton-30-ettrick-st",
+    "address": "30 Ettrick St",
+    "town": "Brockton",
     "state": "MA",
-    "miles": 38,
+    "miles": 43,
     "units": 1,
-    "price": 474900,
-    "rent": 2475,
+    "price": 489999,
+    "rent": 3075,
     "verdict": "Pass",
-    "maxOffer": 174000,
-    "url": "https://www.redfin.com/MA/Worcester/11-Timrod-Dr-01603/home/16642557"
+    "maxOffer": 225000,
+    "url": "https://www.redfin.com/MA/Brockton/30-Ettrick-St-02301/home/16331209"
    },
    {
-    "id": "ma-worcester-8-guilford-st",
-    "address": "8 Guilford St",
-    "town": "Worcester",
+    "id": "ma-brockton-105-crestfield-dr",
+    "address": "105 Crestfield Dr",
+    "town": "Brockton",
     "state": "MA",
-    "miles": 38,
+    "miles": 43,
     "units": 1,
-    "price": 420000,
-    "rent": 2200,
+    "price": 440000,
+    "rent": 3075,
     "verdict": "Pass",
-    "maxOffer": 150000,
-    "url": "https://www.redfin.com/MA/Worcester/8-Guilford-St-01606/home/16669237"
+    "maxOffer": 225000,
+    "url": "https://www.redfin.com/MA/Brockton/105-Crestfield-Dr-02302/home/16336104"
    },
    {
-    "id": "ma-worcester-165-fairmont-ave",
-    "address": "165 Fairmont Ave",
-    "town": "Worcester",
-    "state": "MA",
-    "miles": 38,
-    "units": 1,
-    "price": 399000,
-    "rent": 2475,
-    "verdict": "Pass",
-    "maxOffer": 174000,
-    "url": "https://www.redfin.com/MA/Worcester/165-Fairmont-Ave-01604/home/16669792"
-   },
-   {
-    "id": "ma-worcester-8-hawkins-st",
-    "address": "8 Hawkins St",
-    "town": "Worcester",
-    "state": "MA",
-    "miles": 38,
-    "units": 1,
-    "price": 299000,
-    "rent": 2475,
-    "verdict": "Pass",
-    "maxOffer": 174000,
-    "url": "https://www.redfin.com/MA/Worcester/8-Hawkins-St-01604/home/16664706"
-   },
-   {
-    "id": "nh-concord-42-lake-view-dr",
-    "address": "42 Lake View Dr",
-    "town": "Concord",
-    "state": "NH",
-    "miles": 39,
-    "units": 1,
-    "price": 439900,
-    "rent": 2800,
-    "verdict": "Pass",
-    "maxOffer": 189000,
-    "url": "https://www.redfin.com/NH/Concord/42-Lake-View-Dr-03303/home/88314646"
-   },
-   {
-    "id": "nh-concord-151-new-hampshire-dr",
-    "address": "151 New Hampshire Dr",
-    "town": "Concord",
-    "state": "NH",
-    "miles": 39,
-    "units": 1,
-    "price": 532000,
-    "rent": 2375,
-    "verdict": "Pass",
-    "maxOffer": 155000,
-    "url": "https://www.redfin.com/NH/Webster/151-New-Hampshire-Dr-03303/home/88110431"
-   },
-   {
-    "id": "nh-dover-599-tolend-rd",
-    "address": "599 Tolend Rd",
-    "town": "Dover",
-    "state": "NH",
-    "miles": 42,
-    "units": 1,
-    "price": 389000,
-    "rent": 2375,
-    "verdict": "Pass",
-    "maxOffer": 155000,
-    "url": "https://www.redfin.com/NH/Dover/599-Tolend-Rd-03820/home/96571093"
-   },
-   {
-    "id": "ma-brockton-56-eleventh-ave",
-    "address": "56 Eleventh Ave",
+    "id": "ma-brockton-60-gerald-ave",
+    "address": "60 Gerald Ave",
     "town": "Brockton",
     "state": "MA",
     "miles": 43,
@@ -1072,33 +683,7 @@
     "rent": 3075,
     "verdict": "Pass",
     "maxOffer": 225000,
-    "url": "https://www.redfin.com/MA/Brockton/56-11th-Ave-02302/home/16320913"
-   },
-   {
-    "id": "nh-rochester-218-milton-rd",
-    "address": "218 Milton Rd",
-    "town": "Rochester",
-    "state": "NH",
-    "miles": 47,
-    "units": 1,
-    "price": 399900,
-    "rent": 2200,
-    "verdict": "Pass",
-    "maxOffer": 141000,
-    "url": "https://www.redfin.com/NH/Rochester/218-Milton-Rd-03868/home/96558187"
-   },
-   {
-    "id": "nh-rochester-9a-trestle-rd",
-    "address": "9A Trestle Rd",
-    "town": "Rochester",
-    "state": "NH",
-    "miles": 47,
-    "units": 1,
-    "price": 249900,
-    "rent": 3425,
-    "verdict": "Negotiate",
-    "maxOffer": 239000,
-    "url": "https://www.redfin.com/NH/Rochester/9-Trestle-Rd-03868/unit-A/home/108638808"
+    "url": "https://www.redfin.com/MA/Brockton/60-Gerald-Ave-02302/home/16333515"
    }
   ],
   "skipped": [
@@ -1235,9 +820,9 @@
    }
   ],
   "errors": [],
-  "comps": 27,
-  "checkTotal": 245,
-  "compsTotal": 873,
-  "total": 1445
+  "comps": 3,
+  "checkTotal": 233,
+  "compsTotal": 876,
+  "total": 1447
  }
 }

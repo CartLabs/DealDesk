@@ -2393,7 +2393,10 @@ window.SEED_LISTINGS = [
     "priceWas": 579900,
     "priceChangedAt": "2026-10-26T10:00:00Z",
     "sqft": 1368,
-    "yearBuilt": 1970
+    "yearBuilt": 1970,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-lynn-74-myrtle-st",
@@ -5537,7 +5540,10 @@ window.SEED_LISTINGS = [
     "priceWas": 610000,
     "priceChangedAt": "2026-11-09T10:00:00Z",
     "sqft": 3936,
-    "yearBuilt": 1890
+    "yearBuilt": 1890,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-lowell-941-lakeview-ave",
@@ -7948,7 +7954,10 @@ window.SEED_LISTINGS = [
     "priceWas": 665000,
     "priceChangedAt": "2026-10-26T10:00:00Z",
     "sqft": 2483,
-    "yearBuilt": 1800
+    "yearBuilt": 1800,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "nh-manchester-301-amherst-st",
@@ -9251,7 +9260,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "sqft": 2361,
-    "yearBuilt": 1890
+    "yearBuilt": 1890,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "nh-rochester-9-lincoln-st",
@@ -11458,7 +11470,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-04",
     "addedAt": "2026-11-04T10:00:00Z",
     "sqft": 2112,
-    "yearBuilt": 1900
+    "yearBuilt": 1900,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "nh-rochester-33-35-river-st",
@@ -13513,7 +13528,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1740,
-    "yearBuilt": 1945
+    "yearBuilt": 1945,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-haverhill-53-westminster-ave",
@@ -13667,7 +13685,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1344,
-    "yearBuilt": 1920
+    "yearBuilt": 1920,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-haverhill-41-linwood-st",
@@ -14534,7 +14555,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1547,
-    "yearBuilt": 1957
+    "yearBuilt": 1957,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "nh-manchester-126-glen-forest-dr",
@@ -14585,7 +14609,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 3050,
-    "yearBuilt": 1928
+    "yearBuilt": 1928,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "nh-manchester-179-alsace-st",
@@ -15308,7 +15335,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 884,
-    "yearBuilt": 1953
+    "yearBuilt": 1953,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-leominster-183-hall-st",
@@ -15325,7 +15355,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1452,
-    "yearBuilt": 1905
+    "yearBuilt": 1905,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-leominster-21-orchard-ter",
@@ -15395,7 +15428,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1380,
-    "yearBuilt": 1977
+    "yearBuilt": 1977,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-leominster-70-r-wilder-rd",
@@ -16663,7 +16699,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1449,
-    "yearBuilt": 1940
+    "yearBuilt": 1940,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-worcester-33-warner-ave",
@@ -17321,7 +17360,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1328,
-    "yearBuilt": 1954
+    "yearBuilt": 1954,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-worcester-194-whitmarsh-ave",
@@ -17658,7 +17700,10 @@ window.SEED_LISTINGS = [
     "sqft": 1333,
     "yearBuilt": 1889,
     "priceWas": 430000,
-    "priceChangedAt": "2026-11-12T10:00:00Z"
+    "priceChangedAt": "2026-11-12T10:00:00Z",
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-worcester-22-vassar-st",
@@ -20127,7 +20172,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1547,
-    "yearBuilt": 1987
+    "yearBuilt": 1987,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-brockton-279-menlo-st",
@@ -20161,7 +20209,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1324,
-    "yearBuilt": 1964
+    "yearBuilt": 1964,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-brockton-90-george-st",
@@ -20531,7 +20582,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 864,
-    "yearBuilt": 1957
+    "yearBuilt": 1957,
+    "gone": {
+      "date": "2026-11-27"
+    }
   },
   {
     "id": "ma-brockton-75-sterling-ave",
@@ -25755,5 +25809,40 @@ window.SEED_LISTINGS = [
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-26",
     "addedAt": "2026-11-26T10:00:00Z"
+  },
+  {
+    "id": "ma-methuen-31-lincoln-st",
+    "address": "31 Lincoln St",
+    "town": "Methuen",
+    "state": "MA",
+    "miles": 7,
+    "type": "Single-family",
+    "units": 1,
+    "price": 550000,
+    "rent": 2650,
+    "url": "https://www.redfin.com/MA/Methuen/31-Lincoln-St-01844/home/8310692",
+    "sqft": 1335,
+    "yearBuilt": 1942,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-27",
+    "addedAt": "2026-11-27T10:00:00Z"
+  },
+  {
+    "id": "ma-fitchburg-254-256-boutelle",
+    "address": "254-256 Boutelle",
+    "town": "Fitchburg",
+    "state": "MA",
+    "miles": 26,
+    "type": "Two-family",
+    "units": 2,
+    "price": 575000,
+    "rent": 4000,
+    "url": "https://www.redfin.com/MA/Fitchburg/254-256-Boutelle-St-01420/home/196613491",
+    "sqft": 2784,
+    "yearBuilt": 1920,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Fitchburg averages, assuming 6 bedrooms split as 3BR + 3BR. Taxes and insurance are estimated. Unit count (2) is inferred from 6 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-27",
+    "addedAt": "2026-11-27T10:00:00Z"
   }
 ];
