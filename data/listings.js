@@ -4768,7 +4768,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-02",
     "addedAt": "2026-10-03T02:45:00Z",
     "sqft": 2226,
-    "yearBuilt": 1920
+    "yearBuilt": 1920,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "nh-manchester-606-hanover-st",
@@ -7298,8 +7301,9 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
-    "gone": {
-      "date": "2026-10-31"
+    "sold": {
+      "date": "2026-11-27",
+      "price": 700000
     }
   },
   {
@@ -8505,7 +8509,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-10-14",
     "addedAt": "2026-10-14T10:00:00Z",
     "sqft": 1365,
-    "yearBuilt": 1900
+    "yearBuilt": 1900,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-fitchburg-29-forest-st",
@@ -11035,7 +11042,7 @@ window.SEED_LISTINGS = [
     "miles": 43,
     "type": "Two-family",
     "units": 2,
-    "price": 600000,
+    "price": 590000,
     "rent": 4300,
     "url": "https://www.redfin.com/MA/Brockton/133-Tribou-St-02301/home/16324155",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 4 bedrooms split as 2BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 4 beds and 2 baths; the listing page did not show it.",
@@ -11044,8 +11051,8 @@ window.SEED_LISTINGS = [
     "addedAt": "2026-10-29T10:00:00Z",
     "sqft": 2103,
     "yearBuilt": 1887,
-    "priceWas": 625000,
-    "priceChangedAt": "2026-11-12T10:00:00Z"
+    "priceWas": 600000,
+    "priceChangedAt": "2026-11-28T10:00:00Z"
   },
   {
     "id": "ma-brockton-170-tribou-st",
@@ -11249,7 +11256,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-02",
     "addedAt": "2026-11-02T10:00:00Z",
     "sqft": 4050,
-    "yearBuilt": 1920
+    "yearBuilt": 1920,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-worcester-3-beamon-ave",
@@ -11789,7 +11799,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-06",
     "addedAt": "2026-11-06T10:00:00Z",
     "sqft": 1931,
-    "yearBuilt": 1900
+    "yearBuilt": 1900,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-leominster-200-pleasant-st",
@@ -13849,7 +13862,10 @@ window.SEED_LISTINGS = [
     "sqft": 1294,
     "yearBuilt": 1987,
     "priceWas": 385000,
-    "priceChangedAt": "2026-11-12T10:00:00Z"
+    "priceChangedAt": "2026-11-12T10:00:00Z",
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "nh-derry-2-carroll-cir",
@@ -14383,7 +14399,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1299,
-    "yearBuilt": 1880
+    "yearBuilt": 1880,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-lynn-638-boston-st",
@@ -15154,14 +15173,16 @@ window.SEED_LISTINGS = [
     "miles": 24,
     "type": "Single-family",
     "units": 1,
-    "price": 515000,
+    "price": 499900,
     "rent": 2650,
     "url": "https://www.redfin.com/NH/Manchester/532-Oak-St-03104/home/108657457",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Manchester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 2006,
-    "yearBuilt": 1966
+    "yearBuilt": 1966,
+    "priceWas": 515000,
+    "priceChangedAt": "2026-11-28T10:00:00Z"
   },
   {
     "id": "nh-manchester-17-desaulnier-st",
@@ -16175,7 +16196,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1344,
-    "yearBuilt": 1962
+    "yearBuilt": 1962,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-fitchburg-174-ashburnham-hill-rd",
@@ -16719,7 +16743,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 945,
-    "yearBuilt": 1900
+    "yearBuilt": 1900,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-worcester-56-berwick-st",
@@ -17006,7 +17033,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1410,
-    "yearBuilt": 1938
+    "yearBuilt": 1938,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-worcester-10-pershing-st",
@@ -17469,7 +17499,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1150,
-    "yearBuilt": 1987
+    "yearBuilt": 1987,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-worcester-16-hycrest-dr",
@@ -18648,7 +18681,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1743,
-    "yearBuilt": 1939
+    "yearBuilt": 1939,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-worcester-1-belvidere-ave",
@@ -20282,7 +20318,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 2189,
-    "yearBuilt": 1959
+    "yearBuilt": 1959,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-brockton-10-lynn-rd",
@@ -21246,14 +21285,16 @@ window.SEED_LISTINGS = [
     "miles": 47,
     "type": "Single-family",
     "units": 1,
-    "price": 340000,
+    "price": 325000,
     "rent": 2850,
     "url": "https://www.redfin.com/NH/Rochester/10-Glenwood-Ave-03867/home/88206849",
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Rochester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-08",
     "addedAt": "2026-11-08T10:00:00Z",
     "sqft": 1686,
-    "yearBuilt": 1911
+    "yearBuilt": 1911,
+    "priceWas": 340000,
+    "priceChangedAt": "2026-11-28T10:00:00Z"
   },
   {
     "id": "nh-rochester-32-forest-park-dr",
@@ -21679,7 +21720,10 @@ window.SEED_LISTINGS = [
     "source": "Redfin, pulled 2026-11-09",
     "addedAt": "2026-11-09T10:00:00Z",
     "sqft": 1224,
-    "yearBuilt": 1984
+    "yearBuilt": 1984,
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-fitchburg-778-ashburnham-st",
@@ -23422,7 +23466,10 @@ window.SEED_LISTINGS = [
     "yearBuilt": 1925,
     "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
     "source": "Redfin, pulled 2026-11-13",
-    "addedAt": "2026-11-13T10:00:00Z"
+    "addedAt": "2026-11-13T10:00:00Z",
+    "gone": {
+      "date": "2026-11-28"
+    }
   },
   {
     "id": "ma-brockton-94-kevin-rd",
@@ -25844,5 +25891,142 @@ window.SEED_LISTINGS = [
     "unitsInferred": true,
     "source": "Redfin, pulled 2026-11-27",
     "addedAt": "2026-11-27T10:00:00Z"
+  },
+  {
+    "id": "ma-methuen-14-perley-st",
+    "address": "14 Perley St",
+    "town": "Methuen",
+    "state": "MA",
+    "miles": 7,
+    "type": "Single-family",
+    "units": 1,
+    "price": 494927,
+    "rent": 2650,
+    "url": "https://www.redfin.com/MA/Methuen/14-Perley-St-01844/home/8303685",
+    "sqft": 1042,
+    "yearBuilt": 1952,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Methuen average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-28",
+    "addedAt": "2026-11-28T10:00:00Z"
+  },
+  {
+    "id": "ma-leominster-48-abbott-ave",
+    "address": "48 Abbott Ave",
+    "town": "Leominster",
+    "state": "MA",
+    "miles": 25,
+    "type": "Single-family",
+    "units": 1,
+    "price": 364900,
+    "rent": 2025,
+    "url": "https://www.redfin.com/MA/Leominster/48-Abbott-Ave-01453/home/16533767",
+    "sqft": 884,
+    "yearBuilt": 1950,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Leominster average for a 2-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-28",
+    "addedAt": "2026-11-28T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-2-stone-st",
+    "address": "2 Stone St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Three-family",
+    "units": 3,
+    "price": 650000,
+    "rent": 6000,
+    "url": "https://www.redfin.com/MA/Worcester/2-Stone-St-01610/home/16663615",
+    "yearBuilt": 1900,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Worcester averages, assuming 6 bedrooms split as 2BR + 2BR + 2BR. Taxes and insurance are estimated. Unit count (3) is inferred from 6 beds and 3 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-28",
+    "addedAt": "2026-11-28T10:00:00Z"
+  },
+  {
+    "id": "ma-worcester-106-henshaw-st",
+    "address": "106 Henshaw St",
+    "town": "Worcester",
+    "state": "MA",
+    "miles": 38,
+    "type": "Single-family",
+    "units": 1,
+    "price": 439900,
+    "rent": 2475,
+    "url": "https://www.redfin.com/MA/Worcester/106-Henshaw-St-01603/home/16672330",
+    "sqft": 1453,
+    "yearBuilt": 1925,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Worcester average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-28",
+    "addedAt": "2026-11-28T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-437-n-montello-st",
+    "address": "437 N Montello St",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Two-family",
+    "units": 2,
+    "price": 699900,
+    "rent": 4950,
+    "url": "https://www.redfin.com/MA/Brockton/437-N-Montello-St-02301/home/16321759",
+    "sqft": 1890,
+    "yearBuilt": 1925,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate from Brockton averages, assuming 5 bedrooms split as 3BR + 2BR. Taxes and insurance are estimated. Unit count (2) is inferred from 5 beds and 2 baths; the listing page did not show it.",
+    "unitsInferred": true,
+    "source": "Redfin, pulled 2026-11-28",
+    "addedAt": "2026-11-28T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-133-ardsley-cir",
+    "address": "133 Ardsley Cir",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Single-family",
+    "units": 1,
+    "price": 540500,
+    "rent": 3700,
+    "url": "https://www.redfin.com/MA/Brockton/133-Ardsley-Cir-02302/home/16315836",
+    "sqft": 1390,
+    "yearBuilt": 1956,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-28",
+    "addedAt": "2026-11-28T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-7-welsford-st",
+    "address": "7 Welsford St",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Single-family",
+    "units": 1,
+    "price": 479900,
+    "rent": 3700,
+    "url": "https://www.redfin.com/MA/Brockton/7-Welsford-St-02302/home/16329984",
+    "sqft": 1112,
+    "yearBuilt": 1886,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 4-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-28",
+    "addedAt": "2026-11-28T10:00:00Z"
+  },
+  {
+    "id": "ma-brockton-38-morton-st",
+    "address": "38 Morton St",
+    "town": "Brockton",
+    "state": "MA",
+    "miles": 43,
+    "type": "Single-family",
+    "units": 1,
+    "price": 499900,
+    "rent": 3075,
+    "url": "https://www.redfin.com/MA/Brockton/38-Morton-St-02301/home/16327663",
+    "sqft": 1318,
+    "yearBuilt": 1925,
+    "notes": "Light data: confirm on the listing before deciding. Rent is an estimate: the Brockton average for a 3-bedroom apartment plus 10% for a house. Taxes and insurance are estimated.",
+    "source": "Redfin, pulled 2026-11-28",
+    "addedAt": "2026-11-28T10:00:00Z"
   }
 ];

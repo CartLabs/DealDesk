@@ -866,15 +866,19 @@ window.SALE_COMPS = [
   {"id":"108656905","town":"Manchester","state":"NH","kind":"house","price":600000,"sqft":2606,"date":"2026-11-25"},
   {"id":"109840082","town":"Manchester","state":"NH","kind":"house","price":615000,"sqft":1908,"date":"2026-11-25"},
   {"id":"109875339","town":"Rochester","state":"NH","kind":"house","price":589000,"sqft":1728,"date":"2026-11-25"},
+  {"id":"11642408","town":"Lowell","state":"MA","kind":"house","price":290000,"sqft":1212,"date":"2026-11-25"},
   {"id":"16321963","town":"Brockton","state":"MA","kind":"house","price":425000,"sqft":1164,"date":"2026-11-25"},
   {"id":"16322570","town":"Brockton","state":"MA","kind":"multi","price":999999,"sqft":4371,"date":"2026-11-25"},
   {"id":"16323465","town":"Brockton","state":"MA","kind":"house","price":620000,"sqft":1996,"date":"2026-11-25"},
   {"id":"16328445","town":"Brockton","state":"MA","kind":"house","price":460000,"sqft":1332,"date":"2026-11-25"},
   {"id":"16544483","town":"Leominster","state":"MA","kind":"house","price":389900,"sqft":1338,"date":"2026-11-25"},
+  {"id":"16677657","town":"Worcester","state":"MA","kind":"multi","price":599900,"sqft":1890,"date":"2026-11-25"},
   {"id":"187075614","town":"Leominster","state":"MA","kind":"multi","price":430000,"sqft":1560,"date":"2026-11-25"},
   {"id":"206161075","town":"Manchester","state":"NH","kind":"house","price":365000,"sqft":1480,"date":"2026-11-25"},
+  {"id":"8310107","town":"Methuen","state":"MA","kind":"house","price":600000,"sqft":1794,"date":"2026-11-25"},
   {"id":"88087061","town":"Nashua","state":"NH","kind":"house","price":539900,"sqft":2210,"date":"2026-11-25"},
   {"id":"88206961","town":"Rochester","state":"NH","kind":"house","price":350000,"sqft":1124,"date":"2026-11-25"},
   {"id":"96566061","town":"Derry","state":"NH","kind":"house","price":540000,"sqft":1799,"date":"2026-11-25"},
-  {"id":"96665018","town":"Manchester","state":"NH","kind":"house","price":370000,"sqft":1152,"date":"2026-11-25"}
+  {"id":"96665018","town":"Manchester","state":"NH","kind":"house","price":370000,"sqft":1152,"date":"2026-11-25"},
+  {"id":"11643464","town":"Lowell","state":"MA","kind":"multi","price":700000,"sqft":3001,"date":"2026-11-27"}
 ];
